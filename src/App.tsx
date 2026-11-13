@@ -59,6 +59,11 @@ function App() {
   const hitCount = values.filter(hits).length
   const lineLabel = `${direction === 'over' ? 'Over' : 'Under'} ${line}`
   const format = (n: number | null) => n === null ? 'N/A' : `${n}%`
+  const periodStats = (count: number) => {
+    if (values.length < count) return null
+    const recent = values.slice(0, count)
+    return { hitCount: recent.filter(hits).length, results: recent }
+  }
 
   return (
     <div className="shell">
@@ -85,7 +90,7 @@ function App() {
           </section>
           <div className="section-head results-heading"><div><span className="eyebrow">PERFORMANCE SNAPSHOT</span><h2>{selected ? selected.name : 'Select a player'} <span className="muted">{selected ? '· ' + lineLabel + ' ' + prop : ''}</span></h2></div></div>
           <div className="metrics">
-            {periods.map((period) => <div className="metric" key={period}><div className="metric-label">LAST {period.slice(1)} GAMES <span className="metric-mark">↗</span></div><div className="metric-value">{selected ? format(rates[period]) : '—'}</div><div className="metric-sub">{selected ? rates[period] === null ? 'Insufficient game history' : `${direction.toUpperCase()} ${line} · ${prop}` : 'Select a player to begin'}</div><div className="metric-track"><span style={{ width: `${rates[period] ?? 0}%` }} /></div></div>)}
+            {periods.map((period) => { const count = Number(period.slice(1)); const stats = selected ? periodStats(count) : null; return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES <span className="metric-mark">↗</span></div><div className="metric-value">{selected ? format(rates[period]) : '—'}</div><div className="metric-sub">{!selected ? 'Select a player to begin' : stats ? `${stats.hitCount} of ${count} games hit · ${direction.toUpperCase()} ${line}` : `Only ${values.length} of ${count} games available`}</div><div className="metric-track" role="img" aria-label={stats ? `${stats.hitCount} hits in ${count} games` : 'Not enough data'} style={{ display: 'flex', gap: '3px', background: 'transparent', overflow: 'visible' }}>{Array.from({ length: count }, (_, i) => <span key={i} style={{ flex: 1, width: 'auto', borderRadius: '3px', background: stats ? (hits(stats.results[i]) ? '#64db93' : stats.results[i] === line ? '#ffb612' : '#637b6a') : '#31513d' }} />)}</div></div> })}
             <div className="metric gold-metric"><div className="metric-label">LAST 10 AVG <span className="metric-mark">◎</span></div><div className="metric-value">{selected && average !== null ? average : '—'}</div><div className="metric-sub">{selected ? `${prop} per game` : 'Awaiting selection'}</div><div className="metric-track gold-track"><span style={{ width: average === null ? '0%' : '100%' }} /></div></div>
           </div>
           <div className="details-grid">
