@@ -67,27 +67,37 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]) {
 }
 
 export async function getRecentNBAGames(days = 30) {
-  const allGames: any[] = []
-
+  // Never mix the previous season into current-season research.
+  const today = new Date()
+  const seasonStartYear = today.getMonth() >= 9 ? today.getFullYear() : today.getFullYear() - 1
+  const seasonStart = new Date(seasonStartYear, 9, 1)
+  const dates: string[] = []
   for (let i = 0; i < days; i++) {
-    const date = new Date()
-    date.setDate(date.getDate() - i)
-
-    const dateString = [
-      date.getFullYear(),
-      String(date.getMonth() + 1).padStart(2, '0'),
-      String(date.getDate()).padStart(2, '0')
-    ].join('')
-
-    try {
-      const games = await getNBAGames(dateString)
-      allGames.push(...games)
-    } catch (error) {
-      console.error('Failed to load games:', error)
-    }
+    const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - i)
+    if (date < seasonStart) break
+    dates.push([date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join(''))
   }
 
-  return allGames
+  const uniqueGames = new Map<string, any>()
+  let successfulDays = 0
+  // Small batches prevent the 60 sequential requests from delaying page load.
+  for (let i = 0; i < dates.length; i += 6) {
+    const results = await Promise.all(dates.slice(i, i + 6).map(async date => {
+      try { return await getNBAGames(date) }
+      catch (error) { console.warn('NBA scoreboard unavailable for ' + date, error); return null }
+    }))
+    for (const games of results) {
+      if (!games) continue
+      successfulDays++
+      for (const game of games) {
+        if (game.id && game.status?.type?.completed === true && (game.season?.type === 2 || game.season?.type === undefined)) {
+          uniqueGames.set(String(game.id), game)
+        }
+      }
+    }
+  }
+  if (dates.length && successfulDays === 0) throw new Error('NBA scoreboard requests failed; please retry later.')
+  return Array.from(uniqueGames.values()).sort((a, b) => String(b.date).localeCompare(String(a.date)))
 }
 
 export function buildNBAPlayerHistory(
