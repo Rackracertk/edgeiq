@@ -1,298 +1,109 @@
-import { calculateRecentHitRates } from "./analytics/hitRates";
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import './App.css'
-
+import { calculateAverage, calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData'
-
-
 import { getNBABoxScore, extractNBAPlayerStats, getRecentNBAGames, buildNBAPlayerHistory } from './analytics/espnData'
 
-
-
-const sports = ['NBA', 'NFL', 'MLB', 'NHL', 'NCAAB', 'Soccer', 'UFC']
-
-
-
+const props = ['Points', 'Rebounds', 'Assists', '3-Pointers Made', 'PRA']
+const periods = ['L5', 'L10', 'L20'] as const
+const prices = [{ name: 'Weekly', price: '$3.99', term: '/week' }, { name: 'Monthly', price: '$9.99', term: '/month' }, { name: 'Annual', price: '$79.99', term: '/year' }]
 
 function App() {
+  const [players, setPlayers] = useState<ReturnType<typeof extractNBAPlayerStats>>([])
+  const [history, setHistory] = useState<ReturnType<typeof buildNBAPlayerHistory>>({})
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [query, setQuery] = useState('')
+  const [playerId, setPlayerId] = useState('')
+  const [prop, setProp] = useState('Points')
+  const [line, setLine] = useState(20)
+  const [direction, setDirection] = useState<Direction>('over')
+  const [activeTab, setActiveTab] = useState<'research' | 'pricing'>('research')
 
-useEffect(() => {
-  let cancelled = false
-  async function loadPlayers() {
-    setLoadingPlayers(true)
-    setLoadError('')
-    try {
-      const games = (await getRecentNBAGames(60)).filter(
-        (game: any) => game.status?.type?.completed === true
-      )
-      // Avoid hundreds of simultaneous requests and preserve game/box-score alignment.
-      const boxScores: any[][] = []
-      for (let i = 0; i < games.length; i += 8) {
-        const batch = await Promise.all(
-          games.slice(i, i + 8).map((game: any) =>
-            getNBABoxScore(game.id).catch(() => [])
-          )
-        )
-        boxScores.push(...batch)
+  useEffect(() => {
+    let cancelled = false
+    async function load() {
+      try {
+        const games = (await getRecentNBAGames(60)).filter((game: any) => game.status?.type?.completed === true)
+        const boxScores: any[][] = []
+        for (let i = 0; i < games.length; i += 8) {
+          const batch = await Promise.all(games.slice(i, i + 8).map((game: any) => getNBABoxScore(game.id).catch(() => [])))
+          boxScores.push(...batch)
+        }
+        if (cancelled) return
+        const unique = new Map<string, ReturnType<typeof extractNBAPlayerStats>[number]>()
+        boxScores.forEach((score) => extractNBAPlayerStats(score).forEach((player) => {
+          if (player.id && player.name) unique.set(String(player.id), player)
+        }))
+        setHistory(buildNBAPlayerHistory(games, boxScores))
+        setPlayers(Array.from(unique.values()).sort((a, b) => a.name.localeCompare(b.name)))
+      } catch (err) {
+        if (!cancelled) setError(err instanceof Error ? err.message : 'NBA data unavailable')
+      } finally {
+        if (!cancelled) setLoading(false)
       }
-      if (cancelled) return
-      const history = buildNBAPlayerHistory(games, boxScores)
-      const uniquePlayers = new Map<string, ReturnType<typeof extractNBAPlayerStats>[number]>()
-      boxScores.forEach((boxScore) => {
-        extractNBAPlayerStats(boxScore).forEach((player) => {
-          if (player.id && player.name) uniquePlayers.set(String(player.id), player)
-        })
-      })
-      setPlayerHistory(history)
-      setRealPlayers(Array.from(uniquePlayers.values()).sort((a, b) =>
-        a.name.localeCompare(b.name)
-      ))
-    } catch (error) {
-      if (!cancelled) setLoadError(error instanceof Error ? error.message : 'Unable to load NBA data')
-    } finally {
-      if (!cancelled) setLoadingPlayers(false)
     }
-  }
-  void loadPlayers()
-  return () => { cancelled = true }
-}, [])
+    void load()
+    return () => { cancelled = true }
+  }, [])
 
-
-
-
-const [sport, setSport] = useState('NBA')
-
-const [playerSearch, setPlayerSearch] = useState('')
-
-const [selectedProp, setSelectedProp] = useState('Points')
-const [propLine, setPropLine] = useState(20)
-
-
-const [realPlayers, setRealPlayers] = useState<ReturnType<typeof extractNBAPlayerStats>>([])
-const [loadingPlayers, setLoadingPlayers] = useState(true)
-const [loadError, setLoadError] = useState('')
-const [playerHistory, setPlayerHistory] = useState<ReturnType<typeof buildNBAPlayerHistory>>({})
-
-
-
-const selectedPlayer = realPlayers.find(
-  (player) =>
-    player.name.toLowerCase() === playerSearch.trim().toLowerCase()
-)
-
-
-const playerGames: NBAPlayerGame[] = selectedPlayer
-  ? playerHistory[String(selectedPlayer.id)] ?? []
-  : []
-
-
-const sampleGameStats = getPlayerPropValues(
-  playerGames,
-  selectedProp
-)
-
-const liveHitRates = calculateRecentHitRates(
-  sampleGameStats,
-  propLine,
-  'over'
-)
-
+  const selected = players.find((p) => String(p.id) === playerId)
+  const games: NBAPlayerGame[] = selected ? history[String(selected.id)] ?? [] : []
+  const values = getPlayerPropValues(games, prop)
+  const rates = calculateRecentHitRates(values, line, direction)
+  const average = calculateAverage(values.slice(0, 10))
+  const suggestions = useMemo(() => query.trim().length > 0 && !selected
+    ? players.filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 8)
+    : [], [players, query, selected])
+  const hits = (value: number) => direction === 'over' ? value > line : value < line
+  const hitCount = values.filter(hits).length
+  const lineLabel = `${direction === 'over' ? 'Over' : 'Under'} ${line}`
+  const format = (n: number | null) => n === null ? 'N/A' : `${n}%`
 
   return (
-    <main style={{
-      minHeight: '100vh',
-      background: '#090f1d',
-      color: '#f5f7fb',
-      padding: '32px',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      <header style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '16px'
-      }}>
-        <h1 style={{ color: '#6cf5a6', margin: 0 }}>
-          EDGEIQ
-        </h1>
-        <span>Sports Intelligence Platform</span>
-      </header>
-
-      <section style={{ marginTop: 55 }}>
-        <p style={{ color: '#6cf5a6' }}>
-          SMARTER RESEARCH. BETTER DECISIONS.
-        </p>
-        <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)' }}>
-          Your Sports Analytics Command Center
-        </h2>
-        <p style={{ color: '#aab6c8' }}>
-          Research players, compare matchups, and explore
-          data-driven insights.
-        </p>
-      </section>
-
-      <section style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 10,
-        marginTop: 35
-      }}>
-        {sports.map(item => (
-          <button
-            key={item}
-            onClick={() => setSport(item)}
-            style={{
-              padding: '12px 18px',
-              borderRadius: 10,
-              border: '1px solid #344154',
-              cursor: 'pointer',
-              background: sport === item ? '#6cf5a6' : '#172235',
-              color: sport === item ? '#09111b' : '#ffffff'
-            }}
-          >
-            {item}
-          </button>
-        ))}
-      </section>
-
-      <section style={{
-        background: '#172235',
-        padding: 28,
-        borderRadius: 16,
-        marginTop: 30,
-        border: '1px solid #344154'
-      }}>
-        <p style={{ color: '#6cf5a6' }}>{sport} ANALYTICS</p>
-        <h2>{sport} Research Center</h2>
-        <input
-  type="text"
-
-value={playerSearch}
-onChange={(e) => setPlayerSearch(e.target.value)}
-
-  placeholder="Search NBA players..."
-  style={{
-    width: '100%',
-    maxWidth: 400,
-    padding: 12,
-    marginTop: 16,
-    marginBottom: 16,
-    borderRadius: 8,
-    border: '1px solid #344154',
-    background: '#10243b',
-    color: 'white',
-    fontSize: 16
-  }}
-/>
-{playerSearch.trim() !== '' && (
-  <div style={{ marginTop: 8, marginBottom: 20 }}>
-   {realPlayers
-      .filter((player) =>
-        player.name.toLowerCase().includes(playerSearch.toLowerCase().trim())
-      )
-      .slice(0, 12)
-      .map((player) => (
-        <div
-          key={String(player.id)}
-          onClick={() => setPlayerSearch(player.name)}
-          style={{
-            padding: 12,
-            marginBottom: 6,
-            background: '#10243b',
-            color: 'white',
-            border: '1px solid #344154',
-            borderRadius: 8,
-            cursor: 'pointer'
-          }}
-        >
-          {player.name}
-        </div>
-      ))}
-  </div>
-)}
-        <select
-  value={selectedProp}
-  onChange={(e) => setSelectedProp(e.target.value)}
-  style={{
-    padding: 12,
-    marginTop: 16,
-    marginBottom: 16,
-    borderRadius: 8,
-    background: '#10243b',
-    color: 'white',
-    border: '1px solid #344154',
-    fontSize: 16
-  }}
->
-  <option value="Points">Points</option>
-  <option value="Rebounds">Rebounds</option>
-  <option value="Assists">Assists</option>
-  <option value="3-Pointers Made">3-Pointers Made</option>
-  <option value="PRA">PRA</option>
-</select>
-<div style={{ marginTop: 16, marginBottom: 16 }}>
-  <label style={{ marginRight: 12 }}>
-    Prop Line:
-  </label>
-  <input
-    type="number"
-    min="0"
-    value={propLine}
-    onChange={(e) => setPropLine(Number(e.target.value))}
-    style={{
-      padding: 12,
-      width: 100,
-      borderRadius: 8,
-      border: '1px solid #344154',
-      background: '#10243b',
-      color: 'white',
-      fontSize: 16
-    }}
-  />
-</div>
-
-        <p style={{ color: '#aab6c8' }}>
-          {loadingPlayers
-            ? 'Loading NBA player history. This may take a moment...'
-            : loadError
-              ? `NBA data error: ${loadError}`
-              : `${realPlayers.length} players loaded. Search for a player to see historical hit rates.`}
-        </p>
-        <div style={{ display: 'flex', gap: 16, marginTop: 24, flexWrap: 'wrap' }}>
-  {(['L5', 'L10', 'L20'] as const).map((period) => {
-    
-const rate = liveHitRates[period];
-
-    const color = rate === null ? '#94a3b8' : rate >= 80 ? '#22c55e' : rate >= 60 ? '#facc15' : '#f87171';
-    return (
-      <div key={period} style={{ flex: '1 1 150px', background: '#10243b', border: '1px solid #28516a', borderRadius: 12, padding: 20, textAlign: 'center' }}>
-        <p style={{ color: '#8ba8bf', fontSize: 13 }}>LAST {period.slice(1)} GAMES</p>
-        <h2 style={{ color, fontSize: 32, margin: '10px 0' }}>
-          {rate === null ? 'N/A' : `${rate}%`}
-        </h2>
-       
-<p style={{ color: '#a7b9c9', fontSize: 12 }}>
-  {selectedPlayer
-    ? `${selectedPlayer.name} • ${selectedProp} ${propLine}+`
-    : 'Search for a player to view hit rates'}
-</p>
-</div>
-)
-})}
-</div>
-</section>
-
-
-      <footer style={{
-        marginTop: 70,
-        color: '#8290a6',
-        fontSize: 13
-      }}>
-        EDGEIQ © 2026 · Analytics for research and education
-      </footer>
-    </main>
+    <div className="shell">
+      <aside className="sidebar">
+        <div className="brand"><span className="brand-icon">E</span><span>EDGE<span className="gold">IQ</span><small>SPORTS INTELLIGENCE</small></span></div>
+        <div className="side-caption">WORKSPACE</div>
+        <button className={activeTab === 'research' ? 'nav active' : 'nav'} onClick={() => setActiveTab('research')}>▦ &nbsp; Player Research</button>
+        <button className={activeTab === 'pricing' ? 'nav active' : 'nav'} onClick={() => setActiveTab('pricing')}>✦ &nbsp; EDGEIQ Pro</button>
+        <div className="side-note"><strong>Research, not guarantees.</strong><p>Hit rates describe past results. They are not probabilities of future outcomes.</p></div>
+      </aside>
+      <main className="main">
+        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'research' ? 'PLAYER RESEARCH' : 'MEMBERSHIP'}</span></div><span className="live-pill"><span className="dot" /> NBA DATA RESEARCH</span></header>
+        {activeTab === 'research' ? <>
+          <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
+          <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count">{loading ? 'Loading player history…' : error ? 'Data unavailable' : `${players.length} players available`}</span></div>
+          {error && <div className="error" role="alert">{error}</div>}
+          <section className="panel controls">
+            <div className="field player-field"><label htmlFor="player-search">PLAYER</label><input id="player-search" placeholder="Search NBA players…" value={query} onChange={(e) => { setQuery(e.target.value); setPlayerId('') }} autoComplete="off" />
+              {suggestions.length > 0 && <div className="suggestions">{suggestions.map((p) => <button key={String(p.id)} onClick={() => { setPlayerId(String(p.id)); setQuery(p.name) }}>{p.name}<span>{p.team}</span></button>)}</div>}
+            </div>
+            <div className="field"><label htmlFor="prop">STAT CATEGORY</label><select id="prop" value={prop} onChange={(e) => setProp(e.target.value)}>{props.map((p) => <option key={p}>{p}</option>)}</select></div>
+            <div className="field"><label htmlFor="line">PROP LINE</label><input id="line" type="number" min="0" step="0.5" value={line} onChange={(e) => setLine(Number(e.target.value))} /></div>
+            <div className="field"><label htmlFor="direction">DIRECTION</label><select id="direction" value={direction} onChange={(e) => setDirection(e.target.value as Direction)}><option value="over">Over</option><option value="under">Under</option></select></div>
+          </section>
+          <div className="section-head results-heading"><div><span className="eyebrow">PERFORMANCE SNAPSHOT</span><h2>{selected ? selected.name : 'Select a player'} <span className="muted">{selected ? '· ' + lineLabel + ' ' + prop : ''}</span></h2></div></div>
+          <div className="metrics">
+            {periods.map((period) => <div className="metric" key={period}><div className="metric-label">LAST {period.slice(1)} GAMES <span className="metric-mark">↗</span></div><div className="metric-value">{selected ? format(rates[period]) : '—'}</div><div className="metric-sub">{selected ? rates[period] === null ? 'Insufficient game history' : `${direction.toUpperCase()} ${line} · ${prop}` : 'Select a player to begin'}</div><div className="metric-track"><span style={{ width: `${rates[period] ?? 0}%` }} /></div></div>)}
+            <div className="metric gold-metric"><div className="metric-label">LAST 10 AVG <span className="metric-mark">◎</span></div><div className="metric-value">{selected && average !== null ? average : '—'}</div><div className="metric-sub">{selected ? `${prop} per game` : 'Awaiting selection'}</div><div className="metric-track gold-track"><span style={{ width: average === null ? '0%' : '100%' }} /></div></div>
+          </div>
+          <div className="details-grid">
+            <section className="panel"><div className="panel-title"><div><span className="eyebrow">RECENT PERFORMANCE</span><h3>Game-by-game trend</h3></div><span className="small-tag">{prop}</span></div>
+              {values.length ? <><div className="chart">{values.slice(0, 10).reverse().map((v, i) => <div className="bar-col" key={i}><span className="bar-value">{v}</span><div className={hits(v) ? 'bar hit' : 'bar'} style={{ height: `${Math.max(5, (v / Math.max(...values.slice(0, 10), line + 1)) * 100)}%` }} /><span className="bar-label">{Math.min(10, values.length) - i}</span></div>)}</div><p className="footnote">Most recent games at right. Green bars meet the selected {direction} condition.</p></> : <div className="empty">Choose a player to display their recent game trends.</div>}
+            </section>
+            <section className="panel"><div className="panel-title"><div><span className="eyebrow">RESEARCH SUMMARY</span><h3>Prop breakdown</h3></div></div>
+              <div className="summary-row"><span>Selected line</span><strong>{lineLabel}</strong></div><div className="summary-row"><span>Games available</span><strong>{games.length}</strong></div><div className="summary-row"><span>Hits in available games</span><strong>{selected ? `${hitCount} / ${values.length}` : '—'}</strong></div><div className="summary-row"><span>Last 10 average</span><strong>{selected && average !== null ? average : '—'}</strong></div>
+              <div className="info-note">Defensive matchup ranks and predictive projections are not yet connected to a validated data source. No matchup grade is shown until that data is reliable.</div>
+            </section>
+          </div>
+          <section className="panel log-panel"><div className="panel-title"><div><span className="eyebrow">HISTORICAL RESULTS</span><h3>Recent game log</h3></div><span className="small-tag">NEWEST FIRST</span></div>
+            <div className="table-wrap"><table><thead><tr><th>DATE</th><th>TEAM</th><th>PTS</th><th>REB</th><th>AST</th><th>3PM</th><th>PRA</th><th>{prop.toUpperCase()} {lineLabel.toUpperCase()}</th></tr></thead><tbody>{games.slice(0, 20).map((g) => { const val = getPlayerPropValues([g], prop)[0]; return <tr key={String((g as NBAPlayerGame & { gameId?: string }).gameId ?? g.date)}><td>{new Date(g.date).toLocaleDateString()}</td><td>{g.team}</td><td>{g.points}</td><td>{g.rebounds}</td><td>{g.assists}</td><td>{g.threes}</td><td>{g.pra}</td><td><span className={hits(val) ? 'hit-chip' : 'miss-chip'}>{hits(val) ? 'HIT' : val === line ? 'PUSH' : 'MISS'}</span></td></tr> })}{games.length === 0 && <tr><td colSpan={8} className="table-empty">Select a player to view their game log.</td></tr>}</tbody></table></div>
+          </section>
+        </> : <><section className="hero"><div className="eyebrow gold">EDGEIQ MEMBERSHIP</div><h1>Research your way.</h1><p>Keep the essentials free. Unlock deeper tools as EDGEIQ grows.</p></section><div className="pricing-grid"><div className="panel price-card"><span className="eyebrow">FREE FOREVER</span><h2>$0</h2><p>Player search, available game logs, and recent hit rates.</p><button className="cta" onClick={() => setActiveTab('research')}>Start researching</button></div>{prices.map((p) => <div className="panel price-card" key={p.name}><span className="eyebrow gold">PRO · {p.name.toUpperCase()}</span><h2>{p.price}<small>{p.term}</small></h2><p>Planned: advanced comparisons, matchup research, saved watchlists, and expanded filters.</p><div className="coming-soon">COMING SOON · NO CHARGES</div></div>)}</div><p className="footnote">Subscriptions are a preview only. No payment collection, account entitlements, or premium features are active yet.</p></>}
+        <footer>EDGEIQ © 2026 · Independent sports research · No guaranteed outcomes · 18+ where applicable</footer>
+      </main>
+    </div>
   )
 }
-
 export default App
