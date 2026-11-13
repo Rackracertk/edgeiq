@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import NFLResearch from './NFLResearch'
+import NBAOpponentExplorer from './NBAOpponentExplorer'
 import { calculateAverage, calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData'
 import { getNBABoxScore, extractNBAPlayerStats, getRecentNBAGames, buildNBAPlayerHistory } from './analytics/espnData'
@@ -107,13 +108,14 @@ function App() {
             {periods.map((period) => { const count = Number(period.slice(1)); const stats = selected ? periodStats(count) : null; return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES <span className="metric-mark">↗</span></div><div className="metric-value">{selected ? format(rates[period]) : '—'}</div><div className="metric-sub">{!selected ? 'Select a player to begin' : stats ? `${stats.hitCount} of ${count} games hit · ${direction.toUpperCase()} ${line}` : `Only ${values.length} of ${count} games available`}</div><div className="metric-track" role="img" aria-label={stats ? `${stats.hitCount} hits in ${count} games` : 'Not enough data'} style={{ display: 'flex', gap: '3px', background: 'transparent', overflow: 'visible' }}>{Array.from({ length: count }, (_, i) => <span key={i} style={{ flex: 1, width: 'auto', borderRadius: '3px', background: stats ? (hits(stats.results[i]) ? '#64db93' : stats.results[i] === line ? '#ffb612' : '#637b6a') : '#31513d' }} />)}</div></div> })}
             <div className="metric gold-metric"><div className="metric-label">LAST 10 AVG <span className="metric-mark">◎</span></div><div className="metric-value">{selected && average !== null ? average : '—'}</div><div className="metric-sub">{selected ? `${prop} per game` : 'Awaiting selection'}</div><div className="metric-track gold-track"><span style={{ width: average === null ? '0%' : '100%' }} /></div></div>
           </div>
+          <NBAOpponentExplorer selected={selected} history={history} prop={prop} />
           <div className="details-grid">
             <section className="panel"><div className="panel-title"><div><span className="eyebrow">RECENT PERFORMANCE</span><h3>Game-by-game trend</h3></div><span className="small-tag">{prop}</span></div>
               {values.length ? <><div className="chart">{values.slice(0, 10).reverse().map((v, i) => <div className="bar-col" key={i}><span className="bar-value">{v}</span><div className={hits(v) ? 'bar hit' : 'bar'} style={{ height: `${Math.max(5, (v / Math.max(...values.slice(0, 10), line + 1)) * 100)}%` }} /><span className="bar-label">{Math.min(10, values.length) - i}</span></div>)}</div><p className="footnote">Most recent games at right. Green bars clear the selected {direction} line; gold bars do not.</p></> : <div className="empty">Choose a player to display their recent game trends.</div>}
             </section>
             <section className="panel"><div className="panel-title"><div><span className="eyebrow">RESEARCH SUMMARY</span><h3>Prop breakdown</h3></div></div>
               <div className="summary-row"><span>Selected line</span><strong>{lineLabel}</strong></div><div className="summary-row"><span>Games available</span><strong>{games.length}</strong></div><div className="summary-row"><span>Hits in available games</span><strong>{selected ? `${hitCount} / ${values.length}` : '—'}</strong></div><div className="summary-row"><span>Last 10 average</span><strong>{selected && average !== null ? average : '—'}</strong></div>
-              <div className="info-note">Defensive matchup ranks and predictive projections are not yet connected to a validated data source. No matchup grade is shown until that data is reliable.</div>
+              <div className="info-note">Matchup rankings use the completed game box scores currently loaded by EDGEIQ. They are historical team-level comparisons, not player-specific predictions.</div>
             </section>
           </div>
           <section className="panel log-panel"><div className="panel-title"><div><span className="eyebrow">HISTORICAL RESULTS</span><h3>Recent game log</h3></div><span className="small-tag">NEWEST FIRST</span></div>
