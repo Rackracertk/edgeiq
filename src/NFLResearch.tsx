@@ -76,8 +76,34 @@ export default function NFLResearch() {
         start.setDate(start.getDate() - 35)
         const end = new Date()
         const fmt = (date: Date) => date.getFullYear() + String(date.getMonth() + 1).padStart(2, '0') + String(date.getDate()).padStart(2, '0')
-        const scoreboard = await json('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=' + fmt(start) + '-' + fmt(end) + '&limit=100')
-        const games: Game[] = (scoreboard.events ?? []).filter((event: any) => event.status?.type?.completed === true).map((event: any) => ({ id: String(event.id), date: String(event.date), completed: true }))
+        // ESPN's NFL scoreboard rejects large calendar date ranges with HTTP 400.
+        // Query each day separately, then deduplicate event IDs.
+        const eventMap = new Map<string, Game>()
+        let successfulDays = 0
+        for (let offset = 0; offset <= 35; offset += 6) {
+          const days = Array.from({ length: Math.min(6, 36 - offset) }, (_, i) => {
+            const day = new Date(end)
+            day.setDate(end.getDate() - offset - i)
+            return day
+          })
+          const results = await Promise.all(days.map(async day => {
+            try {
+              const data = await json('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=' + fmt(day) + '&limit=100')
+              return data.events ?? []
+            } catch { return null }
+          }))
+          results.forEach(events => {
+            if (!events) return
+            successfulDays++
+            events.forEach((event: any) => {
+              if (event.status?.type?.completed === true && event.id) {
+                eventMap.set(String(event.id), { id: String(event.id), date: String(event.date), completed: true })
+              }
+            })
+          })
+        }
+        if (successfulDays === 0) throw new Error('NFL scoreboard requests failed. Please retry later.')
+        const games = Array.from(eventMap.values())
         const collected: RecordRow[] = []
         for (let i = 0; i < games.length; i += 6) {
           const batch = await Promise.all(games.slice(i, i + 6).map(async game => {
