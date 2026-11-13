@@ -56,6 +56,7 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]) {
           id: player.athlete?.id,
           name: player.athlete?.displayName,
           team: team.team?.displayName,
+          position: String(player.athlete?.position?.abbreviation ?? player.athlete?.position?.name ?? '').toUpperCase(),
           points,
           rebounds,
           assists,
