@@ -72,16 +72,17 @@ export default function NFLResearch() {
     let cancelled = false
     async function load() {
       try {
-        const start = new Date()
-        start.setDate(start.getDate() - 35)
         const end = new Date()
+        const seasonYear = end.getMonth() >= 7 ? end.getFullYear() : end.getFullYear() - 1
+        const start = new Date(seasonYear, 8, 1)
+        const daysInSeason = Math.max(0, Math.floor((new Date(end.getFullYear(), end.getMonth(), end.getDate()).getTime() - start.getTime()) / 86400000) + 1)
         const fmt = (date: Date) => date.getFullYear() + String(date.getMonth() + 1).padStart(2, '0') + String(date.getDate()).padStart(2, '0')
         // ESPN's NFL scoreboard rejects large calendar date ranges with HTTP 400.
         // Query each day separately, then deduplicate event IDs.
         const eventMap = new Map<string, Game>()
         let successfulDays = 0
-        for (let offset = 0; offset <= 35; offset += 6) {
-          const days = Array.from({ length: Math.min(6, 36 - offset) }, (_, i) => {
+        for (let offset = 0; offset < daysInSeason; offset += 6) {
+          const days = Array.from({ length: Math.min(6, daysInSeason - offset) }, (_, i) => {
             const day = new Date(end)
             day.setDate(end.getDate() - offset - i)
             return day
@@ -96,7 +97,7 @@ export default function NFLResearch() {
             if (!events) return
             successfulDays++
             events.forEach((event: any) => {
-              if (event.status?.type?.completed === true && event.id) {
+              if (event.status?.type?.completed === true && event.id && (event.season?.type === 2 || event.season?.type === undefined)) {
                 eventMap.set(String(event.id), { id: String(event.id), date: String(event.date), completed: true })
               }
             })
