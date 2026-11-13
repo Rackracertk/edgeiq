@@ -20,22 +20,24 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
   const [teamNames, setTeamNames] = useState<Record<string, string>>({})
 
   const rankings = useMemo(() => {
-    const byGame = new Map<string, Map<string, number>>()
+    const byGame = new Map<string, Map<string, { total: number; players: number }>>()
     Object.values(history).forEach(games => games.forEach(game => {
       if (!game.gameId || !game.team) return
       if (!byGame.has(game.gameId)) byGame.set(game.gameId, new Map())
       const totals = byGame.get(game.gameId)!
-      totals.set(game.team, (totals.get(game.team) ?? 0) + statValue(game, prop))
+      const previous = totals.get(game.team) ?? { total: 0, players: 0 }
+      totals.set(game.team, { total: previous.total + statValue(game, prop), players: previous.players + 1 })
     }))
     const allowed = new Map<string, number[]>()
     byGame.forEach(teams => {
-      if (teams.size !== 2) return
+      // Reject partial box scores rather than displaying misleading defensive ranks.
+      if (teams.size !== 2 || Array.from(teams.values()).some(team => team.players < 5)) return
       const entries = Array.from(teams.entries())
       for (const [team] of entries) {
         const opponent = entries.find(([name]) => name !== team)
         if (!opponent) continue
         if (!allowed.has(team)) allowed.set(team, [])
-        allowed.get(team)!.push(opponent[1])
+        allowed.get(team)!.push(opponent[1].total)
       }
     })
     return Array.from(allowed, ([team, games]) => ({
@@ -101,7 +103,7 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
 
   return <section className="panel log-panel">
     <div className="panel-title"><div><span className="eyebrow">NBA OPPONENT RESEARCH</span><h3>Opponent matchup explorer</h3></div><span className="small-tag">2026–27 SEASON DATA</span></div>
-    <p className="footnote">Compare the next scheduled opponent or select any available defense. Rankings use team totals from completed game box scores loaded by EDGEIQ, not opponent position-specific allowances. Coverage may be incomplete.</p>
+    <p className="footnote">Compare the next scheduled opponent or select any available defense. Rankings use team totals from completed game box scores loaded by EDGEIQ, not opponent position-specific allowances. Only games with at least five recorded players on each team qualify; partial game data is excluded.</p>
     <div className="field" style={{ maxWidth: 420, marginBottom: 20 }}>
       <label htmlFor="nba-opponent">OPPONENT</label>
       <select id="nba-opponent" value={manualOpponent} onChange={e => setManualOpponent(e.target.value)}>
