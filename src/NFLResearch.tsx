@@ -67,6 +67,9 @@ export default function NFLResearch() {
   const [category, setCategory] = useState<Category>('Passing Yards')
   const [line, setLine] = useState(199.5)
   const [direction, setDirection] = useState<Direction>('over')
+  const [manualOpponent, setManualOpponent] = useState('auto')
+  const [nextOpponent, setNextOpponent] = useState('')
+  const [scheduleStatus, setScheduleStatus] = useState('')
 
   useEffect(() => {
     let cancelled = false
@@ -131,6 +134,45 @@ export default function NFLResearch() {
     return Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name))
   }, [rows])
   const selected = players.find(player => player.id === playerId)
+  useEffect(() => {
+    let cancelled = false
+    setNextOpponent('')
+    setScheduleStatus('')
+    if (!selected?.team) return
+    async function loadNextOpponent() {
+      try {
+        const today = new Date()
+        const fmt = (date: Date) => date.getFullYear() + String(date.getMonth() + 1).padStart(2, '0') + String(date.getDate()).padStart(2, '0')
+        const upcoming: { date: string; opponent: string }[] = []
+        for (let offset = 0; offset < 21; offset += 7) {
+          const results = await Promise.all(Array.from({ length: 7 }, (_, i) => {
+            const day = new Date(today)
+            day.setDate(today.getDate() + offset + i)
+            return json('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=' + fmt(day) + '&limit=100').catch(() => null)
+          }))
+          for (const data of results) for (const event of data?.events ?? []) {
+            if (event.status?.type?.completed) continue
+            const competitors = event.competitions?.[0]?.competitors ?? []
+            const teams = competitors.map((entry: any) => String(entry.team?.abbreviation ?? ''))
+            if (teams.includes(selected!.team) && teams.length === 2) {
+              const opponent = teams.find((team: string) => team !== selected!.team)
+              if (opponent) upcoming.push({ date: String(event.date), opponent })
+            }
+          }
+          if (upcoming.length) break
+        }
+        upcoming.sort((a, b) => a.date.localeCompare(b.date))
+        if (!cancelled) {
+          setNextOpponent(upcoming[0]?.opponent ?? '')
+          if (!upcoming.length) setScheduleStatus('No upcoming opponent found in the next 21 days.')
+        }
+      } catch {
+        if (!cancelled) setScheduleStatus('Upcoming schedule is temporarily unavailable.')
+      }
+    }
+    void loadNextOpponent()
+    return () => { cancelled = true }
+  }, [selected?.team])
   const suggestions = query && !selected ? players.filter(player => player.name.toLowerCase().includes(query.toLowerCase())).slice(0, 8) : []
   const history = Array.from(new Map(rows.filter(row => row.playerId === playerId && category in row.stats).map(row => [row.gameId, row])).values()).sort((a, b) => b.date.localeCompare(a.date))
   const values = history.map(row => row.stats[category])
@@ -160,6 +202,12 @@ export default function NFLResearch() {
       yardsAllowed: games.reduce((sum, yards) => sum + yards, 0) / games.length
     })).filter(item => item.games >= 3).sort((a, b) => a.yardsAllowed - b.yardsAllowed)
   }, [rows])
+  const matchupOpponent = manualOpponent === 'auto' ? nextOpponent : manualOpponent
+  const matchupIndex = defensivePassing.findIndex(item => item.team === matchupOpponent)
+  const matchup = matchupIndex >= 0 ? defensivePassing[matchupIndex] : undefined
+  const matchupDifficulty = matchup && defensivePassing.length > 1
+    ? matchupIndex < defensivePassing.length / 3 ? 'TOUGH' : matchupIndex >= defensivePassing.length * 2 / 3 ? 'FAVORABLE' : 'AVERAGE'
+    : 'UNAVAILABLE'
   const rates = calculateRecentHitRates(values, line, direction)
   const hit = (value: number) => direction === 'over' ? value > line : value < line
   const avg = values.length ? (values.slice(0, 10).reduce((a, b) => a + b, 0) / Math.min(values.length, 10)).toFixed(1) : '—'
@@ -183,6 +231,23 @@ export default function NFLResearch() {
       const recent = values.slice(0, count)
       return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES</div><div className="metric-value">{selected && enough && rates[period] !== null ? rates[period] + '%' : 'N/A'}</div><div className="metric-sub">{!selected ? 'Select a player' : enough ? recent.filter(hit).length + ' of ' + count + ' games hit' : 'Only ' + values.length + ' games available'}</div><div className="metric-track" style={{ display: 'flex', gap: 3, background: 'transparent' }}>{Array.from({ length: count }, (_, i) => <span key={i} style={{ flex: 1, background: enough ? (hit(recent[i]) ? '#64db93' : '#637b6a') : '#31513d' }} />)}</div></div>
     })}<div className="metric gold-metric"><div className="metric-label">LAST 10 AVG</div><div className="metric-value">{avg}</div><div className="metric-sub">{category} per game (up to 10)</div><div className="metric-track gold-track"><span style={{ width: values.length ? '100%' : '0%' }} /></div></div></div>
+    <section className="panel log-panel">
+      <div className="panel-title"><div><span className="eyebrow">PLAYER VS DEFENSE</span><h3>Opponent matchup explorer</h3></div><span className="small-tag">2026 REGULAR SEASON</span></div>
+      <p className="footnote">Select a player, then compare their next scheduled opponent or any available NFL defense. Rankings reflect passing yards allowed, so they apply most directly to passing-yard props.</p>
+      <div className="field" style={{ maxWidth: 420, marginBottom: 20 }}>
+        <label htmlFor="nfl-opponent">OPPONENT</label>
+        <select id="nfl-opponent" value={manualOpponent} onChange={event => setManualOpponent(event.target.value)}>
+          <option value="auto">Next scheduled opponent (automatic)</option>
+          {defensivePassing.map(item => <option key={item.team} value={item.team}>{item.team}</option>)}
+        </select>
+      </div>
+      {selected ? <div className="metrics" style={{ marginBottom: 20 }}>
+        <div className="metric"><div className="metric-label">MATCHUP</div><div className="metric-value" style={{ fontSize: 28 }}>{selected.team} vs {matchupOpponent || '—'}</div><div className="metric-sub">{manualOpponent === 'auto' ? (scheduleStatus || (nextOpponent ? 'Next scheduled opponent' : 'Checking upcoming schedule…')) : 'Manually selected defense'}</div></div>
+        <div className="metric"><div className="metric-label">PASS DEFENSE RANK</div><div className="metric-value">{matchup ? '#' + (matchupIndex + 1) : 'N/A'}</div><div className="metric-sub">Among {defensivePassing.length} qualifying teams</div></div>
+        <div className="metric"><div className="metric-label">PASS YARDS ALLOWED / GAME</div><div className="metric-value">{matchup ? matchup.yardsAllowed.toFixed(1) : 'N/A'}</div><div className="metric-sub">{matchup ? matchup.games + ' completed games' : 'No validated matchup data'}</div></div>
+        <div className="metric gold-metric"><div className="metric-label">PASSING MATCHUP</div><div className="metric-value" style={{ fontSize: 28 }}>{matchupDifficulty}</div><div className="metric-sub">Relative to qualifying defenses; not a win probability</div></div>
+      </div> : <p className="footnote">Choose an NFL player above to see their opponent matchup.</p>}
+    </section>
     <section className="panel log-panel">
       <div className="panel-title"><div><span className="eyebrow">2026 NFL DEFENSIVE MATCHUPS</span><h3>Passing yards allowed per game</h3></div><span className="small-tag">LOWEST = TOUGHEST</span></div>
       <p className="footnote">Calculated from completed regular-season game box scores loaded by EDGEIQ. Teams require at least three games. This is a historical defensive measure, not a prediction.</p>
