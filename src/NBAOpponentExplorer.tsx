@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { NBAPlayerGame } from './analytics/nbaData'
 
-type Player = { id?: string | number; name?: string; team?: string }
-type History = Record<string, (NBAPlayerGame & { gameId?: string; team?: string })[]>
+type Player = { id?: string | number; name?: string; team?: string; position?: string }
+type History = Record<string, (NBAPlayerGame & { gameId?: string; team?: string; position?: string })[]>
 type Props = { selected?: Player; history: History; prop: string }
 
 const statValue = (game: NBAPlayerGame, prop: string) => {
@@ -45,6 +45,38 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
       allowed: games.reduce((sum, n) => sum + n, 0) / games.length
     })).filter(row => row.games >= 3).sort((a, b) => a.allowed - b.allowed)
   }, [history, prop])
+
+
+  const [positionFilter, setPositionFilter] = useState('PG')
+  const positionRankings = useMemo(() => {
+    const byGame = new Map<string, Map<string, { count: number; total: number; positionTotal: number; positionCount: number }>>()
+    Object.values(history).forEach(games => games.forEach(game => {
+      if (!game.gameId || !game.team) return
+      if (!byGame.has(game.gameId)) byGame.set(game.gameId, new Map())
+      const teams = byGame.get(game.gameId)!
+      const row = teams.get(game.team) ?? { count: 0, total: 0, positionTotal: 0, positionCount: 0 }
+      row.count++
+      row.total += statValue(game, prop)
+      if (game.position?.toUpperCase() === positionFilter) {
+        row.positionTotal += statValue(game, prop)
+        row.positionCount++
+      }
+      teams.set(game.team, row)
+    }))
+    const allowed = new Map<string, number[]>()
+    byGame.forEach(teams => {
+      if (teams.size !== 2 || Array.from(teams.values()).some(row => row.count < 5)) return
+      for (const [defense, offense] of teams.entries()) {
+        const opponent = Array.from(teams.entries()).find(([name]) => name !== defense)?.[1]
+        if (!opponent?.positionCount) continue
+        if (!allowed.has(defense)) allowed.set(defense, [])
+        allowed.get(defense)!.push(opponent.positionTotal)
+      }
+    })
+    return Array.from(allowed, ([team, values]) => ({
+      team, games: values.length, allowed: values.reduce((a, b) => a + b, 0) / values.length
+    })).filter(row => row.games >= 3).sort((a, b) => a.allowed - b.allowed)
+  }, [history, prop, positionFilter])
 
   useEffect(() => {
     let cancelled = false
@@ -121,6 +153,23 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
     <div className="table-wrap"><table><thead><tr><th>RANK</th><th>DEFENSE</th><th>GAMES</th><th>{prop.toUpperCase()} ALLOWED / GAME</th></tr></thead><tbody>
       {rankings.map((row, i) => <tr key={row.team}><td>{i + 1}</td><td>{row.team}</td><td>{row.games}</td><td>{row.allowed.toFixed(1)}</td></tr>)}
       {!rankings.length && <tr><td colSpan={4} className="table-empty">Waiting for completed game box scores from at least three games per team.</td></tr>}
+    </tbody></table></div>
+
+    <div className="panel-title" style={{ marginTop: 32 }}><div><span className="eyebrow">POSITION-SPECIFIC DEFENSE</span><h3>{prop} allowed to {positionFilter}s</h3></div><span className="small-tag">LOWEST = TOUGHEST</span></div>
+    <p className="footnote">Historical per-game totals by listed player position, not individual-player projections. A game is included only when the opposing box score has a player tagged at that position; minimum three qualifying games. Position labels depend on ESPN coverage and may not reflect the role played that night.</p>
+    <div className="field" style={{ maxWidth: 300, marginBottom: 20 }}>
+      <label htmlFor="nba-position">PLAYER POSITION</label>
+      <select id="nba-position" value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
+        {['PG', 'SG', 'SF', 'PF', 'C'].map(position => <option key={position} value={position}>{position}</option>)}
+      </select>
+    </div>
+    {selected && <div className="metrics" style={{ marginBottom: 20 }}>
+      <div className="metric"><div className="metric-label">OPPONENT VS {positionFilter}</div><div className="metric-value">{opponent ? (positionRankings.findIndex(row => row.team === opponent) >= 0 ? '#' + (positionRankings.findIndex(row => row.team === opponent) + 1) : 'N/A') : 'N/A'}</div><div className="metric-sub">Among {positionRankings.length} qualifying defenses</div></div>
+      <div className="metric"><div className="metric-label">{prop.toUpperCase()} ALLOWED TO {positionFilter} / GAME</div><div className="metric-value">{positionRankings.find(row => row.team === opponent)?.allowed.toFixed(1) ?? 'N/A'}</div><div className="metric-sub">Historical position totals, not a prediction</div></div>
+    </div>}
+    <div className="table-wrap"><table><thead><tr><th>RANK</th><th>DEFENSE</th><th>GAMES</th><th>{prop.toUpperCase()} / GAME</th></tr></thead><tbody>
+      {positionRankings.map((row, i) => <tr key={row.team}><td>{i + 1}</td><td>{row.team}</td><td>{row.games}</td><td>{row.allowed.toFixed(1)}</td></tr>)}
+      {!positionRankings.length && <tr><td colSpan={4} className="table-empty">Position data unavailable or insufficient for this selection.</td></tr>}
     </tbody></table></div>
   </section>
 }
