@@ -1,4 +1,4 @@
-import { calculateRecentHitRates, calculateAverage } from "./analytics/hitRates";
+import { calculateRecentHitRates } from "./analytics/hitRates";
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -14,66 +14,53 @@ const sports = ['NBA', 'NFL', 'MLB', 'NHL', 'NCAAB', 'Soccer', 'UFC']
 
 
 
-const nbaPlayers: string[] = []
-
 function App() {
 
 useEffect(() => {
-  getRecentNBAGames(3)
-    .then(async (games) => {
-      console.log('EDGEIQ RECENT NBA GAMES:', games)
-      console.log('TOTAL GAMES:', games.length)
-
-      const completedGame = games.find(
-        (game: any) =>
-          game.status?.type?.completed === true
+  let cancelled = false
+  async function loadPlayers() {
+    setLoadingPlayers(true)
+    setLoadError('')
+    try {
+      const games = (await getRecentNBAGames(60)).filter(
+        (game: any) => game.status?.type?.completed === true
       )
-
-      if (completedGame) {
-        const boxScore = await getNBABoxScore(completedGame.id)
-        const players = extractNBAPlayerStats(boxScore)
-        console.table(players)
+      // Avoid hundreds of simultaneous requests and preserve game/box-score alignment.
+      const boxScores: any[][] = []
+      for (let i = 0; i < games.length; i += 8) {
+        const batch = await Promise.all(
+          games.slice(i, i + 8).map((game: any) =>
+            getNBABoxScore(game.id).catch(() => [])
+          )
+        )
+        boxScores.push(...batch)
       }
-    })
-    .catch((error) => {
-      console.error('NBA HISTORY ERROR:', error)
-    })
-}, [])
-
-
-
-
-
-useEffect(() => {
-getRecentNBAGames(60)    .then(async (games) => {
-      const boxScores = await Promise.all(
-        games.map((game: any) => getNBABoxScore(game.id))
-      )
-
-      const players = boxScores.flatMap((boxScore) =>
-        extractNBAPlayerStats(boxScore)
-      )
-
-      console.table(players)
+      if (cancelled) return
       const history = buildNBAPlayerHistory(games, boxScores)
+      const uniquePlayers = new Map<string, ReturnType<typeof extractNBAPlayerStats>[number]>()
+      boxScores.forEach((boxScore) => {
+        extractNBAPlayerStats(boxScore).forEach((player) => {
+          if (player.id && player.name) uniquePlayers.set(String(player.id), player)
+        })
+      })
       setPlayerHistory(history)
-      setRealPlayers(players)
-    })
-    .catch((error) => {
-      console.error('NBA PLAYER STATS ERROR:', error)
-    })
+      setRealPlayers(Array.from(uniquePlayers.values()).sort((a, b) =>
+        a.name.localeCompare(b.name)
+      ))
+    } catch (error) {
+      if (!cancelled) setLoadError(error instanceof Error ? error.message : 'Unable to load NBA data')
+    } finally {
+      if (!cancelled) setLoadingPlayers(false)
+    }
+  }
+  void loadPlayers()
+  return () => { cancelled = true }
 }, [])
 
 
 
 
-const testRates = calculateRecentHitRates(
-  [25, 18, 30, 22, 27],
-  20,
-  'over'
-)
-console.log('EDGEIQ test:', testRates)
-  const [sport, setSport] = useState('NBA')
+const [sport, setSport] = useState('NBA')
 
 const [playerSearch, setPlayerSearch] = useState('')
 
@@ -82,6 +69,8 @@ const [propLine, setPropLine] = useState(20)
 
 
 const [realPlayers, setRealPlayers] = useState<ReturnType<typeof extractNBAPlayerStats>>([])
+const [loadingPlayers, setLoadingPlayers] = useState(true)
+const [loadError, setLoadError] = useState('')
 const [playerHistory, setPlayerHistory] = useState<ReturnType<typeof buildNBAPlayerHistory>>({})
 
 
@@ -97,12 +86,6 @@ const playerGames: NBAPlayerGame[] = selectedPlayer
   : []
 
 
-console.log('EDGEIQ selected player:', selectedPlayer?.name)
-console.log('EDGEIQ games loaded:', playerGames.length)
-console.table(playerGames)
-
-
-
 const sampleGameStats = getPlayerPropValues(
   playerGames,
   selectedProp
@@ -113,7 +96,7 @@ const liveHitRates = calculateRecentHitRates(
   propLine,
   'over'
 )
-console.log('EDGEIQ live hit rates:', liveHitRates)
+
 
   return (
     <main style={{
@@ -204,14 +187,15 @@ onChange={(e) => setPlayerSearch(e.target.value)}
 />
 {playerSearch.trim() !== '' && (
   <div style={{ marginTop: 8, marginBottom: 20 }}>
-   {realPlayers.map((player) => player.name)
+   {realPlayers
       .filter((player) =>
-        player.toLowerCase().includes(playerSearch.toLowerCase().trim())
+        player.name.toLowerCase().includes(playerSearch.toLowerCase().trim())
       )
+      .slice(0, 12)
       .map((player) => (
         <div
-          key={player}
-          onClick={() => setPlayerSearch(player)}
+          key={String(player.id)}
+          onClick={() => setPlayerSearch(player.name)}
           style={{
             padding: 12,
             marginBottom: 6,
@@ -222,7 +206,7 @@ onChange={(e) => setPlayerSearch(e.target.value)}
             cursor: 'pointer'
           }}
         >
-          {player}
+          {player.name}
         </div>
       ))}
   </div>
@@ -269,9 +253,11 @@ onChange={(e) => setPlayerSearch(e.target.value)}
 </div>
 
         <p style={{ color: '#aab6c8' }}>
-          Player statistics, matchup ratings, projections,
-          and trends will appear here once data sources
-          are connected.
+          {loadingPlayers
+            ? 'Loading NBA player history. This may take a moment...'
+            : loadError
+              ? `NBA data error: ${loadError}`
+              : `${realPlayers.length} players loaded. Search for a player to see historical hit rates.`}
         </p>
         <div style={{ display: 'flex', gap: 16, marginTop: 24, flexWrap: 'wrap' }}>
   {(['L5', 'L10', 'L20'] as const).map((period) => {
