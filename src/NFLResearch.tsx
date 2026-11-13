@@ -132,8 +132,34 @@ export default function NFLResearch() {
   }, [rows])
   const selected = players.find(player => player.id === playerId)
   const suggestions = query && !selected ? players.filter(player => player.name.toLowerCase().includes(query.toLowerCase())).slice(0, 8) : []
-  const history = rows.filter(row => row.playerId === playerId && category in row.stats).sort((a, b) => b.date.localeCompare(a.date))
+  const history = Array.from(new Map(rows.filter(row => row.playerId === playerId && category in row.stats).map(row => [row.gameId, row])).values()).sort((a, b) => b.date.localeCompare(a.date))
   const values = history.map(row => row.stats[category])
+  // Derive opponent passing yards allowed from actual completed game box scores.
+  // Each game's team total is the sum of player passing yards for that team.
+  const defensivePassing = useMemo(() => {
+    const byGame = new Map<string, Map<string, number>>()
+    rows.forEach(row => {
+      if (row.stats['Passing Yards'] === undefined) return
+      if (!byGame.has(row.gameId)) byGame.set(row.gameId, new Map())
+      const teams = byGame.get(row.gameId)!
+      teams.set(row.team, (teams.get(row.team) ?? 0) + row.stats['Passing Yards'])
+    })
+    const allowed = new Map<string, number[]>()
+    byGame.forEach(teams => {
+      if (teams.size !== 2) return
+      const entries = Array.from(teams.entries())
+      for (const [team] of entries) {
+        const opponentYards = entries.find(([other]) => other !== team)?.[1]
+        if (opponentYards === undefined) continue
+        if (!allowed.has(team)) allowed.set(team, [])
+        allowed.get(team)!.push(opponentYards)
+      }
+    })
+    return Array.from(allowed, ([team, games]) => ({
+      team, games: games.length,
+      yardsAllowed: games.reduce((sum, yards) => sum + yards, 0) / games.length
+    })).filter(item => item.games >= 3).sort((a, b) => a.yardsAllowed - b.yardsAllowed)
+  }, [rows])
   const rates = calculateRecentHitRates(values, line, direction)
   const hit = (value: number) => direction === 'over' ? value > line : value < line
   const avg = values.length ? (values.slice(0, 10).reduce((a, b) => a + b, 0) / Math.min(values.length, 10)).toFixed(1) : '—'
@@ -157,6 +183,14 @@ export default function NFLResearch() {
       const recent = values.slice(0, count)
       return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES</div><div className="metric-value">{selected && enough && rates[period] !== null ? rates[period] + '%' : 'N/A'}</div><div className="metric-sub">{!selected ? 'Select a player' : enough ? recent.filter(hit).length + ' of ' + count + ' games hit' : 'Only ' + values.length + ' games available'}</div><div className="metric-track" style={{ display: 'flex', gap: 3, background: 'transparent' }}>{Array.from({ length: count }, (_, i) => <span key={i} style={{ flex: 1, background: enough ? (hit(recent[i]) ? '#64db93' : '#637b6a') : '#31513d' }} />)}</div></div>
     })}<div className="metric gold-metric"><div className="metric-label">LAST 10 AVG</div><div className="metric-value">{avg}</div><div className="metric-sub">{category} per game (up to 10)</div><div className="metric-track gold-track"><span style={{ width: values.length ? '100%' : '0%' }} /></div></div></div>
+    <section className="panel log-panel">
+      <div className="panel-title"><div><span className="eyebrow">2026 NFL DEFENSIVE MATCHUPS</span><h3>Passing yards allowed per game</h3></div><span className="small-tag">LOWEST = TOUGHEST</span></div>
+      <p className="footnote">Calculated from completed regular-season game box scores loaded by EDGEIQ. Teams require at least three games. This is a historical defensive measure, not a prediction.</p>
+      <div className="table-wrap"><table><thead><tr><th>RANK</th><th>DEFENSE</th><th>GAMES</th><th>PASS YDS ALLOWED / GAME</th></tr></thead><tbody>
+        {defensivePassing.map((item, index) => <tr key={item.team}><td>{index + 1}</td><td>{item.team}</td><td>{item.games}</td><td>{item.yardsAllowed.toFixed(1)}</td></tr>)}
+        {defensivePassing.length === 0 && <tr><td colSpan={4} className="table-empty">{loading ? 'Loading defensive game logs…' : 'Insufficient verified defensive game logs.'}</td></tr>}
+      </tbody></table></div>
+    </section>
     <section className="panel log-panel"><div className="panel-title"><div><span className="eyebrow">HISTORICAL RESULTS</span><h3>NFL game log · {category}</h3></div><span className="small-tag">NEWEST FIRST</span></div>
       <div className="table-wrap"><table><thead><tr><th>DATE</th><th>TEAM</th><th>STAT</th><th>{direction.toUpperCase()} {line}</th></tr></thead><tbody>{history.slice(0, 20).map(row => <tr key={row.gameId}><td>{new Date(row.date).toLocaleDateString()}</td><td>{row.team}</td><td>{row.stats[category]}</td><td><span className={hit(row.stats[category]) ? 'hit-chip' : 'miss-chip'}>{hit(row.stats[category]) ? 'HIT' : row.stats[category] === line ? 'PUSH' : 'MISS'}</span></td></tr>)}{history.length === 0 && <tr><td colSpan={4} className="table-empty">{loading ? 'Loading NFL games…' : 'No games available for this player and stat.'}</td></tr>}</tbody></table></div>
       <p className="footnote">Data source: ESPN public game summaries. Available history may be incomplete. Matchup grades and projections are not yet validated.</p>
