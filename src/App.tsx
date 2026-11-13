@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
+import NFLResearch from './NFLResearch'
 import { calculateAverage, calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData'
 import { getNBABoxScore, extractNBAPlayerStats, getRecentNBAGames, buildNBAPlayerHistory } from './analytics/espnData'
@@ -8,7 +9,7 @@ const props = ['Points', 'Rebounds', 'Assists', '3-Pointers Made', 'PRA']
 const periods = ['L5', 'L10', 'L20'] as const
 const sports = [
   { id: 'NBA', name: 'NBA', label: 'Basketball', active: true },
-  { id: 'NFL', name: 'NFL', label: 'Football', active: false },
+  { id: 'NFL', name: 'NFL', label: 'Football', active: true },
   { id: 'MLB', name: 'MLB', label: 'Baseball', active: false },
   { id: 'NHL', name: 'NHL', label: 'Hockey', active: false },
   { id: 'NCAAF', name: 'NCAAF', label: 'College football', active: false },
@@ -89,7 +90,7 @@ function App() {
       </aside>
       <main className="main">
         <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'research' ? 'PLAYER RESEARCH' : 'MEMBERSHIP'}</span></div><span className="live-pill"><span className="dot" /> {sport === 'NBA' ? 'NBA DATA RESEARCH' : `${sport} · IN DEVELOPMENT`}</span></header>
-        {activeTab === 'research' ? sport !== 'NBA' ? <><section className="hero"><div className="eyebrow gold">MULTI-SPORT RESEARCH</div><h1>{sport} <span className="gold">research.</span></h1><p>We're preparing sport-specific player statistics, historical game logs, prop hit rates and opponent analysis. This sport is not yet connected to verified live data.</p></section><section className="panel" style={{ padding: 28 }}><span className="eyebrow">IN DEVELOPMENT</span><h2>Data connection pending</h2><p>NBA research remains available now. We will only enable {sport} analytics once the data is connected and validated. No fabricated hit rates or matchup grades.</p><button className="cta" onClick={() => setSport('NBA')}>Explore NBA research</button></section></> : <>
+        {activeTab === 'research' ? sport === 'NFL' ? <NFLResearch /> : sport !== 'NBA' ? <><section className="hero"><div className="eyebrow gold">MULTI-SPORT RESEARCH</div><h1>{sport} <span className="gold">research.</span></h1><p>We're preparing sport-specific player statistics, historical game logs, prop hit rates and opponent analysis. This sport is not yet connected to verified live data.</p></section><section className="panel" style={{ padding: 28 }}><span className="eyebrow">IN DEVELOPMENT</span><h2>Data connection pending</h2><p>NBA research remains available now. We will only enable {sport} analytics once the data is connected and validated. No fabricated hit rates or matchup grades.</p><button className="cta" onClick={() => setSport('NBA')}>Explore NBA research</button></section></> : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count">{loading ? 'Loading player history…' : error ? 'Data unavailable' : `${players.length} players available`}</span></div>
           {error && <div className="error" role="alert">{error}</div>}
