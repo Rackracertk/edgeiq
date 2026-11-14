@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { getNBAGamePropValue, getPlayerPropValues, isNBABinaryProp } from '../src/analytics/nbaData.ts'
 import { parseNFLBoxscore, defaultNFLLine } from '../src/analytics/nflBoxscore.ts'
+import { extractNBAPlayerStats } from '../src/analytics/espnData.ts'
 
 const nba = { date: '2026-11-12', points: 21, rebounds: 11, assists: 10, steals: 2, blocks: 1, threes: 3 }
 test('NBA combined stats use actual component totals', () => {
@@ -50,4 +51,16 @@ test('NFL does not invent missing statistics', () => {
     { name: 'defensive', labels: ['TOT'], athletes: [{ athlete: { id: '11', displayName: 'Defender' }, stats: ['4'] }] }
   ] }] } }, { id: '1', date: '2026-11-11' })
   assert.deepEqual(rows, [])
+})
+
+test('ESPN NBA boxscore parser retains steals and blocks', () => {
+  const rows = extractNBAPlayerStats([{ team: { id: '5', displayName: 'Boston Celtics' }, statistics: [{
+    keys: ['points','rebounds','assists','steals','blocks','threePointFieldGoalsMade-threePointFieldGoalsAttempted'],
+    athletes: [{ didNotPlay: false, athlete: { id: 'player-1', displayName: 'Sample Player' },
+      stats: ['21','11','10','2','1','3-6'] }]
+  }] }])
+  assert.equal(rows.length, 1)
+  assert.equal(rows[0].steals, 2)
+  assert.equal(rows[0].blocks, 1)
+  assert.equal(getNBAGamePropValue({ ...rows[0], date: '2026-11-12' }, 'Triple-Double'), 1)
 })
