@@ -11,7 +11,7 @@ type Props = { mode: 'pricing' | 'account'; currentResearch: Research | null; on
 
 const plans: { id: Plan; label: string; price: string; term: string }[] = [
   { id: 'weekly', label: 'Weekly', price: '$3.99', term: '/week' },
-  { id: 'monthly', label: 'Monthly', price: '$9.99', term: '/month' },
+  { id: 'monthly', label: 'Monthly', price: '$12.99', term: '/month' },
   { id: 'annual', label: 'Annual', price: '$79.99', term: '/year' },
 ]
 
