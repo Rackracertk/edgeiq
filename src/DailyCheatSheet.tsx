@@ -27,6 +27,7 @@ export default function DailyCheatSheet({
   const [nflRows, setNflRows] = useState<NFLHistoryRow[]>([])
   const [nflPartial, setNflPartial] = useState(false)
   const [loadingSport, setLoadingSport] = useState<CheatSport | null>(null)
+  const [retry, setRetry] = useState(0)
   const [errors, setErrors] = useState<Partial<Record<CheatSport, string>>>({})
   const [category, setCategory] = useState('ALL')
   const [direction, setDirection] = useState('ALL')
@@ -36,7 +37,7 @@ export default function DailyCheatSheet({
 
   useEffect(() => {
     let cancelled = false
-    if (slates[sport] || loadingSport === sport) return
+    if (slates[sport]) return
     const currentSport = sport
     async function load() {
       setLoadingSport(currentSport)
@@ -44,7 +45,6 @@ export default function DailyCheatSheet({
       try {
         const slate = await loadDailySlate(currentSport)
         if (cancelled) return
-        setSlates(previous => ({ ...previous, [currentSport]: slate }))
         if (currentSport === 'NFL' && slate.games.length) {
           const result = await loadNFLHistory(slate)
           if (!cancelled) {
@@ -52,6 +52,7 @@ export default function DailyCheatSheet({
             setNflPartial(result.partial)
           }
         }
+        if (!cancelled) setSlates(previous => ({ ...previous, [currentSport]: slate }))
       } catch (error) {
         if (!cancelled) setErrors(previous => ({
           ...previous,
@@ -63,7 +64,7 @@ export default function DailyCheatSheet({
     }
     void load()
     return () => { cancelled = true }
-  }, [sport, slates, loadingSport])
+  }, [sport, retry])
 
   const slate = slates[sport]
   const picks = useMemo(() => {
@@ -169,7 +170,7 @@ export default function DailyCheatSheet({
       <p>We won't manufacture picks for games that aren't scheduled or haven't been verified. Check back closer to the next slate.</p>
     </section> : !slate ? <section className="panel cheat-empty">
       <h3>Schedule unavailable</h3><p>Refresh the page when the sports feed is available. No fictional matchups or picks are shown.</p>
-      <button className="cta" onClick={() => { setErrors(previous => ({ ...previous, [sport]: '' })); setSlates(previous => ({ ...previous, [sport]: undefined })) }}>Try again</button>
+      <button className="cta" onClick={() => { setErrors(previous => ({ ...previous, [sport]: '' })); setSlates(previous => ({ ...previous, [sport]: undefined })); setRetry(previous => previous + 1) }}>Try again</button>
     </section> : filtered.length === 0 ? <section className="panel cheat-empty">
       <h3>No qualifying trends for this slate</h3>
       <p>{picks.length ? 'Try another stat type or direction.' : 'The available completed-game data does not meet our recent-history criteria. This is not a slate of guaranteed or automatic picks.'}</p>
