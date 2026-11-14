@@ -18,21 +18,6 @@ drop policy if exists "Customers view own subscription" on public.subscriptions;
 create policy "Customers view own subscription" on public.subscriptions
   for select to authenticated using ((select auth.uid()) = user_id);
 
-create or replace function public.edgeiq_has_pro()
-returns boolean
-language sql stable security definer
-set search_path = ''
-as $$
-  select exists (
-    select 1 from public.subscriptions s
-    where s.user_id = (select auth.uid())
-      and s.status in ('active', 'trialing')
-      and s.current_period_end > now()
-  );
-$$;
-revoke all on function public.edgeiq_has_pro() from public, anon;
-grant execute on function public.edgeiq_has_pro() to authenticated;
-
 create table if not exists public.saved_research (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
@@ -57,7 +42,12 @@ create policy "Owners view saved research" on public.saved_research
 
 drop policy if exists "Pro members save research" on public.saved_research;
 create policy "Pro members save research" on public.saved_research
- for insert to authenticated with check ((select auth.uid()) = user_id and public.edgeiq_has_pro());
+ for insert to authenticated with check ((select auth.uid()) = user_id and exists (
+   select 1 from public.subscriptions s
+    where s.user_id = (select auth.uid())
+      and s.status in ('active', 'trialing')
+      and s.current_period_end > now()
+ ));
 
 drop policy if exists "Owners remove saved research" on public.saved_research;
 create policy "Owners remove saved research" on public.saved_research
