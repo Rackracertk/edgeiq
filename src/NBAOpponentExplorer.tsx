@@ -66,7 +66,7 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
     const allowed = new Map<string, number[]>()
     byGame.forEach(teams => {
       if (teams.size !== 2 || Array.from(teams.values()).some(row => row.count < 5)) return
-      for (const [defense, offense] of teams.entries()) {
+      for (const defense of teams.keys()) {
         const opponent = Array.from(teams.entries()).find(([name]) => name !== defense)?.[1]
         if (!opponent?.positionCount) continue
         if (!allowed.has(defense)) allowed.set(defense, [])
