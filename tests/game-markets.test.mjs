@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import {
   americanImpliedProbability, normalizedMoneylineProbability, parseGameMarkets,
-} from '../src/analytics/gameMarkets.ts'
+} from '../src/analytics/marketParsing.ts'
 
 function fixture(odds) {
   return {
