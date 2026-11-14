@@ -14,7 +14,7 @@ The older `main` and `edgeiq-player-search-fix` branches have unrelated ancestry
 5. Configure Supabase Auth email redirect allowed URLs, verify login/signup/logout and session renewal, and test that users cannot read or change other users' saved research or subscription rows.
 
 ## 3. Prepare Stripe (owner action)
-1. Activate a Stripe account; add three recurring USD Prices: $3.99/week, $9.99/month and $79.99/year. Put their `price_...` IDs in the Edge Function secrets above.
+1. Activate a Stripe account; add three recurring USD Prices: $3.99/week, $12.99/month and $79.99/year. Put their `price_...` IDs in the Edge Function secrets above.
 2. Enable Stripe Customer Portal cancellation and payment-method management.
 3. Register webhook endpoint: `https://<project-ref>.supabase.co/functions/v1/stripe-webhook`. Subscribe to `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`. Copy the webhook signing secret into Supabase secrets.
 4. Test in Stripe **test mode** first: successful Checkout, failed payment, canceled renewal, expired period, and replayed webhook events. Confirm the database reflects each change before switching to live Stripe keys.
