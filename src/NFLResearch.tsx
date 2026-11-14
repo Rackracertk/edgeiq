@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
+import ProInsights from './ProInsights'
 
 type Game = { id: string; date: string; completed: boolean }
 type RecordRow = { gameId: string; date: string; playerId: string; player: string; team: string; stats: Record<string, number> }
@@ -59,7 +60,7 @@ function parseSummary(data: any, game: Game): RecordRow[] {
   return rows
 }
 
-export default function NFLResearch() {
+export default function NFLResearch({ onUpgrade }: { onUpgrade: () => void }) {
   const [rows, setRows] = useState<RecordRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -240,6 +241,7 @@ export default function NFLResearch() {
       const recent = values.slice(0, count)
       return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES</div><div className="metric-value">{selected && enough && rates[period] !== null ? rates[period] + '%' : 'N/A'}</div><div className="metric-sub">{!selected ? 'Select a player' : enough ? recent.filter(hit).length + ' of ' + count + ' games hit' : 'Only ' + values.length + ' games available'}</div><div className="metric-track" style={{ display: 'flex', gap: 3, background: 'transparent' }}>{Array.from({ length: count }, (_, i) => <span key={i} style={{ flex: 1, background: enough ? (hit(recent[i]) ? '#64db93' : '#637b6a') : '#31513d' }} />)}</div></div>
     })}<div className="metric gold-metric"><div className="metric-label">LAST 10 AVG</div><div className="metric-value">{avg}</div><div className="metric-sub">{category} per game (up to 10)</div><div className="metric-track gold-track"><span style={{ width: values.length ? '100%' : '0%' }} /></div></div></div>
+    <ProInsights sport="NFL" playerId={selected?.id} playerName={selected?.name} prop={category} line={line} direction={direction} onUpgrade={onUpgrade} />
     <section className="panel log-panel">
       <div className="panel-title"><div><span className="eyebrow">PLAYER VS DEFENSE</span><h3>Opponent matchup explorer</h3></div><span className="small-tag">2026 REGULAR SEASON</span></div>
       <p className="footnote">Select a player, then compare their next scheduled opponent or any available NFL defense. Rankings reflect passing yards allowed, so they apply most directly to passing-yard props.</p>

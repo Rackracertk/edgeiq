@@ -9,7 +9,7 @@ The older `main` and `edgeiq-player-search-fix` branches have unrelated ancestry
 ## 2. Prepare Supabase (owner action)
 1. Create or connect a Supabase project. Enable email magic-link authentication; configure the site URL and allowed callback URLs to the actual Pages domain, and set up reliable SMTP before inviting real users.
 2. In Supabase SQL editor apply, in order, `supabase/migrations/20261114_launch.sql` and `supabase/migrations/20261114_sports_cache.sql`.
-3. Deploy Edge Functions: `create-checkout`, `manage-billing`, `stripe-webhook`, `sports-research`, `refresh-research` using the Supabase CLI. `supabase/config.toml` disables platform JWT checks for these functions; user functions authenticate tokens against Supabase Auth, the webhook verifies Stripe's signed raw body, and refresh uses a dedicated secret.
+3. Deploy Edge Functions: `create-checkout`, `manage-billing`, `stripe-webhook`, `sports-research`, `refresh-research`, `pro-insights` using the Supabase CLI. `supabase/config.toml` disables platform JWT checks for these functions; user functions authenticate tokens against Supabase Auth, the webhook verifies Stripe's signed raw body, and refresh uses a dedicated secret.
 4. Configure Edge Function secrets (NEVER commit values): `APP_URL` (exact final https:// origin), `ALLOWED_ORIGINS` (optional comma-separated preview origins), `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_WEEKLY`, `STRIPE_PRICE_MONTHLY`, `STRIPE_PRICE_ANNUAL`. Supabase provides `SUPABASE_URL`, `SUPABASE_ANON_KEY` and `SUPABASE_SERVICE_ROLE_KEY` for legacy-key projects; confirm those exist for the selected project. For projects using only named modern keys, adapt the server helper to the supported auth and service keys first.
 5. Configure Supabase Auth email redirect allowed URLs, verify login/signup/logout and session renewal, and test that users cannot read or change other users' saved research or subscription rows.
 
@@ -74,3 +74,6 @@ npm run lint
 npm test
 ```
 The first `npm install` updates `package-lock.json` for the new Supabase client dependency. The launch branch's CI workflow can generate and commit this lockfile when GitHub Actions has write permission.
+
+## Premium insights
+The authenticated `pro-insights` Edge Function verifies active billing status server-side and calculates NBA/NFL season, L5/L10/L20, home/away and opponent breakdowns from the licensed snapshots. It never accepts stat totals or access flags from the client. Set NFL feed row `opponent` and `homeAway` when available to populate those splits; absent fields appear as unavailable. Test Pro vs Free access with different test users before enabling checkout.
