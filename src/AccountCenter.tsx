@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import type { User } from '@supabase/supabase-js'
 import { supabase } from './supabaseClient'
 import { usingLicensedFeed } from './verifiedFeed'
+import ProInterest from './ProInterest'
 
 type Plan = 'weekly' | 'monthly' | 'annual'
 type Subscription = { status: string; current_period_end: string | null; cancel_at_period_end: boolean; stripe_customer_id: string | null }
@@ -159,6 +160,7 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
           <p className="footnote">Password-free email sign-in. You must confirm your address to create or access an account.</p>
         </form>}
       </section>
+      <ProInterest userId={user?.id ?? null} />
       {mode === 'pricing' ? <>
         <div className="pricing-grid">
           <div className="panel price-card"><span className="eyebrow">FREE</span><h2>$0</h2><p>NBA and NFL player research, recent game logs and historical hit rates.</p><button className="cta" onClick={onResearch}>Start researching</button></div>
