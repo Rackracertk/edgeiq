@@ -191,6 +191,9 @@ export function buildNBAPicks(
     for (const [category, lines] of Object.entries(nbaReferenceLines)) {
       const values = getPlayerPropValues(logs, category)
       for (const line of lines) for (const direction of ['over', 'under'] as const) {
+        // A "No triple-double" card would dominate an everyday board
+        // despite often not being a useful or offered market.
+        if ((category === 'Double-Double' || category === 'Triple-Double') && direction === 'under') continue
         const candidate = evaluate('NBA', String(player.id), player.name, game.teams.find(t => t.id === player.teamId)?.abbreviation ?? '', game, category, values, line, direction)
         if (candidate) candidates.push(candidate)
       }
