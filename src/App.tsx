@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import NFLResearch from './NFLResearch'
+import AccountCenter from './AccountCenter'
 import NBAOpponentExplorer from './NBAOpponentExplorer'
 import { calculateAverage, calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData'
@@ -17,7 +18,6 @@ const sports = [
   { id: 'NCAAB', name: 'NCAAB', label: 'College basketball', active: false },
   { id: 'SOCCER', name: 'Soccer', label: 'Soccer', active: false },
 ] as const
-const prices = [{ name: 'Weekly', price: '$3.99', term: '/week' }, { name: 'Monthly', price: '$9.99', term: '/month' }, { name: 'Annual', price: '$79.99', term: '/year' }]
 
 function App() {
   const [players, setPlayers] = useState<ReturnType<typeof extractNBAPlayerStats>>([])
@@ -30,7 +30,7 @@ function App() {
   const [line, setLine] = useState(20)
   const [direction, setDirection] = useState<Direction>('over')
   const [sport, setSport] = useState<string>('NBA')
-  const [activeTab, setActiveTab] = useState<'research' | 'pricing'>('research')
+  const [activeTab, setActiveTab] = useState<'research' | 'pricing' | 'account'>('research')
 
   useEffect(() => {
     let cancelled = false
@@ -127,10 +127,11 @@ function App() {
         </div><div className="side-caption">WORKSPACE</div>
         <button className={activeTab === 'research' ? 'nav active' : 'nav'} onClick={() => setActiveTab('research')}>▦ &nbsp; Player Research</button>
         <button className={activeTab === 'pricing' ? 'nav active' : 'nav'} onClick={() => setActiveTab('pricing')}>✦ &nbsp; EDGEIQ Pro</button>
+        <button className={activeTab === 'account' ? 'nav active' : 'nav'} onClick={() => setActiveTab('account')}>♙ &nbsp; My Account</button>
         <div className="side-note"><strong>Research, not guarantees.</strong><p>Hit rates describe past results. They are not probabilities of future outcomes.</p></div>
       </aside>
       <main className="main">
-        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'research' ? 'PLAYER RESEARCH' : 'MEMBERSHIP'}</span></div><span className="live-pill"><span className="dot" /> {sport === 'NBA' ? 'NBA DATA RESEARCH' : `${sport} · IN DEVELOPMENT`}</span></header>
+        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="live-pill"><span className="dot" /> {sport === 'NBA' ? 'NBA DATA RESEARCH' : `${sport} · IN DEVELOPMENT`}</span></header>
         {activeTab === 'research' ? sport === 'NFL' ? <NFLResearch /> : sport !== 'NBA' ? <><section className="hero"><div className="eyebrow gold">MULTI-SPORT RESEARCH</div><h1>{sport} <span className="gold">research.</span></h1><p>We're preparing sport-specific player statistics, historical game logs, prop hit rates and opponent analysis. This sport is not yet connected to verified live data.</p></section><section className="panel" style={{ padding: 28 }}><span className="eyebrow">IN DEVELOPMENT</span><h2>Data connection pending</h2><p>NBA research remains available now. We will only enable {sport} analytics once the data is connected and validated. No fabricated hit rates or matchup grades.</p><button className="cta" onClick={() => setSport('NBA')}>Explore NBA research</button></section></> : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count" role="status" aria-live="polite">{loading ? 'Loading verified player history…' : error ? players.length ? 'Data partially unavailable' : 'Data unavailable' : `${players.length} players available`}</span></div>
@@ -161,7 +162,7 @@ function App() {
           <section className="panel log-panel"><div className="panel-title"><div><span className="eyebrow">HISTORICAL RESULTS</span><h3>Recent game log</h3></div><span className="small-tag">NEWEST FIRST</span></div>
             <div className="table-wrap"><table><thead><tr><th>DATE</th><th>OPPONENT</th><th>VENUE</th><th>PTS</th><th>REB</th><th>AST</th><th>3PM</th><th>PRA</th><th>{prop.toUpperCase()} {lineLabel.toUpperCase()}</th></tr></thead><tbody>{games.slice(0, 20).map((g) => { const val = getPlayerPropValues([g], prop)[0]; return <tr key={g.gameId ?? g.date}><td>{new Date(g.date).toLocaleDateString()}</td><td>{g.opponent ?? '—'}</td><td>{g.homeAway === 'home' ? 'HOME' : g.homeAway === 'away' ? 'AWAY' : '—'}</td><td>{g.points}</td><td>{g.rebounds}</td><td>{g.assists}</td><td>{g.threes}</td><td>{g.points + g.rebounds + g.assists}</td><td><span className={val === line ? 'push-chip' : hits(val) ? 'hit-chip' : 'miss-chip'}>{val === line ? 'PUSH' : hits(val) ? 'HIT' : 'MISS'}</span></td></tr> })}{games.length === 0 && <tr><td colSpan={9} className="table-empty">{loading ? 'Loading verified game history…' : error ? 'Game history unavailable; see the data error above.' : 'Select a player to view their game log.'}</td></tr>}</tbody></table></div>
           </section>
-        </> : <><section className="hero"><div className="eyebrow gold">EDGEIQ MEMBERSHIP</div><h1>Research your way.</h1><p>Keep the essentials free. Unlock deeper tools as EDGEIQ grows.</p></section><div className="pricing-grid"><div className="panel price-card"><span className="eyebrow">FREE FOREVER</span><h2>$0</h2><p>Player search, available game logs, and recent hit rates.</p><button className="cta" onClick={() => setActiveTab('research')}>Start researching</button></div>{prices.map((p) => <div className="panel price-card" key={p.name}><span className="eyebrow gold">PRO · {p.name.toUpperCase()}</span><h2>{p.price}<small>{p.term}</small></h2><p>Planned: advanced comparisons, matchup research, saved watchlists, and expanded filters.</p><div className="coming-soon">COMING SOON · NO CHARGES</div></div>)}</div><p className="footnote">Subscriptions are a preview only. No payment collection, account entitlements, or premium features are active yet.</p></>}
+        </> : <AccountCenter mode={activeTab === 'pricing' ? 'pricing' : 'account'} onResearch={() => setActiveTab('research')} currentResearch={sport === 'NBA' && selected ? { sport: 'NBA', playerId: String(selected.id), playerName: selected.name, statCategory: prop, line, direction } : null} />}
         <footer>EDGEIQ © 2026 · Independent sports research · No guaranteed outcomes · 18+ where applicable</footer>
       </main>
     </div>
