@@ -11,6 +11,7 @@ Deno.serve(async (req: Request) => {
   if (blocked) return blocked
   if (req.method !== 'POST') return respond(req, { error: 'Method not allowed' }, 405)
   try {
+    if (Deno.env.get('SPORTS_LICENSE_APPROVED') !== 'true') throw new Error('Subscriptions are not available until licensed research data is enabled')
     const user = await authorizedUser(req)
     const payload = await req.json()
     const plan = typeof payload.plan === 'string' ? payload.plan : ''

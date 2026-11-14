@@ -15,7 +15,7 @@ export function respond(req: Request, body: unknown, status = 200): Response {
 }
 
 export function preflight(req: Request): Response | null {
-  if (req.method === 'OPTIONS') return respond(req, {}, 204)
+  if (req.method === 'OPTIONS') return respond(req, {}, 200)
   const origin = req.headers.get('origin')
   if (origin && !safeOrigins().includes(origin)) return respond(req, { error: 'Origin not allowed' }, 403)
   return null

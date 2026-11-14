@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import NFLResearch from './NFLResearch'
 import AccountCenter from './AccountCenter'
+import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 import NBAOpponentExplorer from './NBAOpponentExplorer'
 import { calculateAverage, calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData'
@@ -36,6 +37,18 @@ function App() {
     let cancelled = false
     async function load() {
       try {
+        if (usingLicensedFeed) {
+          const feed = await getVerifiedFeed<{
+            players: ReturnType<typeof extractNBAPlayerStats>
+            history: ReturnType<typeof buildNBAPlayerHistory>
+          }>('NBA')
+          if (!cancelled) {
+            setPlayers(feed.data.players)
+            setHistory(feed.data.history)
+            if (feed.stale) setError('Verified NBA feed is more than an hour old. Last updated ' + new Date(feed.refreshedAt).toLocaleString())
+          }
+          return
+        }
         const cacheKey = 'edgeiq-nba-2026-27-v2'
         const cached = getCachedData<{
           players: ReturnType<typeof extractNBAPlayerStats>

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { calculateRecentHitRates, type Direction } from './analytics/hitRates'
+import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 
 type Game = { id: string; date: string; completed: boolean }
 type RecordRow = { gameId: string; date: string; playerId: string; player: string; team: string; stats: Record<string, number> }
@@ -75,6 +76,14 @@ export default function NFLResearch() {
     let cancelled = false
     async function load() {
       try {
+        if (usingLicensedFeed) {
+          const feed = await getVerifiedFeed<{ rows: RecordRow[] }>('NFL')
+          if (!cancelled) {
+            setRows(feed.data.rows)
+            if (feed.stale) setError('Verified NFL feed is more than an hour old. Last updated ' + new Date(feed.refreshedAt).toLocaleString())
+          }
+          return
+        }
         const end = new Date()
         const seasonYear = end.getMonth() >= 7 ? end.getFullYear() : end.getFullYear() - 1
         const start = new Date(seasonYear, 8, 1)

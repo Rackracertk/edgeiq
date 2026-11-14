@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import type { User } from '@supabase/supabase-js'
 import { supabase } from './supabaseClient'
+import { usingLicensedFeed } from './verifiedFeed'
 
 type Plan = 'weekly' | 'monthly' | 'annual'
 type Subscription = { status: string; current_period_end: string | null; cancel_at_period_end: boolean; stripe_customer_id: string | null }
@@ -61,7 +62,7 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
     && !!subscription.current_period_end
     && Date.parse(subscription.current_period_end) > Date.now()
 
-  async function login(event: React.FormEvent) {
+  async function login(event: FormEvent) {
     event.preventDefault()
     if (!supabase || busy) return
     setBusy(true)
@@ -126,6 +127,7 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
   }
 
   const serviceReady = !!supabase
+  const checkoutReady = serviceReady && usingLicensedFeed
   const hasCustomer = !!subscription?.stripe_customer_id
 
   return (
@@ -163,8 +165,8 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
           {plans.map(plan => <div className="panel price-card" key={plan.id}>
             <span className="eyebrow gold">EDGEIQ PRO · {plan.label.toUpperCase()}</span><h2>{plan.price}<small>{plan.term}</small></h2>
             <p>Private saved research. Additional Pro analytics will be released only when verified and available.</p>
-            <button className="cta" disabled={!serviceReady || !user || busy || isPro} onClick={() => void billing('create-checkout', plan.id)}>
-              {isPro ? 'Already a Pro member' : !serviceReady ? 'Payments not configured' : !user ? 'Sign in above to subscribe' : 'Continue to secure checkout'}
+            <button className="cta" disabled={!checkoutReady || !user || busy || isPro} onClick={() => void billing('create-checkout', plan.id)}>
+              {isPro ? 'Already a Pro member' : !checkoutReady ? 'Payments pending licensed data connection' : !user ? 'Sign in above to subscribe' : 'Continue to secure checkout'}
             </button>
           </div>)}
         </div>
