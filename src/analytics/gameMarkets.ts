@@ -1,5 +1,5 @@
 import { loadDailySlate, type CheatSport, type ScheduledGame } from '../cheatSheetData'
-import { parseGameMarkets, extractMarketObject, type GameMarkets, type MarketsSlate } from './marketParsing'
+import { parseGameMarkets, extractMarketObject, hasCompleteMarketQuote, type GameMarkets, type MarketsSlate } from './marketParsing'
 export type { GameMarkets, MarketsSlate } from './marketParsing'
 export { parseGameMarkets, americanImpliedProbability, normalizedMoneylineProbability } from './marketParsing'
 
@@ -59,7 +59,7 @@ export async function loadGameMarkets(sport: CheatSport): Promise<MarketsSlate> 
     const batch = await Promise.all(slate.games.slice(i, i + 5).map(async game => {
       const event = byId.get(game.id) ?? fallbackEvent(game)
       let supplemental: any = null
-      if (!extractMarketObject(event)) {
+      if (!hasCompleteMarketQuote(extractMarketObject(event))) {
         try { supplemental = await json(summaryUrl(sport, game.id)) }
         catch { incomplete = true }
       }
