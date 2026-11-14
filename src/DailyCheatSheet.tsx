@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { NBAPlayerGame } from './analytics/nbaData'
+import { NBA_PROP_CATEGORIES, type NBAPlayerGame } from './analytics/nbaData'
+import { NFL_PROP_CATEGORIES } from './analytics/nflBoxscore'
 import {
   buildNBAPicks, buildNFLPicks, loadDailySlate, loadNFLHistory,
   type CheatPick, type CheatSport, type NFLHistoryRow, type Slate,
@@ -72,7 +73,7 @@ export default function DailyCheatSheet({
     if (sport === 'NBA') return buildNBAPicks(slate, nbaHistory, nbaPlayers)
     return buildNFLPicks(slate, nflRows)
   }, [slate, sport, nbaHistory, nbaPlayers, nflRows])
-  const categories = useMemo(() => Array.from(new Set(picks.map(pick => pick.category))).sort(), [picks])
+  const categories = sport === 'NBA' ? NBA_PROP_CATEGORIES : NFL_PROP_CATEGORIES
   const filtered = picks.filter(pick =>
     (category === 'ALL' || pick.category === category) &&
     (direction === 'ALL' || pick.direction === direction)
@@ -96,7 +97,7 @@ export default function DailyCheatSheet({
   }
   function pickText(pick: CheatPick): string {
     return pick.sport + ' · ' + pick.player + ' (' + pick.team + ' vs ' + pick.opponent + ') · ' +
-      (pick.direction === 'over' ? 'Over ' : 'Under ') + pick.line + ' ' + pick.category +
+      (['Double-Double', 'Triple-Double'].includes(pick.category) ? (pick.direction === 'over' ? 'Yes' : 'No') : (pick.direction === 'over' ? 'Over ' : 'Under ') + pick.line) + ' ' + pick.category +
       ' · L5 ' + pick.l5Hits + '/' + pick.l5Games +
       ' · Last ' + pick.recentGames + ' ' + pick.recentHits + '/' + pick.recentGames
   }
@@ -183,7 +184,7 @@ export default function DailyCheatSheet({
           return <article className={active ? 'cheat-card selected' : 'cheat-card'} key={pick.id}>
             <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} TREND</span><span>{formatTime(pick.gameTime)}</span></div>
             <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup}</span></div>
-            <div className="cheat-prop"><span>{pick.direction.toUpperCase()} {pick.line}</span><strong>{pick.category}</strong></div>
+            <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? (pick.direction === 'over' ? 'YES' : 'NO') : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
             <div className="cheat-rates">
               <div><small>LAST 5</small><strong>{pick.l5Hits}/{pick.l5Games}</strong></div>
               <div><small>LAST {pick.recentGames}</small><strong>{pick.recentHits}/{pick.recentGames}</strong></div>
@@ -202,7 +203,7 @@ export default function DailyCheatSheet({
 
     {selected.length > 0 && <section className="panel cheat-shortlist">
       <div className="panel-title"><div><span className="eyebrow gold">YOUR RESEARCH LIST</span><h3>My shortlist · {selected.length} props</h3></div><span className="small-tag">NOT A BET SLIP</span></div>
-      <div className="cheat-shortlist-items">{selected.map(pick => <div key={pick.id}><span>{pick.player} · {pick.direction} {pick.line} {pick.category}</span><button onClick={() => togglePick(pick)} aria-label={'Remove ' + pick.player}>Remove</button></div>)}</div>
+      <div className="cheat-shortlist-items">{selected.map(pick => <div key={pick.id}><span>{pick.player} · {['Double-Double', 'Triple-Double'].includes(pick.category) ? (pick.direction === 'over' ? 'Yes' : 'No') : pick.direction + ' ' + pick.line} {pick.category}</span><button onClick={() => togglePick(pick)} aria-label={'Remove ' + pick.player}>Remove</button></div>)}</div>
       <div className="cheat-shortlist-actions">
         <button className="cta" onClick={() => void copyShortlist()}>Copy my shortlist</button>
         <button className="nav" onClick={() => { setSelectedPicks([]); setCopyStatus('') }}>Clear list</button>
