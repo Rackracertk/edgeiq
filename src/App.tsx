@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import NFLResearch from './NFLResearch'
+import DailyCheatSheet from './DailyCheatSheet'
+import type { CheatPick } from './cheatSheetData'
 import AccountCenter from './AccountCenter'
 import ProInsights from './ProInsights'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
@@ -35,7 +37,7 @@ function App() {
   const [line, setLine] = useState(20)
   const [direction, setDirection] = useState<Direction>('over')
   const [sport, setSport] = useState<string>('NBA')
-  const [activeTab, setActiveTab] = useState<'research' | 'pricing' | 'account'>('research')
+  const [activeTab, setActiveTab] = useState<'research' | 'pricing' | 'account' | 'cheatsheet'>('cheatsheet')
 
   useEffect(() => {
     let cancelled = false
@@ -146,14 +148,15 @@ function App() {
         <div style={{ display: 'grid', gap: 6, padding: '0 12px 18px' }}>
           {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setActiveTab('research') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.active ? 'LIVE' : 'PLANNED'}</span></button>)}
         </div><div className="side-caption">WORKSPACE</div>
+        <button className={activeTab === 'cheatsheet' ? 'nav active' : 'nav'} onClick={() => setActiveTab('cheatsheet')}>★ &nbsp; Daily Cheat Sheet</button>
         <button className={activeTab === 'research' ? 'nav active' : 'nav'} onClick={() => setActiveTab('research')}>▦ &nbsp; Player Research</button>
         <button className={activeTab === 'pricing' ? 'nav active' : 'nav'} onClick={() => setActiveTab('pricing')}>✦ &nbsp; EDGEIQ Pro</button>
         <button className={activeTab === 'account' ? 'nav active' : 'nav'} onClick={() => setActiveTab('account')}>♙ &nbsp; My Account</button>
         <div className="side-note"><strong>Research, not guarantees.</strong><p>Hit rates describe past results. They are not probabilities of future outcomes.</p></div>
       </aside>
       <main className="main">
-        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="live-pill"><span className="dot" /> {sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · IN DEVELOPMENT`}</span></header>
-        {activeTab === 'research' ? sport === 'NFL' ? <NFLResearch onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? <><section className="hero"><div className="eyebrow gold">MULTI-SPORT RESEARCH</div><h1>{sport} <span className="gold">research.</span></h1><p>We're preparing sport-specific player statistics, historical game logs, prop hit rates and opponent analysis. This sport is not yet connected to verified live data.</p></section><section className="panel" style={{ padding: 28 }}><span className="eyebrow">IN DEVELOPMENT</span><h2>Data connection pending</h2><p>NBA research remains available now. We will only enable {sport} analytics once the data is connected and validated. No fabricated hit rates or matchup grades.</p><button className="cta" onClick={() => setSport('NBA')}>Explore NBA research</button></section></> : <>
+        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'cheatsheet' ? 'DAILY CHEAT SHEET' : activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="live-pill"><span className="dot" /> {activeTab === 'cheatsheet' ? 'DAILY RESEARCH BOARD' : sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · IN DEVELOPMENT`}</span></header>
+        {activeTab === 'cheatsheet' ? <DailyCheatSheet nbaPlayers={players} nbaHistory={history} nbaLoading={loading} nbaError={error} onPro={() => setActiveTab('pricing')} onResearch={(pick: CheatPick) => { setSport(pick.sport); setActiveTab('research'); if (pick.sport === 'NBA') { setPlayerId(pick.playerId); setQuery(pick.player); setProp(pick.category); setLine(pick.line); setDirection(pick.direction) } }} /> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? <><section className="hero"><div className="eyebrow gold">MULTI-SPORT RESEARCH</div><h1>{sport} <span className="gold">research.</span></h1><p>We're preparing sport-specific player statistics, historical game logs, prop hit rates and opponent analysis. This sport is not yet connected to verified live data.</p></section><section className="panel" style={{ padding: 28 }}><span className="eyebrow">IN DEVELOPMENT</span><h2>Data connection pending</h2><p>NBA research remains available now. We will only enable {sport} analytics once the data is connected and validated. No fabricated hit rates or matchup grades.</p><button className="cta" onClick={() => setSport('NBA')}>Explore NBA research</button></section></> : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count" role="status" aria-live="polite">{loading ? 'Loading verified player history…' : error ? players.length ? 'Data partially unavailable' : 'Data unavailable' : `${players.length} players available`}</span></div>
           {error && <div className="error" role="alert" aria-live="assertive">{error}</div>}
