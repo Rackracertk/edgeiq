@@ -157,8 +157,8 @@ function fallbackEvent(game: ScheduledGame): any {
   // Only used for team names / times; no odds or probabilities are synthesized.
   return {
     id: game.id, date: game.date, competitions: [{
-      competitors: game.teams.map((team, i) => ({
-        homeAway: i === 0 ? 'away' : 'home',
+      competitors: game.teams.map(team => ({
+        homeAway: team.homeAway,
         team: { displayName: team.name, abbreviation: team.abbreviation },
       })),
     }],
