@@ -89,3 +89,22 @@ test('Pulls quoted odds from summary pickcenter if scoreboard has no odds', () =
   assert.equal(game.total, 46.5)
   assert.ok(game.awayProbability > game.homeProbability)
 })
+
+test('Chooses one complete sportsbook quote instead of mixing books', () => {
+  const event = fixture({
+    provider: { name: 'Book A' },
+    overUnder: 220.5,
+  })
+  const game = parseGameMarkets(event, 'NBA', {
+    pickcenter: [{
+      provider: { name: 'Book B' },
+      homeTeamOdds: { favorite: true, moneyLine: -150 },
+      awayTeamOdds: { favorite: false, moneyLine: 125 },
+      overUnder: 222.5, spread: -3.5, details: 'BOS -3.5',
+    }],
+  })
+  assert.equal(game.provider, 'Book B')
+  assert.equal(game.total, 222.5)
+  assert.equal(game.homeMoneyline, -150)
+  assert.equal(game.homeSpread, -3.5)
+})
