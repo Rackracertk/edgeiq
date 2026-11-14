@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 import ProInsights from './ProInsights'
-import { NFL_PROP_CATEGORIES, parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore'
+import { NFL_PROP_CATEGORIES, defaultNFLLine, parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore'
 
 type Game = { id: string; date: string; completed: boolean }
 type RecordRow = NFLHistoryRow
@@ -200,7 +200,7 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
       <div className="field player-field"><label htmlFor="nfl-player">PLAYER</label><input id="nfl-player" placeholder="Search NFL players…" value={query} onChange={event => { setQuery(event.target.value); setPlayerId('') }} autoComplete="off" />
         {suggestions.length > 0 && <div className="suggestions">{suggestions.map(player => <button key={player.id} onClick={() => { setPlayerId(player.id); setQuery(player.name) }}>{player.name}<span>{player.team}</span></button>)}</div>}
       </div>
-      <div className="field"><label htmlFor="nfl-stat">STAT CATEGORY</label><select id="nfl-stat" value={category} onChange={event => setCategory(event.target.value as Category)}>{categories.map(item => <option key={item}>{item}</option>)}</select></div>
+      <div className="field"><label htmlFor="nfl-stat">STAT CATEGORY</label><select id="nfl-stat" value={category} onChange={event => { const next = event.target.value as Category; setCategory(next); setLine(defaultNFLLine(next)); setDirection('over') }}>{categories.map(item => <option key={item}>{item}</option>)}</select></div>
       <div className="field"><label htmlFor="nfl-line">PROP LINE</label><input id="nfl-line" type="number" min="0" step="0.5" value={line} onChange={event => setLine(Number(event.target.value))} /></div>
       <div className="field"><label htmlFor="nfl-direction">DIRECTION</label><select id="nfl-direction" value={direction} onChange={event => setDirection(event.target.value as Direction)}><option value="over">Over</option><option value="under">Under</option></select></div>
     </section>
