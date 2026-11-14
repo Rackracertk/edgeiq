@@ -1,4 +1,4 @@
-import { adminRequest, requireEnv } from '../_shared/core.ts'
+import { adminRequest, requireEnv, stripe } from '../_shared/core.ts'
 
 function hex(bytes: ArrayBuffer): string {
   return Array.from(new Uint8Array(bytes), value => value.toString(16).padStart(2, '0')).join('')
@@ -29,14 +29,17 @@ Deno.serve(async (req: Request) => {
     if (!['customer.subscription.created', 'customer.subscription.updated', 'customer.subscription.deleted'].includes(event.type)) {
       return new Response('ignored', { status: 200 })
     }
-    const sub = event.data?.object
-    const userId = sub?.metadata?.edgeiq_user_id
+    const eventSubscription = event.data?.object
+    // Stripe does not guarantee event delivery order. Always read the latest
+    // subscription state so a delayed older event cannot restore canceled access.
+    const sub = await stripe('subscriptions/' + encodeURIComponent(String(eventSubscription?.id ?? '')))
+    const userId = sub?.metadata?.edgeiq_user_id || eventSubscription?.metadata?.edgeiq_user_id
     if (typeof userId !== 'string' || !/^[a-f0-9-]{36}$/i.test(userId)) {
       console.error('Subscription missing verified EDGEIQ user ID', event.id)
       return new Response('Unmapped subscription', { status: 422 })
     }
     const unix = sub.items?.data?.[0]?.current_period_end ?? sub.current_period_end
-    const status = event.type === 'customer.subscription.deleted' ? 'canceled' : String(sub.status ?? 'incomplete')
+    const status = String(sub.status ?? 'incomplete')
     const periodEnd = typeof unix === 'number' && Number.isFinite(unix) ? new Date(unix * 1000).toISOString() : null
     const priceId = sub.items?.data?.[0]?.price?.id ?? null
     await adminRequest('subscriptions?on_conflict=user_id', {

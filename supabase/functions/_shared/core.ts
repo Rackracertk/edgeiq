@@ -8,7 +8,7 @@ export function respond(req: Request, body: unknown, status = 200): Response {
     'cache-control': 'no-store',
     'vary': 'Origin',
     'access-control-allow-headers': 'authorization, apikey, x-client-info, content-type',
-    'access-control-allow-methods': 'POST, OPTIONS',
+    'access-control-allow-methods': 'GET, POST, OPTIONS',
   }
   if (safeOrigins().includes(origin)) headers['access-control-allow-origin'] = origin
   return new Response(JSON.stringify(body), { status, headers })

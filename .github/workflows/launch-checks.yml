@@ -35,3 +35,8 @@ jobs:
         run: npm run lint
       - name: Unit tests
         run: npm test
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Type-check Supabase Edge Functions
+        run: deno check supabase/functions/create-checkout/index.ts supabase/functions/manage-billing/index.ts supabase/functions/stripe-webhook/index.ts supabase/functions/sports-research/index.ts supabase/functions/refresh-research/index.ts supabase/functions/pro-insights/index.ts
