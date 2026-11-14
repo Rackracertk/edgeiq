@@ -13,6 +13,7 @@ type Props = {
   nbaLoading: boolean
   nbaError: string
   onPro: () => void
+  onMarkets: () => void
   onResearch: (pick: CheatPick) => void
 }
 
@@ -21,7 +22,7 @@ const formatTime = (iso: string) => new Intl.DateTimeFormat('en-US', {
 }).format(new Date(iso))
 
 export default function DailyCheatSheet({
-  nbaPlayers, nbaHistory, nbaLoading, nbaError, onPro, onResearch,
+  nbaPlayers, nbaHistory, nbaLoading, nbaError, onPro, onMarkets, onResearch,
 }: Props) {
   const [sport, setSport] = useState<CheatSport>('NBA')
   const [slates, setSlates] = useState<Partial<Record<CheatSport, Slate>>>({})
@@ -131,6 +132,10 @@ export default function DailyCheatSheet({
       </div>
     </section>
 
+    <section className="panel" style={{ display: 'flex', alignItems: 'center', gap: 16, justifyContent: 'space-between', padding: 18, flexWrap: 'wrap', marginBottom: 16 }}>
+      <div><span className="eyebrow gold">NEW · GAME MARKETS</span><h3 style={{ margin: '6px 0 0' }}>NBA & NFL moneylines, spreads, totals and win chances</h3></div>
+      <button className="cta" onClick={onMarkets}>Explore game lines ↗</button>
+    </section>
     <div className="cheat-info" role="note">
       <strong>How to read this board:</strong> Lines shown here are <strong>historical research thresholds</strong>, NOT live bookmaker offers. Picks are ranked by past L5 and recent hit frequency, not win probabilities. Player availability, injuries, odds and lineup changes are <strong>not verified</strong>.
     </div>
