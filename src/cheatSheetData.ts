@@ -1,5 +1,7 @@
 import { getNBAGames } from './analytics/espnData'
 import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData'
+import { parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore'
+export type { NFLHistoryRow } from './analytics/nflBoxscore'
 
 export type CheatSport = 'NBA' | 'NFL'
 export type CheatPick = {
@@ -36,14 +38,6 @@ export type Slate = {
   source: string
   seasonEvents?: any[]
 }
-export type NFLHistoryRow = {
-  gameId: string
-  date: string
-  playerId: string
-  player: string
-  team: string
-  stats: Record<string, number>
-}
 type Candidate = Omit<CheatPick, 'id'>
 
 const nbaReferenceLines: Record<string, number[]> = {
@@ -52,10 +46,20 @@ const nbaReferenceLines: Record<string, number[]> = {
   Assists: [2.5, 4.5, 6.5, 8.5, 10.5],
   '3-Pointers Made': [0.5, 1.5, 2.5, 3.5],
   PRA: [19.5, 24.5, 29.5, 34.5, 39.5, 44.5],
+  Steals: [0.5, 1.5, 2.5],
+  Blocks: [0.5, 1.5, 2.5],
+  'Points + Assists (PA)': [14.5, 19.5, 24.5, 29.5, 34.5, 39.5],
+  'Points + Rebounds (PR)': [14.5, 19.5, 24.5, 29.5, 34.5, 39.5],
+  'Assists + Rebounds (AR)': [6.5, 9.5, 12.5, 15.5, 19.5],
+  'Steals + Blocks (SB)': [0.5, 1.5, 2.5, 3.5],
+  'Double-Double': [0.5],
+  'Triple-Double': [0.5],
 }
 const nflReferenceLines: Record<string, number[]> = {
   'Passing Yards': [149.5, 199.5, 249.5, 299.5],
   'Passing TDs': [0.5, 1.5, 2.5],
+  'Interceptions Thrown': [0.5, 1.5],
+  Sacks: [0.5, 1.5],
   'Rushing Yards': [39.5, 59.5, 79.5, 99.5],
   'Rushing Attempts': [9.5, 14.5, 19.5],
   'Receiving Yards': [29.5, 49.5, 69.5, 89.5],
@@ -138,7 +142,8 @@ function evaluate(
   const average = recent.reduce((sum, value) => sum + value, 0) / sample
   const median = [...recent].sort((a, b) => a - b)[Math.floor(recent.length / 2)]
   // Ignore extreme thresholds that would generate misleading 100% trends.
-  if (median <= 0 || line < median * .62 || line > median * 1.38) return null
+  const eventStat = ['Double-Double', 'Triple-Double', 'Interceptions Thrown', 'Sacks', 'Steals', 'Blocks', 'Steals + Blocks (SB)'].includes(category)
+  if (!eventStat && (median <= 0 || line < median * .62 || line > median * 1.38)) return null
   const margin = direction === 'over' ? average - line : line - average
   if (margin <= 0) return null
   const other = game.teams.find(item => item.abbreviation !== team)
@@ -154,16 +159,17 @@ function evaluate(
 }
 function selectPicks(candidates: Candidate[]): CheatPick[] {
   const chosen: CheatPick[] = []
-  const players = new Set<string>()
+  const players = new Map<string, number>()
   const teams = new Map<string, number>()
   const categoryCounts = new Map<string, number>()
   candidates.sort((a, b) => b.score - a.score || b.recentHits - a.recentHits)
   for (const candidate of candidates) {
-    if (chosen.length >= 24) break
-    if (players.has(candidate.sport + candidate.playerId)) continue
-    if ((teams.get(candidate.team) ?? 0) >= 3 || (categoryCounts.get(candidate.category) ?? 0) >= 7) continue
-    chosen.push({ ...candidate, id: candidate.sport + '-' + candidate.playerId + '-' + candidate.category })
-    players.add(candidate.sport + candidate.playerId)
+    if (chosen.length >= 40) break
+    const playerKey = candidate.sport + candidate.playerId
+    if ((players.get(playerKey) ?? 0) >= 2) continue
+    if ((teams.get(candidate.team) ?? 0) >= 8 || (categoryCounts.get(candidate.category) ?? 0) >= 10) continue
+    chosen.push({ ...candidate, id: [candidate.sport, candidate.playerId, candidate.category, candidate.direction, candidate.line].join('-') })
+    players.set(playerKey, (players.get(playerKey) ?? 0) + 1)
     teams.set(candidate.team, (teams.get(candidate.team) ?? 0) + 1)
     categoryCounts.set(candidate.category, (categoryCounts.get(candidate.category) ?? 0) + 1)
   }
@@ -192,40 +198,6 @@ export function buildNBAPicks(
   }
   return selectPicks(candidates)
 }
-function nflNumeric(stats: unknown, labels: unknown, label: string): number | null {
-  if (!Array.isArray(stats) || !Array.isArray(labels)) return null
-  const index = labels.findIndex((item: unknown) => String(item).toUpperCase() === label)
-  if (index < 0 || stats[index] == null || String(stats[index]).trim() === '') return null
-  const result = Number(stats[index])
-  return Number.isFinite(result) && result >= 0 ? result : null
-}
-function parseNFLBoxscore(data: any, game: ScheduledGame): NFLHistoryRow[] {
-  const result: NFLHistoryRow[] = []
-  for (const side of data.boxscore?.players ?? []) {
-    const team = String(side.team?.abbreviation ?? '')
-    if (!team) continue
-    for (const group of side.statistics ?? []) {
-      const type = String(group.name ?? group.type ?? '').toLowerCase()
-      for (const athlete of group.athletes ?? []) {
-        if (athlete.didNotPlay || !athlete.athlete?.id) continue
-        const raw: Record<string, number> = {}
-        const set = (category: string, label: string) => {
-          const value = nflNumeric(athlete.stats, group.labels ?? group.keys ?? [], label)
-          if (value !== null) raw[category] = value
-        }
-        if (type.includes('passing')) { set('Passing Yards', 'YDS'); set('Passing TDs', 'TD') }
-        if (type.includes('rushing')) { set('Rushing Yards', 'YDS'); set('Rushing Attempts', 'CAR') }
-        if (type.includes('receiving')) { set('Receiving Yards', 'YDS'); set('Receptions', 'REC') }
-        if (!Object.keys(raw).length) continue
-        result.push({
-          gameId: game.id, date: game.date, playerId: String(athlete.athlete.id),
-          player: String(athlete.athlete.displayName ?? ''), team, stats: raw,
-        })
-      }
-    }
-  }
-  return result
-}
 export async function loadNFLHistory(slate: Slate): Promise<{ rows: NFLHistoryRow[]; partial: boolean }> {
   if (!slate.games.length || !slate.seasonEvents) return { rows: [], partial: false }
   const upcomingTeams = new Set(slate.games.flatMap(game => game.teams.map(t => t.abbreviation)))
@@ -242,7 +214,7 @@ export async function loadNFLHistory(slate: Slate): Promise<{ rows: NFLHistoryRo
     relevant.forEach(team => counts.set(team.abbreviation, (counts.get(team.abbreviation) ?? 0) + 1))
     if (Array.from(upcomingTeams).every(team => (counts.get(team) ?? 0) >= 10)) break
   }
-  const key = 'edgeiq-nfl-cheatsheet-' + slate.date + '-' + selected.size
+  const key = 'edgeiq-nfl-cheatsheet-v2-' + slate.date + '-' + selected.size
   try {
     const item = localStorage.getItem(key)
     if (item) {
