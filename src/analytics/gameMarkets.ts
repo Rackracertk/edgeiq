@@ -1,4 +1,4 @@
-import { loadDailySlate, type CheatSport, type ScheduledGame } from '../cheatSheetData'
+import { loadDailySlate, type CheatSport, type ScheduledGame, type Slate } from '../cheatSheetData'
 import { parseGameMarkets, extractMarketObject, hasCompleteMarketQuote, type GameMarkets, type MarketsSlate } from './marketParsing'
 export type { GameMarkets, MarketsSlate } from './marketParsing'
 export { parseGameMarkets, americanImpliedProbability, normalizedMoneylineProbability } from './marketParsing'
@@ -31,8 +31,66 @@ function fallbackEvent(game: ScheduledGame): any {
   }
 }
 
+function easternDate(date: Date): string {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).formatToParts(date)
+  const part = (name: string) => parts.find(item => item.type === name)?.value ?? ''
+  return part('year') + part('month') + part('day')
+}
+async function nextNFLSlate(): Promise<Slate> {
+  const today = easternDate(new Date())
+  let anyResponse = false
+  for (let offset = 0; offset < 15; offset++) {
+    const day = easternDate(new Date(Date.now() + offset * 86400000))
+    let events: any[]
+    try {
+      const data = await json(urlForDate('NFL', day))
+      events = data.events ?? []
+      anyResponse = true
+    } catch { continue }
+    const upcoming = events.filter(event => event.status?.type?.completed !== true &&
+      Date.parse(event.date) > Date.now() && Array.isArray(event.competitions?.[0]?.competitors) &&
+      event.competitions[0].competitors.length === 2)
+    const games: ScheduledGame[] = upcoming.map(event => ({
+      id: String(event.id),
+      date: String(event.date),
+      teams: (event.competitions[0].competitors as any[]).map(entry => ({
+        id: String(entry.team?.id ?? ''),
+        abbreviation: String(entry.team?.abbreviation ?? ''),
+        name: String(entry.team?.displayName ?? ''),
+        homeAway: entry.homeAway === 'home' || entry.homeAway === 'away' ? entry.homeAway : undefined,
+      })),
+    })).filter(game => game.id && game.teams.every(team => team.abbreviation && team.homeAway))
+    if (games.length) {
+      return {
+        date: day,
+        label: new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/New_York', weekday: 'long', month: 'short', day: 'numeric',
+        }).format(new Date(games[0].date)),
+        isToday: day === today,
+        games,
+        source: 'ESPN NFL scoreboard',
+        seasonEvents: events,
+      }
+    }
+  }
+  if (!anyResponse) throw new Error('NFL schedule feed is temporarily unavailable.')
+  return { date: today, label: 'Upcoming NFL games', isToday: true, games: [], source: 'ESPN NFL scoreboard' }
+}
+
 export async function loadGameMarkets(sport: CheatSport): Promise<MarketsSlate> {
-  const slate = await loadDailySlate(sport)
+  let slate: Slate
+  if (sport === 'NFL') {
+    try {
+      slate = await loadDailySlate(sport)
+    } catch {
+      slate = await nextNFLSlate()
+    }
+    if (!slate.games.length) slate = await nextNFLSlate()
+  } else {
+    slate = await loadDailySlate(sport)
+  }
   const gameIds = new Set(slate.games.map(game => game.id))
   let events: any[] = []
   let incomplete = false
