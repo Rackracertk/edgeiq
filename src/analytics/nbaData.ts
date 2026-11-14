@@ -58,8 +58,10 @@ export function getNBAGamePropValue(game: NBAPlayerGame, prop: string): number |
     return valid(game.steals) && valid(game.blocks) ? game.steals + game.blocks : null
   }
   if (isNBABinaryProp(prop)) {
-    if (!valid(game.steals) || !valid(game.blocks)) return null
-    const tens = [game.points, game.rebounds, game.assists, game.steals, game.blocks]
+    const steals = game.steals
+    const blocks = game.blocks
+    if (!valid(steals) || !valid(blocks)) return null
+    const tens = [game.points, game.rebounds, game.assists, steals, blocks]
       .filter(value => value >= 10).length
     return tens >= (prop === 'Triple-Double' ? 3 : 2) ? 1 : 0
   }
