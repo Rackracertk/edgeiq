@@ -32,7 +32,7 @@ export default function DailyCheatSheet({
   const [category, setCategory] = useState('ALL')
   const [direction, setDirection] = useState('ALL')
   const [showAll, setShowAll] = useState(false)
-  const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [selectedPicks, setSelectedPicks] = useState<CheatPick[]>([])
   const [copyStatus, setCopyStatus] = useState('')
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function DailyCheatSheet({
     (direction === 'ALL' || pick.direction === direction)
   )
   const visible = showAll ? filtered : filtered.slice(0, 12)
-  const selected = picks.filter(pick => selectedIds.includes(pick.id))
+  const selected = selectedPicks
   const isBusy = loadingSport === sport || (sport === 'NBA' && nbaLoading)
   const displayError = errors[sport] || (sport === 'NBA' ? nbaError : '')
   const noGames = !!slate && slate.games.length === 0
@@ -90,8 +90,9 @@ export default function DailyCheatSheet({
     setShowAll(false)
     setCopyStatus('')
   }
-  function togglePick(id: string) {
-    setSelectedIds(current => current.includes(id) ? current.filter(value => value !== id) : [...current, id])
+  function togglePick(pick: CheatPick) {
+    setSelectedPicks(current => current.some(item => item.id === pick.id)
+      ? current.filter(item => item.id !== pick.id) : [...current, pick])
   }
   function pickText(pick: CheatPick): string {
     return pick.sport + ' · ' + pick.player + ' (' + pick.team + ' vs ' + pick.opponent + ') · ' +
@@ -178,7 +179,7 @@ export default function DailyCheatSheet({
     </section> : <>
       <div className="cheat-grid">
         {visible.map((pick, index) => {
-          const active = selectedIds.includes(pick.id)
+          const active = selected.some(item => item.id === pick.id)
           return <article className={active ? 'cheat-card selected' : 'cheat-card'} key={pick.id}>
             <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} TREND</span><span>{formatTime(pick.gameTime)}</span></div>
             <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup}</span></div>
@@ -190,7 +191,7 @@ export default function DailyCheatSheet({
             </div>
             <p className="cheat-reason">{pick.context}</p>
             <div className="cheat-actions">
-              <button className={active ? 'cheat-save added' : 'cheat-save'} aria-pressed={active} onClick={() => togglePick(pick.id)}>{active ? '✓ Added to shortlist' : '+ Add to my shortlist'}</button>
+              <button className={active ? 'cheat-save added' : 'cheat-save'} aria-pressed={active} onClick={() => togglePick(pick)}>{active ? '✓ Added to shortlist' : '+ Add to my shortlist'}</button>
               <button className="cheat-research" onClick={() => onResearch(pick)}>Research ↗</button>
             </div>
           </article>
@@ -201,10 +202,10 @@ export default function DailyCheatSheet({
 
     {selected.length > 0 && <section className="panel cheat-shortlist">
       <div className="panel-title"><div><span className="eyebrow gold">YOUR RESEARCH LIST</span><h3>My shortlist · {selected.length} props</h3></div><span className="small-tag">NOT A BET SLIP</span></div>
-      <div className="cheat-shortlist-items">{selected.map(pick => <div key={pick.id}><span>{pick.player} · {pick.direction} {pick.line} {pick.category}</span><button onClick={() => togglePick(pick.id)} aria-label={'Remove ' + pick.player}>Remove</button></div>)}</div>
+      <div className="cheat-shortlist-items">{selected.map(pick => <div key={pick.id}><span>{pick.player} · {pick.direction} {pick.line} {pick.category}</span><button onClick={() => togglePick(pick)} aria-label={'Remove ' + pick.player}>Remove</button></div>)}</div>
       <div className="cheat-shortlist-actions">
         <button className="cta" onClick={() => void copyShortlist()}>Copy my shortlist</button>
-        <button className="nav" onClick={() => { setSelectedIds([]); setCopyStatus('') }}>Clear list</button>
+        <button className="nav" onClick={() => { setSelectedPicks([]); setCopyStatus('') }}>Clear list</button>
         {copyStatus && <span role="status">{copyStatus}</span>}
       </div>
     </section>}
