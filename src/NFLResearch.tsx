@@ -60,7 +60,11 @@ function parseSummary(data: any, game: Game): RecordRow[] {
   return rows
 }
 
-export default function NFLResearch({ onUpgrade }: { onUpgrade: () => void }) {
+type SavedSelection = { playerId: string; playerName: string; statCategory: string; line: number; direction: Direction } | null
+export default function NFLResearch({ onUpgrade, onResearchChange }: {
+  onUpgrade: () => void
+  onResearchChange: (selection: SavedSelection) => void
+}) {
   const [rows, setRows] = useState<RecordRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -146,6 +150,9 @@ export default function NFLResearch({ onUpgrade }: { onUpgrade: () => void }) {
     return Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name))
   }, [rows])
   const selected = players.find(player => player.id === playerId)
+  useEffect(() => {
+    onResearchChange(selected ? { playerId: selected.id, playerName: selected.name, statCategory: category, line, direction } : null)
+  }, [selected?.id, selected?.name, category, line, direction, onResearchChange])
   useEffect(() => {
     let cancelled = false
     setNextOpponent('')
