@@ -64,12 +64,26 @@ function getOddsCandidates(event: any): any[] {
   ]
   return list.filter(x => x && typeof x === 'object')
 }
+function completeness(odds: any): number {
+  if (!odds || typeof odds !== 'object') return 0
+  let count = 0
+  if (moneyline(odds.homeTeamOdds?.moneyLine) !== null) count += 2
+  if (moneyline(odds.awayTeamOdds?.moneyLine) !== null) count += 2
+  if (numeric(odds.overUnder) !== null && numeric(odds.overUnder)! > 0) count += 1
+  if (numeric(odds.spread) !== null ||
+      numeric(odds.homeTeamOdds?.spread) !== null ||
+      numeric(odds.awayTeamOdds?.spread) !== null ||
+      (typeof odds.details === 'string' && odds.details.trim())) count += 1
+  if (typeof odds.provider?.name === 'string' && odds.provider.name.trim()) count += .1
+  return count
+}
 export function extractMarketObject(event: any): any | null {
-  const options = getOddsCandidates(event)
-  return options.find(item =>
-    item.homeTeamOdds?.moneyLine != null || item.awayTeamOdds?.moneyLine != null ||
-    item.overUnder != null || item.spread != null || item.details
-  ) ?? null
+  const options = getOddsCandidates(event).filter(item => completeness(item) > 0)
+  options.sort((a, b) => completeness(b) - completeness(a))
+  return options[0] ?? null
+}
+export function hasCompleteMarketQuote(odds: any): boolean {
+  return completeness(odds) >= 6
 }
 function findTeams(event: any): {
   home: { name: string; abbreviation: string }
@@ -91,7 +105,10 @@ export function parseGameMarkets(event: any, sport: CheatSport, supplemental?: a
   const teams = findTeams(event)
   if (!teams || !event?.id || !event?.date) return null
   const initial = extractMarketObject(event)
-  const odds = initial ?? extractMarketObject(supplemental)
+  const extra = extractMarketObject(supplemental)
+  // Choose one coherent sportsbook quote, never combine lines from
+  // different providers into a synthetic market.
+  const odds = completeness(extra) > completeness(initial) ? extra : initial
   const homeOdds = odds?.homeTeamOdds ?? {}
   const awayOdds = odds?.awayTeamOdds ?? {}
   const homeMoneyline = moneyline(homeOdds.moneyLine)
