@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState } from 'react'
 import { calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 import ProInsights from './ProInsights'
+import { NFL_PROP_CATEGORIES, parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore'
 
 type Game = { id: string; date: string; completed: boolean }
-type RecordRow = { gameId: string; date: string; playerId: string; player: string; team: string; stats: Record<string, number> }
-const categories = ['Passing Yards', 'Passing TDs', 'Rushing Yards', 'Rushing Attempts', 'Receiving Yards', 'Receptions', 'Receiving TDs'] as const
+type RecordRow = NFLHistoryRow
+const categories = NFL_PROP_CATEGORIES
 type Category = typeof categories[number]
 
 async function json(url: string) {
@@ -14,65 +15,20 @@ async function json(url: string) {
   return response.json()
 }
 
-function numberAt(stats: unknown, labels: unknown, label: string): number | null {
-  if (!Array.isArray(stats) || !Array.isArray(labels)) return null
-  const index = labels.findIndex((item: unknown) => String(item).toLowerCase() === label.toLowerCase())
-  if (index < 0) return null
-  const value = Number(stats[index])
-  return Number.isFinite(value) ? value : null
-}
-
-function parseSummary(data: any, game: Game): RecordRow[] {
-  const rows: RecordRow[] = []
-  for (const team of data.boxscore?.players ?? []) {
-    for (const group of team.statistics ?? []) {
-      const name = String(group.name ?? group.type ?? '').toLowerCase()
-      const labels = group.labels ?? group.keys ?? []
-      for (const athlete of group.athletes ?? []) {
-        if (athlete.didNotPlay || !athlete.athlete?.id) continue
-        const stats: Record<string, number> = {}
-        const raw = athlete.stats ?? []
-        const set = (key: Category, label: string) => {
-          const value = numberAt(raw, labels, label)
-          if (value !== null) stats[key] = value
-        }
-        if (name.includes('passing')) {
-          set('Passing Yards', 'YDS')
-          set('Passing TDs', 'TD')
-        }
-        if (name.includes('rushing')) {
-          set('Rushing Yards', 'YDS')
-          set('Rushing Attempts', 'CAR')
-        }
-        if (name.includes('receiving')) {
-          set('Receiving Yards', 'YDS')
-          set('Receptions', 'REC')
-          set('Receiving TDs', 'TD')
-        }
-        if (Object.keys(stats).length) rows.push({
-          gameId: game.id, date: game.date, playerId: String(athlete.athlete.id),
-          player: String(athlete.athlete.displayName ?? 'Unknown'),
-          team: String(team.team?.abbreviation ?? team.team?.displayName ?? '—'), stats
-        })
-      }
-    }
-  }
-  return rows
-}
-
 type SavedSelection = { playerId: string; playerName: string; statCategory: string; line: number; direction: Direction } | null
-export default function NFLResearch({ onUpgrade, onResearchChange }: {
+export default function NFLResearch({ onUpgrade, onResearchChange, initialSelection }: {
   onUpgrade: () => void
   onResearchChange: (selection: SavedSelection) => void
+  initialSelection?: SavedSelection
 }) {
   const [rows, setRows] = useState<RecordRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [query, setQuery] = useState('')
-  const [playerId, setPlayerId] = useState('')
-  const [category, setCategory] = useState<Category>('Passing Yards')
-  const [line, setLine] = useState(199.5)
-  const [direction, setDirection] = useState<Direction>('over')
+  const [query, setQuery] = useState(initialSelection?.playerName ?? '')
+  const [playerId, setPlayerId] = useState(initialSelection?.playerId ?? '')
+  const [category, setCategory] = useState<Category>((initialSelection?.statCategory as Category | undefined) ?? 'Passing Yards')
+  const [line, setLine] = useState(initialSelection?.line ?? 199.5)
+  const [direction, setDirection] = useState<Direction>(initialSelection?.direction ?? 'over')
   const [manualOpponent, setManualOpponent] = useState('auto')
   const [nextOpponent, setNextOpponent] = useState('')
   const [licensedUpcoming, setLicensedUpcoming] = useState<Record<string, string>>({})
@@ -127,7 +83,7 @@ export default function NFLResearch({ onUpgrade, onResearchChange }: {
         const collected: RecordRow[] = []
         for (let i = 0; i < games.length; i += 6) {
           const batch = await Promise.all(games.slice(i, i + 6).map(async game => {
-            try { return parseSummary(await json('https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=' + encodeURIComponent(game.id)), game) }
+            try { return parseNFLBoxscore(await json('https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=' + encodeURIComponent(game.id)), game) }
             catch { return [] as RecordRow[] }
           }))
           collected.push(...batch.flat())
