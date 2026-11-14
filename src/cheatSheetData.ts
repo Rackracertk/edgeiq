@@ -28,7 +28,7 @@ export type CheatPick = {
 export type ScheduledGame = {
   id: string
   date: string
-  teams: { id: string; abbreviation: string; name: string }[]
+  teams: { id: string; abbreviation: string; name: string; homeAway?: 'home' | 'away' }[]
 }
 export type Slate = {
   date: string
@@ -87,6 +87,7 @@ function parseGame(event: any): ScheduledGame | null {
     id: String(entry.team?.id ?? entry.id ?? ''),
     abbreviation: String(entry.team?.abbreviation ?? ''),
     name: String(entry.team?.displayName ?? ''),
+    homeAway: entry.homeAway === 'home' || entry.homeAway === 'away' ? entry.homeAway : undefined,
   }))
   if (!event?.id || !event?.date || teams.length !== 2 || teams.some((t: ScheduledGame['teams'][number]) => !t.id || !t.abbreviation)) return null
   return { id: String(event.id), date: String(event.date), teams }
