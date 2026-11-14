@@ -1,32 +1,27 @@
-# React + TypeScript + Vite
+# EDGEIQ Sports Intelligence
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An independent NBA/NFL historical research dashboard built with React, TypeScript and Vite. Existing research UI includes player search, game logs, over/under hit rates and historical defensive comparisons. **This is research, not a forecast of betting outcomes.**
 
-Currently, two official plugins are available:
+## Launch readiness
+- `edgeiq-player-search-fix`: prior locally working NBA/NFL research version.
+- `edgeiq-launch-foundation-2026`: launch work with Supabase Auth, Stripe Checkout/Customer Portal, secure subscription-state database and optional normalized, shared sports data feeds.
+- **No live subscribers, customer accounts, hosted URL or licensed data provider have been connected by committing this code.**
+- Paid Checkout stays off until the verified provider and environment variables are configured. The old browser ESPN path remains available for development/preview when `VITE_RESEARCH_MODE` is unset.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+For complete owner-side setup and acceptance tests, read [docs/LAUNCH.md](docs/LAUNCH.md).
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Local development
+```sh
+npm install
+npm run dev
 ```
+For Windows PowerShell with script execution restrictions: `npm.cmd install` and `npm.cmd run dev`.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Production configuration
+Copy `.env.example` to `.env.local` and insert the Supabase URL and publishable key (never secret/service-role keys in Vite). Until licensed feeds work, leave `VITE_RESEARCH_MODE` unset. See [launch instructions](docs/LAUNCH.md).
+
+```sh
+npm run build
+npm run lint
+npm test
+```

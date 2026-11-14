@@ -1,19 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { NBAPlayerGame } from './analytics/nbaData'
+import { getNBAGamePropValue, type NBAPlayerGame } from './analytics/nbaData'
+import { usingLicensedFeed } from './verifiedFeed'
 
 type Player = { id?: string | number; name?: string; team?: string; position?: string }
 type History = Record<string, (NBAPlayerGame & { gameId?: string; team?: string; position?: string })[]>
-type Props = { selected?: Player; history: History; prop: string }
+type Props = { selected?: Player; history: History; prop: string; nextOpponents?: Record<string, string>; teamLabels?: Record<string, string> }
 
-const statValue = (game: NBAPlayerGame, prop: string) => {
-  if (prop === 'Points') return game.points
-  if (prop === 'Rebounds') return game.rebounds
-  if (prop === 'Assists') return game.assists
-  if (prop === '3-Pointers Made') return game.threes
-  return game.points + game.rebounds + game.assists
-}
-
-export default function NBAOpponentExplorer({ selected, history, prop }: Props) {
+export default function NBAOpponentExplorer({ selected, history, prop, nextOpponents, teamLabels }: Props) {
   const [manualOpponent, setManualOpponent] = useState('auto')
   const [nextOpponent, setNextOpponent] = useState('')
   const [scheduleStatus, setScheduleStatus] = useState('')
@@ -25,8 +18,10 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
       if (!game.gameId || !game.team) return
       if (!byGame.has(game.gameId)) byGame.set(game.gameId, new Map())
       const totals = byGame.get(game.gameId)!
+      const value = getNBAGamePropValue(game, prop)
+      if (value === null) return
       const previous = totals.get(game.team) ?? { total: 0, players: 0 }
-      totals.set(game.team, { total: previous.total + statValue(game, prop), players: previous.players + 1 })
+      totals.set(game.team, { total: previous.total + value, players: previous.players + 1 })
     }))
     const allowed = new Map<string, number[]>()
     byGame.forEach(teams => {
@@ -55,10 +50,12 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
       if (!byGame.has(game.gameId)) byGame.set(game.gameId, new Map())
       const teams = byGame.get(game.gameId)!
       const row = teams.get(game.team) ?? { count: 0, total: 0, positionTotal: 0, positionCount: 0 }
+      const value = getNBAGamePropValue(game, prop)
+      if (value === null) return
       row.count++
-      row.total += statValue(game, prop)
+      row.total += value
       if (game.position?.toUpperCase() === positionFilter) {
-        row.positionTotal += statValue(game, prop)
+        row.positionTotal += value
         row.positionCount++
       }
       teams.set(game.team, row)
@@ -83,6 +80,12 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
     setNextOpponent('')
     setScheduleStatus('')
     if (!selected?.team) return
+    if (usingLicensedFeed) {
+      setNextOpponent(nextOpponents?.[selected.team] ?? '')
+      setTeamNames(teamLabels ?? {})
+      if (!nextOpponents?.[selected.team]) setScheduleStatus('No upcoming opponent supplied by the licensed feed.')
+      return
+    }
     const team = selected.team
     async function load() {
       const names: Record<string, string> = {}
@@ -125,7 +128,7 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
     }
     void load()
     return () => { cancelled = true }
-  }, [selected?.team])
+  }, [selected?.team, nextOpponents, teamLabels])
 
   const opponent = manualOpponent === 'auto' ? nextOpponent : manualOpponent
   const index = rankings.findIndex(row => row.team === opponent)

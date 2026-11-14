@@ -24,6 +24,8 @@ type ESPNPlayerStats = {
   rebounds: number
   assists: number
   threes: number
+  steals?: number
+  blocks?: number
 }
 
 type ESPNPlayerHistory = ESPNPlayerStats & {
@@ -84,6 +86,8 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]): ESPNPlayerStats[]
         return index >= 0 ? parseStat(stats[index]) : null
       }
 
+      const steals = statAt('steals')
+      const blocks = statAt('blocks')
       const points = statAt('points')
       const rebounds = statAt('rebounds')
       const assists = statAt('assists')
@@ -105,6 +109,8 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]): ESPNPlayerStats[]
         rebounds,
         assists,
         threes,
+        ...(steals !== null ? { steals } : {}),
+        ...(blocks !== null ? { blocks } : {}),
       }]
     })
   })
