@@ -77,3 +77,6 @@ The first `npm install` updates `package-lock.json` for the new Supabase client 
 
 ## Premium insights
 The authenticated `pro-insights` Edge Function verifies active billing status server-side and calculates NBA/NFL season, L5/L10/L20, home/away and opponent breakdowns from the licensed snapshots. It never accepts stat totals or access flags from the client. Set NFL feed row `opponent` and `homeAway` when available to populate those splits; absent fields appear as unavailable. Test Pro vs Free access with different test users before enabling checkout.
+
+## Upcoming opponents in licensed mode
+Provide an optional `nextOpponents` mapping on both league feeds (team name/abbreviation as used by the player records → opponent name), plus optional NBA `teamAbbreviations`. In licensed mode, schedules must come from the approved feed, never ESPN directly. Without this mapping, the dashboard shows “No upcoming opponent supplied” rather than inventing a matchup.

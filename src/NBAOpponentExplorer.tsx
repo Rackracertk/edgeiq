@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { NBAPlayerGame } from './analytics/nbaData'
+import { usingLicensedFeed } from './verifiedFeed'
 
 type Player = { id?: string | number; name?: string; team?: string; position?: string }
 type History = Record<string, (NBAPlayerGame & { gameId?: string; team?: string; position?: string })[]>
-type Props = { selected?: Player; history: History; prop: string }
+type Props = { selected?: Player; history: History; prop: string; nextOpponents?: Record<string, string>; teamLabels?: Record<string, string> }
 
 const statValue = (game: NBAPlayerGame, prop: string) => {
   if (prop === 'Points') return game.points
@@ -13,7 +14,7 @@ const statValue = (game: NBAPlayerGame, prop: string) => {
   return game.points + game.rebounds + game.assists
 }
 
-export default function NBAOpponentExplorer({ selected, history, prop }: Props) {
+export default function NBAOpponentExplorer({ selected, history, prop, nextOpponents, teamLabels }: Props) {
   const [manualOpponent, setManualOpponent] = useState('auto')
   const [nextOpponent, setNextOpponent] = useState('')
   const [scheduleStatus, setScheduleStatus] = useState('')
@@ -83,6 +84,12 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
     setNextOpponent('')
     setScheduleStatus('')
     if (!selected?.team) return
+    if (usingLicensedFeed) {
+      setNextOpponent(nextOpponents?.[selected.team] ?? '')
+      setTeamNames(teamLabels ?? {})
+      if (!nextOpponents?.[selected.team]) setScheduleStatus('No upcoming opponent supplied by the licensed feed.')
+      return
+    }
     const team = selected.team
     async function load() {
       const names: Record<string, string> = {}
@@ -125,7 +132,7 @@ export default function NBAOpponentExplorer({ selected, history, prop }: Props) 
     }
     void load()
     return () => { cancelled = true }
-  }, [selected?.team])
+  }, [selected?.team, nextOpponents, teamLabels])
 
   const opponent = manualOpponent === 'auto' ? nextOpponent : manualOpponent
   const index = rankings.findIndex(row => row.team === opponent)

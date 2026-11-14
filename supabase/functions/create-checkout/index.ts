@@ -12,6 +12,9 @@ Deno.serve(async (req: Request) => {
   if (req.method !== 'POST') return respond(req, { error: 'Method not allowed' }, 405)
   try {
     if (Deno.env.get('SPORTS_LICENSE_APPROVED') !== 'true') throw new Error('Subscriptions are not available until licensed research data is enabled')
+    const feeds = await adminRequest('sports_cache?select=sport,refreshed_at') as Array<{sport: string; refreshed_at: string}>
+    const fresh = feeds.filter(row => Date.now() - Date.parse(row.refreshed_at) < 24 * 60 * 60 * 1000).map(row => row.sport)
+    if (!fresh.includes('NBA') || !fresh.includes('NFL')) throw new Error('Research feed is not ready for billing')
     const user = await authorizedUser(req)
     const payload = await req.json()
     const plan = typeof payload.plan === 'string' ? payload.plan : ''

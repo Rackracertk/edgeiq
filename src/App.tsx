@@ -24,6 +24,8 @@ const sports = [
 function App() {
   const [players, setPlayers] = useState<ReturnType<typeof extractNBAPlayerStats>>([])
   const [history, setHistory] = useState<ReturnType<typeof buildNBAPlayerHistory>>({})
+  const [nbaUpcoming, setNbaUpcoming] = useState<Record<string, string>>({})
+  const [nbaTeamLabels, setNbaTeamLabels] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [query, setQuery] = useState('')
@@ -42,10 +44,14 @@ function App() {
           const feed = await getVerifiedFeed<{
             players: ReturnType<typeof extractNBAPlayerStats>
             history: ReturnType<typeof buildNBAPlayerHistory>
+            nextOpponents?: Record<string, string>
+            teamAbbreviations?: Record<string, string>
           }>('NBA')
           if (!cancelled) {
             setPlayers(feed.data.players)
             setHistory(feed.data.history)
+            setNbaUpcoming(feed.data.nextOpponents ?? {})
+            setNbaTeamLabels(feed.data.teamAbbreviations ?? {})
             if (feed.stale) setError('Verified NBA feed is more than an hour old. Last updated ' + new Date(feed.refreshedAt).toLocaleString())
           }
           return
@@ -163,7 +169,7 @@ function App() {
             {periods.map((period) => { const count = Number(period.slice(1)); const stats = selected ? periodStats(count) : null; const recentValues = values.slice(0, count); return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES <span className="metric-mark">↗</span></div><div className="metric-value">{selected ? format(rates[period]) : '—'}</div><div className="metric-sub">{!selected ? 'Select a player to begin' : stats ? `${stats.hitCount} of ${count} games hit · ${direction.toUpperCase()} ${line}` : `Only ${values.length} of ${count} games available`}</div><div className="metric-track" role="img" aria-label={stats ? `${stats.hitCount} hits in ${count} games` : `Only ${recentValues.length} valid games available`} style={{ display: 'flex', gap: '3px', background: 'transparent', overflow: 'visible' }}>{recentValues.map((value, i) => <span key={i} className={value === line ? 'trend-push' : hits(value) ? 'trend-hit' : 'trend-miss'} />)}</div></div> })}
             <div className="metric gold-metric"><div className="metric-label">LAST 10 AVG <span className="metric-mark">◎</span></div><div className="metric-value">{selected && average !== null ? average : '—'}</div><div className="metric-sub">{selected ? `${prop} average · ${Math.min(10, values.length)} available games` : 'Awaiting selection'}</div><div className="metric-track gold-track"><span style={{ width: average === null ? '0%' : '100%' }} /></div></div>
           </div>
-          <NBAOpponentExplorer selected={selected} history={history} prop={prop} />
+          <NBAOpponentExplorer selected={selected} history={history} prop={prop} nextOpponents={nbaUpcoming} teamLabels={nbaTeamLabels} />
           <ProInsights sport="NBA" playerId={selected ? String(selected.id) : null} playerName={selected?.name} prop={prop} line={line} direction={direction} onUpgrade={() => setActiveTab('pricing')} />
           <div className="details-grid">
             <section className="panel"><div className="panel-title"><div><span className="eyebrow">RECENT PERFORMANCE</span><h3>Game-by-game trend</h3></div><span className="small-tag">{prop}</span></div>

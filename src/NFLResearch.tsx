@@ -71,6 +71,7 @@ export default function NFLResearch({ onUpgrade }: { onUpgrade: () => void }) {
   const [direction, setDirection] = useState<Direction>('over')
   const [manualOpponent, setManualOpponent] = useState('auto')
   const [nextOpponent, setNextOpponent] = useState('')
+  const [licensedUpcoming, setLicensedUpcoming] = useState<Record<string, string>>({})
   const [scheduleStatus, setScheduleStatus] = useState('')
 
   useEffect(() => {
@@ -78,9 +79,10 @@ export default function NFLResearch({ onUpgrade }: { onUpgrade: () => void }) {
     async function load() {
       try {
         if (usingLicensedFeed) {
-          const feed = await getVerifiedFeed<{ rows: RecordRow[] }>('NFL')
+          const feed = await getVerifiedFeed<{ rows: RecordRow[]; nextOpponents?: Record<string, string> }>('NFL')
           if (!cancelled) {
             setRows(feed.data.rows)
+            setLicensedUpcoming(feed.data.nextOpponents ?? {})
             if (feed.stale) setError('Verified NFL feed is more than an hour old. Last updated ' + new Date(feed.refreshedAt).toLocaleString())
           }
           return
@@ -149,6 +151,11 @@ export default function NFLResearch({ onUpgrade }: { onUpgrade: () => void }) {
     setNextOpponent('')
     setScheduleStatus('')
     if (!selected?.team) return
+    if (usingLicensedFeed) {
+      setNextOpponent(licensedUpcoming[selected.team] ?? '')
+      if (!licensedUpcoming[selected.team]) setScheduleStatus('No upcoming opponent supplied by the licensed feed.')
+      return
+    }
     async function loadNextOpponent() {
       try {
         const today = new Date()
@@ -182,7 +189,7 @@ export default function NFLResearch({ onUpgrade }: { onUpgrade: () => void }) {
     }
     void loadNextOpponent()
     return () => { cancelled = true }
-  }, [selected?.team])
+  }, [selected?.team, licensedUpcoming])
   const suggestions = query && !selected ? players.filter(player => player.name.toLowerCase().includes(query.toLowerCase())).slice(0, 8) : []
   const history = Array.from(new Map(rows.filter(row => row.playerId === playerId && category in row.stats).map(row => [row.gameId, row])).values()).sort((a, b) => b.date.localeCompare(a.date))
   const values = history.map(row => row.stats[category])
