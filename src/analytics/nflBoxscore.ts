@@ -16,6 +16,14 @@ export const NFL_PROP_CATEGORIES = [
   'Sacks',
 ] as const
 
+export function defaultNFLLine(category: string): number {
+  if (category === 'Interceptions Thrown' || category === 'Sacks' || category === 'Passing TDs' || category === 'Receiving TDs') return 0.5
+  if (category === 'Rushing Attempts') return 14.5
+  if (category === 'Receptions') return 4.5
+  if (category === 'Rushing Yards' || category === 'Receiving Yards') return 49.5
+  return 199.5
+}
+
 function normalized(value: unknown): string {
   return String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 }
