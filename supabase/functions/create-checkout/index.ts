@@ -1,10 +1,13 @@
 import { adminRequest, authorizedUser, preflight, publicError, requireEnv, respond, stripe } from '../_shared/core.ts'
 
-const plans: Record<string, string> = {
-  weekly: 'STRIPE_PRICE_WEEKLY',
-  monthly: 'STRIPE_PRICE_MONTHLY',
-  annual: 'STRIPE_PRICE_ANNUAL',
-}
+// Stripe Price IDs are public identifiers (not API keys). These belong to
+// EDGEIQ's Stripe sandbox. Live prices must be explicitly configured via
+// Supabase Edge Function secrets before real-money checkout is enabled.
+const plans = {
+  weekly: { env: 'STRIPE_PRICE_WEEKLY', sandbox: 'price_1Ubg69HRolmIleTC6sG2cwXk' },
+  monthly: { env: 'STRIPE_PRICE_MONTHLY', sandbox: 'price_1UbgB6HRolmIleTCFkuOOqxw' },
+  annual: { env: 'STRIPE_PRICE_ANNUAL', sandbox: 'price_1UbgB6HRolmIleTCEGBzSXZ1' },
+} as const
 
 Deno.serve(async (req: Request) => {
   const blocked = preflight(req)
@@ -19,7 +22,12 @@ Deno.serve(async (req: Request) => {
     const payload = await req.json()
     const plan = typeof payload.plan === 'string' ? payload.plan : ''
     if (!Object.hasOwn(plans, plan)) throw new Error('Invalid plan')
-    const price = requireEnv(plans[plan])
+    const selectedPlan = plans[plan as keyof typeof plans]
+    const stripeSecret = requireEnv('STRIPE_SECRET_KEY')
+    const sandbox = stripeSecret.startsWith('sk_test_') || stripeSecret.startsWith('rk_test_')
+    const price = Deno.env.get(selectedPlan.env) || (sandbox ? selectedPlan.sandbox : '')
+    // Never silently reuse a sandbox Price ID in live Stripe mode.
+    if (!price) throw new Error('Stripe price is not configured for live billing')
     const appUrl = requireEnv('APP_URL').replace(/\/$/, '')
     const rows = await adminRequest('subscriptions?user_id=eq.' + encodeURIComponent(user.id) + '&select=stripe_customer_id,status,current_period_end') as Array<{
       stripe_customer_id: string | null; status: string; current_period_end: string | null
