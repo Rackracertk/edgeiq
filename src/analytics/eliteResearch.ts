@@ -1,6 +1,6 @@
-import { getNBAGamePropValue, type NBAPlayerGame } from './nbaData'
-import type { NFLHistoryRow } from './nflBoxscore'
-import type { CheatPick, CheatSport, Slate } from '../cheatSheetData'
+import { getNBAGamePropValue, type NBAPlayerGame } from './nbaData.ts'
+import type { NFLHistoryRow } from './nflBoxscore.ts'
+import type { CheatPick, CheatSport, Slate } from '../cheatSheetData.ts'
 
 // Observed frequencies from completed games, never forecasts or guaranteed chances.
 export type EvidenceRate = { hits: number; games: number; percentage: number }
