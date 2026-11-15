@@ -1,0 +1,38 @@
+name: EDGEIQ feed connectivity preflight
+
+on:
+  push:
+    paths:
+      - '.github/workflows/edgeiq-feed-connectivity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify NBA and NFL scoreboards are accessible
+        run: |
+          node --input-type=module <<'NODE'
+          const endpoints=[
+            ['nba','https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20261114'],
+            ['nfl','https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261115'],
+            ['nba-summary','https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401704667']
+          ]
+          let failures=0
+          for(const [name,url] of endpoints){
+            try {
+              const result=await fetch(url,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(13000)})
+              const text=await result.text()
+              console.log(name+': '+result.status+' JSON='+text.trim().startsWith('{')+' length='+text.length)
+              if(!result.ok || !text.trim().startsWith('{'))failures++
+            }catch(e){failures++;console.log(name+': ERROR '+String(e))}
+          }
+          if(failures)process.exitCode=1
+          NODE
