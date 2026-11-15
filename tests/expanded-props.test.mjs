@@ -50,7 +50,12 @@ test('NFL does not invent missing statistics', () => {
   const rows = parseNFLBoxscore({ boxscore: { players: [{ team: { abbreviation: 'DAL' }, statistics: [
     { name: 'defensive', labels: ['TOT'], athletes: [{ athlete: { id: '11', displayName: 'Defender' }, stats: ['4'] }] }
   ] }] } }, { id: '1', date: '2026-11-11' })
-  assert.deepEqual(rows, [])
+  // TOT is a real tackles field, but it must NOT generate unrelated sacks or props.
+  assert.equal(rows.length, 1)
+  assert.equal(rows[0].stats['Tackles'], 4)
+  assert.equal(rows[0].stats['Sacks'], undefined)
+  assert.equal(rows[0].stats['Interceptions Thrown'], undefined)
+  assert.equal(rows[0].stats['Solo Tackles'], undefined)
 })
 
 test('ESPN NBA boxscore parser retains steals and blocks', () => {
