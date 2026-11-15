@@ -1,4 +1,3 @@
-import { createClient } from 'npm:@supabase/supabase-js@2.70.0'
 const CRON_KEY_SHA256='19216d307f28f435f54ef4327e3ab56c73cd027c9fff297ffba8d2299db6a1ee'
 const SOURCES={NBA:'basketball/nba',NFL:'football/nfl'}
 type Sport='NBA'|'NFL'
@@ -65,7 +64,6 @@ Deno.serve(async(req:Request)=>{
  const url=Deno.env.get('SUPABASE_URL')??''
  const service=Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')??''
  if(!url||!service)return new Response('Service configuration unavailable',{status:503})
- const db=createClient(url,service,{auth:{persistSession:false,autoRefreshToken:false}})
  const today=todayET()
  const results:any[]=[]
  for(const sport of ['NBA','NFL'] as Sport[]){
@@ -87,11 +85,19 @@ Deno.serve(async(req:Request)=>{
      const response=await fetchESPN(sport,'/scoreboard?dates='+date.replaceAll('-','')+'&limit=100')
      const games=parseGames(response)
      if(!games.length)return
-     const {error}=await db.from('edgeiq_slate_snapshots').upsert({
-       sport,slate_date:date,games,injuries,injuries_available:injuriesAvailable,
-       source_status:injuriesAvailable?'ok':'injuries_unavailable',generated_at:new Date().toISOString()
-     },{onConflict:'sport,slate_date'})
-     if(error)throw error
+     const upsert=await fetch(url.replace(/\/$/,'')+'/rest/v1/edgeiq_slate_snapshots?on_conflict=sport,slate_date',{
+       method:'POST',
+       headers:{
+         'Content-Type':'application/json',
+         apikey:service,Authorization:'Bearer '+service,
+         Prefer:'resolution=merge-duplicates,return=minimal',
+       },
+       body:JSON.stringify({
+         sport,slate_date:date,games,injuries,injuries_available:injuriesAvailable,
+         source_status:injuriesAvailable?'ok':'injuries_unavailable',generated_at:new Date().toISOString()
+       })
+     })
+     if(!upsert.ok)throw Error('Snapshot write HTTP '+upsert.status)
      saved++
     }catch(e){failed++;console.warn('Slate unavailable',sport,date,String(e))}
    }))
