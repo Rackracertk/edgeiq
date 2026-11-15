@@ -1,6 +1,6 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
-import { buildNBAPicks, buildNFLPicks } from '../src/cheatSheetData.ts'
+import { buildNBAPicks, buildNFLPicks, applyCurrentNBARosters } from '../src/cheatSheetData.ts'
 import { enrichElitePicks } from '../src/analytics/eliteResearch.ts'
 import { extractNBAPlayerStats } from '../src/analytics/espnData.ts'
 import { parseNFLBoxscore } from '../src/analytics/nflBoxscore.ts'
@@ -217,7 +217,7 @@ async function currentRosters(sport, events, slates) {
   const missingMapped=[...needed].filter(id=>!teamsWithData.has(id))
   if(missingMapped.length)throw Error(sport+' roster assignments incomplete: '+missingMapped.join(','))
   const count=Object.keys(all).length
-  if(count < (sport==='NFL'?350:150))throw Error(sport+' roster coverage inadequate: '+count)
+  if(count < 10*needed.size)throw Error(sport+' roster coverage inadequate: '+count)
   console.log('CURRENT ROSTER',sport,'team count',complete.length,'athletes',count,
     'conflicts removed',collisions.size,'Kirk Cousins',
     JSON.stringify(Object.entries(all).filter(([,a])=>a.name==='Kirk Cousins').map(([id,a])=>({id,team:a.team}))))
@@ -314,11 +314,7 @@ async function run() {
   ])
   // Retain historical stat values (including pre-trade games), but assign
   // each athlete to the CURRENT roster before joining an upcoming slate.
-  nbaData.players=nbaData.players.flatMap(player=>{
-    const active=nbaRoster[String(player.id)]
-    return active ? [{...player,team:active.teamName,teamId:active.teamId,
-      position:active.position||player.position}] : []
-  })
+  nbaData.players=applyCurrentNBARosters(nbaData.players,nbaRoster)
   const nflPositionsMap=Object.fromEntries(Object.entries(nflRoster)
     .map(([id,player])=>[id,player.position]))
   const nflData=nflSlates.length?await nflHistory(cache,nflEvents,nflPositionsMap):{rows:[],completedGames:0}
