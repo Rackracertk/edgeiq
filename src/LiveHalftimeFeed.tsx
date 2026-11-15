@@ -20,7 +20,9 @@ const show = (n: number | null | undefined) => n === null || n === undefined ? '
 const dateET = (shift: number) => {
   const date = new Date()
   date.setUTCDate(date.getUTCDate() + shift)
-  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).format(date).replace(/\D/g, '')
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(date)
+  const field = (type: string) => parts.find(p => p.type === type)?.value ?? ''
+  return field('year') + field('month') + field('day')
 }
 async function getJson(url: string, signal: AbortSignal): Promise<any> {
   const response = await fetch(url, { signal, cache: 'no-store' })
