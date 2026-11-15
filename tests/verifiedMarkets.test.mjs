@@ -33,7 +33,7 @@ test('exact line, event, athlete, and prop are mandatory', () => {
 test('deduplicates sportsbook records and selects best current odds', () => {
   const result=verifyPickMarkets(pick,'401',[
     base,{...base,observedAt:'2026-11-15T14:56:00Z',underOdds:110},
-    {...base,sportsbook:'OtherBook',underOdds:125},
+    {...base,sportsbook:'OtherBook',overOdds:-150,underOdds:125},
   ],now)
   assert.equal(result.sportsbookCount,2)
   assert.equal(result.bestOdds,125)
