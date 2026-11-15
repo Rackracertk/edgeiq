@@ -50,5 +50,19 @@ jobs:
             }
             console.log('NBA ROSTER',team,response.status,athletes.length,JSON.stringify(distribution),JSON.stringify(athletes.slice(0,2).map(x=>({id:x.id,name:x.displayName,pos:x.position?.abbreviation}))))
           }
+          for(const url of ['https://edgeiqstats.com/edgeiq-daily.json','https://edgeiqstats.com/edgeiq-nba-history.json']) {
+            try {
+              const response=await fetch(url,{signal:AbortSignal.timeout(15000)})
+              const data=await response.text()
+              let detail=''
+              if(response.ok) {
+                try {
+                  const parsed=JSON.parse(data)
+                  detail='generatedAt='+parsed.generatedAt+' players='+(parsed.players?.length??0)+' nbaBoards='+(parsed.boards?.NBA?.length??0)
+                }catch {detail='invalid JSON'}
+              }
+              console.log('LIVE WEBSITE:',url,response.status,'bytes='+data.length,detail)
+            }catch(error){console.log('LIVE WEBSITE:',url,'ERROR',String(error))}
+          }
           console.log('TODAY BOARDS:',JSON.stringify(Object.entries(feed.boards).map(([sport,boards])=>({sport,boards:boards.map(b=>({date:b.date,matchupBacked:b.picks.filter(x=>x.defense).length}))}))))
           NODE
