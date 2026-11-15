@@ -5,10 +5,24 @@ import {
   buildNBAPicks, buildNFLPicks, loadNFLHistory,
   type CheatPick, type CheatSport, type NFLHistoryRow, type Slate,
 } from './cheatSheetData'
-import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, type InjuryData } from './analytics/injuryCenter'
-import { americanOddsBreakEven, enrichElitePicks } from './analytics/eliteResearch'
+import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, type InjuryData } from './analytics/injuryCenter'
+import { americanOddsBreakEven, enrichElitePicks, type ElitePick } from './analytics/eliteResearch'
 import './DailyCheatSheet.css'
 
+type PublishedBoard = Slate & {
+  report: InjuryData
+  picks: ElitePick[]
+  generatedAt: string
+  sourceCompleteness: 'COMPLETE' | 'PARTIAL'
+  historicalGames: number
+}
+type DailyPublication = {
+  schemaVersion: 1
+  generatedAt: string
+  publishedDateET: string
+  dataStatus: 'OK' | 'PARTIAL'
+  boards: Record<'NBA' | 'NFL', PublishedBoard[]>
+}
 type Props = {
   nbaPlayers: { id: string; name: string; team: string; teamId: string; position?: string }[]
   nbaHistory: Record<string, NBAPlayerGame[]>
@@ -30,6 +44,8 @@ export default function DailyCheatSheet({
   const [sport, setSport] = useState<CheatSport>('NBA')
   const [advance, setAdvance] = useState<'today' | 'tomorrow'>('today')
   const [slates, setSlates] = useState<Record<string, Slate>>({})
+  const [publication, setPublication] = useState<DailyPublication | null>(null)
+  const [publicationStatus, setPublicationStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading')
   const [reports, setReports] = useState<Record<string, InjuryData>>({})
   const [nflRows, setNflRows] = useState<NFLHistoryRow[]>([])
   const [nflPartial, setNflPartial] = useState(false)
@@ -45,7 +61,46 @@ export default function DailyCheatSheet({
   const [copyStatus, setCopyStatus] = useState('')
 
   const key = sport + ':' + advance
+
   useEffect(() => {
+    let cancelled = false
+    async function loadPublished() {
+      try {
+        const response = await fetch('/edgeiq-daily.json?updated=' + Date.now(), { cache: 'no-store' })
+        if (!response.ok) throw Error('Published research unavailable')
+        const feed = await response.json() as DailyPublication
+        if (feed.schemaVersion !== 1 || !feed.boards || !Number.isFinite(Date.parse(feed.generatedAt))) {
+          throw Error('Published research was not validated')
+        }
+        if (!cancelled) { setPublication(feed); setPublicationStatus('ready') }
+      } catch {
+        if (!cancelled) { setPublication(null); setPublicationStatus('unavailable') }
+      }
+    }
+    void loadPublished()
+    const interval = window.setInterval(() => void loadPublished(), 10 * 60 * 1000)
+    const onFocus = () => void loadPublished()
+    window.addEventListener('focus', onFocus)
+    return () => { cancelled = true; window.clearInterval(interval); window.removeEventListener('focus', onFocus) }
+  }, [])
+
+  const publishedBoard = useMemo<PublishedBoard | undefined>(() => {
+    if (!publication || Date.now() - Date.parse(publication.generatedAt) > 18 * 60 * 60 * 1000) return undefined
+    const today = easternDate(new Date()).replaceAll('-', '')
+    const boards = publication.boards?.[sport] ?? []
+    const eligible = boards.filter(board => board.date >= today && Array.isArray(board.games))
+    const board = advance === 'tomorrow'
+      ? eligible.find(item => item.date > today)
+      : eligible.find(item => item.games.some(game => Date.parse(game.date) > Date.now()))
+    if (!board) return undefined
+    return { ...board,
+      games: board.games.filter(game => Date.parse(game.date) > Date.now()),
+      picks: board.picks.filter(pick => Date.parse(pick.gameTime) > Date.now()),
+    }
+  }, [publication, sport, advance, retry])
+
+  useEffect(() => {
+    if (publicationStatus === 'loading' || publishedBoard) return
     let cancelled = false
     const currentKey = sport + ':' + advance
     async function load() {
@@ -72,7 +127,7 @@ export default function DailyCheatSheet({
     }
     void load()
     return () => { cancelled = true }
-  }, [sport, advance, retry])
+  }, [sport, advance, retry, publicationStatus, publishedBoard])
   useEffect(() => {
     const interval = window.setInterval(() => setRetry(value => value + 1), 10 * 60 * 1000)
     const onFocus = () => setRetry(value => value + 1)
@@ -80,20 +135,21 @@ export default function DailyCheatSheet({
     return () => { window.clearInterval(interval); window.removeEventListener('focus', onFocus) }
   }, [])
 
-  const slate = slates[key]
-  const report = reports[key]
+  const slate = publishedBoard ?? slates[key]
+  const report = publishedBoard?.report ?? reports[key]
   const reportAvailable = report?.available === true
   const excluded = (playerId: string, player: string, team: string, teamId: string) =>
     shouldExcludeInjury(findInjury(report?.injuries ?? [], playerId, player, team, teamId))
   const picks = useMemo(() => {
     if (!slate?.games.length) return []
+    if (publishedBoard) return publishedBoard.picks
     const unavailable = (id: string, name: string, team: string, teamId: string) =>
       shouldExcludeInjury(findInjury(report?.injuries ?? [], id, name, team, teamId))
     const candidates = sport === 'NBA'
       ? buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined)
       : buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined)
     return enrichElitePicks(candidates, sport, slate, nbaHistory, nflRows, nbaPlayers)
-  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable])
+  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable, publishedBoard])
   useEffect(() => {
     if (!reportAvailable) return
     setSelectedPicks(current => current.filter(pick => Date.parse(pick.gameTime) > Date.now() &&
@@ -113,8 +169,8 @@ export default function DailyCheatSheet({
   )
   const visible = showAll ? filtered : filtered.slice(0, 12)
   const selected = selectedPicks
-  const isBusy = loadingKey === key || (sport === 'NBA' && nbaLoading)
-  const displayError = errors[key] || (sport === 'NBA' ? nbaError : '')
+  const isBusy = publicationStatus === 'loading' || (!publishedBoard && (loadingKey === key || (sport === 'NBA' && nbaLoading)))
+  const displayError = publishedBoard ? '' : errors[key] || (sport === 'NBA' ? nbaError : '')
   const noGames = !!slate && slate.games.length === 0
 
   function switchSport(value: CheatSport) {
@@ -172,6 +228,16 @@ export default function DailyCheatSheet({
     <section className="panel" style={{ display: 'flex', alignItems: 'center', gap: 16, justifyContent: 'space-between', padding: 18, flexWrap: 'wrap', marginBottom: 16 }}>
       <div><span className="eyebrow gold">NEW · GAME MARKETS</span><h3 style={{ margin: '6px 0 0' }}>NBA & NFL moneylines, spreads, totals and win chances</h3></div>
       <button className="cta" onClick={onMarkets}>Explore game lines ↗</button>
+    </section>
+    <section className={publishedBoard ? 'cheat-publish-live' : 'cheat-publish-fallback'} role="status">
+      <strong>{publishedBoard ? '✓ Published automatically — unattended daily research' :
+        publicationStatus === 'loading' ? 'Checking automated research publication…' :
+        'Automatic research unavailable — browser fallback in use'}</strong>
+      <span>{publishedBoard ? 'Updated ' + new Date(publishedBoard.generatedAt).toLocaleString('en-US', {
+        timeZone: 'America/New_York', month:'short', day:'numeric',hour:'numeric',minute:'2-digit',
+      }) + ' ET · ' + publishedBoard.historicalGames + ' completed games in source history' +
+        (publishedBoard.sourceCompleteness === 'PARTIAL' ? ' · Partial source coverage' : '') :
+        'This browser will try recent completed game logs. Automatic publishing may be delayed or unverified.'}</span>
     </section>
     <div className="cheat-info" role="note">
       <strong>90–100% here means observed past results, NOT the probability of a future bet winning.</strong> Lines are research thresholds, not verified sportsbook offerings. The Research Score ranks available evidence, not expected profit or a calibrated forecast. Position allowances require enough completed matchup data; missing data is explicitly marked. Injury screening only applies when its source is reachable.
