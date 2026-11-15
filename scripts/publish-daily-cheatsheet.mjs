@@ -141,7 +141,7 @@ async function nbaHistory(cache) {
       return Array.isArray(result.events)?result.events:[]
     }catch(error){ failures.push(String(error)); return [] }
   })
-  const completed=uniqueEvents(fetched.filter(e=>completedEvent(e,'NBA')))
+  const completed=uniqueEvents(fetched.flat().filter(e=>completedEvent(e,'NBA')))
   const missing=completed.filter(game=>!cache.nba[String(game.id)])
   const incoming=await batches(missing,6,async game=>{
     try {
@@ -233,7 +233,7 @@ async function run() {
     const data=await getJson('NFL','/scoreboard?dates='+CURRENT_NFL_SEASON+'&seasontype=2&limit=300')
     nflEvents=Array.isArray(data.events)?data.events:[]
   }catch(error){failures.push(String(error))}
-  const nbaSlates=getBoards(nbaFuture,'NBA')
+  const nbaSlates=getBoards(nbaFuture.flat(),'NBA')
   const nflSlates=getBoards(nflEvents,'NFL')
   const [nbaReport,nflReport]=await Promise.all([injuries('NBA'),injuries('NFL')])
   const nbaData=nbaSlates.length?await nbaHistory(cache):{history:{},players:[],completedGames:0}
