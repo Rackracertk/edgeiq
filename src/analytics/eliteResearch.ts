@@ -175,10 +175,10 @@ export function enrichElitePicks(
   const maxPlayer = fullBoard ? 5 : 3
   const maxTeam = fullBoard ? 22 : 12
   const maxStat = fullBoard ? 24 : 12
-  const select = (pick: ElitePick): boolean => {
+  const select = (pick: ElitePick, coverage = false): boolean => {
     const athlete = pick.sport + ':' + pick.playerId
     if (chosen.length >= maxPicks || seen.has(pick.id) ||
-        (athleteCounts.get(athlete) ?? 0) >= maxPlayer ||
+        (athleteCounts.get(athlete) ?? 0) >= (coverage ? Math.max(maxPlayer, 18) : maxPlayer) ||
         (teamCounts.get(pick.team) ?? 0) >= maxTeam ||
         (statCounts.get(pick.category) ?? 0) >= maxStat) return false
     chosen.push(pick)
@@ -196,12 +196,22 @@ export function enrichElitePicks(
   const nflPriority = ['Passing Yards','Rushing Yards','Receiving Yards','Receptions',
     'Rushing Attempts','Passing TDs','Receiving TDs','Interceptions Thrown','Sacks']
   const priority = sport === 'NBA' ? nbaPriority : nflPriority
-  for (let round = 0; round < (fullBoard ? 3 : 2); round++) {
-    for (const category of priority) for (const direction of ['over','under'] as const) {
-      const group = ranked.filter(pick => pick.category === category && pick.direction === direction)
-      for (const pick of group) if (select(pick)) break
-    }
+  // Lead with one top-researched observation per available stat family.
+  // Then make room for both sides, without inventing missing markets.
+  for (const category of priority) {
+    for (const pick of ranked.filter(item => item.category === category))
+      if (select(pick, true)) break
   }
+  for (const category of priority) for (const direction of ['over','under'] as const) {
+    if (chosen.some(pick => pick.category === category && pick.direction === direction)) continue
+    for (const pick of ranked.filter(item => item.category === category && item.direction === direction))
+      if (select(pick, true)) break
+  }
+  for (let round = 0; round < (fullBoard ? 2 : 1); round++)
+    for (const category of priority) for (const direction of ['over','under'] as const) {
+      const group = ranked.filter(item => item.category === category && item.direction === direction)
+      for (const pick of group) if (select(pick, true)) break
+    }
   for (const pick of ranked) select(pick)
   return chosen
 }
