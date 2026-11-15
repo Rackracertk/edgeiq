@@ -92,7 +92,7 @@ export const injurySourceUrl = (sport: CheatSport) => sport === 'NBA'
   ? 'https://official.nba.com/nba-injury-report-2026-27-season/'
   : 'https://www.nfl.com/injuries/'
 
-async function loadDirectInjuries(sport: CheatSport): Promise<InjuryData> {
+export async function loadDirectInjuries(sport: CheatSport): Promise<InjuryData> {
   const path = sport === 'NBA' ? 'basketball/nba' : 'football/nfl'
   const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/' + path + '/injuries', {
     cache: 'no-store',
@@ -153,4 +153,22 @@ export async function loadInjuryAwareSlate(sport: CheatSport, advance: 'today' |
     }
   }
   return {slate,report,generatedAt:new Date().toISOString()}
+}
+
+export async function loadInjuryReport(sport: CheatSport): Promise<InjuryData> {
+  try { return await loadDirectInjuries(sport) }
+  catch (error) {
+    const rows = await fetchSnapshots(sport, easternDate(new Date()))
+    const recent = rows.find(row => row.injuries_available === true && Array.isArray(row.injuries) &&
+      Date.now() - Date.parse(String(row.generated_at)) < 2*60*60*1000)
+    if (recent) return {
+      injuries: recent.injuries as InjuryReport[], available: true,
+      checkedAt: String(recent.generated_at), source: 'EDGEIQ injury snapshot',
+    }
+    return {
+      injuries: [], available: false, checkedAt: new Date().toISOString(),
+      source: 'Unavailable',
+      error: error instanceof Error ? error.message : 'Injury feed unavailable',
+    }
+  }
 }
