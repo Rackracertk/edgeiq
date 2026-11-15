@@ -168,7 +168,32 @@ async function nbaHistory(cache) {
   }))
   return {history,players,completedGames:Object.keys(cache.nba).length}
 }
-async function nflHistory(cache, events) {
+async function nflPositions(cache, events) {
+  if(cache.lastNFLRosterET===TODAY && Object.keys(cache.nflPositions??{}).length)
+    return cache.nflPositions
+  const teams=new Map()
+  for(const event of events)for(const team of parsedTeams(event)??[])
+    teams.set(team.id,team)
+  const entries=await batches([...teams.values()],6,async team=>{
+    try {
+      const data=await getJson('NFL','/teams/'+encodeURIComponent(team.id)+'/roster')
+      if(!Array.isArray(data.athletes))throw Error('NFL roster shape unavailable')
+      const players=data.athletes.flatMap(group=>Array.isArray(group.items)?group.items:[])
+      return players.flatMap(athlete=>{
+        const position=String(athlete.position?.abbreviation??'').toUpperCase()
+        const id=String(athlete.id??'')
+        return id&&position?[[id,position]]:[]
+      })
+    }catch(error){failures.push('NFL roster '+team.abbreviation+': '+String(error));return []}
+  })
+  const mapped=Object.fromEntries(entries.flat())
+  if(Object.keys(mapped).length > 100){
+    cache.nflPositions=mapped
+    cache.lastNFLRosterET=TODAY
+  }
+  return Object.keys(mapped).length?mapped:cache.nflPositions??{}
+}
+async function nflHistory(cache, events, positions) {
   const completed=uniqueEvents(events.filter(e=>completedEvent(e,'NFL')))
   const missing=completed.filter(game=>!cache.nfl[String(game.id)])
   const incoming=await batches(missing,6,async event=>{
@@ -186,7 +211,10 @@ async function nflHistory(cache, events) {
     if(!stored?.date || !eastDate(new Date(stored.date)).startsWith(String(CURRENT_NFL_SEASON)))
       delete cache.nfl[key]
   }
-  return {rows:Object.values(cache.nfl).flatMap(game=>game.rows??[]),completedGames:Object.keys(cache.nfl).length}
+  const rows=Object.values(cache.nfl).flatMap(game=>game.rows??[]).map(row=>({
+    ...row,position:row.position||positions[row.playerId]||'',
+  }))
+  return {rows,completedGames:Object.keys(cache.nfl).length}
 }
 async function injuries(sport) {
   try {
@@ -237,7 +265,8 @@ async function run() {
   const nflSlates=getBoards(nflEvents,'NFL')
   const [nbaReport,nflReport]=await Promise.all([injuries('NBA'),injuries('NFL')])
   const nbaData=nbaSlates.length?await nbaHistory(cache):{history:{},players:[],completedGames:0}
-  const nflData=nflSlates.length?await nflHistory(cache,nflEvents):{rows:[],completedGames:0}
+  const nflPositionsMap=nflSlates.length?await nflPositions(cache,nflEvents):{}
+  const nflData=nflSlates.length?await nflHistory(cache,nflEvents,nflPositionsMap):{rows:[],completedGames:0}
   const boards={
     NBA:nbaSlates.map(slate=>makeBoard('NBA',slate,nbaData,nbaReport)),
     NFL:nflSlates.map(slate=>makeBoard('NFL',slate,nflData,nflReport)),
