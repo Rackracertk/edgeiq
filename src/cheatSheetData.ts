@@ -356,7 +356,9 @@ export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (pl
       for (const row of item.logs) if (category in row.stats && !byGame.has(row.gameId)) byGame.set(row.gameId, row)
       const values = Array.from(byGame.values()).sort((a, b) => b.date.localeCompare(a.date)).map(row => row.stats[category])
       for (const line of lines) for (const direction of ['over', 'under'] as const) {
-        // Both directions are evaluated; no automatic suppression of unders.
+        // Touchdown scorer props are affirmative outcomes, not invented TD unders.
+        // Other NFL categories remain historical-only until a real offered quote matches.
+        if (direction === 'under' && ['Rushing TDs', 'Receiving TDs'].includes(category)) continue
         const candidate = evaluate('NFL', item.playerId, item.player, item.team, game, category, values, line, direction, mode)
         if (candidate) candidates.push(candidate)
       }
