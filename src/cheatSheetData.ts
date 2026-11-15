@@ -129,6 +129,10 @@ export async function loadDailySlate(sport: CheatSport, fromDate?: string): Prom
   return { date: nextDate, label: readableDate(nextDate), isToday: nextDate === today, games, source: 'ESPN NFL scoreboard', seasonEvents: events }
 }
 
+export function meetsEliteHistory(sport: CheatSport, last5Hits: number, recentHits: number, sample: number): boolean {
+  return sample >= (sport === 'NBA' ? 10 : 8) && last5Hits >= 4 && recentHits / sample >= .9
+}
+
 function evaluate(
   sport: CheatSport, playerId: string, player: string, team: string, game: ScheduledGame,
   category: string, values: number[], line: number, direction: 'over' | 'under',
@@ -142,7 +146,7 @@ function evaluate(
   const l5Hits = last5.filter(hit).length
   const recentHits = recent.filter(hit).length
   // The elite beta only features 90–100% observed recent trends (never a future probability).
-  if (l5Hits < 4 || recentHits / sample < .9) return null
+  if (!meetsEliteHistory(sport, l5Hits, recentHits, sample)) return null
   const average = recent.reduce((sum, value) => sum + value, 0) / sample
   const median = [...recent].sort((a, b) => a - b)[Math.floor(recent.length / 2)]
   // Ignore extreme thresholds that would generate misleading 100% trends.
