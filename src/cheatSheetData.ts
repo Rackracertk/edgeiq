@@ -5,8 +5,20 @@ export type { NFLHistoryRow } from './analytics/nflBoxscore.ts'
 
 export type CheatSport = 'NBA' | 'NFL'
 // The active roster, not a previous game, establishes the next game's team.
-export type CurrentRosterAssignment = { team: string; teamId: string; name?: string; position?: string }
+export type CurrentRosterAssignment = {
+  team: string; teamId: string; teamName?: string; name?: string; position?: string
+}
 export type CurrentRosterMap = Record<string, CurrentRosterAssignment>
+export function applyCurrentNBARosters<T extends {
+  id: string; team: string; teamId: string; position?: string
+}>(players: T[], rosters: CurrentRosterMap): T[] {
+  return players.flatMap(player => {
+    const active = rosters[String(player.id)]
+    if (!active || !active.teamId || !active.teamName) return []
+    return [{...player, team: active.teamName, teamId: active.teamId,
+      position: active.position || player.position}]
+  })
+}
 export type CheatSheetMode = 'elite' | 'all'
 export type CheatPick = {
   id: string
