@@ -172,10 +172,10 @@ function selectPicks(candidates: Candidate[]): CheatPick[] {
   const categoryCounts = new Map<string, number>()
   candidates.sort((a, b) => b.score - a.score || b.recentHits - a.recentHits)
   for (const candidate of candidates) {
-    if (chosen.length >= 40) break
+    if (chosen.length >= 120) break
     const playerKey = candidate.sport + candidate.playerId
-    if ((players.get(playerKey) ?? 0) >= 2) continue
-    if ((teams.get(candidate.team) ?? 0) >= 8 || (categoryCounts.get(candidate.category) ?? 0) >= 10) continue
+    if ((players.get(playerKey) ?? 0) >= 5) continue
+    if ((teams.get(candidate.team) ?? 0) >= 20 || (categoryCounts.get(candidate.category) ?? 0) >= 25) continue
     chosen.push({ ...candidate, id: [candidate.sport, candidate.playerId, candidate.category, candidate.direction, candidate.line].join('-') })
     players.set(playerKey, (players.get(playerKey) ?? 0) + 1)
     teams.set(candidate.team, (teams.get(candidate.team) ?? 0) + 1)
