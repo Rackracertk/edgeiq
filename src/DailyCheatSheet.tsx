@@ -12,6 +12,7 @@ import './DailyCheatSheet.css'
 type PublishedBoard = Slate & {
   report: InjuryData
   picks: ElitePick[]
+  allPicks?: ElitePick[]
   generatedAt: string
   sourceCompleteness: 'COMPLETE' | 'PARTIAL'
   historicalGames: number
@@ -53,6 +54,8 @@ export default function DailyCheatSheet({
   const [retry, setRetry] = useState(0)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [category, setCategory] = useState('ALL')
+  const [propGroup, setPropGroup] = useState('ALL')
+  const [pickMode, setPickMode] = useState<'all' | 'elite'>('all')
   const [direction, setDirection] = useState('ALL')
   const [showAll, setShowAll] = useState(false)
   const [matchupOnly, setMatchupOnly] = useState(false)
@@ -96,6 +99,7 @@ export default function DailyCheatSheet({
     return { ...board,
       games: board.games.filter(game => Date.parse(game.date) > Date.now()),
       picks: board.picks.filter(pick => Date.parse(pick.gameTime) > Date.now()),
+      allPicks: board.allPicks?.filter(pick => Date.parse(pick.gameTime) > Date.now()),
     }
   }, [publication, sport, advance, retry])
 
@@ -142,14 +146,16 @@ export default function DailyCheatSheet({
     shouldExcludeInjury(findInjury(report?.injuries ?? [], playerId, player, team, teamId))
   const picks = useMemo(() => {
     if (!slate?.games.length) return []
-    if (publishedBoard) return publishedBoard.picks
+    if (publishedBoard) return pickMode === 'all' ? (publishedBoard.allPicks ?? publishedBoard.picks) : publishedBoard.picks
     const unavailable = (id: string, name: string, team: string, teamId: string) =>
       shouldExcludeInjury(findInjury(report?.injuries ?? [], id, name, team, teamId))
+    const mode = pickMode === 'all' ? 'all' : 'elite'
     const candidates = sport === 'NBA'
-      ? buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined)
-      : buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined)
-    return enrichElitePicks(candidates, sport, slate, nbaHistory, nflRows, nbaPlayers)
-  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable, publishedBoard])
+      ? buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined, mode)
+      : buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined, mode)
+    return enrichElitePicks(candidates, sport, slate, nbaHistory, nflRows, nbaPlayers,
+      mode === 'all' ? 200 : 80)
+  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable, publishedBoard, pickMode])
   useEffect(() => {
     if (!reportAvailable) return
     setSelectedPicks(current => current.filter(pick => Date.parse(pick.gameTime) > Date.now() &&
@@ -162,7 +168,23 @@ export default function DailyCheatSheet({
         slate.games.some(game => game.teams.some(team => team.abbreviation === row.team || team.id === row.teamId))).length
     : 0
   const categories = sport === 'NBA' ? NBA_PROP_CATEGORIES : NFL_PROP_CATEGORIES
+  const groups = sport === 'NBA' ? [
+    {id:'ALL',label:'All NBA props',stats:[]},
+    {id:'CORE',label:'Points · rebounds · assists',stats:['Points','Rebounds','Assists']},
+    {id:'COMBO',label:'PRA · PA · PR · AR',stats:['PRA','Points + Assists (PA)','Points + Rebounds (PR)','Assists + Rebounds (AR)']},
+    {id:'3PT',label:'3-pointers',stats:['3-Pointers Made']},
+    {id:'DEFENSE',label:'Steals · blocks',stats:['Steals','Blocks','Steals + Blocks (SB)']},
+    {id:'MILESTONES',label:'Double / triple double',stats:['Double-Double','Triple-Double']},
+  ] : [
+    {id:'ALL',label:'All NFL props',stats:[]},
+    {id:'PASS',label:'Passing',stats:['Passing Yards','Passing TDs','Interceptions Thrown']},
+    {id:'RUSH',label:'Rushing',stats:['Rushing Yards','Rushing Attempts']},
+    {id:'RECEIVE',label:'Receiving',stats:['Receiving Yards','Receptions','Receiving TDs']},
+    {id:'DEFENSE',label:'Defense',stats:['Sacks']},
+  ]
+  const currentGroup = groups.find(group => group.id === propGroup)
   const filtered = picks.filter(pick =>
+    (propGroup === 'ALL' || currentGroup?.stats.includes(pick.category)) &&
     (category === 'ALL' || pick.category === category) &&
     (direction === 'ALL' || pick.direction === direction) &&
     (!matchupOnly || pick.defense !== null)
@@ -176,6 +198,7 @@ export default function DailyCheatSheet({
   function switchSport(value: CheatSport) {
     setSport(value)
     setCategory('ALL')
+    setPropGroup('ALL')
     setDirection('ALL')
     setShowAll(false)
     setMatchupOnly(false)
@@ -203,10 +226,10 @@ export default function DailyCheatSheet({
   return <div className="cheatsheet">
     <section className="hero cheat-hero">
       <div className="eyebrow gold">EDGEIQ / DAILY PLAYER PROP RESEARCH</div>
-      <h1>{advance === 'tomorrow' ? "Tomorrow's" : "Today's"} <span className="gold">elite cheat sheet.</span></h1>
-      <p>90–100% observed recent hit-rate trends, cross-checked against the next opponent, position-specific allowances, and head-to-head game logs wherever the underlying data is complete.</p>
+      <h1>{advance === 'tomorrow' ? "Tomorrow's" : "Today's"} <span className="gold">NBA + NFL prop cheat sheet.</span></h1>
+      <p>Points, rebounds, assists, PRA, PA, PR, AR, threes and every supported NFL prop — both overs and unders, organized by market. Switch between broad historical research and elite 90%+ recent trends. Opponent and injury evidence appears wherever verified.</p>
       <div className="cheat-hero-points">
-        <span>✓ 90%+ recent historical trends</span><span>✓ Position-level matchup checks</span><span>✓ Evidence-based ranking</span>
+        <span>✓ All supported stat categories</span><span>✓ Over &amp; under research</span><span>✓ Opponent matchup evidence</span>
       </div>
     </section>
 
@@ -240,7 +263,7 @@ export default function DailyCheatSheet({
         'This browser will try recent completed game logs. Automatic publishing may be delayed or unverified.'}</span>
     </section>
     <div className="cheat-info" role="note">
-      <strong>90–100% here means observed past results, NOT the probability of a future bet winning.</strong> Lines are research thresholds, not verified sportsbook offerings. The Research Score ranks available evidence, not expected profit or a calibrated forecast. Position allowances require enough completed matchup data; missing data is explicitly marked. Injury screening only applies when its source is reachable.
+      <strong>All Props includes 60%+ observed historical trends; Elite 90%+ only shows 90–100% recent historical results. Neither is a future win probability.</strong> Lines are research thresholds, not verified sportsbook offerings. The Research Score ranks available evidence, not expected profit or a calibrated forecast. Position allowances require enough completed matchup data; missing data is explicitly marked. Injury screening only applies when its source is reachable.
     </div>
 
     {report && <section className={reportAvailable ? 'cheat-injury-ok' : 'cheat-injury-unavailable'} role="status">
@@ -255,15 +278,27 @@ export default function DailyCheatSheet({
 
     <div className="cheat-stats">
       <div><span>GAME SLATE</span><strong>{slate ? slate.games.length : '—'}</strong><small>{slate?.isToday ? 'Today (ET)' : 'Next games (ET)'}</small></div>
-      <div><span>TREND CANDIDATES</span><strong>{isBusy ? '…' : picks.length}</strong><small>90%+ observed recent hit rate</small></div>
+      <div><span>{pickMode === 'elite' ? 'ELITE TRENDS' : 'PROP RESEARCH CARDS'}</span><strong>{isBusy ? '…' : picks.length}</strong><small>{pickMode === 'elite' ? '90%+ past hit rate' : '60%+ past hit rate · not forecasts'}</small></div>
       <div><span>MY SHORTLIST</span><strong>{selected.length}</strong><small>Choose any research cards</small></div>
     </div>
 
     <div className="cheat-section-title">
-      <div><span className="eyebrow">FREE BETA · MATCHUP RESEARCH</span><h2>Elite historical prop trends</h2></div>
+      <div><span className="eyebrow">FREE BETA · COMPLETE NBA &amp; NFL PROPS</span><h2>{pickMode === 'elite' ? 'Elite 90%+ historical trends' : 'All available over/under prop research'}</h2></div>
       <span className="small-tag">{sport} · {slate?.label ?? 'CHECKING'}</span>
     </div>
 
+    <div className="cheat-mode-switch" role="group" aria-label="Historical hit rate tier">
+      <button className={pickMode === 'all' ? 'cheat-tab on' : 'cheat-tab'} aria-pressed={pickMode === 'all'}
+        onClick={() => {setPickMode('all');setShowAll(false)}}>All Props · 60%+ history</button>
+      <button className={pickMode === 'elite' ? 'cheat-tab on' : 'cheat-tab'} aria-pressed={pickMode === 'elite'}
+        onClick={() => {setPickMode('elite');setShowAll(false)}}>Elite 90%+ history</button>
+      <span className="cheat-mode-note">Historical records only — not predicted win rates, picks, or verified sportsbook odds.</span>
+    </div>
+    <div className="cheat-prop-groups" role="group" aria-label="Prop market groups">
+      {groups.map(group => <button key={group.id} className={propGroup === group.id ? 'cheat-group-btn active' : 'cheat-group-btn'}
+        onClick={() => {setPropGroup(group.id);setCategory('ALL');setShowAll(false)}}
+        aria-pressed={propGroup === group.id}>{group.label}</button>)}
+    </div>
     <div className="cheat-controls">
       <label>STAT TYPE
         <select value={category} onChange={event => { setCategory(event.target.value); setShowAll(false) }}>
@@ -277,7 +312,7 @@ export default function DailyCheatSheet({
         </select>
       </label>
       <label className="cheat-matchup-toggle"><input type="checkbox" checked={matchupOnly} onChange={event => { setMatchupOnly(event.target.checked); setShowAll(false) }} /> Verified position samples only</label>
-      <div className="cheat-count">{filtered.length} matching trends</div>
+      <div className="cheat-count">{filtered.length} matching {pickMode === 'elite' ? 'elite trends' : 'research cards'}</div>
     </div>
 
     {isBusy ? <section className="panel cheat-empty" role="status">
@@ -291,14 +326,16 @@ export default function DailyCheatSheet({
       <button className="cta" onClick={() => { setErrors(previous => ({ ...previous, [key]: '' })); setRetry(previous => previous + 1) }}>Try again</button>
     </section> : filtered.length === 0 ? <section className="panel cheat-empty">
       <h3>No qualifying trends for this slate</h3>
-      <p>{picks.length ? 'Try another stat type, direction, or disable the position-sample filter.' : 'No 90%+ historical trends with sufficient recent completed games met the current screening rules. EDGEIQ will not invent an elite pick.'}</p>
-      {picks.length > 0 && <button className="nav" onClick={() => { setCategory('ALL'); setDirection('ALL') }}>Reset filters</button>}
+      <p>{picks.length ? 'No qualifying observations match these filters. Try another stat, the opposite side, or turn off position-only filtering.' : pickMode === 'elite'
+        ? 'No 90%+ historical trends passed the screening for this slate. Try All Props for additional research without elite labeling.'
+        : 'No eligible over/under trends with sufficient verified history for this slate. We do not invent missing player lines or games.'}</p>
+      {(picks.length > 0 || pickMode === 'elite') && <button className="nav" onClick={() => { setCategory('ALL'); setPropGroup('ALL'); setDirection('ALL'); setMatchupOnly(false);setPickMode('all') }}>Show all research</button>}
     </section> : <>
       <div className="cheat-grid">
         {visible.map((pick, index) => {
           const active = selected.some(item => item.id === pick.id)
           return <article className={active ? 'cheat-card selected' : 'cheat-card'} key={pick.id}>
-            <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} · {pick.researchGrade}</span><span>{formatTime(pick.gameTime)}</span></div>
+            <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} · {pick.recentHits / pick.recentGames >= .9 ? 'ELITE 90%+' : 'RESEARCH 60–89%'} · {pick.researchGrade}</span><span>{formatTime(pick.gameTime)}</span></div>
             <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup} · {pick.position !== 'UNKNOWN' ? pick.position : 'Position unverified'}</span></div>
             <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? 'YES' : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
             <div className="cheat-elite-header">
@@ -361,6 +398,6 @@ export default function DailyCheatSheet({
         <p>During beta, all research cards and matchup evidence remain free. Later, EDGEIQ Pro can add licensed live sportsbook prices, independently validated projections, advanced filters, and alerting behind secure subscriptions. Billing remains off until those features are ready.</p></div>
       <button className="cta" onClick={onPro}>See Pro plans & free interest list ↗</button>
     </section>
-    <p className="footnote cheat-footnote">Independent statistical research for adults where applicable. ESPN public game summaries and scoreboards are unofficial data inputs, may be delayed or incomplete, and are not licensed sportsbook odds or injury reports. A 90–100% historical hit rate is not a 90–100% estimated probability of a future result. Scores rank evidence only; no odds-based value claim is made. Confirm all lines, teams and active status independently.</p>
+    <p className="footnote cheat-footnote">Independent statistical research for adults where applicable. All Props includes trends from 60% and Elite 90%+ has higher historical frequency; neither is a predictive model. ESPN public game summaries and scoreboards are unofficial data inputs, may be delayed or incomplete, and are not licensed sportsbook odds or injury reports. A 90–100% historical hit rate is not a 90–100% estimated probability of a future result. Scores rank evidence only; no odds-based value claim is made. Confirm all lines, teams and active status independently.</p>
   </div>
 }
