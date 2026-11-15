@@ -75,7 +75,7 @@ jobs:
             const path=website.match(/<script[^>]*src=["']([^"']+)["']/i)?.[1]
             const bundle=path?await (await fetch('https://edgeiqstats.com'+path,{signal:AbortSignal.timeout(15000)})).text():''
             console.log('LIVE INDEX:',website.slice(0,450));console.log('LIVE UI:', 'bundle='+path, 'guardsCopy='+bundle.includes('Guards (G)'),
-              'forwardsCopy='+bundle.includes('Forwards (F)'),'hasDailyHistory='+bundle.includes('edgeiq-nba-history.json'))
+              'forwardsCopy='+bundle.includes('Forwards (F)'),'hasDailyHistory='+bundle.includes('edgeiq-nba-history.json'), 'rushDefenseTable='+bundle.includes('Rushing yards allowed per game'), 'rushMatchup='+bundle.includes('RUSH YARDS ALLOWED / GAME'))
           }catch(error){console.log('LIVE UI: ERROR',String(error))}
           console.log('TODAY BOARDS:',JSON.stringify(Object.entries(feed.boards).map(([sport,boards])=>({sport,boards:boards.map(b=>({date:b.date,matchupBacked:b.picks.filter(x=>x.defense).length}))}))))
           NODE
