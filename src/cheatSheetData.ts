@@ -98,12 +98,13 @@ async function loadJSON(url: string): Promise<any> {
   return response.json()
 }
 
-export async function loadDailySlate(sport: CheatSport): Promise<Slate> {
+export async function loadDailySlate(sport: CheatSport, fromDate?: string): Promise<Slate> {
   const today = eastDate(new Date())
   if (sport === 'NBA') {
     // Upcoming games only: never publish a "pick" for a game that is live or finished.
-    for (let offset = 0; offset < 4; offset++) {
+    for (let offset = 0; offset < 8; offset++) {
       const day = eastDate(new Date(Date.now() + offset * 86400000))
+      if (fromDate && day < fromDate) continue
       const events = await getNBAGames(day)
       const games = events
         .filter((event: any) => event.status?.type?.completed !== true && Date.parse(event.date) > Date.now())
@@ -120,7 +121,7 @@ export async function loadDailySlate(sport: CheatSport): Promise<Slate> {
   const data = await loadJSON('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=' + seasonYear + '&seasontype=2&limit=300')
   const events: any[] = (data.events ?? []).filter((event: any) => event.season?.type === 2 || event.season?.type == null)
   const scheduled = events.filter((event: any) => event.status?.type?.completed !== true && Date.parse(event.date) > Date.now())
-  const upcoming = scheduled.map(parseGame).filter((game: ScheduledGame | null): game is ScheduledGame => game !== null)
+  const upcoming = scheduled.map(parseGame).filter((game: ScheduledGame | null): game is ScheduledGame => game !== null && (!fromDate || eastDate(new Date(game.date)) >= fromDate))
     .sort((a: ScheduledGame, b: ScheduledGame) => a.date.localeCompare(b.date))
   const nextDate = upcoming.length ? eastDate(new Date(upcoming[0].date)) : today
   const games = upcoming.filter((game: ScheduledGame) => eastDate(new Date(game.date)) === nextDate)
@@ -179,12 +180,15 @@ function selectPicks(candidates: Candidate[]): CheatPick[] {
 export function buildNBAPicks(
   slate: Slate, history: Record<string, NBAPlayerGame[]>,
   players: { id: string; name: string; team: string; teamId: string }[],
+  exclude?: (playerId: string, playerName: string, team: string, teamId: string) => boolean,
 ): CheatPick[] {
   const candidates: Candidate[] = []
   const events = new Map(slate.games.flatMap(game => game.teams.map(team => [team.id, game] as const)))
   for (const player of players) {
     const game = events.get(String(player.teamId))
     if (!game) continue
+    const abbr = game.teams.find(team => team.id === String(player.teamId))?.abbreviation ?? ''
+    if (exclude?.(String(player.id), player.name, abbr, String(player.teamId))) continue
     const logs = history[String(player.id)] ?? []
     if (logs.length < 9) continue
     const newest = Date.parse(logs[0].date)
@@ -244,7 +248,7 @@ export async function loadNFLHistory(slate: Slate): Promise<{ rows: NFLHistoryRo
   }
   return result
 }
-export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[]): CheatPick[] {
+export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (playerId: string, playerName: string, team: string, teamId: string) => boolean): CheatPick[] {
   const upcoming = new Map(slate.games.flatMap(game => game.teams.map(team => [team.abbreviation, game] as const)))
   const grouped = new Map<string, { player: string; team: string; playerId: string; logs: NFLHistoryRow[] }>()
   for (const row of rows) {
@@ -257,6 +261,8 @@ export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[]): CheatPick[] 
   for (const item of grouped.values()) {
     const game = upcoming.get(item.team)
     if (!game) continue
+    const teamId = game.teams.find(team => team.abbreviation === item.team)?.id ?? ''
+    if (exclude?.(item.playerId, item.player, item.team, teamId)) continue
     const latest = item.logs.reduce((best, row) => row.date > best ? row.date : best, '')
     if (!latest || Date.now() - Date.parse(latest) > 28 * 86400000) continue
     for (const [category, lines] of Object.entries(nflReferenceLines)) {
