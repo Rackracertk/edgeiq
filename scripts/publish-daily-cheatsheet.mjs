@@ -257,6 +257,13 @@ function makeBoard(sport, slate, history, report) {
 }
 async function run() {
   const cache=await readCache()
+  // Versioned parser refresh: older stored NFL boxes lack the newly available
+  // completions/attempts, rushing TDs, targets, longest plays and tackle data.
+  // Re-fetch completed games once rather than publishing fabricated zeros.
+  if(cache.nflParserVersion!==2){
+    cache.nfl={}
+    cache.nflParserVersion=2
+  }
   const nbaDates=Array.from({length:10},(_,i)=>addDays(TODAY,i))
   const nbaFuture=await batches(nbaDates,5,async date=>{
     try {
