@@ -6,10 +6,11 @@ import {
   type CheatPick, type CheatSport, type NFLHistoryRow, type Slate,
 } from './cheatSheetData'
 import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, type InjuryData } from './analytics/injuryCenter'
+import { americanOddsBreakEven, enrichElitePicks } from './analytics/eliteResearch'
 import './DailyCheatSheet.css'
 
 type Props = {
-  nbaPlayers: { id: string; name: string; team: string; teamId: string }[]
+  nbaPlayers: { id: string; name: string; team: string; teamId: string; position?: string }[]
   nbaHistory: Record<string, NBAPlayerGame[]>
   nbaLoading: boolean
   nbaError: string
@@ -38,6 +39,8 @@ export default function DailyCheatSheet({
   const [category, setCategory] = useState('ALL')
   const [direction, setDirection] = useState('ALL')
   const [showAll, setShowAll] = useState(false)
+  const [matchupOnly, setMatchupOnly] = useState(false)
+  const [manualOdds, setManualOdds] = useState<Record<string, string>>({})
   const [selectedPicks, setSelectedPicks] = useState<CheatPick[]>([])
   const [copyStatus, setCopyStatus] = useState('')
 
@@ -86,8 +89,10 @@ export default function DailyCheatSheet({
     if (!slate?.games.length) return []
     const unavailable = (id: string, name: string, team: string, teamId: string) =>
       shouldExcludeInjury(findInjury(report?.injuries ?? [], id, name, team, teamId))
-    if (sport === 'NBA') return buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined)
-    return buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined)
+    const candidates = sport === 'NBA'
+      ? buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined)
+      : buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined)
+    return enrichElitePicks(candidates, sport, slate, nbaHistory, nflRows, nbaPlayers)
   }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable])
   useEffect(() => {
     if (!reportAvailable) return
@@ -103,7 +108,8 @@ export default function DailyCheatSheet({
   const categories = sport === 'NBA' ? NBA_PROP_CATEGORIES : NFL_PROP_CATEGORIES
   const filtered = picks.filter(pick =>
     (category === 'ALL' || pick.category === category) &&
-    (direction === 'ALL' || pick.direction === direction)
+    (direction === 'ALL' || pick.direction === direction) &&
+    (!matchupOnly || pick.defense !== null)
   )
   const visible = showAll ? filtered : filtered.slice(0, 12)
   const selected = selectedPicks
@@ -116,6 +122,7 @@ export default function DailyCheatSheet({
     setCategory('ALL')
     setDirection('ALL')
     setShowAll(false)
+    setMatchupOnly(false)
     setCopyStatus('')
   }
   function togglePick(pick: CheatPick) {
@@ -140,10 +147,10 @@ export default function DailyCheatSheet({
   return <div className="cheatsheet">
     <section className="hero cheat-hero">
       <div className="eyebrow gold">EDGEIQ / DAILY PLAYER PROP RESEARCH</div>
-      <h1>{advance === 'tomorrow' ? "Tomorrow's" : "Today's"} <span className="gold">cheat sheet.</span></h1>
-      <p>Find the strongest recent statistical trends on upcoming NBA and NFL slates. Pick the ones you like, build your own shortlist, and inspect the numbers before making a decision.</p>
+      <h1>{advance === 'tomorrow' ? "Tomorrow's" : "Today's"} <span className="gold">elite cheat sheet.</span></h1>
+      <p>90–100% observed recent hit-rate trends, cross-checked against the next opponent, position-specific allowances, and head-to-head game logs wherever the underlying data is complete.</p>
       <div className="cheat-hero-points">
-        <span>✓ Completed-game history</span><span>✓ Real upcoming matchups</span><span>✓ Build a personal shortlist</span>
+        <span>✓ 90%+ recent historical trends</span><span>✓ Position-level matchup checks</span><span>✓ Evidence-based ranking</span>
       </div>
     </section>
 
@@ -167,7 +174,7 @@ export default function DailyCheatSheet({
       <button className="cta" onClick={onMarkets}>Explore game lines ↗</button>
     </section>
     <div className="cheat-info" role="note">
-      <strong>How to read this board:</strong> These are historical research thresholds, not live sportsbook prices or projected win probabilities. Players reported Out, Doubtful, Questionable or inactive are excluded from featured trends when a current injury feed is available. Lineups and injuries can still change near game time.
+      <strong>90–100% here means observed past results, NOT the probability of a future bet winning.</strong> Lines are research thresholds, not verified sportsbook offerings. The Research Score ranks available evidence, not expected profit or a calibrated forecast. Position allowances require enough completed matchup data; missing data is explicitly marked. Injury screening only applies when its source is reachable.
     </div>
 
     {report && <section className={reportAvailable ? 'cheat-injury-ok' : 'cheat-injury-unavailable'} role="status">
@@ -182,12 +189,12 @@ export default function DailyCheatSheet({
 
     <div className="cheat-stats">
       <div><span>GAME SLATE</span><strong>{slate ? slate.games.length : '—'}</strong><small>{slate?.isToday ? 'Today (ET)' : 'Next games (ET)'}</small></div>
-      <div><span>TREND CANDIDATES</span><strong>{isBusy ? '…' : picks.length}</strong><small>Meeting the history rules</small></div>
+      <div><span>TREND CANDIDATES</span><strong>{isBusy ? '…' : picks.length}</strong><small>90%+ observed recent hit rate</small></div>
       <div><span>MY SHORTLIST</span><strong>{selected.length}</strong><small>Choose any research cards</small></div>
     </div>
 
     <div className="cheat-section-title">
-      <div><span className="eyebrow">FREE · DAILY RESEARCH BOARD</span><h2>Top historical prop trends</h2></div>
+      <div><span className="eyebrow">FREE BETA · MATCHUP RESEARCH</span><h2>Elite historical prop trends</h2></div>
       <span className="small-tag">{sport} · {slate?.label ?? 'CHECKING'}</span>
     </div>
 
@@ -203,6 +210,7 @@ export default function DailyCheatSheet({
           <option value="ALL">Over & under</option><option value="over">Overs only</option><option value="under">Unders only</option>
         </select>
       </label>
+      <label className="cheat-matchup-toggle"><input type="checkbox" checked={matchupOnly} onChange={event => { setMatchupOnly(event.target.checked); setShowAll(false) }} /> Verified position samples only</label>
       <div className="cheat-count">{filtered.length} matching trends</div>
     </div>
 
@@ -217,22 +225,51 @@ export default function DailyCheatSheet({
       <button className="cta" onClick={() => { setErrors(previous => ({ ...previous, [key]: '' })); setRetry(previous => previous + 1) }}>Try again</button>
     </section> : filtered.length === 0 ? <section className="panel cheat-empty">
       <h3>No qualifying trends for this slate</h3>
-      <p>{picks.length ? 'Try another stat type or direction.' : 'The available completed-game data does not meet our recent-history criteria. This is not a slate of guaranteed or automatic picks.'}</p>
+      <p>{picks.length ? 'Try another stat type, direction, or disable the position-sample filter.' : 'No 90%+ historical trends with sufficient recent completed games met the current screening rules. EDGEIQ will not invent an elite pick.'}</p>
       {picks.length > 0 && <button className="nav" onClick={() => { setCategory('ALL'); setDirection('ALL') }}>Reset filters</button>}
     </section> : <>
       <div className="cheat-grid">
         {visible.map((pick, index) => {
           const active = selected.some(item => item.id === pick.id)
           return <article className={active ? 'cheat-card selected' : 'cheat-card'} key={pick.id}>
-            <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} {reportAvailable ? 'SCREENED TREND' : 'UNSCREENED TREND'}</span><span>{formatTime(pick.gameTime)}</span></div>
-            <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup}</span></div>
-            <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? (pick.direction === 'over' ? 'YES' : 'NO') : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
+            <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} · {pick.researchGrade}</span><span>{formatTime(pick.gameTime)}</span></div>
+            <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup} · {pick.position !== 'UNKNOWN' ? pick.position : 'Position unverified'}</span></div>
+            <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? 'YES' : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
+            <div className="cheat-elite-header">
+              <span>OBSERVED HIT RATE · LAST {pick.recentGames}</span>
+              <strong>{Math.round(100 * pick.recentHits / pick.recentGames)}%</strong>
+              <small>{pick.recentHits}/{pick.recentGames} games · not a probability forecast</small>
+            </div>
             <div className="cheat-rates">
               <div><small>LAST 5</small><strong>{pick.l5Hits}/{pick.l5Games}</strong></div>
               <div><small>LAST {pick.recentGames}</small><strong>{pick.recentHits}/{pick.recentGames}</strong></div>
-              <div><small>RECENT AVG</small><strong>{pick.average}</strong></div>
+              <div><small>L20</small><strong>{pick.last20 ? pick.last20.hits + '/' + pick.last20.games : 'N/A'}</strong></div>
             </div>
-            <p className="cheat-reason">{pick.context}</p>
+            <div className="cheat-defense">
+              <div><strong>OPPONENT VS {pick.position === 'UNKNOWN' ? 'POSITION' : pick.position}</strong><span>{pick.opponent}</span></div>
+              {pick.defense ? <p>
+                <b>{pick.defense.hits}/{pick.defense.games} ({pick.defense.percentage}%)</b> matching-position player appearances crossed this same reference line in <b>{pick.defense.distinctGames} games</b>.
+                <small>Opponent allowed {pick.defense.averageAllowed} {pick.category} per qualifying appearance</small>
+              </p> : <p>Not enough verified position-matched, completed-game samples. No opponent hit rate is claimed.</p>}
+            </div>
+            <div className="cheat-evidence">
+              <span>H2H: <b>{pick.headToHead ? pick.headToHead.hits + '/' + pick.headToHead.games : 'Insufficient games'}</b></span>
+              <span>RESEARCH SCORE: <b>{pick.researchScore}/100</b></span>
+            </div>
+            <p className="cheat-reason">{pick.context} {pick.researchGrade === 'TREND ONLY' ? 'Opponent-position corroboration is not yet available.' : 'Opponent-position evidence is calculated from completed opposing-player appearances.'}</p>
+            <details className="cheat-deep-research">
+              <summary>View deep research &amp; market check</summary>
+              <p><b>Average:</b> {pick.average} {pick.category} over {pick.recentGames} qualifying player games. <b>Volatility:</b> {pick.volatility === null ? 'N/A' : pick.volatility.toFixed(1)} standard deviation, where lower means more consistent results.</p>
+              <p><b>Head-to-head:</b> {pick.headToHead ? pick.headToHead.hits + ' hits in ' + pick.headToHead.games + ' completed games against ' + pick.opponent : 'Not enough completed games against this opponent.'}</p>
+              <p><b>Position allowance:</b> {pick.defense ? pick.defense.hits + ' of ' + pick.defense.games + ' qualifying player appearances, in ' + pick.defense.distinctGames + ' separate games, crossed the line. Counts are player appearances, not whole-team game totals.' : 'Insufficient position/minutes data; matchup effect unverified.'}</p>
+              <label className="cheat-odds-input">Enter available American odds for this exact market
+                <input inputMode="numeric" type="number" placeholder="Example: -110" value={manualOdds[pick.id] ?? ''} onChange={event => setManualOdds(current => ({ ...current, [pick.id]: event.target.value }))} />
+              </label>
+              <p>{manualOdds[pick.id] && americanOddsBreakEven(Number(manualOdds[pick.id])) !== null
+                ? 'Break-even rate at those odds: ' + americanOddsBreakEven(Number(manualOdds[pick.id])) + '%. This is NOT a calculated edge; past hit rates are not calibrated win probabilities.'
+                : 'Enter offered odds to see their break-even rate. Live market prices are not connected.'}</p>
+              <small>Sources: completed ESPN game summaries and schedule where available. The reference line must match an actual available market before comparing. Injury availability may be incomplete.</small>
+            </details>
             <div className="cheat-actions">
               <button className={active ? 'cheat-save added' : 'cheat-save'} aria-pressed={active} onClick={() => togglePick(pick)}>{active ? '✓ Added to shortlist' : '+ Add to my shortlist'}</button>
               <button className="cheat-research" onClick={() => onResearch(pick)}>Research ↗</button>
@@ -255,9 +292,9 @@ export default function DailyCheatSheet({
 
     <section className="cheat-pro">
       <div><span className="eyebrow gold">COMING TO EDGEIQ PRO</span><h2>Like the free board? Go deeper.</h2>
-        <p>Help shape premium features such as verified market-line comparisons, defensive matchup insights and research alerts. Premium tools and billing are not live yet.</p></div>
+        <p>During beta, all research cards and matchup evidence remain free. Later, EDGEIQ Pro can add licensed live sportsbook prices, independently validated projections, advanced filters, and alerting behind secure subscriptions. Billing remains off until those features are ready.</p></div>
       <button className="cta" onClick={onPro}>See Pro plans & free interest list ↗</button>
     </section>
-    <p className="footnote cheat-footnote">Independent statistical research for adults where applicable. ESPN public game summaries and scoreboards are unofficial data inputs, may be delayed or incomplete, and are not licensed sportsbook odds or injury reports. A historical hit rate is not an estimated probability of a future result. Confirm all lines, teams and active status independently.</p>
+    <p className="footnote cheat-footnote">Independent statistical research for adults where applicable. ESPN public game summaries and scoreboards are unofficial data inputs, may be delayed or incomplete, and are not licensed sportsbook odds or injury reports. A 90–100% historical hit rate is not a 90–100% estimated probability of a future result. Scores rank evidence only; no odds-based value claim is made. Confirm all lines, teams and active status independently.</p>
   </div>
 }
