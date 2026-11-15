@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T13:15:08.458Z",
+  "generatedAt": "2026-11-15T13:17:04.019Z",
   "publishedDateET": "2026-11-15",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1501,7 +1501,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T13:15:06.005Z",
+          "checkedAt": "2026-11-15T13:17:00.498Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10873,7 +10873,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T13:15:06.808Z",
+        "generatedAt": "2026-11-15T13:17:01.585Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 188,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -12353,7 +12353,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T13:15:06.005Z",
+          "checkedAt": "2026-11-15T13:17:00.498Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21600,7 +21600,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T13:15:06.900Z",
+        "generatedAt": "2026-11-15T13:17:01.725Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 188,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -23035,6 +23035,18 @@
             },
             {
               "playerId": "",
+              "player": "Jaelan Phillips",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Phillips (hamstring), who is listed as questionable for Sunday's game against the Saints, is in line to play, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-15T13:08Z",
+              "expectedReturn": "2026-11-15",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
               "player": "Brady Christensen",
               "team": "",
               "teamId": "",
@@ -23092,18 +23104,6 @@
               "updatedAt": "2026-11-13T22:41Z",
               "expectedReturn": "2026-11-15",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Jaelan Phillips",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-13T17:40Z",
-              "expectedReturn": "2026-11-15",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -24835,6 +24835,90 @@
             },
             {
               "playerId": "",
+              "player": "Mekhi Wingo",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Amen Ogbongbemiga",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "D.J. Reed",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "2026-11-22",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Ahmed Hassanein",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
+              "player": "Cade Mays",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "2026-11-22",
+              "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Sione Vaki",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Keith Abney II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Amon-Ra St. Brown",
               "team": "",
               "teamId": "",
@@ -24859,30 +24943,6 @@
             },
             {
               "playerId": "",
-              "player": "Sione Vaki",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Vaki (ankle) is listed as questionable for Sunday's game against the Patriots in Munich, Nolan Bianchi of The Detroit News reports.",
-              "updatedAt": "2026-11-13T17:45Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Cade Mays",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Mays (ankle) is not traveling with the Lions to Munich ahead of their Week 10 matchup against the Patriots.",
-              "updatedAt": "2026-11-13T01:26Z",
-              "expectedReturn": "2026-11-22",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "Brian Branch",
               "team": "",
               "teamId": "",
@@ -24892,18 +24952,6 @@
               "updatedAt": "2026-11-12T22:37Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "D.J. Reed",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Reed (hip) did not travel to Munich with the Lions and is ruled out for Sunday's matchup against the Patriots.",
-              "updatedAt": "2026-11-12T22:25Z",
-              "expectedReturn": "2026-11-22",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -24991,30 +25039,6 @@
             },
             {
               "playerId": "",
-              "player": "Ahmed Hassanein",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-09T21:09Z",
-              "expectedReturn": "",
-              "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Mekhi Wingo",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-09T21:09Z",
-              "expectedReturn": "",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
               "player": "Jake Bates",
               "team": "",
               "teamId": "",
@@ -25059,18 +25083,6 @@
               "note": "The Lions moved Campbell (neck) to injured reserve Saturday.",
               "updatedAt": "2026-11-07T22:18Z",
               "expectedReturn": "2026-12-06",
-              "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Amen Ogbongbemiga",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-05T21:55Z",
-              "expectedReturn": "",
               "position": "LB"
             },
             {
@@ -25120,18 +25132,6 @@
               "updatedAt": "2026-10-31T02:09Z",
               "expectedReturn": "",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Isiah Pacheco",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Lions coach Dan Campbell said Friday that Pacheco (back) has a chance to return in late December, Justin Rogers of DetroitFootball.net reports.",
-              "updatedAt": "2026-10-30T17:09Z",
-              "expectedReturn": "2026-12-28",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -28123,6 +28123,30 @@
             },
             {
               "playerId": "",
+              "player": "Tommy DeVito",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "DeVito is active for Sunday's game against the Lions in Munich as the Patriots' No. 2 quarterback behind starter Drake Maye.",
+              "updatedAt": "2026-11-15T13:12Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "A.J. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Brown (knee/ankle) is listed as active for Sunday's game against the Lions in Munich.",
+              "updatedAt": "2026-11-15T13:06Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Walter Rouse",
               "team": "",
               "teamId": "",
@@ -28236,33 +28260,21 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Stevenson (knee) is expected to play in Sunday's game against the Lions in Munich, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-15T11:14Z",
+              "note": "Stevenson (knee) is active for Sunday's game against the Lions in Munich.",
+              "updatedAt": "2026-11-15T13:03Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Brown (ankle/knee) is expected to play in Sunday's game against the Lions in Munich, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-15T11:10Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
               "player": "Greg Van Roten",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
               "note": "The Patriots activated Van Roten (hamstring) from IR on Saturday, and he's questionable to play Sunday versus Detroit, Doug Kyed of the Boston Herald reports.",
               "updatedAt": "2026-11-15T00:57Z",
-              "expectedReturn": "2026-11-15",
+              "expectedReturn": "",
               "position": "G"
             },
             {
@@ -28270,11 +28282,11 @@
               "player": "Reggie Gilliam",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
               "note": "The Patriots activated Gilliam (knee), who remains questionable for Sunday's game against Detroit, from injured reserve Saturday, Doug Kyed of the Boston Herald reports.",
               "updatedAt": "2026-11-14T22:12Z",
-              "expectedReturn": "2026-11-15",
+              "expectedReturn": "",
               "position": "FB"
             },
             {
@@ -28408,18 +28420,6 @@
               "updatedAt": "2026-11-09T03:43Z",
               "expectedReturn": "",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Drake Maye",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Maye completed 21 of 38 passes for 299 yards with three touchdowns and three interceptions while adding one rush for three yards in the Patriots' 45-27 loss to the Packers on Sunday.",
-              "updatedAt": "2026-11-09T03:16Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -31422,7 +31422,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T13:15:06.052Z",
+          "checkedAt": "2026-11-15T13:17:00.559Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -40249,7 +40249,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T13:15:08.157Z",
+        "generatedAt": "2026-11-15T13:17:03.571Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 137,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -41484,6 +41484,18 @@
             },
             {
               "playerId": "",
+              "player": "Jaelan Phillips",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Phillips (hamstring), who is listed as questionable for Sunday's game against the Saints, is in line to play, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-15T13:08Z",
+              "expectedReturn": "2026-11-15",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
               "player": "Brady Christensen",
               "team": "",
               "teamId": "",
@@ -41541,18 +41553,6 @@
               "updatedAt": "2026-11-13T22:41Z",
               "expectedReturn": "2026-11-15",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Jaelan Phillips",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-13T17:40Z",
-              "expectedReturn": "2026-11-15",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -43284,6 +43284,90 @@
             },
             {
               "playerId": "",
+              "player": "Mekhi Wingo",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Amen Ogbongbemiga",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "D.J. Reed",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "2026-11-22",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Ahmed Hassanein",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
+              "player": "Cade Mays",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "2026-11-22",
+              "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Sione Vaki",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Keith Abney II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-15T13:02Z",
+              "expectedReturn": "",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Amon-Ra St. Brown",
               "team": "",
               "teamId": "",
@@ -43308,30 +43392,6 @@
             },
             {
               "playerId": "",
-              "player": "Sione Vaki",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Vaki (ankle) is listed as questionable for Sunday's game against the Patriots in Munich, Nolan Bianchi of The Detroit News reports.",
-              "updatedAt": "2026-11-13T17:45Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Cade Mays",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Mays (ankle) is not traveling with the Lions to Munich ahead of their Week 10 matchup against the Patriots.",
-              "updatedAt": "2026-11-13T01:26Z",
-              "expectedReturn": "2026-11-22",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "Brian Branch",
               "team": "",
               "teamId": "",
@@ -43341,18 +43401,6 @@
               "updatedAt": "2026-11-12T22:37Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "D.J. Reed",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Reed (hip) did not travel to Munich with the Lions and is ruled out for Sunday's matchup against the Patriots.",
-              "updatedAt": "2026-11-12T22:25Z",
-              "expectedReturn": "2026-11-22",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -43440,30 +43488,6 @@
             },
             {
               "playerId": "",
-              "player": "Ahmed Hassanein",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-09T21:09Z",
-              "expectedReturn": "",
-              "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Mekhi Wingo",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-09T21:09Z",
-              "expectedReturn": "",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
               "player": "Jake Bates",
               "team": "",
               "teamId": "",
@@ -43508,18 +43532,6 @@
               "note": "The Lions moved Campbell (neck) to injured reserve Saturday.",
               "updatedAt": "2026-11-07T22:18Z",
               "expectedReturn": "2026-12-06",
-              "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Amen Ogbongbemiga",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-05T21:55Z",
-              "expectedReturn": "",
               "position": "LB"
             },
             {
@@ -43569,18 +43581,6 @@
               "updatedAt": "2026-10-31T02:09Z",
               "expectedReturn": "",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Isiah Pacheco",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Lions coach Dan Campbell said Friday that Pacheco (back) has a chance to return in late December, Justin Rogers of DetroitFootball.net reports.",
-              "updatedAt": "2026-10-30T17:09Z",
-              "expectedReturn": "2026-12-28",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -46572,6 +46572,30 @@
             },
             {
               "playerId": "",
+              "player": "Tommy DeVito",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "DeVito is active for Sunday's game against the Lions in Munich as the Patriots' No. 2 quarterback behind starter Drake Maye.",
+              "updatedAt": "2026-11-15T13:12Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "A.J. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Brown (knee/ankle) is listed as active for Sunday's game against the Lions in Munich.",
+              "updatedAt": "2026-11-15T13:06Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Walter Rouse",
               "team": "",
               "teamId": "",
@@ -46685,33 +46709,21 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Stevenson (knee) is expected to play in Sunday's game against the Lions in Munich, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-15T11:14Z",
+              "note": "Stevenson (knee) is active for Sunday's game against the Lions in Munich.",
+              "updatedAt": "2026-11-15T13:03Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Brown (ankle/knee) is expected to play in Sunday's game against the Lions in Munich, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-15T11:10Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
               "player": "Greg Van Roten",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
               "note": "The Patriots activated Van Roten (hamstring) from IR on Saturday, and he's questionable to play Sunday versus Detroit, Doug Kyed of the Boston Herald reports.",
               "updatedAt": "2026-11-15T00:57Z",
-              "expectedReturn": "2026-11-15",
+              "expectedReturn": "",
               "position": "G"
             },
             {
@@ -46719,11 +46731,11 @@
               "player": "Reggie Gilliam",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
               "note": "The Patriots activated Gilliam (knee), who remains questionable for Sunday's game against Detroit, from injured reserve Saturday, Doug Kyed of the Boston Herald reports.",
               "updatedAt": "2026-11-14T22:12Z",
-              "expectedReturn": "2026-11-15",
+              "expectedReturn": "",
               "position": "FB"
             },
             {
@@ -46857,18 +46869,6 @@
               "updatedAt": "2026-11-09T03:43Z",
               "expectedReturn": "",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Drake Maye",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Maye completed 21 of 38 passes for 299 yards with three touchdowns and three interceptions while adding one rush for three yards in the Patriots' 45-27 loss to the Packers on Sunday.",
-              "updatedAt": "2026-11-09T03:16Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -49871,7 +49871,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T13:15:06.052Z",
+          "checkedAt": "2026-11-15T13:17:00.559Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -51908,7 +51908,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T13:15:08.457Z",
+        "generatedAt": "2026-11-15T13:17:04.018Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 137,
         "publishedBy": "EDGEIQ unattended research publisher"
