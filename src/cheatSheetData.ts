@@ -4,6 +4,7 @@ import { parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore.ts
 export type { NFLHistoryRow } from './analytics/nflBoxscore.ts'
 
 export type CheatSport = 'NBA' | 'NFL'
+export type CheatSheetMode = 'elite' | 'all'
 export type CheatPick = {
   id: string
   sport: CheatSport
@@ -135,23 +136,27 @@ export function meetsEliteHistory(sport: CheatSport, last5Hits: number, recentHi
 
 function evaluate(
   sport: CheatSport, playerId: string, player: string, team: string, game: ScheduledGame,
-  category: string, values: number[], line: number, direction: 'over' | 'under',
+  category: string, values: number[], line: number, direction: 'over' | 'under', mode: CheatSheetMode = 'elite',
 ): Candidate | null {
   const sample = Math.min(10, values.length)
-  if (sample < (sport === 'NBA' ? 10 : 8)) return null
+  if (sample < (mode === 'elite' ? (sport === 'NBA' ? 10 : 8) : 8)) return null
   const recent = values.slice(0, sample)
-  if (recent.some(value => !Number.isFinite(value) || value < 0)) return null
+  if (recent.some(value => !Number.isFinite(value) || (sport === 'NBA' && value < 0))) return null
   const last5 = recent.slice(0, 5)
   const hit = (value: number) => direction === 'over' ? value > line : value < line
   const l5Hits = last5.filter(hit).length
   const recentHits = recent.filter(hit).length
-  // The elite beta only features 90–100% observed recent trends (never a future probability).
-  if (!meetsEliteHistory(sport, l5Hits, recentHits, sample)) return null
+  // Elite = 90%+ observed history. The full prop browser also includes 60–89%
+  // trends as lower-confidence research, clearly distinguished in the UI.
+  // Neither tier implies a future hit probability or sportsbook availability.
+  if (mode === 'elite'
+    ? !meetsEliteHistory(sport, l5Hits, recentHits, sample)
+    : l5Hits < 3 || recentHits / sample < 0.6) return null
   const average = recent.reduce((sum, value) => sum + value, 0) / sample
   const median = [...recent].sort((a, b) => a - b)[Math.floor(recent.length / 2)]
   // Ignore extreme thresholds that would generate misleading 100% trends.
   const eventStat = ['Double-Double', 'Triple-Double', 'Interceptions Thrown', 'Sacks', 'Steals', 'Blocks', 'Steals + Blocks (SB)'].includes(category)
-  if (!eventStat && (median <= 0 || line < median * .78 || line > median * 1.22)) return null
+  if (!eventStat && (median <= 0 || line < median * .75 || line > median * 1.25)) return null
   const margin = direction === 'over' ? average - line : line - average
   if (margin <= 0) return null
   const other = game.teams.find(item => item.abbreviation !== team)
@@ -165,28 +170,60 @@ function evaluate(
     average: Math.round(average * 10) / 10, sample, score, context,
   }
 }
-function selectPicks(candidates: Candidate[]): CheatPick[] {
+function selectPicks(candidates: Candidate[], mode: CheatSheetMode): CheatPick[] {
+  const cap = mode === 'elite' ? 180 : 360
+  const maxPerPlayer = mode === 'elite' ? 5 : 7
+  const maxPerTeam = mode === 'elite' ? 25 : 45
+  const maxPerCategory = mode === 'elite' ? 24 : 42
   const chosen: CheatPick[] = []
-  const players = new Map<string, number>()
-  const teams = new Map<string, number>()
+  const playerCounts = new Map<string, number>()
+  const teamCounts = new Map<string, number>()
   const categoryCounts = new Map<string, number>()
+  const seenIds = new Set<string>()
   candidates.sort((a, b) => b.score - a.score || b.recentHits - a.recentHits)
-  for (const candidate of candidates) {
-    if (chosen.length >= 120) break
-    const playerKey = candidate.sport + candidate.playerId
-    if ((players.get(playerKey) ?? 0) >= 5) continue
-    if ((teams.get(candidate.team) ?? 0) >= 20 || (categoryCounts.get(candidate.category) ?? 0) >= 25) continue
-    chosen.push({ ...candidate, id: [candidate.sport, candidate.playerId, candidate.category, candidate.direction, candidate.line].join('-') })
-    players.set(playerKey, (players.get(playerKey) ?? 0) + 1)
-    teams.set(candidate.team, (teams.get(candidate.team) ?? 0) + 1)
+  const add = (candidate: Candidate): boolean => {
+    const id = [candidate.sport, candidate.playerId, candidate.category, candidate.direction, candidate.line].join('-')
+    const playerKey = candidate.sport + ':' + candidate.playerId
+    if (chosen.length >= cap || seenIds.has(id) ||
+        (playerCounts.get(playerKey) ?? 0) >= maxPerPlayer ||
+        (teamCounts.get(candidate.team) ?? 0) >= maxPerTeam ||
+        (categoryCounts.get(candidate.category) ?? 0) >= maxPerCategory) return false
+    chosen.push({ ...candidate, id })
+    seenIds.add(id)
+    playerCounts.set(playerKey, (playerCounts.get(playerKey) ?? 0) + 1)
+    teamCounts.set(candidate.team, (teamCounts.get(candidate.team) ?? 0) + 1)
     categoryCounts.set(candidate.category, (categoryCounts.get(candidate.category) ?? 0) + 1)
+    return true
   }
+  // Represent every available prop + direction before allocating the remaining
+  // candidate budget to high-scoring trends. No invented data to fill a bucket.
+  const byCategoryDirection = new Map<string, Candidate[]>()
+  for (const candidate of candidates) {
+    const key = candidate.category + ':' + candidate.direction
+    const group = byCategoryDirection.get(key) ?? []
+    group.push(candidate)
+    byCategoryDirection.set(key, group)
+  }
+  const preference = candidates[0]?.sport === 'NBA'
+    ? ['Points','Rebounds','Assists','PRA','Points + Assists (PA)',
+        'Points + Rebounds (PR)','Assists + Rebounds (AR)','3-Pointers Made',
+        'Steals','Blocks','Steals + Blocks (SB)','Double-Double','Triple-Double']
+    : ['Passing Yards','Rushing Yards','Receiving Yards','Receptions',
+        'Rushing Attempts','Passing TDs','Receiving TDs','Interceptions Thrown','Sacks']
+  for (let round = 0; round < (mode === 'elite' ? 2 : 4); round++) {
+    for (const category of preference) for (const direction of ['over','under'] as const) {
+      const group = byCategoryDirection.get(category + ':' + direction) ?? []
+      for (const candidate of group) if (add(candidate)) break
+    }
+  }
+  for (const candidate of candidates) add(candidate)
   return chosen
 }
 export function buildNBAPicks(
   slate: Slate, history: Record<string, NBAPlayerGame[]>,
   players: { id: string; name: string; team: string; teamId: string }[],
   exclude?: (playerId: string, playerName: string, team: string, teamId: string) => boolean,
+  mode: CheatSheetMode = 'elite',
 ): CheatPick[] {
   const candidates: Candidate[] = []
   const events = new Map(slate.games.flatMap(game => game.teams.map(team => [team.id, game] as const)))
@@ -202,16 +239,13 @@ export function buildNBAPicks(
     for (const [category, lines] of Object.entries(nbaReferenceLines)) {
       const values = getPlayerPropValues(logs, category)
       for (const line of lines) for (const direction of ['over', 'under'] as const) {
-        // A "No triple-double" card would dominate an everyday board
-        // despite often not being a useful or offered market.
-        if ((category === 'Double-Double' || category === 'Triple-Double' ||
-          ['Steals', 'Blocks', 'Steals + Blocks (SB)'].includes(category)) && direction === 'under') continue
-        const candidate = evaluate('NBA', String(player.id), player.name, game.teams.find(t => t.id === player.teamId)?.abbreviation ?? '', game, category, values, line, direction)
+        // Both over and under directions remain available when backed by logs.
+        const candidate = evaluate('NBA', String(player.id), player.name, game.teams.find(t => t.id === player.teamId)?.abbreviation ?? '', game, category, values, line, direction, mode)
         if (candidate) candidates.push(candidate)
       }
     }
   }
-  return selectPicks(candidates)
+  return selectPicks(candidates, mode)
 }
 export async function loadNFLHistory(slate: Slate): Promise<{ rows: NFLHistoryRow[]; partial: boolean }> {
   if (!slate.games.length || !slate.seasonEvents) return { rows: [], partial: false }
@@ -255,7 +289,7 @@ export async function loadNFLHistory(slate: Slate): Promise<{ rows: NFLHistoryRo
   }
   return result
 }
-export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (playerId: string, playerName: string, team: string, teamId: string) => boolean): CheatPick[] {
+export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (playerId: string, playerName: string, team: string, teamId: string) => boolean, mode: CheatSheetMode = 'elite'): CheatPick[] {
   const upcoming = new Map(slate.games.flatMap(game => game.teams.map(team => [team.abbreviation, game] as const)))
   const grouped = new Map<string, { player: string; team: string; playerId: string; logs: NFLHistoryRow[] }>()
   for (const row of rows) {
@@ -277,11 +311,11 @@ export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (pl
       for (const row of item.logs) if (category in row.stats && !byGame.has(row.gameId)) byGame.set(row.gameId, row)
       const values = Array.from(byGame.values()).sort((a, b) => b.date.localeCompare(a.date)).map(row => row.stats[category])
       for (const line of lines) for (const direction of ['over', 'under'] as const) {
-        if (['Interceptions Thrown', 'Sacks', 'Receiving TDs'].includes(category) && direction === 'under') continue
-        const candidate = evaluate('NFL', item.playerId, item.player, item.team, game, category, values, line, direction)
+        // Both directions are evaluated; no automatic suppression of unders.
+        const candidate = evaluate('NFL', item.playerId, item.player, item.team, game, category, values, line, direction, mode)
         if (candidate) candidates.push(candidate)
       }
     }
   }
-  return selectPicks(candidates)
+  return selectPicks(candidates, mode)
 }
