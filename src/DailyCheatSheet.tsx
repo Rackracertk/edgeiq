@@ -135,6 +135,8 @@ export default function DailyCheatSheet({
       games: board.games.filter(game => Date.parse(game.date) > Date.now()),
       picks: board.picks.filter(pick => Date.parse(pick.gameTime) > Date.now()),
       allPicks: board.allPicks?.filter(pick => Date.parse(pick.gameTime) > Date.now()),
+      marketVerified: board.marketVerified?.filter(entry => Date.parse(entry.pick.gameTime) > Date.now() &&
+        Date.now() - Date.parse(entry.market.lastUpdated) <= 15 * 60_000),
     }
   }, [publication, sport, advance, retry])
 
