@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './HalftimeEdge.css'
+import LiveHalftimeFeed from './LiveHalftimeFeed'
 
 type Sport = 'NBA' | 'NFL'
 type Entry = { id: string; player: string; team: string; sport: Sport; category: string; current: number; pregame: number | null; live: number | null; elapsed: number; playerMinutes: number | null; fouls: number | null; note: string; updatedAt: string }
@@ -40,9 +41,10 @@ function HalftimeEdge() {
     setPlayer(''); setTeam(''); setCurrent('0'); setPregame(''); setLive(''); setPlayerMinutes(''); setFouls(''); setNote('')
   }
   return <div className="halftime-edge">
-    <section className="hero"><div className="eyebrow gold">SECOND-HALF RESEARCH WORKSPACE</div><h1>Halftime <span className="gold">Edge.</span></h1><p>Compare player totals with pregame and live lines, track what remains, and explore second-half pace.</p></section>
+    <section className="hero"><div className="eyebrow gold">SECOND-HALF RESEARCH WORKSPACE</div><h1>Halftime <span className="gold">Edge.</span></h1><p>Automatically browse NBA and NFL player box scores while games are underway, or track your own prop comparisons below.</p></section>
+    <LiveHalftimeFeed />
     <section className="panel ht-panel">
-      <div className="ht-heading"><div><span className="eyebrow">TRACKER · NBA + NFL</span><h2>Add a player prop</h2></div><span className="ht-chip">MANUAL DATA</span></div>
+      <div className="ht-heading"><div><span className="eyebrow">TRACKER · NBA + NFL</span><h2>Optional manual tracker</h2></div><span className="ht-chip">MANUAL DATA</span></div>
       <p className="ht-notice">This tracker does not receive live scores or sportsbook odds automatically. Enter verified stats and lines yourself. Pace is a basic calculation—not a forecast, probability, or betting recommendation.</p>
       <div className="ht-toggle">{(['NBA', 'NFL'] as const).map(item => <button type="button" className={item === sport ? 'active' : ''} key={item} onClick={() => { setSport(item); setCategory(item === 'NBA' ? 'Points' : 'Passing Yards'); setElapsed(item === 'NBA' ? '24' : '30') }}>{item === 'NBA' ? '🏀 NBA' : '🏈 NFL'}</button>)}</div>
       <form onSubmit={add} className="ht-form">
