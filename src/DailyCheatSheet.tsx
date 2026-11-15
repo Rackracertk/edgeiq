@@ -177,7 +177,7 @@ export default function DailyCheatSheet({
       </div>
       <button className="market-refresh" onClick={onInjuries}>Open Injury Center ↗</button>
     </section>}
-    {displayError && <p className="error" role="alert">{displayError}</p>
+    {displayError && <p className="error" role="alert">{displayError}</p>}
     {nflPartial && sport === 'NFL' && <p className="error" role="status">Some NFL box scores could not be fetched. Trends only use the games that were successfully verified; treat the list as incomplete.</p>}
 
     <div className="cheat-stats">
