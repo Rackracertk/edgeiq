@@ -51,7 +51,7 @@ test('position allowance is counted by opponent player appearances in separate g
   const corroborated = analyzed.find(pick => pick.defense?.games === 8)
   assert.ok(corroborated)
   assert.equal(corroborated.defense?.distinctGames, 4)
-  assert.equal(corroborated.defense?.position, 'PG')
+  assert.equal(corroborated.defense?.position, 'G')
   assert.equal(corroborated.researchGrade, 'MATCHUP BACKED')
   assert.equal(corroborated.headToHead, null)
 })
