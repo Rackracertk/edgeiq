@@ -72,7 +72,7 @@ jobs:
             kirkCards:cousins.slice(0,6)
           }))
           if(rosterMislabels.length)process.exitCode=1
-          console.log('PUBLISHED NFL ALL PROPS:,JSON.stringify({total:nflProps.length,categories:summary(nflProps),elite:feed.boards.NFL?.[0]?.picks?.length}))
+          console.log('PUBLISHED NFL ALL PROPS:',JSON.stringify({total:nflProps.length,categories:summary(nflProps),elite:feed.boards.NFL?.[0]?.picks?.length}))
           console.log('REAL POSITION LEADERBOARD:',JSON.stringify(Object.entries(defense.byPosition).map(([position,rows])=>({
             position,defenses:rows.length,example:rows[0]?{team:rows[0].team,hitRate:rows[0].hitRate,sample:rows[0].appearances}:null
           }))))
