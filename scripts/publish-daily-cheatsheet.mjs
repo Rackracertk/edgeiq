@@ -287,12 +287,12 @@ function makeBoard(sport, slate, history, report, rosters) {
   // All Props also shows 60-89% observed research, with explicit labeling.
   const researched=evidence(build('elite'),80)
   const allPicks=evidence(build('all'),200)
-  const marketVerified = allPicks.flatMap(pick => {
+  const marketVerified = report.available ? allPicks.flatMap(pick => {
     const event = slate.games.find(game => game.date === pick.gameTime &&
       game.teams.some(team => team.abbreviation === pick.team))
     const market = event ? verifyPickMarkets(pick, event.id, authorizedQuotes) : null
     return market ? [{ pick, market }] : []
-  })
+  }) : []
   return {
     ...slate,
     marketVerified,
