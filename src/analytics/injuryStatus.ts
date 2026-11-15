@@ -7,6 +7,8 @@ export type InjuryReport = {
   reason: string
   note: string
   updatedAt: string
+  expectedReturn?: string
+  position?: string
 }
 
 function text(value: unknown): string {
@@ -34,6 +36,8 @@ export function normalizeInjuries(payload: any): InjuryReport[] {
         reason: text(entry.type?.name || entry.type?.description || entry.details?.type || entry.details?.detail || entry.injury?.description),
         note: text(entry.details?.shortComment || entry.details?.description || entry.shortComment || entry.details?.detail).slice(0,240),
         updatedAt: text(entry.date || entry.lastUpdated),
+        expectedReturn: text(entry.details?.returnDate || entry.returnDate),
+        position: text(athlete.position?.abbreviation || athlete.position?.name),
       })
     }
   }
