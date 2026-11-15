@@ -4,7 +4,7 @@ on:
   schedule:
     # GitHub schedule is UTC. Covers US pregame mornings, afternoons and evenings.
     # GitHub may delay scheduled runs; the site shows publication freshness.
-    # Refresh and publish verified current NBA/NFL roster assignments before each slate; never use historical teams for upcoming picks.
+    # Verify every current-team assignment and publish roster snapshot for NBA/NFL cheat sheet and NFL player research.
     - cron: '15 10,12,14,16,18,20,22,23 * * *'
   workflow_dispatch:
   push:
