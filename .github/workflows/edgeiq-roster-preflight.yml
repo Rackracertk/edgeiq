@@ -1,0 +1,52 @@
+name: EDGEIQ current-roster preflight
+
+on:
+  push:
+    paths: ['.github/workflows/edgeiq-roster-preflight.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  roster:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify current NBA and NFL player-team roster assignments
+        run: |
+          node --input-type=module <<'NODE'
+          const endpoint='https://site.api.espn.com/apis/site/v2/sports/'
+          async function json(sport,path) {
+            const league=sport==='NBA'?'basketball/nba':'football/nfl'
+            const r=await fetch(endpoint+league+path,{signal:AbortSignal.timeout(13000)})
+            if(!r.ok)throw Error(sport+' '+path+' '+r.status)
+            return r.json()
+          }
+          const nfl=await json('NFL','/scoreboard?dates=2026&seasontype=2&limit=300')
+          const nba=await json('NBA','/scoreboard?dates=20261115')
+          for(const [sport,events] of [['NFL',nfl.events??[]],['NBA',nba.events??[]]]) {
+            const teams=new Map()
+            for(const ev of events)for(const side of ev.competitions?.[0]?.competitors??[]) {
+              if(side.team?.id && side.team?.abbreviation) teams.set(String(side.team.id),side.team)
+            }
+            console.log(sport,'teams found',teams.size)
+            let ok=0,totalAthletes=0
+            for(const team of teams.values()) {
+              try {
+                const data=await json(sport,'/teams/'+team.id+'/roster')
+                const athletes=(data.athletes??[]).flatMap(group=>Array.isArray(group.items)?group.items:[group])
+                  .filter(row=>row && row.id)
+                if(athletes.length>8)ok++
+                totalAthletes+=athletes.length
+                const cousins=athletes.filter(a=>String(a.displayName??'').toLowerCase().includes('kirk cousins'))
+                if(cousins.length)console.log('KIRK FOUND',sport,team.abbreviation,JSON.stringify(cousins.map(a=>({id:a.id,name:a.displayName,position:a.position?.abbreviation}))))
+                if(athletes.length<8)console.log('SHORT ROSTER',sport,team.abbreviation,athletes.length)
+              }catch(e){console.log('ROSTER FAILED',sport,team.abbreviation,String(e))}
+            }
+            console.log('ROSTER RESULT',sport,'teams',teams.size,'ok',ok,'athletes',totalAthletes)
+          }
+          NODE
