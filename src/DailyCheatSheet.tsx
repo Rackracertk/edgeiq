@@ -7,7 +7,6 @@ import {
 } from './cheatSheetData'
 import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, type InjuryData } from './analytics/injuryCenter'
 import { americanOddsBreakEven, enrichElitePicks, type ElitePick } from './analytics/eliteResearch'
-import KalshiResearch from './KalshiResearch'
 import './DailyCheatSheet.css'
 
 type MarketVerifiedCard = {
@@ -317,7 +316,6 @@ export default function DailyCheatSheet({
             </details>
           </article>)}</div>}
     </section>
-    <KalshiResearch picks={picks} />
     <div className="cheat-info" role="note">
       <strong>All Props includes 60%+ observed historical trends; Elite 90%+ only shows 90–100% recent historical results. Neither is a future win probability.</strong> Lines are research thresholds, not verified sportsbook offerings. The Research Score ranks available evidence, not expected profit or a calibrated forecast. Position allowances require enough completed matchup data; missing data is explicitly marked. Injury screening only applies when its source is reachable.
     </div>
