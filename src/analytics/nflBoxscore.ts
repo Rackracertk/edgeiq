@@ -49,7 +49,7 @@ function statRatio(values: unknown, labels: unknown, label: string): [number,num
   const index = labels.findIndex(item => normalized(item) === normalized(label))
   if (index < 0 || values[index] == null) return null
   const text = String(values[index]).trim()
-  const parsed = /^(\\d+)\\s*\\/\\s*(\\d+)$/.exec(text)
+  const parsed = /^(\d+)\s*\/\s*(\d+)$/.exec(text)
   if (!parsed) return null
   const completed = Number(parsed[1]), attempted = Number(parsed[2])
   return Number.isFinite(completed) && Number.isFinite(attempted) &&
