@@ -1,3 +1,4 @@
+import { verifyPickMarkets } from '../src/analytics/verifiedMarkets.ts'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { buildNBAPicks, buildNFLPicks, applyCurrentNBARosters } from '../src/cheatSheetData.ts'
@@ -15,6 +16,20 @@ const CURRENT_NBA_SEASON = new Date().getUTCMonth() >= 8 ? new Date().getUTCFull
 const CURRENT_NFL_SEASON = new Date().getUTCMonth() >= 7 ? new Date().getUTCFullYear() : new Date().getUTCFullYear() - 1
 const TODAY = eastDate(new Date())
 const failures = []
+let authorizedQuotes = []
+let authorizedOddsConfigured = false
+
+async function loadAuthorizedOdds() {
+  // Server-side export written by an authorized sportsbook data provider.
+  // Never fetch or guess unlicensed odds and never expose API credentials to the browser.
+  const path = process.env.EDGEIQ_AUTHORIZED_ODDS_FILE
+  if (!path) return
+  authorizedOddsConfigured = true
+  const raw = JSON.parse(await readFile(path, 'utf8'))
+  if (!Array.isArray(raw?.quotes)) throw Error('Authorized odds export must provide a quotes array')
+  authorizedQuotes = raw.quotes
+}
+
 
 function eastDate(date) {
   const parts = new Intl.DateTimeFormat('en-US', { timeZone:'America/New_York',
@@ -272,8 +287,16 @@ function makeBoard(sport, slate, history, report, rosters) {
   // All Props also shows 60-89% observed research, with explicit labeling.
   const researched=evidence(build('elite'),80)
   const allPicks=evidence(build('all'),200)
+  const marketVerified = allPicks.flatMap(pick => {
+    const event = slate.games.find(game => game.date === pick.gameTime &&
+      game.teams.some(team => team.abbreviation === pick.team))
+    const market = event ? verifyPickMarkets(pick, event.id, authorizedQuotes) : null
+    return market ? [{ pick, market }] : []
+  })
   return {
     ...slate,
+    marketVerified,
+    marketStatus: !authorizedOddsConfigured ? 'NOT_CONNECTED' : marketVerified.length ? 'VERIFIED_QUOTES' : 'NO_VALID_CURRENT_MARKETS',
     report,
     picks:researched,
     allPicks,
@@ -284,6 +307,7 @@ function makeBoard(sport, slate, history, report, rosters) {
   }
 }
 async function run() {
+  await loadAuthorizedOdds()
   const cache=await readCache()
   // Versioned parser refresh: older stored NFL boxes lack the newly available
   // completions/attempts, rushing TDs, targets, longest plays and tackle data.
