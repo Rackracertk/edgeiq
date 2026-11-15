@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { NBA_PROP_CATEGORIES, type NBAPlayerGame } from './analytics/nbaData'
 import { NFL_PROP_CATEGORIES } from './analytics/nflBoxscore'
 import {
-  buildNBAPicks, buildNFLPicks, loadDailySlate, loadNFLHistory,
+  buildNBAPicks, buildNFLPicks, loadNFLHistory,
   type CheatPick, type CheatSport, type NFLHistoryRow, type Slate,
 } from './cheatSheetData'
 import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, type InjuryData } from './analytics/injuryCenter'
