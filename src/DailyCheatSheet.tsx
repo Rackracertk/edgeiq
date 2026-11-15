@@ -3,7 +3,7 @@ import { NBA_PROP_CATEGORIES, type NBAPlayerGame } from './analytics/nbaData'
 import { NFL_PROP_CATEGORIES } from './analytics/nflBoxscore'
 import {
   buildNBAPicks, buildNFLPicks, loadNFLHistory,
-  type CheatPick, type CheatSport, type NFLHistoryRow, type Slate,
+  type CheatPick, type CheatSport, type NFLHistoryRow, type Slate, type CurrentRosterMap,
 } from './cheatSheetData'
 import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, type InjuryData } from './analytics/injuryCenter'
 import { americanOddsBreakEven, enrichElitePicks, type ElitePick } from './analytics/eliteResearch'
@@ -47,6 +47,7 @@ export default function DailyCheatSheet({
   const [slates, setSlates] = useState<Record<string, Slate>>({})
   const [publication, setPublication] = useState<DailyPublication | null>(null)
   const [publicationStatus, setPublicationStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading')
+  const [currentNFLRoster, setCurrentNFLRoster] = useState<CurrentRosterMap | null>(null)
   const [reports, setReports] = useState<Record<string, InjuryData>>({})
   const [nflRows, setNflRows] = useState<NFLHistoryRow[]>([])
   const [nflPartial, setNflPartial] = useState(false)
@@ -85,6 +86,32 @@ export default function DailyCheatSheet({
     const onFocus = () => void loadPublished()
     window.addEventListener('focus', onFocus)
     return () => { cancelled = true; window.clearInterval(interval); window.removeEventListener('focus', onFocus) }
+  }, [])
+
+  // Browser fallback is allowed to research *only* currently rostered players.
+  // Never infer a current team from a historical NFL boxscore when a
+  // scheduled publication becomes unavailable.
+  useEffect(() => {
+    let cancelled=false
+    async function verifyRosters() {
+      try {
+        const response=await fetch('/edgeiq-current-rosters.json?updated='+Date.now(), {cache:'no-store'})
+        if(!response.ok)throw Error('Current rosters not published')
+        const feed=await response.json() as {
+          schemaVersion:number; generatedAt:string; NFL?:CurrentRosterMap
+        }
+        if(feed.schemaVersion!==1 || !feed.NFL ||
+            !Number.isFinite(Date.parse(feed.generatedAt)) ||
+            Date.now()-Date.parse(feed.generatedAt)>18*60*60*1000)
+          throw Error('Current roster snapshot expired')
+        if(!cancelled)setCurrentNFLRoster(feed.NFL)
+      } catch {
+        if(!cancelled)setCurrentNFLRoster(null)
+      }
+    }
+    void verifyRosters()
+    const interval=window.setInterval(()=>void verifyRosters(),10*60*1000)
+    return()=>{cancelled=true;window.clearInterval(interval)}
   }, [])
 
   const publishedBoard = useMemo<PublishedBoard | undefined>(() => {
@@ -152,10 +179,11 @@ export default function DailyCheatSheet({
     const mode = pickMode === 'all' ? 'all' : 'elite'
     const candidates = sport === 'NBA'
       ? buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined, mode)
-      : buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined, mode)
+      : buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined, mode,
+          currentNFLRoster ?? {})
     return enrichElitePicks(candidates, sport, slate, nbaHistory, nflRows, nbaPlayers,
       mode === 'all' ? 200 : 80)
-  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable, publishedBoard, pickMode])
+  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable, publishedBoard, pickMode, currentNFLRoster])
   useEffect(() => {
     if (!reportAvailable) return
     setSelectedPicks(current => current.filter(pick => Date.parse(pick.gameTime) > Date.now() &&
