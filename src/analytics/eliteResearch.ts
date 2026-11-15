@@ -176,7 +176,7 @@ export function enrichElitePicks(
   // while protecting core NBA stats and NFL yardage from being crowded out.
   const lowInfoUnderCategories = new Set([
     'Steals','Blocks','Double-Double','Triple-Double',
-    'Interceptions Thrown','Receiving TDs','Sacks',
+    'Interceptions Thrown','Receiving TDs','Rushing TDs','Sacks',
   ])
   const seen = new Set<string>()
   const fullBoard = maxPicks > 100
@@ -206,7 +206,9 @@ export function enrichElitePicks(
     'Points + Assists (PA)','Points + Rebounds (PR)','Assists + Rebounds (AR)',
     '3-Pointers Made','Steals','Blocks','Steals + Blocks (SB)','Double-Double','Triple-Double']
   const nflPriority = ['Passing Yards','Rushing Yards','Receiving Yards','Receptions',
-    'Rushing Attempts','Passing TDs','Receiving TDs','Interceptions Thrown','Sacks']
+    'Passing Completions','Passing Attempts','Rushing Attempts','Receiving Targets',
+    'Passing TDs','Rushing TDs','Receiving TDs','Interceptions Thrown',
+    'Longest Rush','Longest Reception','Sacks','Tackles','Solo Tackles']
   const priority = sport === 'NBA' ? nbaPriority : nflPriority
   // Lead with one top-researched observation per available stat family.
   // Then make room for both sides, without inventing missing markets.
