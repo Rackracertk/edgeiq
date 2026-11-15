@@ -30,13 +30,13 @@ function normalized(value: unknown): string {
   return String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 }
 
-function statAt(values: unknown, rawLabels: unknown, aliases: string[]): number | null {
+function statAt(values: unknown, rawLabels: unknown, aliases: string[], allowNegative = false): number | null {
   if (!Array.isArray(values) || !Array.isArray(rawLabels)) return null
   const names = new Set(aliases.map(normalized))
   const idx = rawLabels.findIndex((label: unknown) => names.has(normalized(label)))
   if (idx < 0 || values[idx] == null || String(values[idx]).trim() === '') return null
   const value = Number(values[idx])
-  return Number.isFinite(value) && value >= 0 ? value : null
+  return Number.isFinite(value) && (allowNegative || value >= 0) ? value : null
 }
 
 // Sacks here are DEFENSIVE sacks credited to a player, not the
@@ -54,8 +54,8 @@ export function parseNFLBoxscore(data: any, game: NFLBoxGame): NFLHistoryRow[] {
       for (const athlete of group.athletes ?? []) {
         if (athlete.didNotPlay === true || !athlete.athlete?.id) continue
         const stats: Record<string, number> = {}
-        const put = (category: string, aliases: string[]) => {
-          const value = statAt(athlete.stats ?? [], labels, aliases)
+        const put = (category: string, aliases: string[], allowNegative = false) => {
+          const value = statAt(athlete.stats ?? [], labels, aliases, allowNegative)
           if (value !== null) stats[category] = value
         }
         if (groupName.includes('passing')) {
@@ -64,7 +64,7 @@ export function parseNFLBoxscore(data: any, game: NFLBoxGame): NFLHistoryRow[] {
           put('Interceptions Thrown', ['INT', 'INTS', 'interceptions'])
         }
         if (groupName.includes('rushing')) {
-          put('Rushing Yards', ['YDS', 'rushingYards'])
+          put('Rushing Yards', ['YDS', 'rushingYards'], true)
           put('Rushing Attempts', ['CAR', 'ATT', 'rushingAttempts'])
         }
         if (groupName.includes('receiving')) {
