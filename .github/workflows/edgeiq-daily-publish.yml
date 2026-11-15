@@ -4,7 +4,7 @@ on:
   schedule:
     # GitHub schedule is UTC. Covers US pregame mornings, afternoons and evenings.
     # GitHub may delay scheduled runs; the site shows publication freshness.
-    # One fresh post-fix run validates NBA and NFL data coverage.
+    # NBA and NFL verified. Validate additional daily NFL roster position evidence.
     - cron: '15 10,12,14,16,18,20,22,23 * * *'
   workflow_dispatch:
   push:
