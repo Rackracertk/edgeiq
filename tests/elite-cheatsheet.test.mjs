@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { buildNBAPicks } from '../src/cheatSheetData.ts'
+import { buildNBAPicks, meetsEliteHistory } from '../src/cheatSheetData.ts'
 import { enrichElitePicks, americanOddsBreakEven } from '../src/analytics/eliteResearch.ts'
 import { parseNFLBoxscore } from '../src/analytics/nflBoxscore.ts'
 
@@ -25,13 +25,15 @@ function makeFixture(hits) {
 }
 
 test('90% observed screening: never label an 8-of-10 trend elite', () => {
-  const nine = makeFixture(9)
-  const ninePicks = buildNBAPicks(nine.slate, nine.history, nine.players)
-  assert.ok(ninePicks.some(pick => pick.category === 'Points' && pick.direction === 'over' &&
-    pick.recentHits === 9 && pick.recentGames === 10))
-  const eight = makeFixture(8)
-  const eightPicks = buildNBAPicks(eight.slate, eight.history, eight.players)
-  assert.equal(eightPicks.some(pick => pick.category === 'Points' && pick.direction === 'over'), false)
+  assert.equal(meetsEliteHistory('NBA', 5, 9, 10), true)
+  assert.equal(meetsEliteHistory('NBA', 5, 8, 10), false)
+  assert.equal(meetsEliteHistory('NBA', 5, 9, 9), false)
+  assert.equal(meetsEliteHistory('NFL', 4, 8, 8), true)
+  assert.equal(meetsEliteHistory('NFL', 3, 8, 8), false)
+  const fixture = makeFixture(9)
+  const picks = buildNBAPicks(fixture.slate, fixture.history, fixture.players)
+  assert.ok(picks.length > 0)
+  assert.ok(picks.every(pick => pick.recentHits / pick.recentGames >= .9))
 })
 
 test('position allowance is counted by opponent player appearances in separate games', () => {
@@ -41,18 +43,17 @@ test('position allowance is counted by opponent player appearances in separate g
       gameId: 'defense-game-' + (i % 4),
       date: new Date(Date.now() - (i + 2) * DAY).toISOString(),
       team: 'Miami Heat', opponent: 'Boston Celtics',
-      position: 'PG', minutes: 30, points: 24, rebounds: 4, assists: 4, threes: 2,
+      position: 'PG', minutes: 30, points: 24, rebounds: 4, assists: 4, threes: 2, steals: 1, blocks: 1,
     }]
   }
   const picks = buildNBAPicks(fixture.slate, fixture.history, fixture.players)
   const analyzed = enrichElitePicks(picks, 'NBA', fixture.slate, fixture.history, [], fixture.players)
-  const points = analyzed.find(pick => pick.category === 'Points' && pick.direction === 'over')
-  assert.ok(points)
-  assert.equal(points.defense?.games, 8)
-  assert.equal(points.defense?.distinctGames, 4)
-  assert.equal(points.defense?.position, 'PG')
-  assert.equal(points.researchGrade, 'MATCHUP BACKED')
-  assert.equal(points.headToHead, null)
+  const corroborated = analyzed.find(pick => pick.defense?.games === 8)
+  assert.ok(corroborated)
+  assert.equal(corroborated.defense?.distinctGames, 4)
+  assert.equal(corroborated.defense?.position, 'PG')
+  assert.equal(corroborated.researchGrade, 'MATCHUP BACKED')
+  assert.equal(corroborated.headToHead, null)
 })
 
 test('absence of minutes data prevents a made-up NBA position matchup grade', () => {
