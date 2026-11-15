@@ -25,6 +25,11 @@ export default function InjuryCenter() {
     setData(null)
     void loadInjuryReport(sport).then(report => {
       if (!cancelled) setData(report)
+    }).catch(error => {
+      if (!cancelled) setData({
+        injuries: [], available: false, checkedAt: new Date().toISOString(), source: 'Unavailable',
+        error: error instanceof Error ? error.message : 'Injury source unavailable',
+      })
     }).finally(() => { if (!cancelled) setLoading(false) })
     return () => { cancelled = true }
   }, [sport, reload])
