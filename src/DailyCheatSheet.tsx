@@ -9,7 +9,15 @@ import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, typ
 import { americanOddsBreakEven, enrichElitePicks, type ElitePick } from './analytics/eliteResearch'
 import './DailyCheatSheet.css'
 
+type MarketVerifiedCard = {
+  pick: ElitePick
+  market: { sportsbookCount: number; consensusLine: number; bestOdds: number;
+    impliedProbability: number; noVigProbability: number; lastUpdated: string;
+    offers: { sportsbook: string; odds: number; observedAt: string }[] }
+}
 type PublishedBoard = Slate & {
+  marketVerified?: MarketVerifiedCard[]
+  marketStatus?: 'NOT_CONNECTED' | 'VERIFIED_QUOTES' | 'NO_VALID_CURRENT_MARKETS'
   report: InjuryData
   picks: ElitePick[]
   allPicks?: ElitePick[]
@@ -289,6 +297,22 @@ export default function DailyCheatSheet({
       }) + ' ET · ' + publishedBoard.historicalGames + ' completed games in source history' +
         (publishedBoard.sourceCompleteness === 'PARTIAL' ? ' · Partial source coverage' : '') :
         'This browser will try recent completed game logs. Automatic publishing may be delayed or unverified.'}</span>
+    </section>
+    <section className="panel" style={{padding:20,marginBottom:16}} aria-label="Verified sportsbook markets">
+      <span className="eyebrow gold">SPORTSBOOK-VERIFIED · EXACT LINES</span>
+      <h2 style={{margin:'8px 0'}}>Verified market opportunities</h2>
+      {!publishedBoard?.marketVerified?.length ?
+        <p role="status">No verified, current sportsbook player props are available for this slate. {publishedBoard?.marketStatus === 'NOT_CONNECTED' ? 'An authorized sportsbook odds feed has not been connected.' : 'A current matching sportsbook quote could not be verified.'} Historical research appears below and must not be confused with offered betting lines.</p> :
+        <div className="edge-cards">{publishedBoard.marketVerified.map(({pick,market}) =>
+          <article key={pick.id} className="panel" style={{padding:16,marginBottom:12}}>
+            <strong>{pick.player} · {pick.team} vs {pick.opponent}</strong>
+            <p><b>{pick.direction.toUpperCase()} {market.consensusLine} {pick.category}</b> · best odds {market.bestOdds > 0 ? '+' : ''}{market.bestOdds} · {market.sportsbookCount} verified sportsbook{market.sportsbookCount === 1 ? '' : 's'}</p>
+            <p>Implied: {(market.impliedProbability * 100).toFixed(1)}% · No-vig: {(market.noVigProbability * 100).toFixed(1)}% · L5: {pick.l5Hits}/{pick.l5Games} · L10: {pick.recentHits}/{pick.recentGames}</p>
+            <small>Latest offer: {new Date(market.lastUpdated).toLocaleString()} · Market probability is not EDGEIQ's predicted win probability. Expected value is unavailable without a calibrated model.</small>
+            <details><summary>Available sportsbooks and quoted prices</summary>
+              {market.offers.map(offer => <p key={offer.sportsbook}>{offer.sportsbook}: {offer.odds > 0 ? '+' : ''}{offer.odds} · {new Date(offer.observedAt).toLocaleString()}</p>)}
+            </details>
+          </article>)}</div>}
     </section>
     <div className="cheat-info" role="note">
       <strong>All Props includes 60%+ observed historical trends; Elite 90%+ only shows 90–100% recent historical results. Neither is a future win probability.</strong> Lines are research thresholds, not verified sportsbook offerings. The Research Score ranks available evidence, not expected profit or a calibrated forecast. Position allowances require enough completed matchup data; missing data is explicitly marked. Injury screening only applies when its source is reachable.
