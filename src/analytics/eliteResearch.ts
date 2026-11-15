@@ -140,7 +140,7 @@ export function enrichElitePicks(
   picks: CheatPick[], sport: CheatSport, slate: Slate,
   nbaHistory: NBAHistory, nflRows: NFLHistoryRow[], players: NBAPlayers,
 ): ElitePick[] {
-  return picks.map(pick => {
+  const ranked = picks.map(pick => {
     const evidence = sport === 'NBA'
       ? nbaEvidence(pick, slate, nbaHistory, players) : nflEvidence(pick, nflRows)
     const favorableMatchup = evidence.defense ? evidence.defense.percentage / 100 : null
@@ -164,6 +164,22 @@ export function enrichElitePicks(
     b.researchScore - a.researchScore ||
     b.recentHits - a.recentHits
   )
+  const chosen: ElitePick[] = []
+  const athleteCounts = new Map<string, number>()
+  const teamCounts = new Map<string, number>()
+  const statCounts = new Map<string, number>()
+  for (const pick of ranked) {
+    if (chosen.length >= 40) break
+    const athlete = pick.sport + ':' + pick.playerId
+    if ((athleteCounts.get(athlete) ?? 0) >= 2 ||
+        (teamCounts.get(pick.team) ?? 0) >= 8 ||
+        (statCounts.get(pick.category) ?? 0) >= 10) continue
+    chosen.push(pick)
+    athleteCounts.set(athlete, (athleteCounts.get(athlete) ?? 0) + 1)
+    teamCounts.set(pick.team, (teamCounts.get(pick.team) ?? 0) + 1)
+    statCounts.set(pick.category, (statCounts.get(pick.category) ?? 0) + 1)
+  }
+  return chosen
 }
 
 export function americanOddsBreakEven(odds: number): number | null {
