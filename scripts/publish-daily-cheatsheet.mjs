@@ -1,4 +1,5 @@
 import { verifyPickMarkets } from '../src/analytics/verifiedMarkets.ts'
+import { fetchPropLineQuotes } from './propline-odds.mjs'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { buildNBAPicks, buildNFLPicks, applyCurrentNBARosters } from '../src/cheatSheetData.ts'
@@ -342,6 +343,15 @@ async function run() {
   const nflPositionsMap=Object.fromEntries(Object.entries(nflRoster)
     .map(([id,player])=>[id,player.position]))
   const nflData=nflSlates.length?await nflHistory(cache,nflEvents,nflPositionsMap):{rows:[],completedGames:0}
+  if(process.env.EDGEIQ_PROPLINE_API_KEY){
+    authorizedOddsConfigured=true
+    const [nbaQuotes,nflQuotes]=await Promise.all([
+      nbaSlates.length?fetchPropLineQuotes('NBA',nbaRoster):[],
+      nflSlates.length?fetchPropLineQuotes('NFL',nflRoster):[],
+    ])
+    authorizedQuotes.push(...nbaQuotes,...nflQuotes)
+    console.log('PROPLINE VALIDATED TWO-SIDED QUOTES',JSON.stringify({NBA:nbaQuotes.length,NFL:nflQuotes.length}))
+  }
   const boards={
     NBA:nbaSlates.map(slate=>makeBoard('NBA',slate,nbaData,nbaReport,nbaRoster)),
     NFL:nflSlates.map(slate=>makeBoard('NFL',slate,nflData,nflReport,nflRoster)),
