@@ -83,11 +83,11 @@ export default function DailyCheatSheet({
   const excluded = (playerId: string, player: string, team: string, teamId: string) =>
     shouldExcludeInjury(findInjury(report?.injuries ?? [], playerId, player, team, teamId))
   const picks = useMemo(() => {
-    if (!slate?.games.length || !reportAvailable) return []
+    if (!slate?.games.length) return []
     const unavailable = (id: string, name: string, team: string, teamId: string) =>
       shouldExcludeInjury(findInjury(report?.injuries ?? [], id, name, team, teamId))
-    if (sport === 'NBA') return buildNBAPicks(slate, nbaHistory, nbaPlayers, unavailable)
-    return buildNFLPicks(slate, nflRows, unavailable)
+    if (sport === 'NBA') return buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined)
+    return buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined)
   }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable])
   useEffect(() => {
     if (!reportAvailable) return
@@ -172,7 +172,7 @@ export default function DailyCheatSheet({
 
     {report && <section className={reportAvailable ? 'cheat-injury-ok' : 'cheat-injury-unavailable'} role="status">
       <div><strong>{reportAvailable ? 'Availability screening active' : 'Injury screening unavailable'}</strong>
-        <p>{reportAvailable ? excludedCount + ' unavailable / uncertain athletes excluded for this slate. Remaining eligible candidates automatically move up the rankings.' : 'The injury source could not be verified. EDGEIQ will not present un-screened candidates as cleared picks.'}</p>
+        <p>{reportAvailable ? excludedCount + ' unavailable / uncertain athletes excluded for this slate. Remaining eligible candidates automatically move up the rankings.' : 'The injury source could not be verified. The board shows historical research only. Injury status is NOT screened; do not treat these trends as cleared picks.'}</p>
         <small>{reportAvailable ? 'Checked ' + new Date(report.checkedAt).toLocaleString() + ' · ' + report.source : (report.error ?? 'Source unavailable')}</small>
       </div>
       <button className="market-refresh" onClick={onInjuries}>Open Injury Center ↗</button>
@@ -182,7 +182,7 @@ export default function DailyCheatSheet({
 
     <div className="cheat-stats">
       <div><span>GAME SLATE</span><strong>{slate ? slate.games.length : '—'}</strong><small>{slate?.isToday ? 'Today (ET)' : 'Next games (ET)'}</small></div>
-      <div><span>TREND CANDIDATES</span><strong>{isBusy || !reportAvailable ? '…' : picks.length}</strong><small>Meeting the history rules</small></div>
+      <div><span>TREND CANDIDATES</span><strong>{isBusy ? '…' : picks.length}</strong><small>Meeting the history rules</small></div>
       <div><span>MY SHORTLIST</span><strong>{selected.length}</strong><small>Choose any research cards</small></div>
     </div>
 
@@ -215,10 +215,6 @@ export default function DailyCheatSheet({
     </section> : !slate ? <section className="panel cheat-empty">
       <h3>Schedule unavailable</h3><p>Refresh the page when the sports feed is available. No fictional matchups or picks are shown.</p>
       <button className="cta" onClick={() => { setErrors(previous => ({ ...previous, [key]: '' })); setRetry(previous => previous + 1) }}>Try again</button>
-    </section> : !reportAvailable ? <section className="panel cheat-empty">
-      <h3>Cheat sheet awaiting injury verification</h3>
-      <p>No player is being presented as a cleared pick while the injury report is unavailable. Check the injury center or retry before game time.</p>
-      <button className="cta" onClick={() => setRetry(value => value+1)}>Retry injury check</button>
     </section> : filtered.length === 0 ? <section className="panel cheat-empty">
       <h3>No qualifying trends for this slate</h3>
       <p>{picks.length ? 'Try another stat type or direction.' : 'The available completed-game data does not meet our recent-history criteria. This is not a slate of guaranteed or automatic picks.'}</p>
@@ -228,7 +224,7 @@ export default function DailyCheatSheet({
         {visible.map((pick, index) => {
           const active = selected.some(item => item.id === pick.id)
           return <article className={active ? 'cheat-card selected' : 'cheat-card'} key={pick.id}>
-            <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} TREND</span><span>{formatTime(pick.gameTime)}</span></div>
+            <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} {reportAvailable ? 'SCREENED TREND' : 'UNSCREENED TREND'}</span><span>{formatTime(pick.gameTime)}</span></div>
             <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup}</span></div>
             <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? (pick.direction === 'over' ? 'YES' : 'NO') : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
             <div className="cheat-rates">
