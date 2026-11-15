@@ -1,7 +1,7 @@
 name: Verify EDGEIQ build
 on:
   push:
-    branches: [edgeiq-launch-foundation-2026]
+    branches: [edgeiq-launch-foundation-2026, edgeiq-elite-cheatsheet-20261115]
   workflow_dispatch:
 jobs:
   build:
