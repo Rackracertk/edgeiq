@@ -14,3 +14,27 @@
 .cheat-injury-ok small,.cheat-injury-unavailable small{font-size:10px;color:#acc5ac}
 .cheat-toolbar .cheat-tab{padding:10px 16px}
 @media(max-width:700px){.cheat-toolbar{align-items:stretch}.cheat-toolbar .cheat-tabs{width:100%;justify-content:center}.cheat-toolbar .cheat-tab{flex:1}.cheat-toolbar-label{width:100%}}
+
+/* Elite research: keep statistical evidence visible without claiming guaranteed outcomes. */
+.cheat-matchup-toggle{display:flex!important;align-items:center;gap:8px;min-height:40px;letter-spacing:0!important;font-size:12px!important;color:#d2ead5!important}
+.cheat-matchup-toggle input{accent-color:#ffb612;width:17px;height:17px}
+.cheat-elite-header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:13px 15px;background:#132d20;border:1px solid #4e7748;border-radius:10px}
+.cheat-elite-header>span{font-size:10px;color:#a8d6b1;font-weight:900;letter-spacing:1px}
+.cheat-elite-header strong{margin-left:auto;color:#ffcb46;font-size:31px;font-weight:950}
+.cheat-elite-header small{flex-basis:100%;color:#97bba3;font-size:11px}
+.cheat-defense{display:grid;gap:9px;border:1px solid #37624b;background:#10291d;border-radius:11px;padding:14px}
+.cheat-defense>div{display:flex;justify-content:space-between;gap:8px;color:#d5ebdc;font-size:11px}
+.cheat-defense>div span{color:#f2cb7a}
+.cheat-defense p{margin:0;color:#abc6b2;font-size:12px;line-height:1.7}
+.cheat-defense p b{color:#eaf8ea}
+.cheat-defense p small{display:block;color:#8fbe9b;margin-top:4px}
+.cheat-evidence{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px;color:#9fc0ab;font-size:11px}
+.cheat-evidence b{color:#eaf5e8}
+.cheat-deep-research{padding:12px 14px;border-radius:10px;border:1px solid #41644d;background:#0a2117;color:#a8c8b1;font-size:12px}
+.cheat-deep-research summary{color:#ffd06b;cursor:pointer;font-weight:850}
+.cheat-deep-research p{line-height:1.65;margin:12px 0 4px}
+.cheat-deep-research b{color:#f5f8f1}
+.cheat-deep-research>small{display:block;margin-top:12px;font-size:10px;line-height:1.5}
+.cheat-odds-input{display:grid;gap:8px;margin:14px 0 4px;color:#c2d7c5;font-size:11px;font-weight:750}
+.cheat-odds-input input{width:180px;max-width:100%;border:1px solid #4a7456;border-radius:8px;padding:10px;color:#eff7ef;background:#132d20;font-size:13px}
+@media(max-width:650px){.cheat-elite-header strong{font-size:27px}.cheat-matchup-toggle{width:100%}}
