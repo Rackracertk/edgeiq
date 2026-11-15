@@ -170,30 +170,58 @@ async function nbaHistory(cache) {
   }))
   return {history,players,completedGames:Object.keys(cache.nba).length}
 }
-async function nflPositions(cache, events) {
-  if(cache.lastNFLRosterET===TODAY && Object.keys(cache.nflPositions??{}).length)
-    return cache.nflPositions
+async function currentRosters(sport, events, slates) {
+  // The ESPN team roster is the current-team authority. A historical boxscore
+  // is only evidence of where an athlete played THAT game, not a new assignment.
   const teams=new Map()
-  for(const event of events)for(const team of parsedTeams(event)??[])
+  for(const event of events)for(const team of parsedTeams(event)??[]) {
+    if(team.abbreviation==='AFC'||team.abbreviation==='NFC')continue
     teams.set(team.id,team)
-  const entries=await batches([...teams.values()],6,async team=>{
-    try {
-      const data=await getJson('NFL','/teams/'+encodeURIComponent(team.id)+'/roster')
-      if(!Array.isArray(data.athletes))throw Error('NFL roster shape unavailable')
-      const players=data.athletes.flatMap(group=>Array.isArray(group.items)?group.items:[])
-      return players.flatMap(athlete=>{
-        const position=String(athlete.position?.abbreviation??'').toUpperCase()
-        const id=String(athlete.id??'')
-        return id&&position?[[id,position]]:[]
-      })
-    }catch(error){failures.push('NFL roster '+team.abbreviation+': '+String(error));return []}
-  })
-  const mapped=Object.fromEntries(entries.flat())
-  if(Object.keys(mapped).length > 100){
-    cache.nflPositions=mapped
-    cache.lastNFLRosterET=TODAY
   }
-  return Object.keys(mapped).length?mapped:cache.nflPositions??{}
+  const needed=new Set(slates.flatMap(slate=>slate.games.flatMap(game=>game.teams.map(team=>String(team.id)))))
+  const fetched=await batches([...teams.values()],6,async team=>{
+    try {
+      const source=await getJson(sport,'/teams/'+encodeURIComponent(team.id)+'/roster')
+      const athletes=(Array.isArray(source.athletes)?source.athletes:[])
+        .flatMap(group=>Array.isArray(group?.items)?group.items:[group])
+        .filter(row=>row?.id)
+      if(athletes.length<10)throw Error('Incomplete current roster: '+athletes.length+' athletes')
+      return {team,athletes}
+    }catch(error) {
+      if(needed.has(team.id))failures.push(sport+' CURRENT ROSTER '+team.abbreviation+': '+String(error))
+      return null
+    }
+  })
+  const complete=fetched.filter(Boolean)
+  const validated=new Set(complete.map(entry=>entry.team.id))
+  const missing=[...needed].filter(id=>!validated.has(id))
+  // Do NOT publish an outdated trade assignment when a team roster fails.
+  if(missing.length)throw Error(sport+' missing verified roster(s) for scheduled teams: '+missing.join(','))
+  const all={}
+  const collisions=new Set()
+  for(const {team,athletes} of complete)for(const athlete of athletes){
+    const id=String(athlete.id)
+    const existing=all[id]
+    if(existing && existing.team!==team.abbreviation){
+      collisions.add(id)
+      continue
+    }
+    all[id]={
+      team:team.abbreviation,teamId:team.id,teamName:team.name,
+      name:String(athlete.displayName??athlete.fullName??'').trim(),
+      position:String(athlete.position?.abbreviation??'').toUpperCase(),
+    }
+  }
+  for(const id of collisions)delete all[id]
+  const teamsWithData=new Set(Object.values(all).map(player=>player.teamId))
+  const missingMapped=[...needed].filter(id=>!teamsWithData.has(id))
+  if(missingMapped.length)throw Error(sport+' roster assignments incomplete: '+missingMapped.join(','))
+  const count=Object.keys(all).length
+  if(count < (sport==='NFL'?350:150))throw Error(sport+' roster coverage inadequate: '+count)
+  console.log('CURRENT ROSTER',sport,'team count',complete.length,'athletes',count,
+    'conflicts removed',collisions.size,'Kirk Cousins',
+    JSON.stringify(Object.entries(all).filter(([,a])=>a.name==='Kirk Cousins').map(([id,a])=>({id,team:a.team}))))
+  return all
 }
 async function nflHistory(cache, events, positions) {
   const completed=uniqueEvents(events.filter(e=>completedEvent(e,'NFL')))
@@ -230,13 +258,13 @@ async function injuries(sport) {
       source:'Unavailable',error:String(error)}
   }
 }
-function makeBoard(sport, slate, history, report) {
+function makeBoard(sport, slate, history, report, rosters) {
   const unavailable=(id,name,team,teamId)=>
     shouldExcludeInjury(findInjury(report.injuries,String(id),name,team,String(teamId)))
   const screened = report.available ? unavailable : undefined
   const build = mode => sport==='NBA'
     ? buildNBAPicks(slate,history.history,history.players,screened,mode)
-    : buildNFLPicks(slate,history.rows,screened,mode)
+    : buildNFLPicks(slate,history.rows,screened,mode,rosters)
   const evidence = (candidates,cap) => enrichElitePicks(candidates,sport,slate,
     sport==='NBA'?history.history:{},sport==='NFL'?history.rows:[],
     sport==='NBA'?history.players:[],cap)
@@ -280,11 +308,23 @@ async function run() {
   const nflSlates=getBoards(nflEvents,'NFL')
   const [nbaReport,nflReport]=await Promise.all([injuries('NBA'),injuries('NFL')])
   const nbaData=nbaSlates.length?await nbaHistory(cache):{history:{},players:[],completedGames:0}
-  const nflPositionsMap=nflSlates.length?await nflPositions(cache,nflEvents):{}
+  const [nbaRoster,nflRoster]=await Promise.all([
+    nbaSlates.length?currentRosters('NBA',nbaFuture.flat(),nbaSlates):{},
+    nflSlates.length?currentRosters('NFL',nflEvents,nflSlates):{},
+  ])
+  // Retain historical stat values (including pre-trade games), but assign
+  // each athlete to the CURRENT roster before joining an upcoming slate.
+  nbaData.players=nbaData.players.flatMap(player=>{
+    const active=nbaRoster[String(player.id)]
+    return active ? [{...player,team:active.teamName,teamId:active.teamId,
+      position:active.position||player.position}] : []
+  })
+  const nflPositionsMap=Object.fromEntries(Object.entries(nflRoster)
+    .map(([id,player])=>[id,player.position]))
   const nflData=nflSlates.length?await nflHistory(cache,nflEvents,nflPositionsMap):{rows:[],completedGames:0}
   const boards={
-    NBA:nbaSlates.map(slate=>makeBoard('NBA',slate,nbaData,nbaReport)),
-    NFL:nflSlates.map(slate=>makeBoard('NFL',slate,nflData,nflReport)),
+    NBA:nbaSlates.map(slate=>makeBoard('NBA',slate,nbaData,nbaReport,nbaRoster)),
+    NFL:nflSlates.map(slate=>makeBoard('NFL',slate,nflData,nflReport,nflRoster)),
   }
   const totalPicks=Object.values(boards).flat().reduce((sum,board)=>sum+board.picks.length,0)
   const result={
