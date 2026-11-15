@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { calculateRecentHitRates, type Direction } from './analytics/hitRates'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 import ProInsights from './ProInsights'
+import { rankNFLDefensiveYards } from './analytics/nflDefensiveYards'
 import { NFL_PROP_CATEGORIES, defaultNFLLine, parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore'
 
 type Game = { id: string; date: string; completed: boolean }
@@ -156,37 +157,19 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
   const suggestions = query && !selected ? players.filter(player => player.name.toLowerCase().includes(query.toLowerCase())).slice(0, 8) : []
   const history = Array.from(new Map(rows.filter(row => row.playerId === playerId && category in row.stats).map(row => [row.gameId, row])).values()).sort((a, b) => b.date.localeCompare(a.date))
   const values = history.map(row => row.stats[category])
-  // Derive opponent passing yards allowed from actual completed game box scores.
-  // Each game's team total is the sum of player passing yards for that team.
-  const defensivePassing = useMemo(() => {
-    const byGame = new Map<string, Map<string, number>>()
-    rows.forEach(row => {
-      if (row.stats['Passing Yards'] === undefined) return
-      if (!byGame.has(row.gameId)) byGame.set(row.gameId, new Map())
-      const teams = byGame.get(row.gameId)!
-      teams.set(row.team, (teams.get(row.team) ?? 0) + row.stats['Passing Yards'])
-    })
-    const allowed = new Map<string, number[]>()
-    byGame.forEach(teams => {
-      if (teams.size !== 2) return
-      const entries = Array.from(teams.entries())
-      for (const [team] of entries) {
-        const opponentYards = entries.find(([other]) => other !== team)?.[1]
-        if (opponentYards === undefined) continue
-        if (!allowed.has(team)) allowed.set(team, [])
-        allowed.get(team)!.push(opponentYards)
-      }
-    })
-    return Array.from(allowed, ([team, games]) => ({
-      team, games: games.length,
-      yardsAllowed: games.reduce((sum, yards) => sum + yards, 0) / games.length
-    })).filter(item => item.games >= 3).sort((a, b) => a.yardsAllowed - b.yardsAllowed)
-  }, [rows])
+  // Independent defensive rankings from completed games: passing and rushing
+  // totals are summed from offensive player box scores for each opponent.
+  const defensivePassing = useMemo(() => rankNFLDefensiveYards(rows, 'Passing Yards'), [rows])
+  const defensiveRushing = useMemo(() => rankNFLDefensiveYards(rows, 'Rushing Yards'), [rows])
+  const isRushingProp = category === 'Rushing Yards' || category === 'Rushing Attempts'
+  const activeDefense = isRushingProp ? defensiveRushing : defensivePassing
+  const activeDefenseLabel = isRushingProp ? 'RUSH' : 'PASS'
   const matchupOpponent = manualOpponent === 'auto' ? nextOpponent : manualOpponent
-  const matchupIndex = defensivePassing.findIndex(item => item.team === matchupOpponent)
-  const matchup = matchupIndex >= 0 ? defensivePassing[matchupIndex] : undefined
-  const matchupDifficulty = matchup && defensivePassing.length > 1
-    ? matchupIndex < defensivePassing.length / 3 ? 'TOUGH' : matchupIndex >= defensivePassing.length * 2 / 3 ? 'FAVORABLE' : 'AVERAGE'
+  const matchupIndex = activeDefense.findIndex(item => item.team === matchupOpponent)
+  const matchup = matchupIndex >= 0 ? activeDefense[matchupIndex] : undefined
+  const matchupDifficulty = matchup && activeDefense.length > 1
+    ? matchupIndex < activeDefense.length / 3 ? 'TOUGH' :
+      matchupIndex >= activeDefense.length * 2 / 3 ? 'FAVORABLE' : 'AVERAGE'
     : 'UNAVAILABLE'
   const rates = calculateRecentHitRates(values, line, direction)
   const hit = (value: number) => direction === 'over' ? value > line : value < line
@@ -214,19 +197,19 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
     <ProInsights sport="NFL" playerId={selected?.id} playerName={selected?.name} prop={category} line={line} direction={direction} onUpgrade={onUpgrade} />
     <section className="panel log-panel">
       <div className="panel-title"><div><span className="eyebrow">PLAYER VS DEFENSE</span><h3>Opponent matchup explorer</h3></div><span className="small-tag">2026 REGULAR SEASON</span></div>
-      <p className="footnote">Select a player, then compare their next scheduled opponent or any available NFL defense. Rankings reflect passing yards allowed, so they apply most directly to passing-yard props.</p>
+      <p className="footnote">Select a player, then compare their next scheduled opponent or any available NFL defense. Rankings use passing yards allowed for passing/receiving props and rushing yards allowed for rushing props. Both complete leaderboards are below. These are historical team totals, not a prediction of your selected player's performance.</p>
       <div className="field" style={{ maxWidth: 420, marginBottom: 20 }}>
         <label htmlFor="nfl-opponent">OPPONENT</label>
         <select id="nfl-opponent" value={manualOpponent} onChange={event => setManualOpponent(event.target.value)}>
           <option value="auto">Next scheduled opponent (automatic)</option>
-          {defensivePassing.map(item => <option key={item.team} value={item.team}>{item.team}</option>)}
+          {Array.from(new Set([...defensivePassing, ...defensiveRushing].map(item => item.team))).sort().map(team => <option key={team} value={team}>{team}</option>)}
         </select>
       </div>
       {selected ? <div className="metrics" style={{ marginBottom: 20 }}>
         <div className="metric"><div className="metric-label">MATCHUP</div><div className="metric-value" style={{ fontSize: 28 }}>{selected.team} vs {matchupOpponent || '—'}</div><div className="metric-sub">{manualOpponent === 'auto' ? (scheduleStatus || (nextOpponent ? 'Next scheduled opponent' : 'Checking upcoming schedule…')) : 'Manually selected defense'}</div></div>
-        <div className="metric"><div className="metric-label">PASS DEFENSE RANK</div><div className="metric-value">{matchup ? '#' + (matchupIndex + 1) : 'N/A'}</div><div className="metric-sub">Among {defensivePassing.length} qualifying teams</div></div>
-        <div className="metric"><div className="metric-label">PASS YARDS ALLOWED / GAME</div><div className="metric-value">{matchup ? matchup.yardsAllowed.toFixed(1) : 'N/A'}</div><div className="metric-sub">{matchup ? matchup.games + ' completed games' : 'No validated matchup data'}</div></div>
-        <div className="metric gold-metric"><div className="metric-label">PASSING MATCHUP</div><div className="metric-value" style={{ fontSize: 28 }}>{matchupDifficulty}</div><div className="metric-sub">Relative to qualifying defenses; not a win probability</div></div>
+        <div className="metric"><div className="metric-label">{activeDefenseLabel} DEFENSE RANK</div><div className="metric-value">{matchup ? '#' + (matchupIndex + 1) : 'N/A'}</div><div className="metric-sub">Among {activeDefense.length} qualifying teams · based on {isRushingProp ? 'rushing' : 'passing'} yards</div></div>
+        <div className="metric"><div className="metric-label">{activeDefenseLabel} YARDS ALLOWED / GAME</div><div className="metric-value">{matchup ? matchup.yardsAllowed.toFixed(1) : 'N/A'}</div><div className="metric-sub">{matchup ? matchup.games + ' completed games' : 'No validated matchup data'}</div></div>
+        <div className="metric gold-metric"><div className="metric-label">{isRushingProp ? 'RUSHING' : 'PASSING'} MATCHUP</div><div className="metric-value" style={{ fontSize: 28 }}>{matchupDifficulty}</div><div className="metric-sub">Relative to qualifying defenses; not a win probability</div></div>
       </div> : <p className="footnote">Choose an NFL player above to see their opponent matchup.</p>}
     </section>
     <section className="panel log-panel">
@@ -235,6 +218,14 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
       <div className="table-wrap"><table><thead><tr><th>RANK</th><th>DEFENSE</th><th>GAMES</th><th>PASS YDS ALLOWED / GAME</th></tr></thead><tbody>
         {defensivePassing.map((item, index) => <tr key={item.team}><td>{index + 1}</td><td>{item.team}</td><td>{item.games}</td><td>{item.yardsAllowed.toFixed(1)}</td></tr>)}
         {defensivePassing.length === 0 && <tr><td colSpan={4} className="table-empty">{loading ? 'Loading defensive game logs…' : 'Insufficient verified defensive game logs.'}</td></tr>}
+      </tbody></table></div>
+    </section>
+    <section className="panel log-panel">
+      <div className="panel-title"><div><span className="eyebrow">2026 NFL DEFENSIVE MATCHUPS</span><h3>Rushing yards allowed per game</h3></div><span className="small-tag">LOWEST = TOUGHEST</span></div>
+      <p className="footnote">Rushing yards gained by the opposing offense per game, summed across all rushers (including quarterbacks). Ranked from fewest allowed (strongest rushing defense) to most allowed. At least three validated completed regular-season games per defense are required. These are team totals, not individual player projections.</p>
+      <div className="table-wrap"><table><thead><tr><th>RANK</th><th>DEFENSE</th><th>GAMES</th><th>RUSH YDS ALLOWED / GAME</th></tr></thead><tbody>
+        {defensiveRushing.map((item, index) => <tr key={item.team}><td>{index + 1}</td><td>{item.team}</td><td>{item.games}</td><td>{item.yardsAllowed.toFixed(1)}</td></tr>)}
+        {defensiveRushing.length === 0 && <tr><td colSpan={4} className="table-empty">{loading ? 'Loading rushing defense game logs…' : 'Insufficient verified rushing defense game logs.'}</td></tr>}
       </tbody></table></div>
     </section>
     <section className="panel log-panel"><div className="panel-title"><div><span className="eyebrow">HISTORICAL RESULTS</span><h3>NFL game log · {category}</h3></div><span className="small-tag">NEWEST FIRST</span></div>
