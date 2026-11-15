@@ -183,16 +183,12 @@ export default function DailyCheatSheet({
     shouldExcludeInjury(findInjury(report?.injuries ?? [], playerId, player, team, teamId))
   const picks = useMemo(() => {
     if (!slate?.games.length) return []
-    if (publishedBoard) return pickMode === 'all' ? (publishedBoard.allPicks ?? publishedBoard.picks) : publishedBoard.picks
-    const unavailable = (id: string, name: string, team: string, teamId: string) =>
-      shouldExcludeInjury(findInjury(report?.injuries ?? [], id, name, team, teamId))
-    const mode = pickMode === 'all' ? 'all' : 'elite'
-    const candidates = sport === 'NBA'
-      ? buildNBAPicks(slate, nbaHistory, nbaPlayers, reportAvailable ? unavailable : undefined, mode)
-      : buildNFLPicks(slate, nflRows, reportAvailable ? unavailable : undefined, mode,
-          currentNFLRoster ?? {})
-    return enrichElitePicks(candidates, sport, slate, nbaHistory, nflRows, nbaPlayers,
-      mode === 'all' ? 200 : 80)
+    // Actual-market-only: no sportsbook quote means no displayed bettable pick.
+    if (publishedBoard) {
+      const verified = publishedBoard.marketVerified?.map(entry => entry.pick) ?? []
+      return pickMode === 'all' ? verified : verified.filter(p => p.recentHits / p.recentGames >= .9)
+    }
+    return []
   }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable, publishedBoard, pickMode, currentNFLRoster])
   useEffect(() => {
     if (!reportAvailable) return
