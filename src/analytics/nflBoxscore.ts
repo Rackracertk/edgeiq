@@ -4,10 +4,12 @@ export type NFLHistoryRow = {
   playerId: string
   player: string
   team: string
+  position?: string
+  opponent?: string
   stats: Record<string, number>
 }
 
-export type NFLBoxGame = { id: string; date: string }
+export type NFLBoxGame = { id: string; date: string; teams?: { abbreviation: string }[] }
 
 export const NFL_PROP_CATEGORIES = [
   'Passing Yards', 'Passing TDs', 'Interceptions Thrown',
@@ -80,6 +82,8 @@ export function parseNFLBoxscore(data: any, game: NFLBoxGame): NFLHistoryRow[] {
           playerId: String(athlete.athlete.id),
           player: String(athlete.athlete.displayName ?? ''),
           team,
+          position: String(athlete.athlete.position?.abbreviation ?? '').toUpperCase(),
+          opponent: game.teams?.find(item => item.abbreviation !== team)?.abbreviation,
           stats,
         })
       }
