@@ -78,7 +78,7 @@ jobs:
             }
             console.log('NBA ROSTER',team,response.status,athletes.length,JSON.stringify(distribution),JSON.stringify(athletes.slice(0,2).map(x=>({id:x.id,name:x.displayName,pos:x.position?.abbreviation}))))
           }
-          for(const url of ['https://edgeiqstats.com/edgeiq-daily.json?fresh=202611151052','https://edgeiqstats.com/edgeiq-nba-history.json?fresh=202611151052']) {
+          for(const url of ['https://edgeiqstats.com/edgeiq-daily.json','https://edgeiqstats.com/edgeiq-nba-history.json'].map(url=>url+'?updated='+Date.now())) {
             try {
               const response=await fetch(url,{signal:AbortSignal.timeout(15000)})
               const data=await response.text()
@@ -96,7 +96,7 @@ jobs:
             const website=await (await fetch('https://edgeiqstats.com/',{signal:AbortSignal.timeout(10000)})).text()
             const path=website.match(/<script[^>]*src=["']([^"']+)["']/i)?.[1]
             const bundle=path?await (await fetch('https://edgeiqstats.com'+path,{signal:AbortSignal.timeout(15000)})).text():''
-            console.log('LIVE INDEX:',website.slice(0,450));console.log('LIVE UI:', 'bundle='+path, 'allPropsControl='+bundle.includes('All Props'), 'nbaComboFilter='+bundle.includes('PRA · PA · PR · AR'), 'guardsCopy='+bundle.includes('Guards (G)'),
+            console.log('LIVE INDEX:',website.slice(0,450));console.log('LIVE UI:', 'bundle='+path, 'allPropsControl='+bundle.includes('All Props'), 'nbaComboFilter='+bundle.includes('PRA · PA · PR · AR'), 'nflExpandedProps='+bundle.includes('Passing Completions'), 'guardsCopy='+bundle.includes('Guards (G)'),
               'forwardsCopy='+bundle.includes('Forwards (F)'),'hasDailyHistory='+bundle.includes('edgeiq-nba-history.json'), 'rushDefenseTable='+bundle.includes('Rushing yards allowed per game'), 'rushMatchup='+bundle.includes('RUSH YARDS ALLOWED / GAME'))
           }catch(error){console.log('LIVE UI: ERROR',String(error))}
           console.log('TODAY BOARDS:',JSON.stringify(Object.entries(feed.boards).map(([sport,boards])=>({sport,boards:boards.map(b=>({date:b.date,matchupBacked:b.picks.filter(x=>x.defense).length}))}))))
