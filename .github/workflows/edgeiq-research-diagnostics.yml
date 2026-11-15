@@ -1,0 +1,42 @@
+name: EDGEIQ research data diagnostics
+
+on:
+  push:
+    paths:
+      - '.github/workflows/edgeiq-research-diagnostics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: edgeiq-launch-foundation-2026
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Inspect published research completeness
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs'
+          const cache=JSON.parse(readFileSync('data/edgeiq-research-cache.json','utf8'))
+          const feed=JSON.parse(readFileSync('public/edgeiq-daily.json','utf8'))
+          const games=Object.values(cache.nba||{})
+          const rows=games.flatMap(x=>x.rows??[])
+          const positions={}
+          const minCount={}
+          for(const row of rows){
+            const p=row.position||'MISSING'
+            positions[p]=(positions[p]||0)+1
+            if(row.minutes>=18)minCount[p]=(minCount[p]||0)+1
+          }
+          console.log('NBA GAMES:',games.length,'NBA ROWS:',rows.length)
+          console.log('POSITION DISTRIBUTION:',JSON.stringify(positions))
+          console.log('POSITION 18+ MINUTES:',JSON.stringify(minCount))
+          console.log('SAMPLE:',JSON.stringify(rows.slice(0,2).map(x=>({position:x.position,team:x.team,minutes:x.minutes,gameId:x.gameId,opponent:x.opponent}))))
+          console.log('TODAY BOARDS:',JSON.stringify(Object.entries(feed.boards).map(([sport,boards])=>({sport,boards:boards.map(b=>({date:b.date,matchupBacked:b.picks.filter(x=>x.defense).length}))}))))
+          NODE
