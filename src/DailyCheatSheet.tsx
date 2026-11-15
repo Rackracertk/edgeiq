@@ -5,6 +5,7 @@ import {
   buildNBAPicks, buildNFLPicks, loadDailySlate, loadNFLHistory,
   type CheatPick, type CheatSport, type NFLHistoryRow, type Slate,
 } from './cheatSheetData'
+import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, type InjuryData } from './analytics/injuryCenter'
 import './DailyCheatSheet.css'
 
 type Props = {
@@ -14,6 +15,7 @@ type Props = {
   nbaError: string
   onPro: () => void
   onMarkets: () => void
+  onInjuries: () => void
   onResearch: (pick: CheatPick) => void
 }
 
@@ -22,58 +24,82 @@ const formatTime = (iso: string) => new Intl.DateTimeFormat('en-US', {
 }).format(new Date(iso))
 
 export default function DailyCheatSheet({
-  nbaPlayers, nbaHistory, nbaLoading, nbaError, onPro, onMarkets, onResearch,
+  nbaPlayers, nbaHistory, nbaLoading, nbaError, onPro, onMarkets, onInjuries, onResearch,
 }: Props) {
   const [sport, setSport] = useState<CheatSport>('NBA')
-  const [slates, setSlates] = useState<Partial<Record<CheatSport, Slate>>>({})
+  const [advance, setAdvance] = useState<'today' | 'tomorrow'>('tomorrow')
+  const [slates, setSlates] = useState<Record<string, Slate>>({})
+  const [reports, setReports] = useState<Record<string, InjuryData>>({})
   const [nflRows, setNflRows] = useState<NFLHistoryRow[]>([])
   const [nflPartial, setNflPartial] = useState(false)
-  const [loadingSport, setLoadingSport] = useState<CheatSport | null>(null)
+  const [loadingKey, setLoadingKey] = useState<string | null>(null)
   const [retry, setRetry] = useState(0)
-  const [errors, setErrors] = useState<Partial<Record<CheatSport, string>>>({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
   const [category, setCategory] = useState('ALL')
   const [direction, setDirection] = useState('ALL')
   const [showAll, setShowAll] = useState(false)
   const [selectedPicks, setSelectedPicks] = useState<CheatPick[]>([])
   const [copyStatus, setCopyStatus] = useState('')
 
+  const key = sport + ':' + advance
   useEffect(() => {
     let cancelled = false
-    if (slates[sport]) return
-    const currentSport = sport
+    const currentKey = sport + ':' + advance
     async function load() {
-      setLoadingSport(currentSport)
-      setErrors(previous => ({ ...previous, [currentSport]: '' }))
+      setLoadingKey(currentKey)
+      setErrors(previous => ({ ...previous, [currentKey]: '' }))
       try {
-        const slate = await loadDailySlate(currentSport)
+        const result = await loadInjuryAwareSlate(sport, advance)
         if (cancelled) return
-        if (currentSport === 'NFL' && slate.games.length) {
-          const result = await loadNFLHistory(slate)
-          if (!cancelled) {
-            setNflRows(result.rows)
-            setNflPartial(result.partial)
-          }
+        if (sport === 'NFL' && result.slate.games.length) {
+          const history = await loadNFLHistory(result.slate)
+          if (!cancelled) { setNflRows(history.rows); setNflPartial(history.partial) }
         }
-        if (!cancelled) setSlates(previous => ({ ...previous, [currentSport]: slate }))
+        if (cancelled) return
+        setReports(previous => ({ ...previous, [currentKey]: result.report }))
+        setSlates(previous => ({ ...previous, [currentKey]: result.slate }))
       } catch (error) {
         if (!cancelled) setErrors(previous => ({
           ...previous,
-          [currentSport]: error instanceof Error ? error.message : 'Unable to verify the schedule.',
+          [currentKey]: error instanceof Error ? error.message : 'Unable to load the selected slate.',
         }))
       } finally {
-        if (!cancelled) setLoadingSport(previous => previous === currentSport ? null : previous)
+        if (!cancelled) setLoadingKey(current => current === currentKey ? null : current)
       }
     }
     void load()
     return () => { cancelled = true }
-  }, [sport, retry])
+  }, [sport, advance, retry])
+  useEffect(() => {
+    const interval = window.setInterval(() => setRetry(value => value + 1), 10 * 60 * 1000)
+    const onFocus = () => setRetry(value => value + 1)
+    window.addEventListener('focus', onFocus)
+    return () => { window.clearInterval(interval); window.removeEventListener('focus', onFocus) }
+  }, [])
 
-  const slate = slates[sport]
+  const slate = slates[key]
+  const report = reports[key]
+  const reportAvailable = report?.available === true
+  const excluded = (playerId: string, player: string, team: string, teamId: string) =>
+    shouldExcludeInjury(findInjury(report?.injuries ?? [], playerId, player, team, teamId))
   const picks = useMemo(() => {
-    if (!slate?.games.length) return []
-    if (sport === 'NBA') return buildNBAPicks(slate, nbaHistory, nbaPlayers)
-    return buildNFLPicks(slate, nflRows)
-  }, [slate, sport, nbaHistory, nbaPlayers, nflRows])
+    if (!slate?.games.length || !reportAvailable) return []
+    const unavailable = (id: string, name: string, team: string, teamId: string) =>
+      shouldExcludeInjury(findInjury(report?.injuries ?? [], id, name, team, teamId))
+    if (sport === 'NBA') return buildNBAPicks(slate, nbaHistory, nbaPlayers, unavailable)
+    return buildNFLPicks(slate, nflRows, unavailable)
+  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable])
+  useEffect(() => {
+    if (!reportAvailable) return
+    setSelectedPicks(current => current.filter(pick => Date.parse(pick.gameTime) > Date.now() &&
+      !excluded(pick.playerId, pick.player, pick.team,
+        slate?.games.find(game => game.teams.some(team => team.abbreviation === pick.team))
+          ?.teams.find(team => team.abbreviation === pick.team)?.id ?? '')))
+  }, [report?.checkedAt, reportAvailable])
+  const excludedCount = reportAvailable && slate
+    ? report!.injuries.filter(row => shouldExcludeInjury(row) &&
+        slate.games.some(game => game.teams.some(team => team.abbreviation === row.team || team.id === row.teamId))).length
+    : 0
   const categories = sport === 'NBA' ? NBA_PROP_CATEGORIES : NFL_PROP_CATEGORIES
   const filtered = picks.filter(pick =>
     (category === 'ALL' || pick.category === category) &&
@@ -81,8 +107,8 @@ export default function DailyCheatSheet({
   )
   const visible = showAll ? filtered : filtered.slice(0, 12)
   const selected = selectedPicks
-  const isBusy = loadingSport === sport || (sport === 'NBA' && nbaLoading)
-  const displayError = errors[sport] || (sport === 'NBA' ? nbaError : '')
+  const isBusy = loadingKey === key || (sport === 'NBA' && nbaLoading)
+  const displayError = errors[key] || (sport === 'NBA' ? nbaError : '')
   const noGames = !!slate && slate.games.length === 0
 
   function switchSport(value: CheatSport) {
@@ -114,7 +140,7 @@ export default function DailyCheatSheet({
   return <div className="cheatsheet">
     <section className="hero cheat-hero">
       <div className="eyebrow gold">EDGEIQ / DAILY PLAYER PROP RESEARCH</div>
-      <h1>Today's <span className="gold">cheat sheet.</span></h1>
+      <h1>{advance === 'tomorrow' ? "Tomorrow's" : "Today's"} <span className="gold">cheat sheet.</span></h1>
       <p>Find the strongest recent statistical trends on upcoming NBA and NFL slates. Pick the ones you like, build your own shortlist, and inspect the numbers before making a decision.</p>
       <div className="cheat-hero-points">
         <span>✓ Completed-game history</span><span>✓ Real upcoming matchups</span><span>✓ Build a personal shortlist</span>
@@ -126,8 +152,12 @@ export default function DailyCheatSheet({
         <button className={sport === 'NBA' ? 'cheat-tab on' : 'cheat-tab'} onClick={() => switchSport('NBA')} aria-pressed={sport === 'NBA'}>🏀 NBA</button>
         <button className={sport === 'NFL' ? 'cheat-tab on' : 'cheat-tab'} onClick={() => switchSport('NFL')} aria-pressed={sport === 'NFL'}>🏈 NFL</button>
       </div>
+      <div className="cheat-tabs" role="group" aria-label="Slate timing">
+        <button className={advance === 'today' ? 'cheat-tab on' : 'cheat-tab'} aria-pressed={advance === 'today'} onClick={() => setAdvance('today')}>Today</button>
+        <button className={advance === 'tomorrow' ? 'cheat-tab on' : 'cheat-tab'} aria-pressed={advance === 'tomorrow'} onClick={() => setAdvance('tomorrow')}>Tomorrow / Next</button>
+      </div>
       <div className="cheat-toolbar-label">
-        <strong>{slate ? (slate.isToday ? 'TODAY · ' : 'NEXT SLATE · ') + slate.label : 'Finding the next slate'}</strong>
+        <strong>{slate ? (slate.isToday ? 'TODAY · ' : 'NEXT AVAILABLE SLATE · ') + slate.label : 'Finding the next slate'}</strong>
         <span>{slate ? slate.games.length + ' scheduled games · ' + slate.source : 'Checking the live schedule'} · Eastern Time</span>
       </div>
     </section>
@@ -137,15 +167,22 @@ export default function DailyCheatSheet({
       <button className="cta" onClick={onMarkets}>Explore game lines ↗</button>
     </section>
     <div className="cheat-info" role="note">
-      <strong>How to read this board:</strong> Lines shown here are <strong>historical research thresholds</strong>, NOT live bookmaker offers. Picks are ranked by past L5 and recent hit frequency, not win probabilities. Player availability, injuries, odds and lineup changes are <strong>not verified</strong>.
+      <strong>How to read this board:</strong> These are historical research thresholds, not live sportsbook prices or projected win probabilities. Players reported Out, Doubtful, Questionable or inactive are excluded from featured trends when a current injury feed is available. Lineups and injuries can still change near game time.
     </div>
 
-    {displayError && <p className="error" role="alert">{displayError}</p>}
+    {report && <section className={reportAvailable ? 'cheat-injury-ok' : 'cheat-injury-unavailable'} role="status">
+      <div><strong>{reportAvailable ? 'Availability screening active' : 'Injury screening unavailable'}</strong>
+        <p>{reportAvailable ? excludedCount + ' unavailable / uncertain athletes excluded for this slate. Remaining eligible candidates automatically move up the rankings.' : 'The injury source could not be verified. EDGEIQ will not present un-screened candidates as cleared picks.'}</p>
+        <small>{reportAvailable ? 'Checked ' + new Date(report.checkedAt).toLocaleString() + ' · ' + report.source : (report.error ?? 'Source unavailable')}</small>
+      </div>
+      <button className="market-refresh" onClick={onInjuries}>Open Injury Center ↗</button>
+    </section>}
+    {displayError && <p className="error" role="alert">{displayError}</p>
     {nflPartial && sport === 'NFL' && <p className="error" role="status">Some NFL box scores could not be fetched. Trends only use the games that were successfully verified; treat the list as incomplete.</p>}
 
     <div className="cheat-stats">
       <div><span>GAME SLATE</span><strong>{slate ? slate.games.length : '—'}</strong><small>{slate?.isToday ? 'Today (ET)' : 'Next games (ET)'}</small></div>
-      <div><span>TREND CANDIDATES</span><strong>{isBusy ? '…' : picks.length}</strong><small>Meeting the history rules</small></div>
+      <div><span>TREND CANDIDATES</span><strong>{isBusy || !reportAvailable ? '…' : picks.length}</strong><small>Meeting the history rules</small></div>
       <div><span>MY SHORTLIST</span><strong>{selected.length}</strong><small>Choose any research cards</small></div>
     </div>
 
@@ -177,7 +214,11 @@ export default function DailyCheatSheet({
       <p>We won't manufacture picks for games that aren't scheduled or haven't been verified. Check back closer to the next slate.</p>
     </section> : !slate ? <section className="panel cheat-empty">
       <h3>Schedule unavailable</h3><p>Refresh the page when the sports feed is available. No fictional matchups or picks are shown.</p>
-      <button className="cta" onClick={() => { setErrors(previous => ({ ...previous, [sport]: '' })); setSlates(previous => ({ ...previous, [sport]: undefined })); setRetry(previous => previous + 1) }}>Try again</button>
+      <button className="cta" onClick={() => { setErrors(previous => ({ ...previous, [key]: '' })); setRetry(previous => previous + 1) }}>Try again</button>
+    </section> : !reportAvailable ? <section className="panel cheat-empty">
+      <h3>Cheat sheet awaiting injury verification</h3>
+      <p>No player is being presented as a cleared pick while the injury report is unavailable. Check the injury center or retry before game time.</p>
+      <button className="cta" onClick={() => setRetry(value => value+1)}>Retry injury check</button>
     </section> : filtered.length === 0 ? <section className="panel cheat-empty">
       <h3>No qualifying trends for this slate</h3>
       <p>{picks.length ? 'Try another stat type or direction.' : 'The available completed-game data does not meet our recent-history criteria. This is not a slate of guaranteed or automatic picks.'}</p>
