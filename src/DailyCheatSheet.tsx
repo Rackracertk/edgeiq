@@ -337,7 +337,7 @@ export default function DailyCheatSheet({
           return <article className={active ? 'cheat-card selected' : 'cheat-card'} key={pick.id}>
             <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} · {pick.recentHits / pick.recentGames >= .9 ? 'ELITE 90%+' : 'RESEARCH 60–89%'} · {pick.researchGrade}</span><span>{formatTime(pick.gameTime)}</span></div>
             <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup} · {pick.position !== 'UNKNOWN' ? pick.position : 'Position unverified'}</span></div>
-            <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? 'YES' : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
+            <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? (pick.direction === 'over' ? 'YES' : 'NO') : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
             <div className="cheat-elite-header">
               <span>OBSERVED HIT RATE · LAST {pick.recentGames}</span>
               <strong>{Math.round(100 * pick.recentHits / pick.recentGames)}%</strong>
