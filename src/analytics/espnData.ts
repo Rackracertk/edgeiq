@@ -20,6 +20,7 @@ type ESPNPlayerStats = {
   team: string
   teamId: string
   position: string
+  minutes?: number
   points: number
   rebounds: number
   assists: number
@@ -86,6 +87,9 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]): ESPNPlayerStats[]
         return index >= 0 ? parseStat(stats[index]) : null
       }
 
+      const minutesValue = stats[keys.indexOf('minutes')]
+      const minutes = keys.includes('minutes') && minutesValue != null
+        ? Number(String(minutesValue).split(':')[0]) : NaN
       const steals = statAt('steals')
       const blocks = statAt('blocks')
       const points = statAt('points')
@@ -105,6 +109,7 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]): ESPNPlayerStats[]
         team: teamName,
         teamId,
         position: String(player.athlete.position?.abbreviation ?? player.athlete.position?.name ?? '').toUpperCase(),
+        ...(Number.isFinite(minutes) && minutes >= 0 ? { minutes } : {}),
         points,
         rebounds,
         assists,
