@@ -34,7 +34,7 @@ jobs:
             try {
               const result=await fetch(url,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(13000)})
               const text=await result.text()
-              const parsed=JSON.parse(text); console.log(name+': '+result.status+' JSON='+text.trim().startsWith('{')+' length='+text.length+' events='+(parsed.events?.length??'na')+' first='+JSON.stringify((parsed.events??[]).slice(0,2).map(e=>({date:e.date,season:e.season,completed:e.status?.type?.completed})))+' roster='+JSON.stringify(parsed.athletes?.slice(0,1)).slice(0,900))
+              const parsed=JSON.parse(text); console.log(name+': '+result.status+' JSON='+text.trim().startsWith('{')+' length='+text.length+' events='+(parsed.events?.length??'na')+' first='+JSON.stringify((parsed.events??[]).slice(0,2).map(e=>({date:e.date,season:e.season,completed:e.status?.type?.completed})))+' roster='+JSON.stringify((parsed.athletes??[]).slice(0,1)).slice(0,900))
               if(!result.ok || !text.trim().startsWith('{'))failures++
             }catch(e){failures++;console.log(name+': ERROR '+String(e))}
           }
