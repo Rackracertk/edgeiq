@@ -93,7 +93,7 @@ function parseNFL(data: any): Athlete[] {
           if (int !== null) existing.values.Interceptions = int
           const cAtt = labels.findIndex(l => l === 'C/ATT' || l === 'COMP/ATT')
           const complete = cAtt >= 0 ? Number(String(stats[cAtt] ?? '').split('/')[0]) : get('CMP', 'COMP')
-          if (Number.isFinite(complete) && complete !== null && complete >= 0) existing.values['Pass Completions'] = complete
+          if (complete !== null && Number.isFinite(complete) && complete >= 0) existing.values['Pass Completions'] = complete
         } else if (name.includes('rush')) {
           const yards = get('YDS', 'YARDS'), attempts = get('CAR', 'ATT', 'RUSH')
           if (yards !== null) existing.values['Rushing Yards'] = yards
