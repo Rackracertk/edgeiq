@@ -170,6 +170,14 @@ export function enrichElitePicks(
   const athleteCounts = new Map<string, number>()
   const teamCounts = new Map<string, number>()
   const statCounts = new Map<string, number>()
+  const propSideCounts = new Map<string, number>()
+  // Low-information extreme unders can have 100% recent rates but rarely
+  // represent worthwhile sportsbook offers. Preserve a few for exploration,
+  // while protecting core NBA stats and NFL yardage from being crowded out.
+  const lowInfoUnderCategories = new Set([
+    'Steals','Blocks','Double-Double','Triple-Double',
+    'Interceptions Thrown','Receiving TDs','Sacks',
+  ])
   const seen = new Set<string>()
   const fullBoard = maxPicks > 100
   const maxPlayer = fullBoard ? 5 : 3
@@ -177,7 +185,10 @@ export function enrichElitePicks(
   const maxStat = fullBoard ? 24 : 12
   const select = (pick: ElitePick, coverage = false): boolean => {
     const athlete = pick.sport + ':' + pick.playerId
+    const sideKey = pick.category + ':' + pick.direction
+    const lowInfoUnder = pick.direction === 'under' && lowInfoUnderCategories.has(pick.category)
     if (chosen.length >= maxPicks || seen.has(pick.id) ||
+        (lowInfoUnder && (propSideCounts.get(sideKey) ?? 0) >= (fullBoard ? 5 : 3)) ||
         (athleteCounts.get(athlete) ?? 0) >= (coverage ? Math.max(maxPlayer, 18) : maxPlayer) ||
         (teamCounts.get(pick.team) ?? 0) >= maxTeam ||
         (statCounts.get(pick.category) ?? 0) >= maxStat) return false
@@ -186,6 +197,7 @@ export function enrichElitePicks(
     athleteCounts.set(athlete, (athleteCounts.get(athlete) ?? 0) + 1)
     teamCounts.set(pick.team, (teamCounts.get(pick.team) ?? 0) + 1)
     statCounts.set(pick.category, (statCounts.get(pick.category) ?? 0) + 1)
+    propSideCounts.set(sideKey, (propSideCounts.get(sideKey) ?? 0) + 1)
     return true
   }
   // A first pass over each available category + side prevents a single high-rate
