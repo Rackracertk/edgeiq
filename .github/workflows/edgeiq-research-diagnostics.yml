@@ -24,8 +24,11 @@ jobs:
           node --experimental-strip-types --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs'
           import { buildDefenseRankings } from './src/analytics/defensiveMatchups.ts'
+          import { rankNFLDefensiveYards } from './src/analytics/nflDefensiveYards.ts'
           const cache=JSON.parse(readFileSync('data/edgeiq-research-cache.json','utf8'))
           const feed=JSON.parse(readFileSync('public/edgeiq-daily.json','utf8'))
+          const rushing=rankNFLDefensiveYards(Object.values(cache.nfl??{}).flatMap(x=>x.rows??[]),'Rushing Yards')
+          console.log('REAL NFL RUSH DEFENSE:',JSON.stringify({teams:rushing.length,lowest:rushing[0],highest:rushing.at(-1)}))
           const games=Object.values(cache.nba||{})
           const rows=games.flatMap(x=>x.rows??[])
           const positions={}
