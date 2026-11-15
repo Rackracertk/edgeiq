@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T12:00:15.622Z",
+  "generatedAt": "2026-11-15T12:56:51.965Z",
   "publishedDateET": "2026-11-15",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1501,7 +1501,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T12:00:09.384Z",
+          "checkedAt": "2026-11-15T12:56:49.340Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10873,7 +10873,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T12:00:13.993Z",
+        "generatedAt": "2026-11-15T12:56:49.697Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 188,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -12353,7 +12353,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T12:00:09.384Z",
+          "checkedAt": "2026-11-15T12:56:49.340Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21600,7 +21600,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T12:00:14.092Z",
+        "generatedAt": "2026-11-15T12:56:49.837Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 188,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -23935,6 +23935,18 @@
             },
             {
               "playerId": "",
+              "player": "Denzel Boston",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Boston (toe), who is listed as questionable for Sunday's game against the Texans, is expected to play barring a surprise, Jeremy Fowler of ESPN reports.",
+              "updatedAt": "2026-11-15T12:12Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Quinshon Judkins",
               "team": "",
               "teamId": "",
@@ -24088,18 +24100,6 @@
               "updatedAt": "2026-11-13T21:33Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Denzel Boston",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Boston (toe), who is listed as questionable for Sunday's game against the Texans, per Daniel Oyefusi of ESPN,  is trending in the right direction ahead of the contest.",
-              "updatedAt": "2026-11-13T18:34Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -24835,6 +24835,18 @@
             },
             {
               "playerId": "",
+              "player": "Amon-Ra St. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "St. Brown (ribs), who is listed as questionable for Sunday's game against the Patriots in Munich, is expected to play, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-15T12:05Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "DJ Wonnum",
               "team": "",
               "teamId": "",
@@ -24856,18 +24868,6 @@
               "updatedAt": "2026-11-13T17:45Z",
               "expectedReturn": "2026-11-15",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Amon-Ra St. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "St. Brown (ribs) was a limited participant in Friday's practice and is listed as questionable for Sunday's game against the Patriots in Munich, Germany, Tim Twentyman of the Lions' official site reports.",
-              "updatedAt": "2026-11-13T16:45Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -25435,6 +25435,18 @@
             },
             {
               "playerId": "",
+              "player": "Will Anderson Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Anderson (ankle) \"should be OK\" to play Sunday against the Browns, according to Jeremy Fowler of ESPN.com.",
+              "updatedAt": "2026-11-15T12:29Z",
+              "expectedReturn": "2026-11-15",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
               "player": "Jake Hummel",
               "team": "",
               "teamId": "",
@@ -25468,18 +25480,6 @@
               "updatedAt": "2026-11-14T19:10Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Will Anderson Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Anderson (ankle), who is listed as questionable, is planning to suit up Sunday against the Browns, Aaron Wilson of KPRC 2 Houston reports.",
-              "updatedAt": "2026-11-14T18:33Z",
-              "expectedReturn": "2026-11-15",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -27835,6 +27835,18 @@
             },
             {
               "playerId": "",
+              "player": "Jordan Addison",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Addison (thumb), who listed is questionable for Sunday's contest at Green Bay, is in line to be a game-time decision, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-15T12:10Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Devin Culp",
               "team": "",
               "teamId": "",
@@ -27952,18 +27964,6 @@
               "updatedAt": "2026-11-13T21:20Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Jordan Addison",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Addison is listed as questionable for Sunday's game in Green Bay due to a thumb injury.",
-              "updatedAt": "2026-11-13T21:17Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -29023,6 +29023,18 @@
             },
             {
               "playerId": "",
+              "player": "Garrett Wilson",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Wilson (concussion) reportedly cleared the concussion protocol and is expected to play in Sunday's game versus the Bills, per Ian Rapoport of NFL Network.",
+              "updatedAt": "2026-11-15T12:14Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "VJ Payne",
               "team": "",
               "teamId": "",
@@ -29042,18 +29054,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Mitchell (knee) is listed as questionable for Sunday's game against the Bills but is expected to play, Matt Zenitz of CBS Sports reports.",
               "updatedAt": "2026-11-14T17:20Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Garrett Wilson",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Wilson (concussion) is expected to be cleared to play against the Bills on Sunday, Matt Zenitz of CBS Sports reports.",
-              "updatedAt": "2026-11-14T17:18Z",
               "expectedReturn": "2026-11-15",
               "position": "WR"
             },
@@ -30823,6 +30823,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyjae Spears",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Spears (knee) is expected to play Sunday against the Jaguars, Jeremy Fowler of ESPN.com reports.",
+              "updatedAt": "2026-11-15T12:21Z",
+              "expectedReturn": "2026-11-15",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Isaiah Oliver",
               "team": "",
               "teamId": "",
@@ -30951,18 +30963,6 @@
               "note": "Pollard (finger/rest) was a full participant in Friday's practice and doesn't carry an injury designation ahead of Sunday's game against the Jaguars, Jim Wyatt of the Titans' official site reports.",
               "updatedAt": "2026-11-13T20:45Z",
               "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Tyjae Spears",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Spears (knee) is listed as questionable for Sunday's game against the Jaguars after upgrading to full practice participation Friday, Jim Wyatt of the Titans' official site reports.",
-              "updatedAt": "2026-11-13T20:43Z",
-              "expectedReturn": "2026-11-15",
               "position": "RB"
             },
             {
@@ -31422,7 +31422,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T12:00:09.464Z",
+          "checkedAt": "2026-11-15T12:56:49.398Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -40284,7 +40284,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T12:00:15.344Z",
+        "generatedAt": "2026-11-15T12:56:51.563Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 137,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -42419,6 +42419,18 @@
             },
             {
               "playerId": "",
+              "player": "Denzel Boston",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Boston (toe), who is listed as questionable for Sunday's game against the Texans, is expected to play barring a surprise, Jeremy Fowler of ESPN reports.",
+              "updatedAt": "2026-11-15T12:12Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Quinshon Judkins",
               "team": "",
               "teamId": "",
@@ -42572,18 +42584,6 @@
               "updatedAt": "2026-11-13T21:33Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Denzel Boston",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Boston (toe), who is listed as questionable for Sunday's game against the Texans, per Daniel Oyefusi of ESPN,  is trending in the right direction ahead of the contest.",
-              "updatedAt": "2026-11-13T18:34Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -43319,6 +43319,18 @@
             },
             {
               "playerId": "",
+              "player": "Amon-Ra St. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "St. Brown (ribs), who is listed as questionable for Sunday's game against the Patriots in Munich, is expected to play, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-15T12:05Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "DJ Wonnum",
               "team": "",
               "teamId": "",
@@ -43340,18 +43352,6 @@
               "updatedAt": "2026-11-13T17:45Z",
               "expectedReturn": "2026-11-15",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Amon-Ra St. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "St. Brown (ribs) was a limited participant in Friday's practice and is listed as questionable for Sunday's game against the Patriots in Munich, Germany, Tim Twentyman of the Lions' official site reports.",
-              "updatedAt": "2026-11-13T16:45Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -43919,6 +43919,18 @@
             },
             {
               "playerId": "",
+              "player": "Will Anderson Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Anderson (ankle) \"should be OK\" to play Sunday against the Browns, according to Jeremy Fowler of ESPN.com.",
+              "updatedAt": "2026-11-15T12:29Z",
+              "expectedReturn": "2026-11-15",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
               "player": "Jake Hummel",
               "team": "",
               "teamId": "",
@@ -43952,18 +43964,6 @@
               "updatedAt": "2026-11-14T19:10Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Will Anderson Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Anderson (ankle), who is listed as questionable, is planning to suit up Sunday against the Browns, Aaron Wilson of KPRC 2 Houston reports.",
-              "updatedAt": "2026-11-14T18:33Z",
-              "expectedReturn": "2026-11-15",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -46319,6 +46319,18 @@
             },
             {
               "playerId": "",
+              "player": "Jordan Addison",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Addison (thumb), who listed is questionable for Sunday's contest at Green Bay, is in line to be a game-time decision, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-15T12:10Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Devin Culp",
               "team": "",
               "teamId": "",
@@ -46436,18 +46448,6 @@
               "updatedAt": "2026-11-13T21:20Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Jordan Addison",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Addison is listed as questionable for Sunday's game in Green Bay due to a thumb injury.",
-              "updatedAt": "2026-11-13T21:17Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -47507,6 +47507,18 @@
             },
             {
               "playerId": "",
+              "player": "Garrett Wilson",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Wilson (concussion) reportedly cleared the concussion protocol and is expected to play in Sunday's game versus the Bills, per Ian Rapoport of NFL Network.",
+              "updatedAt": "2026-11-15T12:14Z",
+              "expectedReturn": "2026-11-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "VJ Payne",
               "team": "",
               "teamId": "",
@@ -47526,18 +47538,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Mitchell (knee) is listed as questionable for Sunday's game against the Bills but is expected to play, Matt Zenitz of CBS Sports reports.",
               "updatedAt": "2026-11-14T17:20Z",
-              "expectedReturn": "2026-11-15",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Garrett Wilson",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Wilson (concussion) is expected to be cleared to play against the Bills on Sunday, Matt Zenitz of CBS Sports reports.",
-              "updatedAt": "2026-11-14T17:18Z",
               "expectedReturn": "2026-11-15",
               "position": "WR"
             },
@@ -49307,6 +49307,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyjae Spears",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Spears (knee) is expected to play Sunday against the Jaguars, Jeremy Fowler of ESPN.com reports.",
+              "updatedAt": "2026-11-15T12:21Z",
+              "expectedReturn": "2026-11-15",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Isaiah Oliver",
               "team": "",
               "teamId": "",
@@ -49435,18 +49447,6 @@
               "note": "Pollard (finger/rest) was a full participant in Friday's practice and doesn't carry an injury designation ahead of Sunday's game against the Jaguars, Jim Wyatt of the Titans' official site reports.",
               "updatedAt": "2026-11-13T20:45Z",
               "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Tyjae Spears",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Spears (knee) is listed as questionable for Sunday's game against the Jaguars after upgrading to full practice participation Friday, Jim Wyatt of the Titans' official site reports.",
-              "updatedAt": "2026-11-13T20:43Z",
-              "expectedReturn": "2026-11-15",
               "position": "RB"
             },
             {
@@ -49906,7 +49906,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-15T12:00:09.464Z",
+          "checkedAt": "2026-11-15T12:56:49.398Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -51908,7 +51908,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-15T12:00:15.622Z",
+        "generatedAt": "2026-11-15T12:56:51.965Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 137,
         "publishedBy": "EDGEIQ unattended research publisher"
