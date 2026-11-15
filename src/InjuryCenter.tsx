@@ -93,10 +93,11 @@ export default function InjuryCenter() {
         </div>
         {shown.length ? <div className="injury-list">{shown.map((row: InjuryReport, idx) =>
           <article className="injury-row" key={(row.playerId || row.player) + '-' + row.team + '-' + idx}>
-            <div className="injury-person"><strong>{row.player}</strong><span>{row.team || 'Team not reported'} · {row.reason || 'Reason not supplied'}</span></div>
+            <div className="injury-person"><strong>{row.player}</strong><span>{row.team || 'Team not reported'}{row.position ? ' · ' + row.position : ''} · {row.reason || 'Reason not supplied'}</span></div>
             <div className="injury-details">
               <span className={'injury-status ' + injuryAvailability(row.status)}>{row.status}</span>
               {row.note && <p>{row.note}</p>}
+              {row.expectedReturn && <p>Expected return: {row.expectedReturn}</p>}
               <small>{formatDate(row.updatedAt)}</small>
             </div>
           </article>
