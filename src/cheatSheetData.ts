@@ -63,7 +63,7 @@ const nflReferenceLines: Record<string, number[]> = {
   Sacks: [0.5, 1.5],
   'Rushing Yards': [39.5, 59.5, 79.5, 99.5],
   'Rushing Attempts': [9.5, 14.5, 19.5],
-  'Receiving Yards': [29.5, 49.5, 69.5, 89.5],
+  'Receiving Yards': [29.5, 49.5, 69.5, 79.5, 89.5],
   Receptions: [2.5, 3.5, 4.5, 5.5, 6.5],
   'Receiving TDs': [0.5, 1.5],
 }
@@ -182,11 +182,11 @@ function selectPicks(candidates: Candidate[], mode: CheatSheetMode): CheatPick[]
   const categoryCounts = new Map<string, number>()
   const seenIds = new Set<string>()
   candidates.sort((a, b) => b.score - a.score || b.recentHits - a.recentHits)
-  const add = (candidate: Candidate): boolean => {
+  const add = (candidate: Candidate, coverage = false): boolean => {
     const id = [candidate.sport, candidate.playerId, candidate.category, candidate.direction, candidate.line].join('-')
     const playerKey = candidate.sport + ':' + candidate.playerId
     if (chosen.length >= cap || seenIds.has(id) ||
-        (playerCounts.get(playerKey) ?? 0) >= maxPerPlayer ||
+        (playerCounts.get(playerKey) ?? 0) >= (coverage ? Math.max(maxPerPlayer, 18) : maxPerPlayer) ||
         (teamCounts.get(candidate.team) ?? 0) >= maxPerTeam ||
         (categoryCounts.get(candidate.category) ?? 0) >= maxPerCategory) return false
     chosen.push({ ...candidate, id })
@@ -211,12 +211,22 @@ function selectPicks(candidates: Candidate[], mode: CheatSheetMode): CheatPick[]
         'Steals','Blocks','Steals + Blocks (SB)','Double-Double','Triple-Double']
     : ['Passing Yards','Rushing Yards','Receiving Yards','Receptions',
         'Rushing Attempts','Passing TDs','Receiving TDs','Interceptions Thrown','Sacks']
-  for (let round = 0; round < (mode === 'elite' ? 2 : 4); round++) {
+  // First one representative per market, then cover BOTH sides when the data
+  // actually supports them. Relax athlete limits for category coverage only.
+  for (const category of preference) {
+    const options = candidates.filter(pick => pick.category === category)
+    for (const candidate of options) if (add(candidate, true)) break
+  }
+  for (const category of preference) for (const direction of ['over','under'] as const) {
+    const group = byCategoryDirection.get(category + ':' + direction) ?? []
+    if (chosen.some(pick => pick.category === category && pick.direction === direction)) continue
+    for (const candidate of group) if (add(candidate, true)) break
+  }
+  for (let round = 0; round < (mode === 'elite' ? 1 : 3); round++)
     for (const category of preference) for (const direction of ['over','under'] as const) {
       const group = byCategoryDirection.get(category + ':' + direction) ?? []
-      for (const candidate of group) if (add(candidate)) break
+      for (const candidate of group) if (add(candidate, true)) break
     }
-  }
   for (const candidate of candidates) add(candidate)
   return chosen
 }
