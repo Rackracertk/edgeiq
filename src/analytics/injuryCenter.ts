@@ -72,6 +72,16 @@ export async function loadInjuryAwareSlate(sport: CheatSport, advance: 'today' |
   } else {
     slate = await loadDailySlate(sport, compactDate(startDate))
   }
+  // NFL cheat sheet requires completed-game events to calculate historical
+  // trends. A schedule-only cached snapshot must never appear as valid history.
+  if (sport === 'NFL' && slate.games.length && !slate.seasonEvents?.length) {
+    try {
+      const nfl = await loadDailySlate('NFL', slate.date)
+      slate = { ...slate, seasonEvents: nfl.seasonEvents }
+    } catch {
+      // The UI will show no qualified NFL trends instead of inventing results.
+    }
+  }
   let report: InjuryData
   try {
     report = await loadDirectInjuries(sport)
