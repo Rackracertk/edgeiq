@@ -43,3 +43,14 @@
 .cheat-publish-live strong{color:#e6f8e7}.cheat-publish-live span{color:#9ac9ac}
 .cheat-publish-fallback{background:#352819;border-color:#8e6c35;color:#f1d49f}
 .cheat-publish-fallback strong{color:#ffe2a6}.cheat-publish-fallback span{color:#ddc6a1}
+
+/* Full-prop research: intentional separation between historical 60%+ and 90%+. */
+.cheat-mode-switch{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:0 0 14px}
+.cheat-mode-switch .cheat-tab{cursor:pointer;border:1px solid #3c6548;border-radius:9px;padding:12px 17px;background:#10291e;color:#cde9d2;font-weight:800;font-size:12px;transition:background .15s,border-color .15s}
+.cheat-mode-switch .cheat-tab.on{background:#244c31;color:#ffcf63;border-color:#d9ac3b}
+.cheat-mode-switch .cheat-tab:focus-visible,.cheat-group-btn:focus-visible{outline:2px solid #ffb612;outline-offset:3px}
+.cheat-mode-note{font-size:11px;color:#a6c4ac;flex:1;line-height:1.55;min-width:190px}
+.cheat-prop-groups{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.cheat-group-btn{border:1px solid #3e684e;background:#112c20;border-radius:30px;color:#b7d5bf;font-size:12px;font-weight:750;padding:10px 14px;cursor:pointer}
+.cheat-group-btn.active{background:#244b32;border-color:#ffbd37;color:#ffdc8d}
+@media(max-width:650px){.cheat-mode-switch .cheat-tab{flex:1}.cheat-mode-note{flex-basis:100%}.cheat-prop-groups{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding:0 0 8px}.cheat-group-btn{white-space:nowrap;flex:none}}
