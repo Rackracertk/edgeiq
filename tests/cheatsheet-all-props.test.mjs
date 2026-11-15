@@ -32,12 +32,14 @@ const nbaHistory=Object.fromEntries(nbaPlayers.map((player,idx)=>[player.id,
 function nflRows(){
   const athletes=[
     {playerId:'qb',player:'QB Example',position:'QB',stats:{
-      'Passing Yards':260,'Passing TDs':2,'Interceptions Thrown':0}},
+      'Passing Yards':260,'Passing Completions':22,'Passing Attempts':35,
+      'Passing TDs':2,'Interceptions Thrown':0}},
     {playerId:'rb',player:'RB Example',position:'RB',stats:{
-      'Rushing Yards':70,'Rushing Attempts':15}},
+      'Rushing Yards':70,'Rushing Attempts':15,'Rushing TDs':1,'Longest Rush':19}},
     {playerId:'wr',player:'WR Example',position:'WR',stats:{
-      'Receiving Yards':70,'Receptions':6,'Receiving TDs':1}},
-    {playerId:'dt',player:'DL Example',position:'DT',stats:{'Sacks':1}},
+      'Receiving Yards':70,'Receptions':6,'Receiving Targets':8,
+      'Receiving TDs':1,'Longest Reception':29}},
+    {playerId:'dt',player:'DL Example',position:'DT',stats:{'Sacks':1,'Tackles':6,'Solo Tackles':4}},
   ]
   return Array.from({length:10},(_,i)=>athletes.map(player=>({
     ...player,gameId:'nfl'+i,date:date(i+1),team:'GB',opponent:'CHI',
@@ -67,8 +69,10 @@ test('Elite mode retains only the strict historical 90%+ cutoff',()=>{
 test('NFL research covers passing, rushing, receiving and sacks, with both directions when observed',()=>{
   const rows=nflRows()
   const results=buildNFLPicks(slate('NFL'),rows,undefined,'all')
-  for(const cat of ['Passing Yards','Passing TDs','Interceptions Thrown','Rushing Yards',
-    'Rushing Attempts','Receiving Yards','Receptions','Receiving TDs','Sacks'])
+  for(const cat of ['Passing Yards','Passing Completions','Passing Attempts','Passing TDs','Interceptions Thrown',
+    'Rushing Yards','Rushing Attempts','Rushing TDs','Longest Rush',
+    'Receiving Yards','Receptions','Receiving Targets','Receiving TDs','Longest Reception',
+    'Sacks','Tackles','Solo Tackles'])
     assert.ok(results.some(x=>x.category===cat),'Missing NFL category '+cat)
   for(const cat of ['Passing Yards','Rushing Yards','Receiving Yards','Receptions']) {
     const sides=new Set(results.filter(x=>x.category===cat).map(x=>x.direction))
