@@ -1,4 +1,5 @@
 import { getNBAGamePropValue, type NBAPlayerGame } from './nbaData.ts'
+import { asDefensePosition } from './defensiveMatchups.ts'
 import type { NFLHistoryRow } from './nflBoxscore.ts'
 import type { CheatPick, CheatSport, Slate } from '../cheatSheetData.ts'
 
@@ -52,8 +53,8 @@ function nbaEvidence(
   const playerLogs = (history[pick.playerId] ?? [])
     .filter(log => Date.parse(log.date) < Date.parse(pick.gameTime))
     .sort((a, b) => b.date.localeCompare(a.date))
-  const position = String(players.find(player => String(player.id) === pick.playerId)?.position ??
-    playerLogs[0]?.position ?? '').toUpperCase()
+  const position = asDefensePosition(players.find(player => String(player.id) === pick.playerId)?.position ??
+    playerLogs[0]?.position) ?? ''
   const values = playerLogs.flatMap(log => {
     const value = getNBAGamePropValue(log, pick.category)
     return valid(value) ? [value] : []
@@ -68,9 +69,9 @@ function nbaEvidence(
   const seen = new Set<string>()
   // Compare against the *same opposing position*. Require real minutes so
   // low-minute bench appearances do not inflate or distort position allowances.
-  if (opponent?.name && position && ['PG', 'SG', 'SF', 'PF', 'C'].includes(position)) {
+  if (opponent?.name && position) {
     for (const [athleteId, logs] of Object.entries(history)) for (const log of logs) {
-      if (log.opponent !== opponent.name || log.position?.toUpperCase() !== position ||
+      if (log.opponent !== opponent.name || asDefensePosition(log.position) !== position ||
           !valid(log.minutes) || log.minutes < 18 || !log.gameId ||
           Date.parse(log.date) >= Date.parse(pick.gameTime)) continue
       const value = getNBAGamePropValue(log, pick.category)
