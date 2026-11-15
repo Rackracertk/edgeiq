@@ -58,14 +58,22 @@ const nbaReferenceLines: Record<string, number[]> = {
 }
 const nflReferenceLines: Record<string, number[]> = {
   'Passing Yards': [149.5, 199.5, 249.5, 299.5],
+  'Passing Completions': [14.5, 19.5, 24.5, 29.5],
+  'Passing Attempts': [24.5, 29.5, 34.5, 39.5],
   'Passing TDs': [0.5, 1.5, 2.5],
   'Interceptions Thrown': [0.5, 1.5],
-  Sacks: [0.5, 1.5],
   'Rushing Yards': [39.5, 59.5, 79.5, 99.5],
   'Rushing Attempts': [9.5, 14.5, 19.5],
+  'Rushing TDs': [0.5, 1.5],
+  'Longest Rush': [9.5, 14.5, 19.5, 24.5],
   'Receiving Yards': [29.5, 49.5, 69.5, 79.5, 89.5],
   Receptions: [2.5, 3.5, 4.5, 5.5, 6.5],
+  'Receiving Targets': [2.5, 4.5, 6.5, 8.5, 10.5],
   'Receiving TDs': [0.5, 1.5],
+  'Longest Reception': [14.5, 19.5, 24.5, 29.5, 39.5],
+  Sacks: [0.5, 1.5],
+  Tackles: [3.5, 5.5, 7.5, 9.5],
+  'Solo Tackles': [2.5, 4.5, 6.5, 8.5],
 }
 
 function eastDate(date: Date): string {
@@ -156,7 +164,7 @@ function evaluate(
   const median = [...recent].sort((a, b) => a - b)[Math.floor(recent.length / 2)]
   // Ignore extreme thresholds that would generate misleading 100% trends.
   const eventStat = ['Double-Double', 'Triple-Double', 'Interceptions Thrown', 'Sacks', 'Steals', 'Blocks', 'Steals + Blocks (SB)',
-    'Passing TDs', 'Receiving TDs', '3-Pointers Made'].includes(category)
+    'Passing TDs', 'Receiving TDs', 'Rushing TDs', '3-Pointers Made'].includes(category)
   if (!eventStat && (median <= 0 || line < median * .75 || line > median * 1.25)) return null
   const margin = direction === 'over' ? average - line : line - average
   if (margin <= 0) return null
@@ -210,7 +218,9 @@ function selectPicks(candidates: Candidate[], mode: CheatSheetMode): CheatPick[]
         'Points + Rebounds (PR)','Assists + Rebounds (AR)','3-Pointers Made',
         'Steals','Blocks','Steals + Blocks (SB)','Double-Double','Triple-Double']
     : ['Passing Yards','Rushing Yards','Receiving Yards','Receptions',
-        'Rushing Attempts','Passing TDs','Receiving TDs','Interceptions Thrown','Sacks']
+        'Passing Completions','Passing Attempts','Rushing Attempts','Receiving Targets',
+        'Passing TDs','Rushing TDs','Receiving TDs','Interceptions Thrown',
+        'Longest Rush','Longest Reception','Sacks','Tackles','Solo Tackles']
   // First one representative per market, then cover BOTH sides when the data
   // actually supports them. Relax athlete limits for category coverage only.
   for (const category of preference) {
