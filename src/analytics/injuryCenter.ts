@@ -45,11 +45,13 @@ export async function loadDirectInjuries(sport: CheatSport): Promise<InjuryData>
 }
 async function fetchSnapshots(sport: CheatSport, startDate: string) {
   if (!supabase) return []
-  const { data, error } = await supabase.from('edgeiq_slate_snapshots')
-    .select('sport,slate_date,games,injuries,injuries_available,generated_at')
-    .eq('sport', sport).gte('slate_date', startDate).order('slate_date', {ascending:true}).limit(12)
-  if (error) return []
-  return Array.isArray(data) ? data : []
+  try {
+    const { data, error } = await supabase.from('edgeiq_slate_snapshots')
+      .select('sport,slate_date,games,injuries,injuries_available,generated_at')
+      .eq('sport', sport).gte('slate_date', startDate).order('slate_date', {ascending:true}).limit(12)
+    if (error) return []
+    return Array.isArray(data) ? data : []
+  } catch { return [] }
 }
 export async function loadInjuryAwareSlate(sport: CheatSport, advance: 'today' | 'tomorrow'): Promise<InjurySlate> {
   const today = easternDate(new Date())
