@@ -14,6 +14,14 @@ import { calculateAverage, calculateRecentHitRates, type Direction } from './ana
 import { getPlayerPropValues, getNBAGamePropValue, NBA_PROP_CATEGORIES, isNBABinaryProp, defaultNBALine, type NBAPlayerGame } from './analytics/nbaData'
 import { getNBABoxScore, extractNBAPlayerStats, getRecentNBAGames, buildNBAPlayerHistory } from './analytics/espnData'
 import { getCachedData, setCachedData } from './analytics/cache'
+type NBAResearchPublication = {
+  schemaVersion: number
+  generatedAt: string
+  players: ReturnType<typeof extractNBAPlayerStats>
+  history: ReturnType<typeof buildNBAPlayerHistory>
+  nextOpponents: Record<string, string>
+  teamAbbreviations: Record<string, string>
+}
 const props = NBA_PROP_CATEGORIES
 const periods = ['L5', 'L10', 'L20'] as const
 const sports = [
@@ -34,6 +42,7 @@ function App() {
   const [nflCheatSelection, setNflCheatSelection] = useState<{ playerId: string; playerName: string; statCategory: string; line: number; direction: Direction } | null>(null)
   const [nbaTeamLabels, setNbaTeamLabels] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(true)
+  const [nbaResearchSource, setNbaResearchSource] = useState('')
   const [error, setError] = useState('')
   const [query, setQuery] = useState('')
   const [playerId, setPlayerId] = useState('')
@@ -63,6 +72,33 @@ function App() {
           }
           return
         }
+        // The unattended publisher prepares one verified shared history snapshot.
+        // Prefer that over making every visitor download hundreds of ESPN boxscores.
+        try {
+          const response = await fetch('/edgeiq-nba-history.json?rev=' + Date.now(), { cache: 'no-store' })
+          if (!response.ok) throw Error('Published NBA research unavailable (' + response.status + ')')
+          const published = await response.json() as NBAResearchPublication
+          if (published.schemaVersion !== 1 ||
+              !Array.isArray(published.players) || !published.players.length ||
+              !published.history || !Object.keys(published.history).length ||
+              !Number.isFinite(Date.parse(published.generatedAt)) ||
+              Date.now() - Date.parse(published.generatedAt) > 36 * 60 * 60 * 1000) {
+            throw Error('Published NBA research missing or expired')
+          }
+          if (!cancelled) {
+            setPlayers(published.players)
+            setHistory(published.history)
+            setNbaUpcoming(published.nextOpponents ?? {})
+            setNbaTeamLabels(published.teamAbbreviations ?? {})
+            setNbaResearchSource('Unattended daily publisher · ' +
+              new Date(published.generatedAt).toLocaleString('en-US',{
+                timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',
+              }) + ' ET')
+          }
+          return
+        } catch(error) {
+          console.warn('Published NBA history unavailable; checking local backup.',error)
+        }
         const cacheKey = 'edgeiq-nba-2026-27-v3'
         const cached = getCachedData<{
           players: ReturnType<typeof extractNBAPlayerStats>
@@ -73,6 +109,7 @@ function App() {
           if (!cancelled) {
             setPlayers(cached.players)
             setHistory(cached.history)
+            setNbaResearchSource('Cached completed-game history; nightly publication unavailable')
           }
           return
         }
@@ -110,6 +147,7 @@ function App() {
         if (!cancelled) {
           setHistory(newHistory)
           setPlayers(newPlayers)
+          setNbaResearchSource('Browser historical feed; nightly publication unavailable')
           if (failures > 0) {
             setError(`Some ESPN data could not be loaded (${recent.failedDates.length} scoreboard dates, ${failedBoxScores.length} box scores). Only verified completed games are included; refresh to retry.`)
           } else if (newPlayers.length === 0) {
@@ -167,6 +205,9 @@ function App() {
         {activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <GameLines onPro={() => setActiveTab('pricing')} /> : activeTab === 'cheatsheet' ? <DailyCheatSheet nbaPlayers={players} nbaHistory={history} nbaLoading={loading} nbaError={error} onPro={() => setActiveTab('pricing')} onMarkets={() => setActiveTab('markets')} onInjuries={() => setActiveTab('injuries')} onResearch={(pick: CheatPick) => { setSport(pick.sport); setActiveTab('research'); if (pick.sport === 'NBA') { setPlayerId(pick.playerId); setQuery(pick.player); setProp(pick.category); setLine(pick.line); setDirection(pick.direction) } else { setNflCheatSelection({ playerId: pick.playerId, playerName: pick.player, statCategory: pick.category, line: pick.line, direction: pick.direction }) } }} /> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key={nflCheatSelection ? `${nflCheatSelection.playerId}-${nflCheatSelection.statCategory}-${nflCheatSelection.line}-${nflCheatSelection.direction}` : 'nfl-default'} initialSelection={nflCheatSelection} onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? <><section className="hero"><div className="eyebrow gold">MULTI-SPORT RESEARCH</div><h1>{sport} <span className="gold">research.</span></h1><p>We're preparing sport-specific player statistics, historical game logs, prop hit rates and opponent analysis. This sport is not yet connected to verified live data.</p></section><section className="panel" style={{ padding: 28 }}><span className="eyebrow">IN DEVELOPMENT</span><h2>Data connection pending</h2><p>NBA research remains available now. We will only enable {sport} analytics once the data is connected and validated. No fabricated hit rates or matchup grades.</p><button className="cta" onClick={() => setSport('NBA')}>Explore NBA research</button></section></> : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count" role="status" aria-live="polite">{loading ? 'Loading verified player history…' : error ? players.length ? 'Data partially unavailable' : 'Data unavailable' : `${players.length} players available`}</span></div>
+          {nbaResearchSource && <div className="cheat-publish-live" role="status" style={{marginBottom:18}}>
+            <strong>NBA game logs ready</strong><span>{nbaResearchSource}</span>
+          </div>}
           {error && <div className="error" role="alert" aria-live="assertive">{error}</div>}
           <section className="panel controls">
             <div className="field player-field"><label htmlFor="player-search">PLAYER</label><input id="player-search" placeholder="Search NBA players…" value={query} onChange={(e) => { setQuery(e.target.value); setPlayerId('') }} autoComplete="off" />
@@ -181,7 +222,7 @@ function App() {
             {periods.map((period) => { const count = Number(period.slice(1)); const stats = selected ? periodStats(count) : null; const recentValues = values.slice(0, count); return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES <span className="metric-mark">↗</span></div><div className="metric-value">{selected ? format(rates[period]) : '—'}</div><div className="metric-sub">{!selected ? 'Select a player to begin' : stats ? `${stats.hitCount} of ${count} games hit · ${lineLabel.toUpperCase()}` : `Only ${values.length} of ${count} games available`}</div><div className="metric-track" role="img" aria-label={stats ? `${stats.hitCount} hits in ${count} games` : `Only ${recentValues.length} valid games available`} style={{ display: 'flex', gap: '3px', background: 'transparent', overflow: 'visible' }}>{recentValues.map((value, i) => <span key={i} className={value === line ? 'trend-push' : hits(value) ? 'trend-hit' : 'trend-miss'} />)}</div></div> })}
             <div className="metric gold-metric"><div className="metric-label">LAST 10 AVG <span className="metric-mark">◎</span></div><div className="metric-value">{selected && average !== null ? average : '—'}</div><div className="metric-sub">{selected ? `${prop} average · ${Math.min(10, values.length)} available games` : 'Awaiting selection'}</div><div className="metric-track gold-track"><span style={{ width: average === null ? '0%' : '100%' }} /></div></div>
           </div>
-          <NBAOpponentExplorer selected={selected} history={history} prop={prop} nextOpponents={nbaUpcoming} teamLabels={nbaTeamLabels} />
+          <NBAOpponentExplorer selected={selected} history={history} prop={prop} line={line} direction={direction} nextOpponents={nbaUpcoming} teamLabels={nbaTeamLabels} />
           <ProInsights sport="NBA" playerId={selected ? String(selected.id) : null} playerName={selected?.name} prop={prop} line={line} direction={direction} onUpgrade={() => setActiveTab('pricing')} />
           <div className="details-grid">
             <section className="panel"><div className="panel-title"><div><span className="eyebrow">RECENT PERFORMANCE</span><h3>Game-by-game trend</h3></div><span className="small-tag">{prop}</span></div>
