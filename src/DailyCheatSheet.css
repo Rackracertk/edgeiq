@@ -38,3 +38,8 @@
 .cheat-odds-input{display:grid;gap:8px;margin:14px 0 4px;color:#c2d7c5;font-size:11px;font-weight:750}
 .cheat-odds-input input{width:180px;max-width:100%;border:1px solid #4a7456;border-radius:8px;padding:10px;color:#eff7ef;background:#132d20;font-size:13px}
 @media(max-width:650px){.cheat-elite-header strong{font-size:27px}.cheat-matchup-toggle{width:100%}}
+
+.cheat-publish-live,.cheat-publish-fallback{display:flex;gap:9px;flex-wrap:wrap;align-items:center;justify-content:space-between;border:1px solid #43805c;background:#123b28;padding:14px 16px;margin:0 0 14px;border-radius:10px;font-size:12px;color:#bfeacc}
+.cheat-publish-live strong{color:#e6f8e7}.cheat-publish-live span{color:#9ac9ac}
+.cheat-publish-fallback{background:#352819;border-color:#8e6c35;color:#f1d49f}
+.cheat-publish-fallback strong{color:#ffe2a6}.cheat-publish-fallback span{color:#ddc6a1}
