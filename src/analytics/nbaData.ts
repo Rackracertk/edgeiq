@@ -10,6 +10,8 @@ export type NBAPlayerGame = {
   team?: string
   opponent?: string
   homeAway?: 'home' | 'away'
+  position?: string
+  minutes?: number
 }
 
 export const NBA_PROP_CATEGORIES = [
