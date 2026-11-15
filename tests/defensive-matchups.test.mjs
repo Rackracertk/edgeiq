@@ -13,8 +13,8 @@ function historyFixtures() {
         team,position,minutes,points,rebounds:5,assists:3,threes:1,
       })
     }
-    for (let i=0;i<6;i++)make('Boston Celtics','b'+i,['G','G','F','F','C','G'][i],12+i)
-    for (let i=0;i<6;i++)make('Los Angeles Lakers','a'+i,['G','SG','F','PF','C','G'][i],24+i)
+    for (let i=0;i<7;i++)make('Boston Celtics','b'+i,['G','G','F','F','C','G','C'][i],12+i)
+    for (let i=0;i<7;i++)make('Los Angeles Lakers','a'+i,['G','SG','F','PF','C','G','C'][i],24+i)
   }
   return histories
 }
