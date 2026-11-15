@@ -27,6 +27,16 @@ jobs:
           import { rankNFLDefensiveYards } from './src/analytics/nflDefensiveYards.ts'
           const cache=JSON.parse(readFileSync('data/edgeiq-research-cache.json','utf8'))
           const feed=JSON.parse(readFileSync('public/edgeiq-daily.json','utf8'))
+          const completedNFLGame=Object.keys(cache.nfl??{})[0]
+          if(completedNFLGame){
+            try {
+              const response=await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event='+completedNFLGame,{signal:AbortSignal.timeout(12000)})
+              const source=await response.json()
+              console.log('NFL BOXSCORE LABELS:',JSON.stringify((source.boxscore?.players??[]).slice(0,1).flatMap(side=>
+                (side.statistics??[]).map(group=>({name:group.name,labels:group.labels,
+                  first:group.athletes?.[0]?.stats})))))
+            }catch(error){console.log('NFL BOXSCORE PROBE ERROR:',String(error))}
+          }
           const rushing=rankNFLDefensiveYards(Object.values(cache.nfl??{}).flatMap(x=>x.rows??[]),'Rushing Yards')
           console.log('REAL NFL RUSH DEFENSE:',JSON.stringify({teams:rushing.length,lowest:rushing[0],highest:rushing.at(-1)}))
           const games=Object.values(cache.nba||{})
