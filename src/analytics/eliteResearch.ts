@@ -24,7 +24,7 @@ type NBAPlayers = { id: string; name: string; team: string; teamId: string; posi
 type NBAHistory = Record<string, NBAPlayerGame[]>
 type Observation = { playerId: string; gameId: string; value: number }
 const valid = (value: number | null | undefined): value is number =>
-  typeof value === 'number' && Number.isFinite(value) && value >= 0
+  typeof value === 'number' && Number.isFinite(value)
 const hit = (value: number, pick: CheatPick) =>
   pick.direction === 'over' ? value > pick.line : value < pick.line
 const percent = (n: number, d: number) => Math.round(n / d * 100)
@@ -140,6 +140,7 @@ function nflEvidence(
 export function enrichElitePicks(
   picks: CheatPick[], sport: CheatSport, slate: Slate,
   nbaHistory: NBAHistory, nflRows: NFLHistoryRow[], players: NBAPlayers,
+  maxPicks = 80,
 ): ElitePick[] {
   const ranked = picks.map(pick => {
     const evidence = sport === 'NBA'
@@ -169,17 +170,39 @@ export function enrichElitePicks(
   const athleteCounts = new Map<string, number>()
   const teamCounts = new Map<string, number>()
   const statCounts = new Map<string, number>()
-  for (const pick of ranked) {
-    if (chosen.length >= 40) break
+  const seen = new Set<string>()
+  const fullBoard = maxPicks > 100
+  const maxPlayer = fullBoard ? 5 : 3
+  const maxTeam = fullBoard ? 22 : 12
+  const maxStat = fullBoard ? 24 : 12
+  const select = (pick: ElitePick): boolean => {
     const athlete = pick.sport + ':' + pick.playerId
-    if ((athleteCounts.get(athlete) ?? 0) >= 2 ||
-        (teamCounts.get(pick.team) ?? 0) >= 8 ||
-        (statCounts.get(pick.category) ?? 0) >= 10) continue
+    if (chosen.length >= maxPicks || seen.has(pick.id) ||
+        (athleteCounts.get(athlete) ?? 0) >= maxPlayer ||
+        (teamCounts.get(pick.team) ?? 0) >= maxTeam ||
+        (statCounts.get(pick.category) ?? 0) >= maxStat) return false
     chosen.push(pick)
+    seen.add(pick.id)
     athleteCounts.set(athlete, (athleteCounts.get(athlete) ?? 0) + 1)
     teamCounts.set(pick.team, (teamCounts.get(pick.team) ?? 0) + 1)
     statCounts.set(pick.category, (statCounts.get(pick.category) ?? 0) + 1)
+    return true
   }
+  // A first pass over each available category + side prevents a single high-rate
+  // statistic (often steals/blocks) from monopolizing the first screen.
+  const nbaPriority = ['Points','Rebounds','Assists','PRA',
+    'Points + Assists (PA)','Points + Rebounds (PR)','Assists + Rebounds (AR)',
+    '3-Pointers Made','Steals','Blocks','Steals + Blocks (SB)','Double-Double','Triple-Double']
+  const nflPriority = ['Passing Yards','Rushing Yards','Receiving Yards','Receptions',
+    'Rushing Attempts','Passing TDs','Receiving TDs','Interceptions Thrown','Sacks']
+  const priority = sport === 'NBA' ? nbaPriority : nflPriority
+  for (let round = 0; round < (fullBoard ? 3 : 2); round++) {
+    for (const category of priority) for (const direction of ['over','under'] as const) {
+      const group = ranked.filter(pick => pick.category === category && pick.direction === direction)
+      for (const pick of group) if (select(pick)) break
+    }
+  }
+  for (const pick of ranked) select(pick)
   return chosen
 }
 
