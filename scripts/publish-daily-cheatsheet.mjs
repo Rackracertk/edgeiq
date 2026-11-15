@@ -165,6 +165,8 @@ async function nbaHistory(cache) {
   for(const records of Object.values(history))records.sort((a,b)=>b.date.localeCompare(a.date))
   const players=Array.from(latestPlayers.values()).map(row=>({
     id:String(row.id),name:row.name,team:row.team,teamId:String(row.teamId),position:row.position,
+    points:row.points,rebounds:row.rebounds,assists:row.assists,threes:row.threes,
+    steals:row.steals,blocks:row.blocks,
   }))
   return {history,players,completedGames:Object.keys(cache.nba).length}
 }
@@ -288,6 +290,25 @@ async function run() {
   }
   await mkdir('public',{recursive:true})
   await mkdir('data',{recursive:true})
+  // The player research screen needs the complete pooled NBA history, not
+  // per-browser scraping; publish it separately so the cheat sheet stays small.
+  if(nbaData.completedGames >= 3 && nbaData.players.length) {
+    const nextOpponents={}
+    const teamAbbreviations={}
+    for(const slate of nbaSlates)for(const game of slate.games) {
+      for(const team of game.teams) {
+        teamAbbreviations[team.name]=team.abbreviation
+        const other=game.teams.find(row=>row.id!==team.id)
+        if(other && !nextOpponents[team.name])nextOpponents[team.name]=other.name
+      }
+    }
+    const nbaResearchPublication={
+      schemaVersion:1,generatedAt:result.generatedAt,publishedDateET:TODAY,
+      source:'ESPN public completed game summaries; unofficial research',
+      players:nbaData.players,history:nbaData.history,nextOpponents,teamAbbreviations,
+    }
+    await writeFile('public/edgeiq-nba-history.json',JSON.stringify(nbaResearchPublication)+'\n')
+  }
   await writeFile(OUTPUT_PATH,JSON.stringify(result,null,2)+'\n')
   await writeFile(CACHE_PATH,JSON.stringify(cache)+'\n')
   console.log(JSON.stringify({
