@@ -15,7 +15,10 @@ function makeFixture(hits) {
   const history = { star: Array.from({ length: 10 }, (_, i) => ({
     gameId: 'star-' + i, date: new Date(Date.now() - (i + 1) * DAY).toISOString(),
     team: 'Los Angeles Lakers', opponent: 'New York Knicks', position: 'PG',
-    minutes: 32, points: i < hits ? 25 : 16, rebounds: 5, assists: 5, threes: 2,
+    minutes: 32, points: i < hits ? 25 : 16,
+    rebounds: [5,8,3,11,2,6,9,3,8,5][i],
+    assists: [1,9,3,7,11,2,7,0,8,5][i],
+    threes: [1,3,2,0,5,1,0,4,2,3][i],
   })) }
   const players = [{ id: 'star', name: 'Sample Player', team: 'Los Angeles Lakers', teamId: '1', position: 'PG' }]
   return { slate, history, players }
