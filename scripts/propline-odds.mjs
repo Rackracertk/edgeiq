@@ -20,7 +20,7 @@ const MARKETS = {
   }
 }
 const normalize = s => String(s??'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'')
-function extract(payload,sport,rosters,now) {
+function extract(payload,sport,rosters,now,eventIds) {
   const result=[]
   const events=Array.isArray(payload)?payload:Array.isArray(payload?.events)?payload.events:[payload]
   for(const event of events) {
@@ -49,7 +49,7 @@ function extract(payload,sport,rosters,now) {
         const [playerId]=players[0]
         const observedAt=String(market.last_update??book.last_update??'')
         if(!Number.isFinite(Date.parse(observedAt))||now-Date.parse(observedAt)>15*60_000)continue
-        result.push({sport,eventId:String(event.espn_event_id??''),playerId,category,
+        result.push({sport,eventId:String(eventIds.get(String(event.id))??''),playerId,category,
           sportsbook:String(book.title??book.key??''),line:pair.line,
           overOdds:pair.over,underOdds:pair.under,observedAt,source:'PropLine'})
       }
@@ -65,5 +65,10 @@ export async function fetchPropLineQuotes(sport,rosters) {
   const url='https://api.prop-line.com/v1/sports/'+sportKey+'/odds?markets='+encodeURIComponent(markets)
   const response=await fetch(url,{headers:{'X-API-Key':key,Accept:'application/json'},signal:AbortSignal.timeout(20000)})
   if(!response.ok)throw Error('PropLine '+sport+' returned HTTP '+response.status)
-  return extract(await response.json(),sport,rosters,Date.now())
+  const odds=await response.json()
+  const idsResponse=await fetch('https://api.prop-line.com/v1/sports/'+sportKey+'/ids',{headers:{'X-API-Key':key},signal:AbortSignal.timeout(20000)})
+  if(!idsResponse.ok)throw Error('PropLine event crosswalk HTTP '+idsResponse.status)
+  const ids=await idsResponse.json()
+  const eventIds=new Map((Array.isArray(ids)?ids:[]).filter(row=>row.id&&row.espn_event_id).map(row=>[String(row.id),String(row.espn_event_id)]))
+  return extract(odds,sport,rosters,Date.now(),eventIds)
 }
