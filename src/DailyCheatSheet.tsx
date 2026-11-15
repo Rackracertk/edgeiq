@@ -177,10 +177,10 @@ export default function DailyCheatSheet({
     {id:'MILESTONES',label:'Double / triple double',stats:['Double-Double','Triple-Double']},
   ] : [
     {id:'ALL',label:'All NFL props',stats:[]},
-    {id:'PASS',label:'Passing',stats:['Passing Yards','Passing TDs','Interceptions Thrown']},
-    {id:'RUSH',label:'Rushing',stats:['Rushing Yards','Rushing Attempts']},
-    {id:'RECEIVE',label:'Receiving',stats:['Receiving Yards','Receptions','Receiving TDs']},
-    {id:'DEFENSE',label:'Defense',stats:['Sacks']},
+    {id:'PASS',label:'Passing',stats:['Passing Yards','Passing Completions','Passing Attempts','Passing TDs','Interceptions Thrown']},
+    {id:'RUSH',label:'Rushing',stats:['Rushing Yards','Rushing Attempts','Rushing TDs','Longest Rush']},
+    {id:'RECEIVE',label:'Receiving',stats:['Receiving Yards','Receptions','Receiving Targets','Receiving TDs','Longest Reception']},
+    {id:'DEFENSE',label:'Defense',stats:['Sacks','Tackles','Solo Tackles']},
   ]
   const currentGroup = groups.find(group => group.id === propGroup)
   const filtered = picks.filter(pick =>
@@ -227,7 +227,7 @@ export default function DailyCheatSheet({
     <section className="hero cheat-hero">
       <div className="eyebrow gold">EDGEIQ / DAILY PLAYER PROP RESEARCH</div>
       <h1>{advance === 'tomorrow' ? "Tomorrow's" : "Today's"} <span className="gold">NBA + NFL prop cheat sheet.</span></h1>
-      <p>Points, rebounds, assists, PRA, PA, PR, AR, threes and every supported NFL prop — both overs and unders, organized by market. Switch between broad historical research and elite 90%+ recent trends. Opponent and injury evidence appears wherever verified.</p>
+      <p>Points, rebounds, assists, PRA, PA, PR, AR, threes, and ESPN-supported NFL passing, rushing, receiving and defensive props — both overs and unders, organized by market. Switch between broad historical research and elite 90%+ recent trends. Opponent and injury evidence appears wherever verified.</p>
       <div className="cheat-hero-points">
         <span>✓ All supported stat categories</span><span>✓ Over &amp; under research</span><span>✓ Opponent matchup evidence</span>
       </div>
