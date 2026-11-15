@@ -233,16 +233,22 @@ async function injuries(sport) {
 function makeBoard(sport, slate, history, report) {
   const unavailable=(id,name,team,teamId)=>
     shouldExcludeInjury(findInjury(report.injuries,String(id),name,team,String(teamId)))
-  const candidates=sport==='NBA'
-    ? buildNBAPicks(slate,history.history,history.players,report.available?unavailable:undefined)
-    : buildNFLPicks(slate,history.rows,report.available?unavailable:undefined)
-  const researched=enrichElitePicks(candidates,sport,slate,
+  const screened = report.available ? unavailable : undefined
+  const build = mode => sport==='NBA'
+    ? buildNBAPicks(slate,history.history,history.players,screened,mode)
+    : buildNFLPicks(slate,history.rows,screened,mode)
+  const evidence = (candidates,cap) => enrichElitePicks(candidates,sport,slate,
     sport==='NBA'?history.history:{},sport==='NFL'?history.rows:[],
-    sport==='NBA'?history.players:[])
+    sport==='NBA'?history.players:[],cap)
+  // The Elite tab remains strictly 90%+ observed historical hits.
+  // All Props also shows 60-89% observed research, with explicit labeling.
+  const researched=evidence(build('elite'),80)
+  const allPicks=evidence(build('all'),200)
   return {
     ...slate,
     report,
     picks:researched,
+    allPicks,
     generatedAt:new Date().toISOString(),
     sourceCompleteness: failures.length ? 'PARTIAL' : 'COMPLETE',
     historicalGames:history.completedGames,
@@ -313,8 +319,12 @@ async function run() {
   await writeFile(CACHE_PATH,JSON.stringify(cache)+'\n')
   console.log(JSON.stringify({
     publishedDate:TODAY,generatedAt:result.generatedAt,dataStatus:result.dataStatus,
-    nbaBoards:boards.NBA.map(b=>({date:b.date,games:b.games.length,picks:b.picks.length,history:b.historicalGames,injuries:b.report.available})),
-    nflBoards:boards.NFL.map(b=>({date:b.date,games:b.games.length,picks:b.picks.length,history:b.historicalGames,injuries:b.report.available})),
+    nbaBoards:boards.NBA.map(b=>({date:b.date,games:b.games.length,elite:b.picks.length,allProps:b.allPicks.length,
+      categories:[...new Set(b.allPicks.map(p=>p.category))],over:b.allPicks.filter(p=>p.direction==='over').length,
+      under:b.allPicks.filter(p=>p.direction==='under').length,history:b.historicalGames,injuries:b.report.available})),
+    nflBoards:boards.NFL.map(b=>({date:b.date,games:b.games.length,elite:b.picks.length,allProps:b.allPicks.length,
+      categories:[...new Set(b.allPicks.map(p=>p.category))],over:b.allPicks.filter(p=>p.direction==='over').length,
+      under:b.allPicks.filter(p=>p.direction==='under').length,history:b.historicalGames,injuries:b.report.available})),
     sourceFailures:failures.length,
   }))
   if(totalPicks===0)console.warn('No verified elite picks qualified; an empty research board is intentionally published')
