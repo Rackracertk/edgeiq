@@ -40,6 +40,15 @@ jobs:
           }
           const published=JSON.parse(readFileSync('public/edgeiq-nba-history.json','utf8'))
           const defense=buildDefenseRankings(published.history,'Points',19.5,'over')
+          const allProps=feed.boards.NBA?.[0]?.allPicks??[]
+          const nflProps=feed.boards.NFL?.[0]?.allPicks??[]
+          const summary=picks=>{
+            const buckets={}
+            for(const pick of picks){const key=pick.category; buckets[key]??={over:0,under:0};buckets[key][pick.direction]++}
+            return buckets
+          }
+          console.log('PUBLISHED NBA ALL PROPS:',JSON.stringify({total:allProps.length,categories:summary(allProps),elite:feed.boards.NBA?.[0]?.picks?.length}))
+          console.log('PUBLISHED NFL ALL PROPS:',JSON.stringify({total:nflProps.length,categories:summary(nflProps),elite:feed.boards.NFL?.[0]?.picks?.length}))
           console.log('REAL POSITION LEADERBOARD:',JSON.stringify(Object.entries(defense.byPosition).map(([position,rows])=>({
             position,defenses:rows.length,example:rows[0]?{team:rows[0].team,hitRate:rows[0].hitRate,sample:rows[0].appearances}:null
           }))))
@@ -77,7 +86,7 @@ jobs:
             const website=await (await fetch('https://edgeiqstats.com/',{signal:AbortSignal.timeout(10000)})).text()
             const path=website.match(/<script[^>]*src=["']([^"']+)["']/i)?.[1]
             const bundle=path?await (await fetch('https://edgeiqstats.com'+path,{signal:AbortSignal.timeout(15000)})).text():''
-            console.log('LIVE INDEX:',website.slice(0,450));console.log('LIVE UI:', 'bundle='+path, 'guardsCopy='+bundle.includes('Guards (G)'),
+            console.log('LIVE INDEX:',website.slice(0,450));console.log('LIVE UI:', 'bundle='+path, 'allPropsControl='+bundle.includes('All Props'), 'nbaComboFilter='+bundle.includes('PRA · PA · PR · AR'), 'guardsCopy='+bundle.includes('Guards (G)'),
               'forwardsCopy='+bundle.includes('Forwards (F)'),'hasDailyHistory='+bundle.includes('edgeiq-nba-history.json'), 'rushDefenseTable='+bundle.includes('Rushing yards allowed per game'), 'rushMatchup='+bundle.includes('RUSH YARDS ALLOWED / GAME'))
           }catch(error){console.log('LIVE UI: ERROR',String(error))}
           console.log('TODAY BOARDS:',JSON.stringify(Object.entries(feed.boards).map(([sport,boards])=>({sport,boards:boards.map(b=>({date:b.date,matchupBacked:b.picks.filter(x=>x.defense).length}))}))))
