@@ -21,8 +21,9 @@ jobs:
           node-version: '24'
       - name: Inspect published research completeness
         run: |
-          node --input-type=module <<'NODE'
+          node --experimental-strip-types --input-type=module <<'NODE'
           import { readFileSync } from 'node:fs'
+          import { buildDefenseRankings } from './src/analytics/defensiveMatchups.ts'
           const cache=JSON.parse(readFileSync('data/edgeiq-research-cache.json','utf8'))
           const feed=JSON.parse(readFileSync('public/edgeiq-daily.json','utf8'))
           const games=Object.values(cache.nba||{})
@@ -34,6 +35,11 @@ jobs:
             positions[p]=(positions[p]||0)+1
             if(row.minutes>=18)minCount[p]=(minCount[p]||0)+1
           }
+          const published=JSON.parse(readFileSync('public/edgeiq-nba-history.json','utf8'))
+          const defense=buildDefenseRankings(published.history,'Points',19.5,'over')
+          console.log('REAL POSITION LEADERBOARD:',JSON.stringify(Object.entries(defense.byPosition).map(([position,rows])=>({
+            position,defenses:rows.length,example:rows[0]?{team:rows[0].team,hitRate:rows[0].hitRate,sample:rows[0].appearances}:null
+          }))))
           console.log('NBA GAMES:',games.length,'NBA ROWS:',rows.length)
           console.log('POSITION DISTRIBUTION:',JSON.stringify(positions))
           console.log('POSITION 18+ MINUTES:',JSON.stringify(minCount))
@@ -64,5 +70,12 @@ jobs:
               console.log('LIVE WEBSITE:',url,response.status,'bytes='+data.length,detail)
             }catch(error){console.log('LIVE WEBSITE:',url,'ERROR',String(error))}
           }
+          try {
+            const website=await (await fetch('https://edgeiqstats.com/',{signal:AbortSignal.timeout(10000)})).text()
+            const path=website.match(/src=["']([^"']+\\.js)["']/)?.[1]
+            const bundle=path?await (await fetch('https://edgeiqstats.com'+path,{signal:AbortSignal.timeout(15000)})).text():''
+            console.log('LIVE UI:', 'bundle='+path, 'guardsCopy='+bundle.includes('Guards (G)'),
+              'forwardsCopy='+bundle.includes('Forwards (F)'),'hasDailyHistory='+bundle.includes('edgeiq-nba-history.json'))
+          }catch(error){console.log('LIVE UI: ERROR',String(error))}
           console.log('TODAY BOARDS:',JSON.stringify(Object.entries(feed.boards).map(([sport,boards])=>({sport,boards:boards.map(b=>({date:b.date,matchupBacked:b.picks.filter(x=>x.defense).length}))}))))
           NODE
