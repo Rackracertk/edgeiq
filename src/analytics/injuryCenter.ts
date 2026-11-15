@@ -18,7 +18,9 @@ export function easternDate(date: Date): string {
     timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
   }).formatToParts(date)
   const get = (name: string) => p.find(item => item.type === name)?.value ?? ''
-  return get('year') + get('month') + get('day')
+  // ISO dates are required by nextDate() and Supabase date columns.
+  // ESPN uses YYYYMMDD separately through compactDate().
+  return get('year') + '-' + get('month') + '-' + get('day')
 }
 export function nextDate(date: string, offset: number): string {
   const [y,m,d] = date.split('-').map(Number)
