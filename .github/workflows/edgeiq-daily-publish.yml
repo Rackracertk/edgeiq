@@ -4,7 +4,7 @@ on:
   schedule:
     # GitHub schedule is UTC. Covers US pregame mornings, afternoons and evenings.
     # GitHub may delay scheduled runs; the site shows publication freshness.
-    # Refresh and republish the expanded NBA/NFL props, including verified NFL tackle, target and TD stats.
+    # Refresh and publish verified current NBA/NFL roster assignments before each slate; never use historical teams for upcoming picks.
     - cron: '15 10,12,14,16,18,20,22,23 * * *'
   workflow_dispatch:
   push:
