@@ -105,7 +105,8 @@ function nflEvidence(
   const matching = new Map<string, number>()
   for (const row of rows) {
     if (Date.parse(row.date) >= Date.parse(pick.gameTime)) continue
-    if (row.playerId === pick.playerId && row.team === pick.team && valid(row.stats[pick.category])) {
+    // A traded player's previous team games remain valid history for their own props.
+    if (row.playerId === pick.playerId && valid(row.stats[pick.category])) {
       if (!own.has(row.gameId)) own.set(row.gameId, row)
     }
   }
