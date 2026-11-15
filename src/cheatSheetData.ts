@@ -1,7 +1,7 @@
-import { getNBAGames } from './analytics/espnData'
-import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData'
-import { parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore'
-export type { NFLHistoryRow } from './analytics/nflBoxscore'
+import { getNBAGames } from './analytics/espnData.ts'
+import { getPlayerPropValues, type NBAPlayerGame } from './analytics/nbaData.ts'
+import { parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore.ts'
+export type { NFLHistoryRow } from './analytics/nflBoxscore.ts'
 
 export type CheatSport = 'NBA' | 'NFL'
 export type CheatPick = {
