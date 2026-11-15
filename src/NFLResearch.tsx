@@ -7,6 +7,7 @@ import { NFL_PROP_CATEGORIES, defaultNFLLine, parseNFLBoxscore, type NFLHistoryR
 
 type Game = { id: string; date: string; completed: boolean }
 type RecordRow = NFLHistoryRow
+type CurrentNFLRoster = Record<string, { team: string; teamId: string; name?: string }>
 const categories = NFL_PROP_CATEGORIES
 type Category = typeof categories[number]
 
@@ -34,6 +35,33 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
   const [nextOpponent, setNextOpponent] = useState('')
   const [licensedUpcoming, setLicensedUpcoming] = useState<Record<string, string>>({})
   const [scheduleStatus, setScheduleStatus] = useState('')
+  const [currentNFLRoster, setCurrentNFLRoster] = useState<CurrentNFLRoster | null>(null)
+  const [rosterStatus, setRosterStatus] = useState<'loading' | 'verified' | 'unavailable'>(
+    usingLicensedFeed ? 'verified' : 'loading'
+  )
+  useEffect(() => {
+    if (usingLicensedFeed) return
+    let cancelled=false
+    async function verifyRoster() {
+      try {
+        const response=await fetch('/edgeiq-current-rosters.json?updated='+Date.now(), {cache:'no-store'})
+        if(!response.ok)throw Error('Roster publication unavailable')
+        const feed=await response.json() as {
+          schemaVersion: number; generatedAt: string; NFL?: CurrentNFLRoster
+        }
+        if(feed.schemaVersion!==1 || !feed.NFL ||
+            Object.keys(feed.NFL).length<500 ||
+            !Number.isFinite(Date.parse(feed.generatedAt)) ||
+            Date.now()-Date.parse(feed.generatedAt)>18*60*60*1000)
+          throw Error('Roster publication missing or out of date')
+        if(!cancelled){setCurrentNFLRoster(feed.NFL);setRosterStatus('verified')}
+      }catch {
+        if(!cancelled){setCurrentNFLRoster(null);setRosterStatus('unavailable')}
+      }
+    }
+    void verifyRoster()
+    return()=>{cancelled=true}
+  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -103,9 +131,20 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
 
   const players = useMemo(() => {
     const map = new Map<string, { id: string; name: string; team: string }>()
-    rows.forEach(row => map.set(row.playerId, { id: row.playerId, name: row.player, team: row.team }))
-    return Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name))
-  }, [rows])
+    rows.forEach(row => {
+      // Historical boxscore team is NOT evidence of current roster membership.
+      // Public beta hides current team assignments until roster verification.
+      if(!usingLicensedFeed && rosterStatus !== 'verified')return
+      const verified=usingLicensedFeed?null:currentNFLRoster?.[row.playerId]
+      if(!usingLicensedFeed && !verified)return
+      map.set(row.playerId, {
+        id:row.playerId,
+        name:verified?.name || row.player,
+        team:verified?.team || row.team,
+      })
+    })
+    return Array.from(map.values()).sort((a,b)=>a.name.localeCompare(b.name))
+  }, [rows,currentNFLRoster,rosterStatus])
   const selected = players.find(player => player.id === playerId)
   useEffect(() => {
     onResearchChange(selected ? { playerId: selected.id, playerName: selected.name, statCategory: category, line, direction } : null)
@@ -177,7 +216,12 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
 
   return <>
     <section className="hero"><div className="eyebrow gold">NFL PLAYER RESEARCH</div><h1>Football <span className="gold">analytics.</span></h1><p>Explore verified historical player box scores and over/under trends. Past results do not predict future outcomes.</p></section>
-    <div className="section-head"><div><span className="eyebrow">NFL RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count">{loading ? 'Loading NFL history…' : players.length + ' players available'}</span></div>
+    <div className="section-head"><div><span className="eyebrow">NFL RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count">{loading ? 'Loading NFL history…' :
+      rosterStatus === 'loading' && !usingLicensedFeed ? 'Verifying current NFL teams…' :
+      players.length + ' players available'}</span></div>
+    {!usingLicensedFeed && rosterStatus==='unavailable' && <div className="error" role="alert">
+      Current NFL roster verification is unavailable. To prevent outdated team assignments, player matchups are temporarily hidden. Historical game logs are retained, not reassigned.
+    </div>}
     {error && <div className="error" role="alert">{error}</div>}
     <section className="panel controls">
       <div className="field player-field"><label htmlFor="nfl-player">PLAYER</label><input id="nfl-player" placeholder="Search NFL players…" value={query} onChange={event => { setQuery(event.target.value); setPlayerId('') }} autoComplete="off" />
