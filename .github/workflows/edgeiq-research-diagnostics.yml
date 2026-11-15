@@ -58,7 +58,21 @@ jobs:
             return buckets
           }
           console.log('PUBLISHED NBA ALL PROPS:',JSON.stringify({total:allProps.length,categories:summary(allProps),elite:feed.boards.NBA?.[0]?.picks?.length}))
-          console.log('PUBLISHED NFL ALL PROPS:',JSON.stringify({total:nflProps.length,categories:summary(nflProps),elite:feed.boards.NFL?.[0]?.picks?.length}))
+          const rost=JSON.parse(readFileSync('public/edgeiq-current-rosters.json','utf8'))
+          const rosterMislabels=[]
+          const cousins=[]
+          for(const [sport,boards] of Object.entries(feed.boards)){
+            for(const board of boards)for(const pick of [...board.picks,...board.allPicks]){
+              if(rost[sport]?.[pick.playerId]?.team!==pick.team)rosterMislabels.push(pick.player+' '+pick.team)
+              if(pick.playerId==='14880')cousins.push({team:pick.team,opponent:pick.opponent,category:pick.category})
+            }
+          }
+          console.log('ROSTER VALIDATION:',JSON.stringify({
+            verifiedKirk:rost.NFL?.['14880'],mismatches:rosterMislabels.slice(0,5),count:rosterMislabels.length,
+            kirkCards:cousins.slice(0,6)
+          }))
+          if(rosterMislabels.length)process.exitCode=1
+          console.log('PUBLISHED NFL ALL PROPS:,JSON.stringify({total:nflProps.length,categories:summary(nflProps),elite:feed.boards.NFL?.[0]?.picks?.length}))
           console.log('REAL POSITION LEADERBOARD:',JSON.stringify(Object.entries(defense.byPosition).map(([position,rows])=>({
             position,defenses:rows.length,example:rows[0]?{team:rows[0].team,hitRate:rows[0].hitRate,sample:rows[0].appearances}:null
           }))))
@@ -78,7 +92,7 @@ jobs:
             }
             console.log('NBA ROSTER',team,response.status,athletes.length,JSON.stringify(distribution),JSON.stringify(athletes.slice(0,2).map(x=>({id:x.id,name:x.displayName,pos:x.position?.abbreviation}))))
           }
-          for(const url of ['https://edgeiqstats.com/edgeiq-daily.json','https://edgeiqstats.com/edgeiq-nba-history.json'].map(url=>url+'?updated='+Date.now())) {
+          for(const url of ['https://edgeiqstats.com/edgeiq-daily.json','https://edgeiqstats.com/edgeiq-nba-history.json','https://edgeiqstats.com/edgeiq-current-rosters.json'].map(url=>url+'?updated='+Date.now())) {
             try {
               const response=await fetch(url,{signal:AbortSignal.timeout(15000)})
               const data=await response.text()
@@ -86,7 +100,7 @@ jobs:
               if(response.ok) {
                 try {
                   const parsed=JSON.parse(data)
-                  detail='generatedAt='+parsed.generatedAt+' players='+(parsed.players?.length??0)+' nbaBoards='+(parsed.boards?.NBA?.length??0)
+                  detail='generatedAt='+parsed.generatedAt+' players='+(parsed.players?.length??0)+' nbaBoards='+(parsed.boards?.NBA?.length??0)+' KirkCurrentTeam='+(parsed.NFL?.['14880']?.team??'N/A')
                 }catch {detail='invalid JSON'}
               }
               console.log('LIVE WEBSITE:',url,response.status,'bytes='+data.length,detail)
@@ -96,7 +110,7 @@ jobs:
             const website=await (await fetch('https://edgeiqstats.com/',{signal:AbortSignal.timeout(10000)})).text()
             const path=website.match(/<script[^>]*src=["']([^"']+)["']/i)?.[1]
             const bundle=path?await (await fetch('https://edgeiqstats.com'+path,{signal:AbortSignal.timeout(15000)})).text():''
-            console.log('LIVE INDEX:',website.slice(0,450));console.log('LIVE UI:', 'bundle='+path, 'allPropsControl='+bundle.includes('All Props'), 'nbaComboFilter='+bundle.includes('PRA · PA · PR · AR'), 'nflExpandedProps='+bundle.includes('Passing Completions'), 'guardsCopy='+bundle.includes('Guards (G)'),
+            console.log('LIVE INDEX:',website.slice(0,450));console.log('LIVE UI:', 'bundle='+path, 'allPropsControl='+bundle.includes('All Props'), 'nbaComboFilter='+bundle.includes('PRA · PA · PR · AR'), 'nflExpandedProps='+bundle.includes('Passing Completions'), 'rosterValidatedUI='+bundle.includes('edgeiq-current-rosters.json'), 'guardsCopy='+bundle.includes('Guards (G)'),
               'forwardsCopy='+bundle.includes('Forwards (F)'),'hasDailyHistory='+bundle.includes('edgeiq-nba-history.json'), 'rushDefenseTable='+bundle.includes('Rushing yards allowed per game'), 'rushMatchup='+bundle.includes('RUSH YARDS ALLOWED / GAME'))
           }catch(error){console.log('LIVE UI: ERROR',String(error))}
           console.log('TODAY BOARDS:',JSON.stringify(Object.entries(feed.boards).map(([sport,boards])=>({sport,boards:boards.map(b=>({date:b.date,matchupBacked:b.picks.filter(x=>x.defense).length}))}))))
