@@ -28,7 +28,7 @@ export default function DailyCheatSheet({
   nbaPlayers, nbaHistory, nbaLoading, nbaError, onPro, onMarkets, onInjuries, onResearch,
 }: Props) {
   const [sport, setSport] = useState<CheatSport>('NBA')
-  const [advance, setAdvance] = useState<'today' | 'tomorrow'>('tomorrow')
+  const [advance, setAdvance] = useState<'today' | 'tomorrow'>('today')
   const [slates, setSlates] = useState<Record<string, Slate>>({})
   const [reports, setReports] = useState<Record<string, InjuryData>>({})
   const [nflRows, setNflRows] = useState<NFLHistoryRow[]>([])
