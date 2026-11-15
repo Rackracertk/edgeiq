@@ -155,7 +155,8 @@ function evaluate(
   const average = recent.reduce((sum, value) => sum + value, 0) / sample
   const median = [...recent].sort((a, b) => a - b)[Math.floor(recent.length / 2)]
   // Ignore extreme thresholds that would generate misleading 100% trends.
-  const eventStat = ['Double-Double', 'Triple-Double', 'Interceptions Thrown', 'Sacks', 'Steals', 'Blocks', 'Steals + Blocks (SB)'].includes(category)
+  const eventStat = ['Double-Double', 'Triple-Double', 'Interceptions Thrown', 'Sacks', 'Steals', 'Blocks', 'Steals + Blocks (SB)',
+    'Passing TDs', 'Receiving TDs', '3-Pointers Made'].includes(category)
   if (!eventStat && (median <= 0 || line < median * .75 || line > median * 1.25)) return null
   const margin = direction === 'over' ? average - line : line - average
   if (margin <= 0) return null
