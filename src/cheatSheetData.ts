@@ -64,6 +64,7 @@ const nflReferenceLines: Record<string, number[]> = {
   'Rushing Attempts': [9.5, 14.5, 19.5],
   'Receiving Yards': [29.5, 49.5, 69.5, 89.5],
   Receptions: [2.5, 3.5, 4.5, 5.5, 6.5],
+  'Receiving TDs': [0.5, 1.5],
 }
 
 function eastDate(date: Date): string {
@@ -133,19 +134,20 @@ function evaluate(
   category: string, values: number[], line: number, direction: 'over' | 'under',
 ): Candidate | null {
   const sample = Math.min(10, values.length)
-  if (sample < (sport === 'NBA' ? 9 : 6)) return null
+  if (sample < (sport === 'NBA' ? 10 : 8)) return null
   const recent = values.slice(0, sample)
   if (recent.some(value => !Number.isFinite(value) || value < 0)) return null
   const last5 = recent.slice(0, 5)
   const hit = (value: number) => direction === 'over' ? value > line : value < line
   const l5Hits = last5.filter(hit).length
   const recentHits = recent.filter(hit).length
-  if (l5Hits < 4 || recentHits < Math.ceil(sample * .7)) return null
+  // The elite beta only features 90–100% observed recent trends (never a future probability).
+  if (l5Hits < 4 || recentHits / sample < .9) return null
   const average = recent.reduce((sum, value) => sum + value, 0) / sample
   const median = [...recent].sort((a, b) => a - b)[Math.floor(recent.length / 2)]
   // Ignore extreme thresholds that would generate misleading 100% trends.
   const eventStat = ['Double-Double', 'Triple-Double', 'Interceptions Thrown', 'Sacks', 'Steals', 'Blocks', 'Steals + Blocks (SB)'].includes(category)
-  if (!eventStat && (median <= 0 || line < median * .62 || line > median * 1.38)) return null
+  if (!eventStat && (median <= 0 || line < median * .78 || line > median * 1.22)) return null
   const margin = direction === 'over' ? average - line : line - average
   if (margin <= 0) return null
   const other = game.teams.find(item => item.abbreviation !== team)
@@ -198,7 +200,8 @@ export function buildNBAPicks(
       for (const line of lines) for (const direction of ['over', 'under'] as const) {
         // A "No triple-double" card would dominate an everyday board
         // despite often not being a useful or offered market.
-        if ((category === 'Double-Double' || category === 'Triple-Double') && direction === 'under') continue
+        if ((category === 'Double-Double' || category === 'Triple-Double' ||
+          ['Steals', 'Blocks', 'Steals + Blocks (SB)'].includes(category)) && direction === 'under') continue
         const candidate = evaluate('NBA', String(player.id), player.name, game.teams.find(t => t.id === player.teamId)?.abbreviation ?? '', game, category, values, line, direction)
         if (candidate) candidates.push(candidate)
       }
@@ -270,6 +273,7 @@ export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (pl
       for (const row of item.logs) if (category in row.stats && !byGame.has(row.gameId)) byGame.set(row.gameId, row)
       const values = Array.from(byGame.values()).sort((a, b) => b.date.localeCompare(a.date)).map(row => row.stats[category])
       for (const line of lines) for (const direction of ['over', 'under'] as const) {
+        if (['Interceptions Thrown', 'Sacks', 'Receiving TDs'].includes(category) && direction === 'under') continue
         const candidate = evaluate('NFL', item.playerId, item.player, item.team, game, category, values, line, direction)
         if (candidate) candidates.push(candidate)
       }
