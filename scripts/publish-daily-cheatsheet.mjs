@@ -322,6 +322,22 @@ async function run() {
     NBA:nbaSlates.map(slate=>makeBoard('NBA',slate,nbaData,nbaReport,nbaRoster)),
     NFL:nflSlates.map(slate=>makeBoard('NFL',slate,nflData,nflReport,nflRoster)),
   }
+  // Publication gate: prove that BOTH elite and all-props cards belong to
+  // the current live roster, never the team listed on a previous boxscore.
+  let checked=0
+  const conflicts=[]
+  for(const sport of ['NBA','NFL'])for(const board of boards[sport]){
+    const current=sport==='NBA'?nbaRoster:nflRoster
+    for(const pick of [...board.picks,...board.allPicks]){
+      const assignment=current[pick.playerId]
+      if(!assignment || assignment.team!==pick.team)conflicts.push({
+        sport,player:pick.player,claimed:pick.team,verified:assignment?.team??'NOT ROSTERED',
+      })
+      else checked++
+    }
+  }
+  if(conflicts.length)throw Error('Refusing stale team assignments: '+JSON.stringify(conflicts.slice(0,8)))
+  console.log('ROSTER AUDIT checked',checked,'upcoming research cards, mismatches',conflicts.length)
   const totalPicks=Object.values(boards).flat().reduce((sum,board)=>sum+board.picks.length,0)
   const result={
     schemaVersion:1,generatedAt:new Date().toISOString(),
@@ -358,6 +374,11 @@ async function run() {
     }
     await writeFile('public/edgeiq-nba-history.json',JSON.stringify(nbaResearchPublication)+'\n')
   }
+  await writeFile('public/edgeiq-current-rosters.json',JSON.stringify({
+    schemaVersion:1,generatedAt:result.generatedAt,publishedDateET:TODAY,
+    source:'ESPN current team rosters, validated for all upcoming teams',
+    NBA:nbaRoster,NFL:nflRoster,
+  })+'\n')
   await writeFile(OUTPUT_PATH,JSON.stringify(result,null,2)+'\n')
   await writeFile(CACHE_PATH,JSON.stringify(cache)+'\n')
   console.log(JSON.stringify({
