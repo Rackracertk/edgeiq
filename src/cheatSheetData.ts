@@ -4,6 +4,9 @@ import { parseNFLBoxscore, type NFLHistoryRow } from './analytics/nflBoxscore.ts
 export type { NFLHistoryRow } from './analytics/nflBoxscore.ts'
 
 export type CheatSport = 'NBA' | 'NFL'
+// The active roster, not a previous game, establishes the next game's team.
+export type CurrentRosterAssignment = { team: string; teamId: string; name?: string; position?: string }
+export type CurrentRosterMap = Record<string, CurrentRosterAssignment>
 export type CheatSheetMode = 'elite' | 'all'
 export type CheatPick = {
   id: string
@@ -310,13 +313,22 @@ export async function loadNFLHistory(slate: Slate): Promise<{ rows: NFLHistoryRo
   }
   return result
 }
-export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (playerId: string, playerName: string, team: string, teamId: string) => boolean, mode: CheatSheetMode = 'elite'): CheatPick[] {
+export function buildNFLPicks(slate: Slate, rows: NFLHistoryRow[], exclude?: (playerId: string, playerName: string, team: string, teamId: string) => boolean, mode: CheatSheetMode = 'elite', currentRosters?: CurrentRosterMap): CheatPick[] {
   const upcoming = new Map(slate.games.flatMap(game => game.teams.map(team => [team.abbreviation, game] as const)))
   const grouped = new Map<string, { player: string; team: string; playerId: string; logs: NFLHistoryRow[] }>()
   for (const row of rows) {
-    if (!upcoming.has(row.team)) continue
-    const key = row.playerId + '-' + row.team
-    if (!grouped.has(key)) grouped.set(key, { player: row.player, team: row.team, playerId: row.playerId, logs: [] })
+    const active = currentRosters?.[row.playerId]
+    // When the scheduled publisher has a verified current roster, players
+    // absent from it are excluded. Never guess from last season/team logs.
+    if (currentRosters && !active) continue
+    const team = active?.team ?? row.team
+    if (!upcoming.has(team)) continue
+    // Group the athlete's game logs across *all former teams* while using
+    // exactly one current roster team for the upcoming scheduled matchup.
+    const key = currentRosters ? row.playerId : row.playerId + '-' + row.team
+    if (!grouped.has(key)) grouped.set(key, {
+      player: active?.name || row.player, team, playerId: row.playerId, logs: [],
+    })
     grouped.get(key)!.logs.push(row)
   }
   const candidates: Candidate[] = []
