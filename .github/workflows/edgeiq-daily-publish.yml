@@ -4,7 +4,7 @@ on:
   schedule:
     # GitHub schedule is UTC. Covers US pregame mornings, afternoons and evenings.
     # GitHub may delay scheduled runs; the site shows publication freshness.
-    # Publish daily elite trends and fully expanded NBA/NFL Over/Under prop research.
+    # Refresh and republish the expanded NBA/NFL props, including verified NFL tackle, target and TD stats.
     - cron: '15 10,12,14,16,18,20,22,23 * * *'
   workflow_dispatch:
   push:
