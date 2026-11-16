@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T11:28:38.519Z",
+  "generatedAt": "2026-11-16T15:10:17.209Z",
   "publishedDateET": "2026-11-16",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -169,10 +169,10 @@
               "player": "Jock Landale",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Landale (hip) is out for Sunday's game against Bucks, Brad Rowland of the Locked On Podcast Network reports.",
-              "updatedAt": "2026-11-15T23:22Z",
+              "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-18",
               "position": "C"
             },
@@ -181,10 +181,10 @@
               "player": "Kingston Flemings",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Flemings (back) has been ruled out for Sunday's game against the Bucks.",
-              "updatedAt": "2026-11-14T23:08Z",
+              "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -346,37 +346,37 @@
             },
             {
               "playerId": "",
-              "player": "Santi Aldama",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Aldama (ankle) is out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-15T22:27Z",
-              "expectedReturn": "2026-11-18",
-              "position": "F"
-            },
-            {
-              "playerId": "",
               "player": "Max Christie",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Christie (ankle) has been ruled out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-15T21:24Z",
+              "updatedAt": "2026-11-16T14:45Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Santi Aldama",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Aldama (ankle) is out for Sunday's game against the Celtics.",
+              "updatedAt": "2026-11-16T14:45Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
             },
             {
               "playerId": "",
               "player": "Kyrie Irving",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Irving (knee) has been ruled out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-15T21:20Z",
+              "updatedAt": "2026-11-16T14:44Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -550,6 +550,18 @@
             },
             {
               "playerId": "",
+              "player": "Fred VanVleet",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "VanVleet (right knee injury management) has been ruled out for Sunday's game against the Wizards.",
+              "updatedAt": "2026-11-16T14:46Z",
+              "expectedReturn": "2026-11-16",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Clint Capela",
               "team": "",
               "teamId": "",
@@ -559,18 +571,6 @@
               "updatedAt": "2026-11-14T21:54Z",
               "expectedReturn": "2026-11-16",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Fred VanVleet",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "VanVleet (right knee injury management) has been ruled out for Sunday's game against the Wizards.",
-              "updatedAt": "2026-11-14T21:52Z",
-              "expectedReturn": "2026-11-16",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -685,10 +685,10 @@
               "player": "Austin Reaves",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Reaves (heel) has been ruled out for Sunday's game against the Suns, Daniel Starkand of LakersNation.com reports.",
-              "updatedAt": "2026-11-15T00:17Z",
+              "updatedAt": "2026-11-16T14:42Z",
               "expectedReturn": "2026-11-17",
               "position": "G"
             },
@@ -790,6 +790,18 @@
             },
             {
               "playerId": "",
+              "player": "Ryan Rollins",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Rollins (illness) is out for Sunday's game against the Hawks.",
+              "updatedAt": "2026-11-16T14:47Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Ousmane Dieng",
               "team": "",
               "teamId": "",
@@ -799,18 +811,6 @@
               "updatedAt": "2026-11-15T23:46Z",
               "expectedReturn": "2026-12-14",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Ryan Rollins",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Rollins (illness) is out for Sunday's game against the Hawks.",
-              "updatedAt": "2026-11-15T23:19Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -1138,37 +1138,37 @@
             },
             {
               "playerId": "",
-              "player": "De'Andre Hunter",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Hunter (hip) is out for Sunday's game against the Thunder.",
-              "updatedAt": "2026-11-16T01:18Z",
-              "expectedReturn": "2026-11-18",
-              "position": "F"
-            },
-            {
-              "playerId": "",
               "player": "Zach LaVine",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "LaVine is out for Sunday's game against Oklahoma City due to illness, Brandon Rahbar of DailyThunder.com reports.",
-              "updatedAt": "2026-11-16T01:06Z",
+              "updatedAt": "2026-11-16T14:48Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "De'Andre Hunter",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Hunter (hip) is out for Sunday's game against the Thunder.",
+              "updatedAt": "2026-11-16T14:48Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
             },
             {
               "playerId": "",
               "player": "Precious Achiuwa",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Achiuwa (ankle) has been ruled out for Sunday's game against the Thunder, Brenden Nunes of KHTK Sactown Sports 1140 reports.",
-              "updatedAt": "2026-11-16T00:24Z",
+              "updatedAt": "2026-11-16T14:48Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
             },
@@ -1201,10 +1201,10 @@
               "player": "De'Aaron Fox",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Fox (hip) has been ruled out for Sunday's game against the Jazz.",
-              "updatedAt": "2026-11-15T20:33Z",
+              "updatedAt": "2026-11-16T14:44Z",
               "expectedReturn": "2026-11-17",
               "position": "G"
             },
@@ -1273,10 +1273,10 @@
               "player": "Jaxson Hayes",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Hayes (knee) has been ruled out for Sunday's game against the Spurs.",
-              "updatedAt": "2026-11-15T00:07Z",
+              "updatedAt": "2026-11-16T14:44Z",
               "expectedReturn": "2026-11-17",
               "position": "C"
             },
@@ -1333,10 +1333,10 @@
               "player": "Tre Johnson",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Johnson (back) won't play in Sunday's game against Houston, Josh Robbins of The Athletic reports.",
-              "updatedAt": "2026-11-15T22:31Z",
+              "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-16",
               "position": "G"
             },
@@ -1389,7 +1389,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T11:28:36.442Z",
+          "checkedAt": "2026-11-16T15:10:14.115Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10636,7 +10636,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T11:28:37.671Z",
+        "generatedAt": "2026-11-16T15:10:16.342Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 197,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10748,10 +10748,10 @@
               "player": "Jock Landale",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Landale (hip) is out for Sunday's game against Bucks, Brad Rowland of the Locked On Podcast Network reports.",
-              "updatedAt": "2026-11-15T23:22Z",
+              "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-18",
               "position": "C"
             },
@@ -10760,10 +10760,10 @@
               "player": "Kingston Flemings",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Flemings (back) has been ruled out for Sunday's game against the Bucks.",
-              "updatedAt": "2026-11-14T23:08Z",
+              "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -10925,37 +10925,37 @@
             },
             {
               "playerId": "",
-              "player": "Santi Aldama",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Aldama (ankle) is out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-15T22:27Z",
-              "expectedReturn": "2026-11-18",
-              "position": "F"
-            },
-            {
-              "playerId": "",
               "player": "Max Christie",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Christie (ankle) has been ruled out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-15T21:24Z",
+              "updatedAt": "2026-11-16T14:45Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Santi Aldama",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Aldama (ankle) is out for Sunday's game against the Celtics.",
+              "updatedAt": "2026-11-16T14:45Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
             },
             {
               "playerId": "",
               "player": "Kyrie Irving",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Irving (knee) has been ruled out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-15T21:20Z",
+              "updatedAt": "2026-11-16T14:44Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -11129,6 +11129,18 @@
             },
             {
               "playerId": "",
+              "player": "Fred VanVleet",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "VanVleet (right knee injury management) has been ruled out for Sunday's game against the Wizards.",
+              "updatedAt": "2026-11-16T14:46Z",
+              "expectedReturn": "2026-11-16",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Clint Capela",
               "team": "",
               "teamId": "",
@@ -11138,18 +11150,6 @@
               "updatedAt": "2026-11-14T21:54Z",
               "expectedReturn": "2026-11-16",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Fred VanVleet",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "VanVleet (right knee injury management) has been ruled out for Sunday's game against the Wizards.",
-              "updatedAt": "2026-11-14T21:52Z",
-              "expectedReturn": "2026-11-16",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -11264,10 +11264,10 @@
               "player": "Austin Reaves",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Reaves (heel) has been ruled out for Sunday's game against the Suns, Daniel Starkand of LakersNation.com reports.",
-              "updatedAt": "2026-11-15T00:17Z",
+              "updatedAt": "2026-11-16T14:42Z",
               "expectedReturn": "2026-11-17",
               "position": "G"
             },
@@ -11369,6 +11369,18 @@
             },
             {
               "playerId": "",
+              "player": "Ryan Rollins",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Rollins (illness) is out for Sunday's game against the Hawks.",
+              "updatedAt": "2026-11-16T14:47Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Ousmane Dieng",
               "team": "",
               "teamId": "",
@@ -11378,18 +11390,6 @@
               "updatedAt": "2026-11-15T23:46Z",
               "expectedReturn": "2026-12-14",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Ryan Rollins",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Rollins (illness) is out for Sunday's game against the Hawks.",
-              "updatedAt": "2026-11-15T23:19Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -11717,37 +11717,37 @@
             },
             {
               "playerId": "",
-              "player": "De'Andre Hunter",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Hunter (hip) is out for Sunday's game against the Thunder.",
-              "updatedAt": "2026-11-16T01:18Z",
-              "expectedReturn": "2026-11-18",
-              "position": "F"
-            },
-            {
-              "playerId": "",
               "player": "Zach LaVine",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "LaVine is out for Sunday's game against Oklahoma City due to illness, Brandon Rahbar of DailyThunder.com reports.",
-              "updatedAt": "2026-11-16T01:06Z",
+              "updatedAt": "2026-11-16T14:48Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "De'Andre Hunter",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Hunter (hip) is out for Sunday's game against the Thunder.",
+              "updatedAt": "2026-11-16T14:48Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
             },
             {
               "playerId": "",
               "player": "Precious Achiuwa",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Achiuwa (ankle) has been ruled out for Sunday's game against the Thunder, Brenden Nunes of KHTK Sactown Sports 1140 reports.",
-              "updatedAt": "2026-11-16T00:24Z",
+              "updatedAt": "2026-11-16T14:48Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
             },
@@ -11780,10 +11780,10 @@
               "player": "De'Aaron Fox",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Fox (hip) has been ruled out for Sunday's game against the Jazz.",
-              "updatedAt": "2026-11-15T20:33Z",
+              "updatedAt": "2026-11-16T14:44Z",
               "expectedReturn": "2026-11-17",
               "position": "G"
             },
@@ -11852,10 +11852,10 @@
               "player": "Jaxson Hayes",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Hayes (knee) has been ruled out for Sunday's game against the Spurs.",
-              "updatedAt": "2026-11-15T00:07Z",
+              "updatedAt": "2026-11-16T14:44Z",
               "expectedReturn": "2026-11-17",
               "position": "C"
             },
@@ -11912,10 +11912,10 @@
               "player": "Tre Johnson",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Johnson (back) won't play in Sunday's game against Houston, Josh Robbins of The Athletic reports.",
-              "updatedAt": "2026-11-15T22:31Z",
+              "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-16",
               "position": "G"
             },
@@ -11968,7 +11968,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T11:28:36.442Z",
+          "checkedAt": "2026-11-16T15:10:14.115Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20900,7 +20900,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T11:28:37.776Z",
+        "generatedAt": "2026-11-16T15:10:16.454Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 197,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -23939,6 +23939,18 @@
             },
             {
               "playerId": "",
+              "player": "Aidan Hutchinson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Hutchison is expected to miss the remainder of the season after an initial MRI on his injured right knee Monday revealed a torn ACL, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-16T14:42Z",
+              "expectedReturn": "2027-02-15",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
               "player": "Sam LaPorta",
               "team": "",
               "teamId": "",
@@ -24020,18 +24032,6 @@
               "updatedAt": "2026-11-15T19:22Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Aidan Hutchinson",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "Hutchinson is believed to have suffered a significant knee injury that \"knocks him out for the foreseeable future,\" Ian Rapoport of NFL Network reports.",
-              "updatedAt": "2026-11-15T19:03Z",
-              "expectedReturn": "2026-11-22",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -25739,6 +25739,18 @@
             },
             {
               "playerId": "",
+              "player": "Brock Bowers",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Bowers, who will undergo additional testing Monday, is not believed to have suffered a major ankle injury in Sunday's loss to the Seahawks, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-16T13:16Z",
+              "expectedReturn": "2026-11-22",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Michael Mayer",
               "team": "",
               "teamId": "",
@@ -25799,24 +25811,12 @@
             },
             {
               "playerId": "",
-              "player": "Brock Bowers",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Bowers (ankle) will be evaluated further Monday, Ryan McFadden of ESPN reports.",
-              "updatedAt": "2026-11-16T00:29Z",
-              "expectedReturn": "2026-11-22",
-              "position": "TE"
-            },
-            {
-              "playerId": "",
               "player": "Kwity Paye",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Paye (neck) is questionable to return to Sunday's game against the Seahawks",
+              "note": "Paye (neck) is questionable to return to Sunday's game against the Seahawks.",
               "updatedAt": "2026-11-15T23:31Z",
               "expectedReturn": "2026-11-22",
               "position": "DE"
@@ -27230,10 +27230,10 @@
               "player": "Drake Maye",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Maye (ankle) will undergo additional testing, but the Patriots expect him to be out for a while, SNF on NBC reports.",
-              "updatedAt": "2026-11-16T01:28Z",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "The Patriots are concerned that Maye fractured his ankle during Sunday's 35-10 loss to the Lions in Munich, Adam Schefter of ESPN reports.",
+              "updatedAt": "2026-11-16T13:25Z",
               "expectedReturn": "2026-11-29",
               "position": "QB"
             },
@@ -27244,7 +27244,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Brown (hamstring) was spotted limping out of the locker room following Sunday's Week 10 loss to Detroit, Andrew Callahan of the Boston Herald reports.",
+              "note": "Brown (hamstring) was spotted walking around with a limp in the locker room following Sunday's 35-10 loss to the Lions in Munich, Andrew Callahan of the Boston Herald reports.",
               "updatedAt": "2026-11-16T01:11Z",
               "expectedReturn": "2026-11-29",
               "position": "WR"
@@ -28127,6 +28127,18 @@
             },
             {
               "playerId": "",
+              "player": "Geno Smith",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Jets head coach Aaron Glenn said that Smith will get further imaging on his ankle Monday, Antwan V. Staley of the New York Daily News reports.",
+              "updatedAt": "2026-11-16T14:48Z",
+              "expectedReturn": "2026-11-22",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Adonai Mitchell",
               "team": "",
               "teamId": "",
@@ -28148,18 +28160,6 @@
               "updatedAt": "2026-11-16T00:54Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Geno Smith",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jets head coach Aaron Glenn said after Sunday's loss to Buffalo that Smith, who departed the contest due to an ankle injury, will have his status for Week 11 determined during the upcoming week of practice, Jack Bell of the Jets' official s",
-              "updatedAt": "2026-11-16T00:40Z",
-              "expectedReturn": "2026-11-22",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -29387,18 +29387,6 @@
             },
             {
               "playerId": "",
-              "player": "Abraham Lucas",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Lucas suffered a sprained ankle during Sunday's Week 10 win over the Raiders, Brady Henderson of ESPN.com reports.",
-              "updatedAt": "2026-11-16T01:36Z",
-              "expectedReturn": "2026-11-29",
-              "position": "OT"
-            },
-            {
-              "playerId": "",
               "player": "Jaxon Smith-Njigba",
               "team": "",
               "teamId": "",
@@ -29432,6 +29420,18 @@
               "updatedAt": "2026-11-15T22:20Z",
               "expectedReturn": "2026-11-29",
               "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Abraham Lucas",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Lucas (ankle) is doubtful to return to Sunday's game against the Raiders.",
+              "updatedAt": "2026-11-15T22:03Z",
+              "expectedReturn": "2026-11-29",
+              "position": "OT"
             },
             {
               "playerId": "",
@@ -29927,6 +29927,18 @@
             },
             {
               "playerId": "",
+              "player": "Carnell Tate",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
+              "updatedAt": "2026-11-16T14:23Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Gunnar Helm",
               "team": "",
               "teamId": "",
@@ -29992,7 +30004,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Robinson (ankle) is questionable to return to Sunday's game against the Jaguars.",
+              "note": "Robinson is questionable to return to Sunday's game against the Jaguars due to an ankle injury.",
               "updatedAt": "2026-11-15T21:09Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
@@ -30020,18 +30032,6 @@
               "updatedAt": "2026-11-15T16:40Z",
               "expectedReturn": "2026-11-22",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Carnell Tate",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "inactive",
-              "updatedAt": "2026-11-15T16:34Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -30526,7 +30526,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T11:28:36.482Z",
+          "checkedAt": "2026-11-16T15:10:14.080Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -32353,7 +32353,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T11:28:38.129Z",
+        "generatedAt": "2026-11-16T15:10:16.825Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 149,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -35390,6 +35390,18 @@
             },
             {
               "playerId": "",
+              "player": "Aidan Hutchinson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Hutchison is expected to miss the remainder of the season after an initial MRI on his injured right knee Monday revealed a torn ACL, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-16T14:42Z",
+              "expectedReturn": "2027-02-15",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
               "player": "Sam LaPorta",
               "team": "",
               "teamId": "",
@@ -35471,18 +35483,6 @@
               "updatedAt": "2026-11-15T19:22Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Aidan Hutchinson",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "Hutchinson is believed to have suffered a significant knee injury that \"knocks him out for the foreseeable future,\" Ian Rapoport of NFL Network reports.",
-              "updatedAt": "2026-11-15T19:03Z",
-              "expectedReturn": "2026-11-22",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -37190,6 +37190,18 @@
             },
             {
               "playerId": "",
+              "player": "Brock Bowers",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Bowers, who will undergo additional testing Monday, is not believed to have suffered a major ankle injury in Sunday's loss to the Seahawks, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-16T13:16Z",
+              "expectedReturn": "2026-11-22",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Michael Mayer",
               "team": "",
               "teamId": "",
@@ -37250,24 +37262,12 @@
             },
             {
               "playerId": "",
-              "player": "Brock Bowers",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Bowers (ankle) will be evaluated further Monday, Ryan McFadden of ESPN reports.",
-              "updatedAt": "2026-11-16T00:29Z",
-              "expectedReturn": "2026-11-22",
-              "position": "TE"
-            },
-            {
-              "playerId": "",
               "player": "Kwity Paye",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Paye (neck) is questionable to return to Sunday's game against the Seahawks",
+              "note": "Paye (neck) is questionable to return to Sunday's game against the Seahawks.",
               "updatedAt": "2026-11-15T23:31Z",
               "expectedReturn": "2026-11-22",
               "position": "DE"
@@ -38681,10 +38681,10 @@
               "player": "Drake Maye",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Maye (ankle) will undergo additional testing, but the Patriots expect him to be out for a while, SNF on NBC reports.",
-              "updatedAt": "2026-11-16T01:28Z",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "The Patriots are concerned that Maye fractured his ankle during Sunday's 35-10 loss to the Lions in Munich, Adam Schefter of ESPN reports.",
+              "updatedAt": "2026-11-16T13:25Z",
               "expectedReturn": "2026-11-29",
               "position": "QB"
             },
@@ -38695,7 +38695,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Brown (hamstring) was spotted limping out of the locker room following Sunday's Week 10 loss to Detroit, Andrew Callahan of the Boston Herald reports.",
+              "note": "Brown (hamstring) was spotted walking around with a limp in the locker room following Sunday's 35-10 loss to the Lions in Munich, Andrew Callahan of the Boston Herald reports.",
               "updatedAt": "2026-11-16T01:11Z",
               "expectedReturn": "2026-11-29",
               "position": "WR"
@@ -39578,6 +39578,18 @@
             },
             {
               "playerId": "",
+              "player": "Geno Smith",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Jets head coach Aaron Glenn said that Smith will get further imaging on his ankle Monday, Antwan V. Staley of the New York Daily News reports.",
+              "updatedAt": "2026-11-16T14:48Z",
+              "expectedReturn": "2026-11-22",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Adonai Mitchell",
               "team": "",
               "teamId": "",
@@ -39599,18 +39611,6 @@
               "updatedAt": "2026-11-16T00:54Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Geno Smith",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jets head coach Aaron Glenn said after Sunday's loss to Buffalo that Smith, who departed the contest due to an ankle injury, will have his status for Week 11 determined during the upcoming week of practice, Jack Bell of the Jets' official s",
-              "updatedAt": "2026-11-16T00:40Z",
-              "expectedReturn": "2026-11-22",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -40838,18 +40838,6 @@
             },
             {
               "playerId": "",
-              "player": "Abraham Lucas",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Lucas suffered a sprained ankle during Sunday's Week 10 win over the Raiders, Brady Henderson of ESPN.com reports.",
-              "updatedAt": "2026-11-16T01:36Z",
-              "expectedReturn": "2026-11-29",
-              "position": "OT"
-            },
-            {
-              "playerId": "",
               "player": "Jaxon Smith-Njigba",
               "team": "",
               "teamId": "",
@@ -40883,6 +40871,18 @@
               "updatedAt": "2026-11-15T22:20Z",
               "expectedReturn": "2026-11-29",
               "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Abraham Lucas",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Lucas (ankle) is doubtful to return to Sunday's game against the Raiders.",
+              "updatedAt": "2026-11-15T22:03Z",
+              "expectedReturn": "2026-11-29",
+              "position": "OT"
             },
             {
               "playerId": "",
@@ -41378,6 +41378,18 @@
             },
             {
               "playerId": "",
+              "player": "Carnell Tate",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
+              "updatedAt": "2026-11-16T14:23Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Gunnar Helm",
               "team": "",
               "teamId": "",
@@ -41443,7 +41455,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Robinson (ankle) is questionable to return to Sunday's game against the Jaguars.",
+              "note": "Robinson is questionable to return to Sunday's game against the Jaguars due to an ankle injury.",
               "updatedAt": "2026-11-15T21:09Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
@@ -41471,18 +41483,6 @@
               "updatedAt": "2026-11-15T16:40Z",
               "expectedReturn": "2026-11-22",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Carnell Tate",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "inactive",
-              "updatedAt": "2026-11-15T16:34Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -41977,7 +41977,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T11:28:36.482Z",
+          "checkedAt": "2026-11-16T15:10:14.080Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -43909,7 +43909,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T11:28:38.518Z",
+        "generatedAt": "2026-11-16T15:10:17.208Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 149,
         "publishedBy": "EDGEIQ unattended research publisher"
