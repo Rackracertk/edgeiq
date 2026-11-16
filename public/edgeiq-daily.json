@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T15:10:17.209Z",
+  "generatedAt": "2026-11-16T17:19:34.849Z",
   "publishedDateET": "2026-11-16",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -442,18 +442,6 @@
             },
             {
               "playerId": "",
-              "player": "Ugonna Onyenso",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Onyenso agreed to a two-way contract with the Pistons on Thursday.",
-              "updatedAt": "2026-11-11T15:16Z",
-              "expectedReturn": "2026-11-14",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "Isaiah Joe",
               "team": "",
               "teamId": "",
@@ -546,6 +534,18 @@
               "note": "Butler (knee) could return sometime between January and February as he continues recovering from a torn right ACL, Anthony Slater of ESPN reports.",
               "updatedAt": "2026-10-16T16:11Z",
               "expectedReturn": "2027-01-02",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Julian Phillips",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Phillips (illness) is available for Wednesday's game against Dallas.",
+              "updatedAt": "2026-11-16T15:28Z",
+              "expectedReturn": "2026-11-16",
               "position": "F"
             },
             {
@@ -701,7 +701,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Jackson (foot) is out for Monday's game against Washington.",
               "updatedAt": "2026-11-15T22:16Z",
-              "expectedReturn": "2026-11-18",
+              "expectedReturn": "2027-01-18",
               "position": "F"
             },
             {
@@ -761,7 +761,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Pippen (back) remains out for Wednesday's game against Denver, Michael Wallace of the Grizzlies' official site reports.",
               "updatedAt": "2026-11-10T23:09Z",
-              "expectedReturn": "2026-11-21",
+              "expectedReturn": "2026-11-25",
               "position": "G"
             },
             {
@@ -1063,18 +1063,6 @@
               "updatedAt": "2026-10-06T19:17Z",
               "expectedReturn": "2027-10-01",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Drew Timme",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "The Suns claimed Timme off waivers Monday, per Michael Scotto of HoopsHype.com.",
-              "updatedAt": "2026-11-13T16:22Z",
-              "expectedReturn": "2026-11-15",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -1389,7 +1377,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T15:10:14.115Z",
+          "checkedAt": "2026-11-16T17:19:32.934Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10636,7 +10624,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T15:10:16.342Z",
+        "generatedAt": "2026-11-16T17:19:34.029Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 197,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11021,18 +11009,6 @@
             },
             {
               "playerId": "",
-              "player": "Ugonna Onyenso",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Onyenso agreed to a two-way contract with the Pistons on Thursday.",
-              "updatedAt": "2026-11-11T15:16Z",
-              "expectedReturn": "2026-11-14",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "Isaiah Joe",
               "team": "",
               "teamId": "",
@@ -11125,6 +11101,18 @@
               "note": "Butler (knee) could return sometime between January and February as he continues recovering from a torn right ACL, Anthony Slater of ESPN reports.",
               "updatedAt": "2026-10-16T16:11Z",
               "expectedReturn": "2027-01-02",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Julian Phillips",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Phillips (illness) is available for Wednesday's game against Dallas.",
+              "updatedAt": "2026-11-16T15:28Z",
+              "expectedReturn": "2026-11-16",
               "position": "F"
             },
             {
@@ -11280,7 +11268,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Jackson (foot) is out for Monday's game against Washington.",
               "updatedAt": "2026-11-15T22:16Z",
-              "expectedReturn": "2026-11-18",
+              "expectedReturn": "2027-01-18",
               "position": "F"
             },
             {
@@ -11340,7 +11328,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Pippen (back) remains out for Wednesday's game against Denver, Michael Wallace of the Grizzlies' official site reports.",
               "updatedAt": "2026-11-10T23:09Z",
-              "expectedReturn": "2026-11-21",
+              "expectedReturn": "2026-11-25",
               "position": "G"
             },
             {
@@ -11642,18 +11630,6 @@
               "updatedAt": "2026-10-06T19:17Z",
               "expectedReturn": "2027-10-01",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Drew Timme",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "The Suns claimed Timme off waivers Monday, per Michael Scotto of HoopsHype.com.",
-              "updatedAt": "2026-11-13T16:22Z",
-              "expectedReturn": "2026-11-15",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -11968,7 +11944,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T15:10:14.115Z",
+          "checkedAt": "2026-11-16T17:19:32.934Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20900,7 +20876,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T15:10:16.454Z",
+        "generatedAt": "2026-11-16T17:19:34.139Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 197,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -23402,11 +23378,11 @@
               "player": "Tyler Booker",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
               "note": "Booker hurt his ankle during Sunday's loss to San Francisco and is slated for X-rays and an MRI, Calvin Watkins of The Dallas Morning News reports.",
               "updatedAt": "2026-11-16T01:27Z",
-              "expectedReturn": "2026-11-22",
+              "expectedReturn": "2026-12-07",
               "position": "G"
             },
             {
@@ -23414,8 +23390,8 @@
               "player": "DaRon Bland",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
               "note": "Bland (ankle) will undergo X-rays and an MRI, Calvin Watkins of The Dallas Morning News reports.",
               "updatedAt": "2026-11-16T01:24Z",
               "expectedReturn": "2026-11-22",
@@ -24239,6 +24215,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrod Taylor",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Taylor completed one of two pass attempts for three yards in Sunday's 30-10 loss to the Vikings.",
+              "updatedAt": "2026-11-16T15:54Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "MarShawn Lloyd",
               "team": "",
               "teamId": "",
@@ -24524,18 +24512,6 @@
               "updatedAt": "2026-11-14T00:51Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Savion Williams",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Williams (groin) doesn't have a designation for Sunday's game versus the Vikings, Wes Hodkiewicz of the Packers' official site reports.",
-              "updatedAt": "2026-11-13T21:54Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -25139,6 +25115,18 @@
             },
             {
               "playerId": "",
+              "player": "Cam'Ron Silmon-Craig",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-16T16:51Z",
+              "expectedReturn": "",
+              "position": "S"
+            },
+            {
+              "playerId": "",
               "player": "Chris Rodriguez Jr.",
               "team": "",
               "teamId": "",
@@ -25424,18 +25412,6 @@
               "updatedAt": "2026-11-06T18:22Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Ameer Abdullah",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Abdullah carried the ball seven times for 30 yards and returned one kickoff for 24 yards in Thursday night's 33-10 win over the Ravens.",
-              "updatedAt": "2026-11-06T17:39Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -25739,12 +25715,36 @@
             },
             {
               "playerId": "",
+              "player": "Jalen Nailor",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Nailor recorded one reception for minus-1 yard on four targets in Sunday's 21-13 loss to the Seahawks.",
+              "updatedAt": "2026-11-16T16:44Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Dylan Laube",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Laube played all 22 of his snaps on special teams in Sunday's 21-13 loss to the Seahawks and returned two kickoffs for 46 yards and one punt for zero yards.",
+              "updatedAt": "2026-11-16T15:51Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Brock Bowers",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Bowers, who will undergo additional testing Monday, is not believed to have suffered a major ankle injury in Sunday's loss to the Seahawks, Ian Rapoport of NFL Network reports.",
+              "note": "Bowers, who will undergo additional testing Monday, isn't believed to have suffered a major ankle injury in Sunday's 21-13 loss to the Seahawks, Ian Rapoport of NFL Network reports.",
               "updatedAt": "2026-11-16T13:16Z",
               "expectedReturn": "2026-11-22",
               "position": "TE"
@@ -26012,30 +26012,6 @@
               "updatedAt": "2026-11-10T02:59Z",
               "expectedReturn": "",
               "position": "PK"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen Nailor",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Nailor caught two of four targets for nine yards during Sunday's 38-17 loss to the 49ers.",
-              "updatedAt": "2026-11-09T03:21Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Darien Porter",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Porter (groin) is active for Sunday's Week 9 battle against the 49ers.",
-              "updatedAt": "2026-11-08T20:26Z",
-              "expectedReturn": "",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -26639,6 +26615,42 @@
             },
             {
               "playerId": "",
+              "player": "Jordan Phillips",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-16T16:07Z",
+              "expectedReturn": "2026-11-22",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Seydou Traore",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Traore went without a target while playing six of the Dolphins' 69 snaps on offense in Sunday's 24-22 loss to the Colts.",
+              "updatedAt": "2026-11-16T15:39Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Greg Dulcich",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Dulcich failed to haul in either of his two targets while logging 42 of 69 offensive snaps in the Dolphins' 24-22 loss to the Colts on Sunday.",
+              "updatedAt": "2026-11-16T15:36Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Jalen Tolbert",
               "team": "",
               "teamId": "",
@@ -26831,18 +26843,6 @@
             },
             {
               "playerId": "",
-              "player": "Zane Gonzalez",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Dolphins signed Gonzalez off the practice squad to the active roster Saturday.",
-              "updatedAt": "2026-11-14T18:39Z",
-              "expectedReturn": "",
-              "position": "PK"
-            },
-            {
-              "playerId": "",
               "player": "Will Kacmarek",
               "team": "",
               "teamId": "",
@@ -26912,30 +26912,6 @@
               "updatedAt": "2026-11-11T23:26Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Malik Willis",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Dolphins hope Willis (abdomen) will return this year but haven't ruled out season-ending surgery, Joe Schad of The Palm Beach Post reports.",
-              "updatedAt": "2026-11-11T20:15Z",
-              "expectedReturn": "2026-12-13",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Kevin Coleman Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Coleman wasn't targeted in Sunday's 19-9 loss to the Lions. He rushed one time for 16 yards.",
-              "updatedAt": "2026-11-11T01:23Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -28127,12 +28103,24 @@
             },
             {
               "playerId": "",
+              "player": "Omar Cooper Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Jets head coach Aaron Glenn said that Cooper (ankle) will undergo imaging Monday, Eric Allen of the team's official site reports.",
+              "updatedAt": "2026-11-16T14:55Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Geno Smith",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jets head coach Aaron Glenn said that Smith will get further imaging on his ankle Monday, Antwan V. Staley of the New York Daily News reports.",
+              "note": "Jets head coach Aaron Glenn said that Smith will get further imaging on his left ankle Monday, Antwan V. Staley of the New York Daily News reports.",
               "updatedAt": "2026-11-16T14:48Z",
               "expectedReturn": "2026-11-22",
               "position": "QB"
@@ -28195,18 +28183,6 @@
               "note": "Wilson (concussion) caught seven of 14 targets for 106 yards and lost a fumble in Sunday's 31-12 loss to the Bills.",
               "updatedAt": "2026-11-15T22:05Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Omar Cooper Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Cooper (ankle) won't return to Sunday's game against the Bills, Zack Rosenblatt of The Athletic reports.",
-              "updatedAt": "2026-11-15T19:57Z",
-              "expectedReturn": "2026-11-22",
               "position": "WR"
             },
             {
@@ -28727,6 +28703,18 @@
             },
             {
               "playerId": "",
+              "player": "Mason Rudolph",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Rudolph completed one of three pass attempts for two yards and rushed once for nine yards in Sunday's 38-18 loss to the Bengals.",
+              "updatedAt": "2026-11-16T15:58Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "DK Metcalf",
               "team": "",
               "teamId": "",
@@ -29012,18 +29000,6 @@
               "updatedAt": "2026-10-28T01:33Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Mason Rudolph",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rudolph is active for Sunday's game against the Saints in Paris, Teresa Varley of the Steelers' official site reports.",
-              "updatedAt": "2026-10-25T12:26Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -30526,7 +30502,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T15:10:14.080Z",
+          "checkedAt": "2026-11-16T17:19:33.008Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -32353,7 +32329,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T15:10:16.825Z",
+        "generatedAt": "2026-11-16T17:19:34.482Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 149,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -34853,11 +34829,11 @@
               "player": "Tyler Booker",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
               "note": "Booker hurt his ankle during Sunday's loss to San Francisco and is slated for X-rays and an MRI, Calvin Watkins of The Dallas Morning News reports.",
               "updatedAt": "2026-11-16T01:27Z",
-              "expectedReturn": "2026-11-22",
+              "expectedReturn": "2026-12-07",
               "position": "G"
             },
             {
@@ -34865,8 +34841,8 @@
               "player": "DaRon Bland",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
               "note": "Bland (ankle) will undergo X-rays and an MRI, Calvin Watkins of The Dallas Morning News reports.",
               "updatedAt": "2026-11-16T01:24Z",
               "expectedReturn": "2026-11-22",
@@ -35690,6 +35666,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrod Taylor",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Taylor completed one of two pass attempts for three yards in Sunday's 30-10 loss to the Vikings.",
+              "updatedAt": "2026-11-16T15:54Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "MarShawn Lloyd",
               "team": "",
               "teamId": "",
@@ -35975,18 +35963,6 @@
               "updatedAt": "2026-11-14T00:51Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Savion Williams",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Williams (groin) doesn't have a designation for Sunday's game versus the Vikings, Wes Hodkiewicz of the Packers' official site reports.",
-              "updatedAt": "2026-11-13T21:54Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -36590,6 +36566,18 @@
             },
             {
               "playerId": "",
+              "player": "Cam'Ron Silmon-Craig",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-16T16:51Z",
+              "expectedReturn": "",
+              "position": "S"
+            },
+            {
+              "playerId": "",
               "player": "Chris Rodriguez Jr.",
               "team": "",
               "teamId": "",
@@ -36875,18 +36863,6 @@
               "updatedAt": "2026-11-06T18:22Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Ameer Abdullah",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Abdullah carried the ball seven times for 30 yards and returned one kickoff for 24 yards in Thursday night's 33-10 win over the Ravens.",
-              "updatedAt": "2026-11-06T17:39Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -37190,12 +37166,36 @@
             },
             {
               "playerId": "",
+              "player": "Jalen Nailor",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Nailor recorded one reception for minus-1 yard on four targets in Sunday's 21-13 loss to the Seahawks.",
+              "updatedAt": "2026-11-16T16:44Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Dylan Laube",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Laube played all 22 of his snaps on special teams in Sunday's 21-13 loss to the Seahawks and returned two kickoffs for 46 yards and one punt for zero yards.",
+              "updatedAt": "2026-11-16T15:51Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Brock Bowers",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Bowers, who will undergo additional testing Monday, is not believed to have suffered a major ankle injury in Sunday's loss to the Seahawks, Ian Rapoport of NFL Network reports.",
+              "note": "Bowers, who will undergo additional testing Monday, isn't believed to have suffered a major ankle injury in Sunday's 21-13 loss to the Seahawks, Ian Rapoport of NFL Network reports.",
               "updatedAt": "2026-11-16T13:16Z",
               "expectedReturn": "2026-11-22",
               "position": "TE"
@@ -37463,30 +37463,6 @@
               "updatedAt": "2026-11-10T02:59Z",
               "expectedReturn": "",
               "position": "PK"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen Nailor",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Nailor caught two of four targets for nine yards during Sunday's 38-17 loss to the 49ers.",
-              "updatedAt": "2026-11-09T03:21Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Darien Porter",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Porter (groin) is active for Sunday's Week 9 battle against the 49ers.",
-              "updatedAt": "2026-11-08T20:26Z",
-              "expectedReturn": "",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -38090,6 +38066,42 @@
             },
             {
               "playerId": "",
+              "player": "Jordan Phillips",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-16T16:07Z",
+              "expectedReturn": "2026-11-22",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Seydou Traore",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Traore went without a target while playing six of the Dolphins' 69 snaps on offense in Sunday's 24-22 loss to the Colts.",
+              "updatedAt": "2026-11-16T15:39Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Greg Dulcich",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Dulcich failed to haul in either of his two targets while logging 42 of 69 offensive snaps in the Dolphins' 24-22 loss to the Colts on Sunday.",
+              "updatedAt": "2026-11-16T15:36Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Jalen Tolbert",
               "team": "",
               "teamId": "",
@@ -38282,18 +38294,6 @@
             },
             {
               "playerId": "",
-              "player": "Zane Gonzalez",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Dolphins signed Gonzalez off the practice squad to the active roster Saturday.",
-              "updatedAt": "2026-11-14T18:39Z",
-              "expectedReturn": "",
-              "position": "PK"
-            },
-            {
-              "playerId": "",
               "player": "Will Kacmarek",
               "team": "",
               "teamId": "",
@@ -38363,30 +38363,6 @@
               "updatedAt": "2026-11-11T23:26Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Malik Willis",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Dolphins hope Willis (abdomen) will return this year but haven't ruled out season-ending surgery, Joe Schad of The Palm Beach Post reports.",
-              "updatedAt": "2026-11-11T20:15Z",
-              "expectedReturn": "2026-12-13",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Kevin Coleman Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Coleman wasn't targeted in Sunday's 19-9 loss to the Lions. He rushed one time for 16 yards.",
-              "updatedAt": "2026-11-11T01:23Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -39578,12 +39554,24 @@
             },
             {
               "playerId": "",
+              "player": "Omar Cooper Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Jets head coach Aaron Glenn said that Cooper (ankle) will undergo imaging Monday, Eric Allen of the team's official site reports.",
+              "updatedAt": "2026-11-16T14:55Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Geno Smith",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jets head coach Aaron Glenn said that Smith will get further imaging on his ankle Monday, Antwan V. Staley of the New York Daily News reports.",
+              "note": "Jets head coach Aaron Glenn said that Smith will get further imaging on his left ankle Monday, Antwan V. Staley of the New York Daily News reports.",
               "updatedAt": "2026-11-16T14:48Z",
               "expectedReturn": "2026-11-22",
               "position": "QB"
@@ -39646,18 +39634,6 @@
               "note": "Wilson (concussion) caught seven of 14 targets for 106 yards and lost a fumble in Sunday's 31-12 loss to the Bills.",
               "updatedAt": "2026-11-15T22:05Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Omar Cooper Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Cooper (ankle) won't return to Sunday's game against the Bills, Zack Rosenblatt of The Athletic reports.",
-              "updatedAt": "2026-11-15T19:57Z",
-              "expectedReturn": "2026-11-22",
               "position": "WR"
             },
             {
@@ -40178,6 +40154,18 @@
             },
             {
               "playerId": "",
+              "player": "Mason Rudolph",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Rudolph completed one of three pass attempts for two yards and rushed once for nine yards in Sunday's 38-18 loss to the Bengals.",
+              "updatedAt": "2026-11-16T15:58Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "DK Metcalf",
               "team": "",
               "teamId": "",
@@ -40463,18 +40451,6 @@
               "updatedAt": "2026-10-28T01:33Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Mason Rudolph",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rudolph is active for Sunday's game against the Saints in Paris, Teresa Varley of the Steelers' official site reports.",
-              "updatedAt": "2026-10-25T12:26Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -41977,7 +41953,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T15:10:14.080Z",
+          "checkedAt": "2026-11-16T17:19:33.008Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -43909,7 +43885,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T15:10:17.208Z",
+        "generatedAt": "2026-11-16T17:19:34.849Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 149,
         "publishedBy": "EDGEIQ unattended research publisher"
