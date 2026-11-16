@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T22:52:05.059Z",
+  "generatedAt": "2026-11-16T23:48:30.160Z",
   "publishedDateET": "2026-11-16",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -418,13 +418,25 @@
             },
             {
               "playerId": "",
-              "player": "Duncan Robinson",
+              "player": "Taurean Prince",
               "team": "",
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Robinson (quadriceps) has been ruled out for Tuesday's game against the Spurs.",
-              "updatedAt": "2026-11-16T22:37Z",
+              "note": "Prince (knee) has been ruled out for Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-16T22:58Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Ronald Holland II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Holland is out for Tuesday's game against San Antonio due to a left knee contusion.",
+              "updatedAt": "2026-11-16T22:53Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
             },
@@ -435,10 +447,22 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Joe (hip) is out for Monday against the Wizards.",
-              "updatedAt": "2026-11-09T18:54Z",
+              "note": "Joe (hip) is doubtful to play in Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-16T22:40Z",
               "expectedReturn": "2026-11-17",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Duncan Robinson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Robinson (quadriceps) has been ruled out for Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-16T22:37Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
             },
             {
               "playerId": "",
@@ -742,30 +766,6 @@
             },
             {
               "playerId": "",
-              "player": "Quinten Post",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Post (concussion) is questionable for Monday's game against the Wizards.",
-              "updatedAt": "2026-11-15T22:12Z",
-              "expectedReturn": "2026-11-16",
-              "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Zach Edey",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Edey (ankle) is questionable for Monday's game against Washington.",
-              "updatedAt": "2026-11-15T22:11Z",
-              "expectedReturn": "2026-11-16",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "Richie Saunders",
               "team": "",
               "teamId": "",
@@ -781,11 +781,11 @@
               "player": "Nikola Jovic",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Jovic (illness) has been downgraded to questionable for Monday's game against Houston.",
-              "updatedAt": "2026-11-16T17:41Z",
-              "expectedReturn": "2026-11-16",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Jovic (illness) is out for Monday's game against Houston.",
+              "updatedAt": "2026-11-16T22:50Z",
+              "expectedReturn": "2026-11-18",
               "position": "F"
             },
             {
@@ -793,11 +793,11 @@
               "player": "Pelle Larsson",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Larsson (illness) has been downgraded to doubtful for Monday's game against Houston.",
-              "updatedAt": "2026-11-16T17:39Z",
-              "expectedReturn": "2026-11-16",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Larsson won't play in Monday's game against the Rockets due to an illness, Ira Winderman of the South Florida Sun Sentinel reports.",
+              "updatedAt": "2026-11-16T22:49Z",
+              "expectedReturn": "2026-11-18",
               "position": "G"
             },
             {
@@ -1294,18 +1294,6 @@
             },
             {
               "playerId": "",
-              "player": "Trey Alexander",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Alexander won't play Wednesday against the Grizzlies due to a left knee bone bruise.",
-              "updatedAt": "2026-11-12T15:42Z",
-              "expectedReturn": "2026-11-16",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Lauri Markkanen",
               "team": "",
               "teamId": "",
@@ -1389,7 +1377,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T22:52:02.786Z",
+          "checkedAt": "2026-11-16T23:48:27.267Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10636,7 +10624,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T22:52:03.806Z",
+        "generatedAt": "2026-11-16T23:48:28.894Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 197,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10997,13 +10985,25 @@
             },
             {
               "playerId": "",
-              "player": "Duncan Robinson",
+              "player": "Taurean Prince",
               "team": "",
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Robinson (quadriceps) has been ruled out for Tuesday's game against the Spurs.",
-              "updatedAt": "2026-11-16T22:37Z",
+              "note": "Prince (knee) has been ruled out for Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-16T22:58Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Ronald Holland II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Holland is out for Tuesday's game against San Antonio due to a left knee contusion.",
+              "updatedAt": "2026-11-16T22:53Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
             },
@@ -11014,10 +11014,22 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Joe (hip) is out for Monday against the Wizards.",
-              "updatedAt": "2026-11-09T18:54Z",
+              "note": "Joe (hip) is doubtful to play in Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-16T22:40Z",
               "expectedReturn": "2026-11-17",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Duncan Robinson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Robinson (quadriceps) has been ruled out for Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-16T22:37Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
             },
             {
               "playerId": "",
@@ -11321,30 +11333,6 @@
             },
             {
               "playerId": "",
-              "player": "Quinten Post",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Post (concussion) is questionable for Monday's game against the Wizards.",
-              "updatedAt": "2026-11-15T22:12Z",
-              "expectedReturn": "2026-11-16",
-              "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Zach Edey",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Edey (ankle) is questionable for Monday's game against Washington.",
-              "updatedAt": "2026-11-15T22:11Z",
-              "expectedReturn": "2026-11-16",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "Richie Saunders",
               "team": "",
               "teamId": "",
@@ -11360,11 +11348,11 @@
               "player": "Nikola Jovic",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Jovic (illness) has been downgraded to questionable for Monday's game against Houston.",
-              "updatedAt": "2026-11-16T17:41Z",
-              "expectedReturn": "2026-11-16",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Jovic (illness) is out for Monday's game against Houston.",
+              "updatedAt": "2026-11-16T22:50Z",
+              "expectedReturn": "2026-11-18",
               "position": "F"
             },
             {
@@ -11372,11 +11360,11 @@
               "player": "Pelle Larsson",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Larsson (illness) has been downgraded to doubtful for Monday's game against Houston.",
-              "updatedAt": "2026-11-16T17:39Z",
-              "expectedReturn": "2026-11-16",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Larsson won't play in Monday's game against the Rockets due to an illness, Ira Winderman of the South Florida Sun Sentinel reports.",
+              "updatedAt": "2026-11-16T22:49Z",
+              "expectedReturn": "2026-11-18",
               "position": "G"
             },
             {
@@ -11873,18 +11861,6 @@
             },
             {
               "playerId": "",
-              "player": "Trey Alexander",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Alexander won't play Wednesday against the Grizzlies due to a left knee bone bruise.",
-              "updatedAt": "2026-11-12T15:42Z",
-              "expectedReturn": "2026-11-16",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Lauri Markkanen",
               "team": "",
               "teamId": "",
@@ -11968,7 +11944,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-16T22:52:02.786Z",
+          "checkedAt": "2026-11-16T23:48:27.267Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20900,7 +20876,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T22:52:03.977Z",
+        "generatedAt": "2026-11-16T23:48:29.097Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 197,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -21544,10 +21520,34 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Randall (neck), who remains on IR, has been tagged as questionable to face the Chargers on Monday.",
-              "updatedAt": "2026-11-14T23:40Z",
+              "note": "Randall (neck) was not activated from injured reserve ahead of Monday's game against the Chargers, Brian Wacker of The Baltimore Sun reports.",
+              "updatedAt": "2026-11-16T23:22Z",
               "expectedReturn": "2026-11-22",
               "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Nick Vannett",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Ravens elevated Vannett from the practice squad ahead of Monday's game against the Chargers.",
+              "updatedAt": "2026-11-16T23:01Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Chris Moore",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Ravens elevated Moore from the practice squad ahead of Monday's game against the Chargers.",
+              "updatedAt": "2026-11-16T22:57Z",
+              "expectedReturn": "",
+              "position": "WR"
             },
             {
               "playerId": "",
@@ -21812,30 +21812,6 @@
               "updatedAt": "2026-11-06T05:28Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Joe Fagnano",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Fagnano completed 10 of 18 passes for 60 yards with no touchdowns and two interceptions while adding three rushes for 13 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-              "updatedAt": "2026-11-06T05:23Z",
-              "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Zay Flowers",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Flowers brought in three of six targets for six yards and rushed three times for 17 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-              "updatedAt": "2026-11-06T05:03Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -23939,6 +23915,18 @@
             },
             {
               "playerId": "",
+              "player": "Aidan Hutchinson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Hutchinson officially suffered a torn ACL in his right knee during Sunday's win against the Patriots in Munich, but there's no other significant damage in the knee, Tom Pelissero of Netflix reports.",
+              "updatedAt": "2026-11-16T23:15Z",
+              "expectedReturn": "2027-02-15",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
               "player": "D.J. Reed",
               "team": "",
               "teamId": "",
@@ -24008,18 +23996,6 @@
               "updatedAt": "2026-11-16T19:11Z",
               "expectedReturn": "",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Aidan Hutchinson",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Hutchison is expected to miss the remainder of the season after an initial MRI on his injured right knee Monday revealed a torn ACL, Ian Rapoport of NFL Network reports.",
-              "updatedAt": "2026-11-16T14:42Z",
-              "expectedReturn": "2027-02-15",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -24839,6 +24815,18 @@
             },
             {
               "playerId": "",
+              "player": "Charvarius Ward",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Colts head coach Shane Steichen reported Ward (shin) didn't return to Sunday's 24-22 win over the Dolphins and could miss Thursday's game versus Houston, James Boyd of The Athletic reports.",
+              "updatedAt": "2026-11-16T22:38Z",
+              "expectedReturn": "2026-11-19",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Sauce Gardner",
               "team": "",
               "teamId": "",
@@ -24968,18 +24956,6 @@
               "updatedAt": "2026-11-15T22:23Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Charvarius Ward",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Ward (shin) is questionable to return against the Dolphins on Sunday.",
-              "updatedAt": "2026-11-15T20:07Z",
-              "expectedReturn": "2026-11-19",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -26039,6 +26015,18 @@
             },
             {
               "playerId": "",
+              "player": "Denzel Perryman",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "The Chargers activated Perryman (pectoral) from the reserve/injured list ahead of Monday's game versus Baltimore.",
+              "updatedAt": "2026-11-16T22:48Z",
+              "expectedReturn": "2026-11-16",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
               "player": "David Njoku",
               "team": "",
               "teamId": "",
@@ -26060,18 +26048,6 @@
               "updatedAt": "2026-11-16T21:12Z",
               "expectedReturn": "2026-12-13",
               "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Denzel Perryman",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-16T21:07Z",
-              "expectedReturn": "2026-11-16",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -26339,6 +26315,18 @@
             },
             {
               "playerId": "",
+              "player": "Dylan McMahon",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "ir",
+              "updatedAt": "2026-11-16T22:57Z",
+              "expectedReturn": "2026-12-25",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Maximus Pulley",
               "team": "",
               "teamId": "",
@@ -26466,18 +26454,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Shelton (hamstring) has been ruled out for the remainder of Sunday's game against the Cardinals.",
               "updatedAt": "2026-11-15T22:54Z",
-              "expectedReturn": "2026-11-25",
-              "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Dylan McMahon",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "McMahon (knee) has been ruled out for the remainder of Sunday's game against the Cardinals.",
-              "updatedAt": "2026-11-15T22:52Z",
               "expectedReturn": "2026-11-25",
               "position": "C"
             },
@@ -28427,6 +28403,18 @@
             },
             {
               "playerId": "",
+              "player": "Chance Campbell",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-16T23:30Z",
+              "expectedReturn": "",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
               "player": "Will Shipley",
               "team": "",
               "teamId": "",
@@ -28712,18 +28700,6 @@
               "updatedAt": "2026-11-02T19:19Z",
               "expectedReturn": "",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Nolan Smith Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Smith (concussion) does not carry an injury designation into Sunday's game against the Commanders.",
-              "updatedAt": "2026-10-31T00:19Z",
-              "expectedReturn": "",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -30526,7 +30502,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-16T22:52:02.842Z",
+          "checkedAt": "2026-11-16T23:48:27.384Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -32353,7 +32329,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T22:52:04.496Z",
+        "generatedAt": "2026-11-16T23:48:29.615Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 149,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -32995,10 +32971,34 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Randall (neck), who remains on IR, has been tagged as questionable to face the Chargers on Monday.",
-              "updatedAt": "2026-11-14T23:40Z",
+              "note": "Randall (neck) was not activated from injured reserve ahead of Monday's game against the Chargers, Brian Wacker of The Baltimore Sun reports.",
+              "updatedAt": "2026-11-16T23:22Z",
               "expectedReturn": "2026-11-22",
               "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Nick Vannett",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Ravens elevated Vannett from the practice squad ahead of Monday's game against the Chargers.",
+              "updatedAt": "2026-11-16T23:01Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Chris Moore",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Ravens elevated Moore from the practice squad ahead of Monday's game against the Chargers.",
+              "updatedAt": "2026-11-16T22:57Z",
+              "expectedReturn": "",
+              "position": "WR"
             },
             {
               "playerId": "",
@@ -33263,30 +33263,6 @@
               "updatedAt": "2026-11-06T05:28Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Joe Fagnano",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Fagnano completed 10 of 18 passes for 60 yards with no touchdowns and two interceptions while adding three rushes for 13 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-              "updatedAt": "2026-11-06T05:23Z",
-              "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Zay Flowers",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Flowers brought in three of six targets for six yards and rushed three times for 17 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-              "updatedAt": "2026-11-06T05:03Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -35390,6 +35366,18 @@
             },
             {
               "playerId": "",
+              "player": "Aidan Hutchinson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Hutchinson officially suffered a torn ACL in his right knee during Sunday's win against the Patriots in Munich, but there's no other significant damage in the knee, Tom Pelissero of Netflix reports.",
+              "updatedAt": "2026-11-16T23:15Z",
+              "expectedReturn": "2027-02-15",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
               "player": "D.J. Reed",
               "team": "",
               "teamId": "",
@@ -35459,18 +35447,6 @@
               "updatedAt": "2026-11-16T19:11Z",
               "expectedReturn": "",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Aidan Hutchinson",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Hutchison is expected to miss the remainder of the season after an initial MRI on his injured right knee Monday revealed a torn ACL, Ian Rapoport of NFL Network reports.",
-              "updatedAt": "2026-11-16T14:42Z",
-              "expectedReturn": "2027-02-15",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -36290,6 +36266,18 @@
             },
             {
               "playerId": "",
+              "player": "Charvarius Ward",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Colts head coach Shane Steichen reported Ward (shin) didn't return to Sunday's 24-22 win over the Dolphins and could miss Thursday's game versus Houston, James Boyd of The Athletic reports.",
+              "updatedAt": "2026-11-16T22:38Z",
+              "expectedReturn": "2026-11-19",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Sauce Gardner",
               "team": "",
               "teamId": "",
@@ -36419,18 +36407,6 @@
               "updatedAt": "2026-11-15T22:23Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Charvarius Ward",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Ward (shin) is questionable to return against the Dolphins on Sunday.",
-              "updatedAt": "2026-11-15T20:07Z",
-              "expectedReturn": "2026-11-19",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -37490,6 +37466,18 @@
             },
             {
               "playerId": "",
+              "player": "Denzel Perryman",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "The Chargers activated Perryman (pectoral) from the reserve/injured list ahead of Monday's game versus Baltimore.",
+              "updatedAt": "2026-11-16T22:48Z",
+              "expectedReturn": "2026-11-16",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
               "player": "David Njoku",
               "team": "",
               "teamId": "",
@@ -37511,18 +37499,6 @@
               "updatedAt": "2026-11-16T21:12Z",
               "expectedReturn": "2026-12-13",
               "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Denzel Perryman",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-16T21:07Z",
-              "expectedReturn": "2026-11-16",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -37790,6 +37766,18 @@
             },
             {
               "playerId": "",
+              "player": "Dylan McMahon",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "ir",
+              "updatedAt": "2026-11-16T22:57Z",
+              "expectedReturn": "2026-12-25",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Maximus Pulley",
               "team": "",
               "teamId": "",
@@ -37917,18 +37905,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Shelton (hamstring) has been ruled out for the remainder of Sunday's game against the Cardinals.",
               "updatedAt": "2026-11-15T22:54Z",
-              "expectedReturn": "2026-11-25",
-              "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Dylan McMahon",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "McMahon (knee) has been ruled out for the remainder of Sunday's game against the Cardinals.",
-              "updatedAt": "2026-11-15T22:52Z",
               "expectedReturn": "2026-11-25",
               "position": "C"
             },
@@ -39878,6 +39854,18 @@
             },
             {
               "playerId": "",
+              "player": "Chance Campbell",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-16T23:30Z",
+              "expectedReturn": "",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
               "player": "Will Shipley",
               "team": "",
               "teamId": "",
@@ -40163,18 +40151,6 @@
               "updatedAt": "2026-11-02T19:19Z",
               "expectedReturn": "",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Nolan Smith Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Smith (concussion) does not carry an injury designation into Sunday's game against the Commanders.",
-              "updatedAt": "2026-10-31T00:19Z",
-              "expectedReturn": "",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -41977,7 +41953,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-16T22:52:02.842Z",
+          "checkedAt": "2026-11-16T23:48:27.384Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -43909,7 +43885,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-16T22:52:05.058Z",
+        "generatedAt": "2026-11-16T23:48:30.159Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 149,
         "publishedBy": "EDGEIQ unattended research publisher"
