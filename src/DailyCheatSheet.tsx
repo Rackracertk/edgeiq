@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from 'react'
 import { NBA_PROP_CATEGORIES, type NBAPlayerGame } from './analytics/nbaData'
 import { NFL_PROP_CATEGORIES } from './analytics/nflBoxscore'
 import {
-  buildNBAPicks, buildNFLPicks, loadNFLHistory,
+  loadNFLHistory,
   type CheatPick, type CheatSport, type NFLHistoryRow, type Slate, type CurrentRosterMap,
 } from './cheatSheetData'
 import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, type InjuryData } from './analytics/injuryCenter'
-import { americanOddsBreakEven, enrichElitePicks, type ElitePick } from './analytics/eliteResearch'
+import { americanOddsBreakEven, type ElitePick } from './analytics/eliteResearch'
 import './DailyCheatSheet.css'
 
 type MarketVerifiedCard = {
