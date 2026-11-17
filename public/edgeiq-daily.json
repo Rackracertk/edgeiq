@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T17:09:12.948Z",
+  "generatedAt": "2026-11-17T19:05:03.470Z",
   "publishedDateET": "2026-11-17",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -112,6 +112,18 @@
           "injuries": [
             {
               "playerId": "",
+              "player": "Kingston Flemings",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Flemings (back) practiced Tuesday, per Lauren L. Williams of The Atlanta Journal-Constitution.",
+              "updatedAt": "2026-11-17T18:28Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Jock Landale",
               "team": "",
               "teamId": "",
@@ -121,18 +133,6 @@
               "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-18",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Kingston Flemings",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Flemings (back) has been ruled out for Sunday's game against the Bucks.",
-              "updatedAt": "2026-11-16T14:47Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -321,8 +321,8 @@
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Christie (ankle) has been ruled out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-16T14:45Z",
+              "note": "Christie (ankle) was a full participant in Tuesday's practice, Mike Curtis of The Dallas Morning News reports.",
+              "updatedAt": "2026-11-17T18:25Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -333,8 +333,8 @@
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Aldama (ankle) is out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-16T14:45Z",
+              "note": "Aldama (ankle) was a full participant in Tuesday's practice, Mike Curtis of The Dallas Morning News reports.",
+              "updatedAt": "2026-11-17T18:22Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
             },
@@ -400,6 +400,18 @@
             },
             {
               "playerId": "",
+              "player": "Isaiah Joe",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Joe (hip) is out for Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-17T18:33Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Duncan Robinson",
               "team": "",
               "teamId": "",
@@ -433,18 +445,6 @@
               "updatedAt": "2026-11-16T22:53Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Isaiah Joe",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Joe (hip) is doubtful to play in Tuesday's game against the Spurs.",
-              "updatedAt": "2026-11-16T22:40Z",
-              "expectedReturn": "2026-11-17",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -580,6 +580,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Head coach Rick Carlisle said Tuesday that Haliburton (hamstring) is \"getting there,\" but there's still no definitive timetable for his return to game action, Dustin Dopirak of The Indianapolis Star reports.",
+              "updatedAt": "2026-11-17T18:46Z",
+              "expectedReturn": "2026-11-28",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Andrew Nembhard",
               "team": "",
               "teamId": "",
@@ -588,18 +600,6 @@
               "note": "Nembhard (hip) has been ruled out for Sunday's game against the 76ers, Tony East of Forbes.com reports.",
               "updatedAt": "2026-11-15T20:57Z",
               "expectedReturn": "2026-11-18",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Head coach Rick Carlisle said Wednesday that Haliburton (hamstring) will miss at least 10 more days, Alex Golden of SI.com reports.",
-              "updatedAt": "2026-11-11T22:29Z",
-              "expectedReturn": "2026-11-22",
               "position": "G"
             },
             {
@@ -1240,6 +1240,18 @@
             },
             {
               "playerId": "",
+              "player": "Scottie Barnes",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Barnes (illness) has been downgraded to questionable for Tuesday's game against the Knicks, Blake Murphy of Sportsnet.ca reports.",
+              "updatedAt": "2026-11-17T17:29Z",
+              "expectedReturn": "2026-11-17",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Nate Bittle",
               "team": "",
               "teamId": "",
@@ -1383,7 +1395,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-17T17:09:08.788Z",
+          "checkedAt": "2026-11-17T19:04:59.755Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10280,7 +10292,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-17T17:09:09.864Z",
+        "generatedAt": "2026-11-17T19:05:00.812Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 205,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10515,6 +10527,18 @@
           "injuries": [
             {
               "playerId": "",
+              "player": "Kingston Flemings",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Flemings (back) practiced Tuesday, per Lauren L. Williams of The Atlanta Journal-Constitution.",
+              "updatedAt": "2026-11-17T18:28Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Jock Landale",
               "team": "",
               "teamId": "",
@@ -10524,18 +10548,6 @@
               "updatedAt": "2026-11-16T14:47Z",
               "expectedReturn": "2026-11-18",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Kingston Flemings",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Flemings (back) has been ruled out for Sunday's game against the Bucks.",
-              "updatedAt": "2026-11-16T14:47Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -10724,8 +10736,8 @@
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Christie (ankle) has been ruled out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-16T14:45Z",
+              "note": "Christie (ankle) was a full participant in Tuesday's practice, Mike Curtis of The Dallas Morning News reports.",
+              "updatedAt": "2026-11-17T18:25Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -10736,8 +10748,8 @@
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Aldama (ankle) is out for Sunday's game against the Celtics.",
-              "updatedAt": "2026-11-16T14:45Z",
+              "note": "Aldama (ankle) was a full participant in Tuesday's practice, Mike Curtis of The Dallas Morning News reports.",
+              "updatedAt": "2026-11-17T18:22Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
             },
@@ -10803,6 +10815,18 @@
             },
             {
               "playerId": "",
+              "player": "Isaiah Joe",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Joe (hip) is out for Tuesday's game against the Spurs.",
+              "updatedAt": "2026-11-17T18:33Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Duncan Robinson",
               "team": "",
               "teamId": "",
@@ -10836,18 +10860,6 @@
               "updatedAt": "2026-11-16T22:53Z",
               "expectedReturn": "2026-11-18",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Isaiah Joe",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Joe (hip) is doubtful to play in Tuesday's game against the Spurs.",
-              "updatedAt": "2026-11-16T22:40Z",
-              "expectedReturn": "2026-11-17",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -10983,6 +10995,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Head coach Rick Carlisle said Tuesday that Haliburton (hamstring) is \"getting there,\" but there's still no definitive timetable for his return to game action, Dustin Dopirak of The Indianapolis Star reports.",
+              "updatedAt": "2026-11-17T18:46Z",
+              "expectedReturn": "2026-11-28",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Andrew Nembhard",
               "team": "",
               "teamId": "",
@@ -10991,18 +11015,6 @@
               "note": "Nembhard (hip) has been ruled out for Sunday's game against the 76ers, Tony East of Forbes.com reports.",
               "updatedAt": "2026-11-15T20:57Z",
               "expectedReturn": "2026-11-18",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Head coach Rick Carlisle said Wednesday that Haliburton (hamstring) will miss at least 10 more days, Alex Golden of SI.com reports.",
-              "updatedAt": "2026-11-11T22:29Z",
-              "expectedReturn": "2026-11-22",
               "position": "G"
             },
             {
@@ -11643,6 +11655,18 @@
             },
             {
               "playerId": "",
+              "player": "Scottie Barnes",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Barnes (illness) has been downgraded to questionable for Tuesday's game against the Knicks, Blake Murphy of Sportsnet.ca reports.",
+              "updatedAt": "2026-11-17T17:29Z",
+              "expectedReturn": "2026-11-17",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Nate Bittle",
               "team": "",
               "teamId": "",
@@ -11786,7 +11810,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-17T17:09:08.788Z",
+          "checkedAt": "2026-11-17T19:04:59.755Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21033,7 +21057,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-17T17:09:10.099Z",
+        "generatedAt": "2026-11-17T19:05:01.035Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 205,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -21077,7 +21101,7 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Updating a previous report, Conner (foot) no longer appears to be a candidate to return from injured reserve to play Week 11 versus the Chiefs, Tyler Drake of ArizonaSports.com reports.",
+              "note": "Updating a previous report, Conner (foot) no longer appears to be a candidate to return from injured reserve to play Week 11 versus the Chiefs, according to Tyler Drake of ArizonaSports.com.",
               "updatedAt": "2026-11-17T16:52Z",
               "expectedReturn": "2026-11-29",
               "position": "RB"
@@ -22572,6 +22596,30 @@
             },
             {
               "playerId": "",
+              "player": "Luther Burden III",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Burden has cleared concussion protocol, Patrick Finley of the Chicago Sun-Times reports.",
+              "updatedAt": "2026-11-17T18:22Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Kyler Gordon",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-17T18:14Z",
+              "expectedReturn": "2026-11-22",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Malik Muhammad II",
               "team": "",
               "teamId": "",
@@ -22593,18 +22641,6 @@
               "updatedAt": "2026-11-16T23:58Z",
               "expectedReturn": "2026-11-22",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Luther Burden III",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Burden (concussion) was spotted participating in the Bears' unofficial practice session Monday, AllCHGO.com reports.",
-              "updatedAt": "2026-11-16T20:25Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -22857,18 +22893,6 @@
               "updatedAt": "2026-11-05T04:55Z",
               "expectedReturn": "2027-02-15",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Braxton Jones",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Jones (knee) is out for the rest of the season, Brad Biggs of the Chicago Tribune reports.",
-              "updatedAt": "2026-11-05T03:40Z",
-              "expectedReturn": "2027-02-15",
-              "position": "OT"
             },
             {
               "playerId": "",
@@ -24672,6 +24696,18 @@
             },
             {
               "playerId": "",
+              "player": "David Montgomery",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Montgomery (groin) is slated to practice Tuesday, Aaron Wilson of KPRC 2 Houston reports.",
+              "updatedAt": "2026-11-17T17:39Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Azeez Al-Shaair",
               "team": "",
               "teamId": "",
@@ -24801,18 +24837,6 @@
               "updatedAt": "2026-11-17T00:44Z",
               "expectedReturn": "2026-11-19",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "David Montgomery",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Montgomery (groin) was a full participant at Monday's walkthrough.",
-              "updatedAt": "2026-11-17T00:44Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -30401,7 +30425,7 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "head coach Dan Quinn said Monday that while the 21-day practice window for Croskey-Merritt (groin) hasn't been opened yet, he notes that the running back is \"trending in the right direction,\" Nicki Jhabvala of The Athletic reports.",
+              "note": "Head coach Dan Quinn said Monday that while the 21-day practice window for Croskey-Merritt (groin) hasn't been opened yet, he notes that the running back is \"trending in the right direction,\" Nicki Jhabvala of The Athletic reports.",
               "updatedAt": "2026-11-16T20:18Z",
               "expectedReturn": "2026-11-23",
               "position": "RB"
@@ -30659,7 +30683,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-17T17:09:08.872Z",
+          "checkedAt": "2026-11-17T19:04:59.852Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -32591,7 +32615,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-17T17:09:10.691Z",
+        "generatedAt": "2026-11-17T19:05:01.529Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -32813,7 +32837,7 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Updating a previous report, Conner (foot) no longer appears to be a candidate to return from injured reserve to play Week 11 versus the Chiefs, Tyler Drake of ArizonaSports.com reports.",
+              "note": "Updating a previous report, Conner (foot) no longer appears to be a candidate to return from injured reserve to play Week 11 versus the Chiefs, according to Tyler Drake of ArizonaSports.com.",
               "updatedAt": "2026-11-17T16:52Z",
               "expectedReturn": "2026-11-29",
               "position": "RB"
@@ -34308,6 +34332,30 @@
             },
             {
               "playerId": "",
+              "player": "Luther Burden III",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Burden has cleared concussion protocol, Patrick Finley of the Chicago Sun-Times reports.",
+              "updatedAt": "2026-11-17T18:22Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Kyler Gordon",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-17T18:14Z",
+              "expectedReturn": "2026-11-22",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Malik Muhammad II",
               "team": "",
               "teamId": "",
@@ -34329,18 +34377,6 @@
               "updatedAt": "2026-11-16T23:58Z",
               "expectedReturn": "2026-11-22",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Luther Burden III",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Burden (concussion) was spotted participating in the Bears' unofficial practice session Monday, AllCHGO.com reports.",
-              "updatedAt": "2026-11-16T20:25Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -34593,18 +34629,6 @@
               "updatedAt": "2026-11-05T04:55Z",
               "expectedReturn": "2027-02-15",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Braxton Jones",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Jones (knee) is out for the rest of the season, Brad Biggs of the Chicago Tribune reports.",
-              "updatedAt": "2026-11-05T03:40Z",
-              "expectedReturn": "2027-02-15",
-              "position": "OT"
             },
             {
               "playerId": "",
@@ -36408,6 +36432,18 @@
             },
             {
               "playerId": "",
+              "player": "David Montgomery",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Montgomery (groin) is slated to practice Tuesday, Aaron Wilson of KPRC 2 Houston reports.",
+              "updatedAt": "2026-11-17T17:39Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Azeez Al-Shaair",
               "team": "",
               "teamId": "",
@@ -36537,18 +36573,6 @@
               "updatedAt": "2026-11-17T00:44Z",
               "expectedReturn": "2026-11-19",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "David Montgomery",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Montgomery (groin) was a full participant at Monday's walkthrough.",
-              "updatedAt": "2026-11-17T00:44Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -42137,7 +42161,7 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "head coach Dan Quinn said Monday that while the 21-day practice window for Croskey-Merritt (groin) hasn't been opened yet, he notes that the running back is \"trending in the right direction,\" Nicki Jhabvala of The Athletic reports.",
+              "note": "Head coach Dan Quinn said Monday that while the 21-day practice window for Croskey-Merritt (groin) hasn't been opened yet, he notes that the running back is \"trending in the right direction,\" Nicki Jhabvala of The Athletic reports.",
               "updatedAt": "2026-11-16T20:18Z",
               "expectedReturn": "2026-11-23",
               "position": "RB"
@@ -42395,7 +42419,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-17T17:09:08.872Z",
+          "checkedAt": "2026-11-17T19:04:59.852Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -50837,7 +50861,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-17T17:09:12.947Z",
+        "generatedAt": "2026-11-17T19:05:03.469Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
