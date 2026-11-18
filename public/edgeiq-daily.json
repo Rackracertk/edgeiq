@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-18T17:11:31.908Z",
+  "generatedAt": "2026-11-18T18:59:29.027Z",
   "publishedDateET": "2026-11-18",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -382,6 +382,30 @@
             },
             {
               "playerId": "",
+              "player": "Peyton Watson",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Watson (back) is doubtful for Wednesday's game versus Memphis.",
+              "updatedAt": "2026-11-18T18:24Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Jaylon Tyson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Tyson (ankle) has been ruled out for Wednesday's game against Memphis.",
+              "updatedAt": "2026-11-18T18:21Z",
+              "expectedReturn": "2026-11-20",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Nae'Qwan Tomlin",
               "team": "",
               "teamId": "",
@@ -394,18 +418,6 @@
             },
             {
               "playerId": "",
-              "player": "Jaylon Tyson",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Tyson (ankle) is listed as doubtful for Wednesday's game against the Grizzlies.",
-              "updatedAt": "2026-11-17T22:15Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Sam Merrill",
               "team": "",
               "teamId": "",
@@ -413,18 +425,6 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Merrill (elbow) is questionable to face the Grizzlies on Wednesday.",
               "updatedAt": "2026-11-17T22:15Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Peyton Watson",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Watson (back) is listed as questionable for Wednesday's game against Memphis.",
-              "updatedAt": "2026-11-17T22:13Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -598,6 +598,18 @@
             },
             {
               "playerId": "",
+              "player": "Brandon Williams",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Williams (hamstring) has progressed to on-court activities and will be re-evaluated Saturday.",
+              "updatedAt": "2026-11-18T17:12Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Draymond Green",
               "team": "",
               "teamId": "",
@@ -630,18 +642,6 @@
               "note": "Curry has been diagnosed with an oblique abdominal tear and will be re-evaluated in two weeks, Shams Charania of ESPN reports.",
               "updatedAt": "2026-11-12T17:03Z",
               "expectedReturn": "2026-12-12",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Brandon Williams",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Williams (hamstring) will miss at least one week, per Anthony Slater of ESPN.com.",
-              "updatedAt": "2026-11-10T21:24Z",
-              "expectedReturn": "2026-11-22",
               "position": "G"
             },
             {
@@ -901,36 +901,24 @@
               "player": "Myron Gardner",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Gardner (hamstring) is questionable for Wednesday's game against the Bucks, per Ira Winderman of the South Florida Sun Sentinel.",
-              "updatedAt": "2026-11-17T21:35Z",
-              "expectedReturn": "2026-11-18",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Gardner (hamstring) is out for Wednesday's game against the Bucks.",
+              "updatedAt": "2026-11-18T18:09Z",
+              "expectedReturn": "2026-11-22",
               "position": "F"
             },
             {
               "playerId": "",
-              "player": "Nikola Jovic",
+              "player": "Ryan Rollins",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Jovic (illness) is listed as probable for Wednesday's game against Milwaukee, Ira Winderman of the South Florida Sun Sentinel reports.",
-              "updatedAt": "2026-11-17T21:34Z",
-              "expectedReturn": "2026-11-18",
-              "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Bam Adebayo",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Adebayo (hip) is probable for Wednesday's game against the Bucks, per Ira Winderman of the South Florida Sun Sentinel.",
-              "updatedAt": "2026-11-17T21:32Z",
-              "expectedReturn": "2026-11-18",
-              "position": "C"
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Rollins (illness) has been ruled out for Wednesday's game at Miami.",
+              "updatedAt": "2026-11-18T18:10Z",
+              "expectedReturn": "2026-11-19",
+              "position": "G"
             },
             {
               "playerId": "",
@@ -1131,8 +1119,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Nelson (ankle) has been ruled out for Wednesday's game against the 76ers.",
-              "updatedAt": "2026-11-17T21:22Z",
+              "note": "Head coach Sean Sweeney said Wednesday that Nelson (ankle) has been doing \"some on-court stuff,\" though Sweeney added that the work has been \"minimal,\" Jason Beede of the Orlando Sentinel reports.",
+              "updatedAt": "2026-11-18T17:25Z",
               "expectedReturn": "2026-11-28",
               "position": "F"
             },
@@ -1170,6 +1158,18 @@
               "note": "Banchero is expected to be sidelined for the next four-to-six weeks due to a right high-ankle sprain, Shams Charania of ESPN reports.",
               "updatedAt": "2026-10-24T16:47Z",
               "expectedReturn": "2026-11-22",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Dean Wade",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Wade (hamstring) has been downgraded to questionable for Wednesday's game against the Magic.",
+              "updatedAt": "2026-11-18T18:06Z",
+              "expectedReturn": "2026-11-18",
               "position": "F"
             },
             {
@@ -1378,6 +1378,30 @@
             },
             {
               "playerId": "",
+              "player": "RJ Barrett",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Barrett is questionable for Wednesday's game against the Wizards due to hamstring tightness, Esfandiar Baraheni of The Athletic reports.",
+              "updatedAt": "2026-11-18T17:49Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Scottie Barnes",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Barnes (injury management) has been ruled out for Wednesday's game against Washington, Esfandiar Baraheni of The Athletic reports.",
+              "updatedAt": "2026-11-18T17:46Z",
+              "expectedReturn": "2026-11-20",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Kawhi Leonard",
               "team": "",
               "teamId": "",
@@ -1521,7 +1545,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-18T17:11:27.344Z",
+          "checkedAt": "2026-11-18T18:59:25.546Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10768,7 +10792,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T17:11:29.900Z",
+        "generatedAt": "2026-11-18T18:59:26.842Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 210,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11003,6 +11027,30 @@
             },
             {
               "playerId": "",
+              "player": "Peyton Watson",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Watson (back) is doubtful for Wednesday's game versus Memphis.",
+              "updatedAt": "2026-11-18T18:24Z",
+              "expectedReturn": "2026-11-18",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Jaylon Tyson",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Tyson (ankle) has been ruled out for Wednesday's game against Memphis.",
+              "updatedAt": "2026-11-18T18:21Z",
+              "expectedReturn": "2026-11-20",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Nae'Qwan Tomlin",
               "team": "",
               "teamId": "",
@@ -11015,18 +11063,6 @@
             },
             {
               "playerId": "",
-              "player": "Jaylon Tyson",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Tyson (ankle) is listed as doubtful for Wednesday's game against the Grizzlies.",
-              "updatedAt": "2026-11-17T22:15Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Sam Merrill",
               "team": "",
               "teamId": "",
@@ -11034,18 +11070,6 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Merrill (elbow) is questionable to face the Grizzlies on Wednesday.",
               "updatedAt": "2026-11-17T22:15Z",
-              "expectedReturn": "2026-11-18",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Peyton Watson",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Watson (back) is listed as questionable for Wednesday's game against Memphis.",
-              "updatedAt": "2026-11-17T22:13Z",
               "expectedReturn": "2026-11-18",
               "position": "G"
             },
@@ -11219,6 +11243,18 @@
             },
             {
               "playerId": "",
+              "player": "Brandon Williams",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Williams (hamstring) has progressed to on-court activities and will be re-evaluated Saturday.",
+              "updatedAt": "2026-11-18T17:12Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Draymond Green",
               "team": "",
               "teamId": "",
@@ -11251,18 +11287,6 @@
               "note": "Curry has been diagnosed with an oblique abdominal tear and will be re-evaluated in two weeks, Shams Charania of ESPN reports.",
               "updatedAt": "2026-11-12T17:03Z",
               "expectedReturn": "2026-12-12",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Brandon Williams",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Williams (hamstring) will miss at least one week, per Anthony Slater of ESPN.com.",
-              "updatedAt": "2026-11-10T21:24Z",
-              "expectedReturn": "2026-11-22",
               "position": "G"
             },
             {
@@ -11522,36 +11546,24 @@
               "player": "Myron Gardner",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Gardner (hamstring) is questionable for Wednesday's game against the Bucks, per Ira Winderman of the South Florida Sun Sentinel.",
-              "updatedAt": "2026-11-17T21:35Z",
-              "expectedReturn": "2026-11-18",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Gardner (hamstring) is out for Wednesday's game against the Bucks.",
+              "updatedAt": "2026-11-18T18:09Z",
+              "expectedReturn": "2026-11-22",
               "position": "F"
             },
             {
               "playerId": "",
-              "player": "Nikola Jovic",
+              "player": "Ryan Rollins",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Jovic (illness) is listed as probable for Wednesday's game against Milwaukee, Ira Winderman of the South Florida Sun Sentinel reports.",
-              "updatedAt": "2026-11-17T21:34Z",
-              "expectedReturn": "2026-11-18",
-              "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Bam Adebayo",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Adebayo (hip) is probable for Wednesday's game against the Bucks, per Ira Winderman of the South Florida Sun Sentinel.",
-              "updatedAt": "2026-11-17T21:32Z",
-              "expectedReturn": "2026-11-18",
-              "position": "C"
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Rollins (illness) has been ruled out for Wednesday's game at Miami.",
+              "updatedAt": "2026-11-18T18:10Z",
+              "expectedReturn": "2026-11-19",
+              "position": "G"
             },
             {
               "playerId": "",
@@ -11752,8 +11764,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Nelson (ankle) has been ruled out for Wednesday's game against the 76ers.",
-              "updatedAt": "2026-11-17T21:22Z",
+              "note": "Head coach Sean Sweeney said Wednesday that Nelson (ankle) has been doing \"some on-court stuff,\" though Sweeney added that the work has been \"minimal,\" Jason Beede of the Orlando Sentinel reports.",
+              "updatedAt": "2026-11-18T17:25Z",
               "expectedReturn": "2026-11-28",
               "position": "F"
             },
@@ -11791,6 +11803,18 @@
               "note": "Banchero is expected to be sidelined for the next four-to-six weeks due to a right high-ankle sprain, Shams Charania of ESPN reports.",
               "updatedAt": "2026-10-24T16:47Z",
               "expectedReturn": "2026-11-22",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Dean Wade",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Wade (hamstring) has been downgraded to questionable for Wednesday's game against the Magic.",
+              "updatedAt": "2026-11-18T18:06Z",
+              "expectedReturn": "2026-11-18",
               "position": "F"
             },
             {
@@ -11999,6 +12023,30 @@
             },
             {
               "playerId": "",
+              "player": "RJ Barrett",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Barrett is questionable for Wednesday's game against the Wizards due to hamstring tightness, Esfandiar Baraheni of The Athletic reports.",
+              "updatedAt": "2026-11-18T17:49Z",
+              "expectedReturn": "2026-11-18",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Scottie Barnes",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Barnes (injury management) has been ruled out for Wednesday's game against Washington, Esfandiar Baraheni of The Athletic reports.",
+              "updatedAt": "2026-11-18T17:46Z",
+              "expectedReturn": "2026-11-20",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Kawhi Leonard",
               "team": "",
               "teamId": "",
@@ -12142,7 +12190,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-18T17:11:27.344Z",
+          "checkedAt": "2026-11-18T18:59:25.546Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20129,7 +20177,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T17:11:30.000Z",
+        "generatedAt": "2026-11-18T18:59:26.966Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 210,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -20209,7 +20257,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Higgins played 24 of 35 offensive snaps (68.6 percent) but didn't show up on the box score otherwise during the Cardinals' 34-6 loss to the Rams on Sunday.",
+              "note": "Higgins played 24 of 35 offensive snaps (68.6 percent) but didn't get a target during the Cardinals' 34-6 loss to the Rams on Sunday.",
               "updatedAt": "2026-11-18T01:38Z",
               "expectedReturn": "",
               "position": "TE"
@@ -20233,7 +20281,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Virgil was on the field for 16 of the Cardinals' 35 offensive snaps (45.7 percent), but the rookie fifth-rounder didn't show up on the box score otherwise during Sunday's 34-6 loss to the Rams.",
+              "note": "Virgil was on the field for 16 of the Cardinals' 35 offensive snaps (45.7 percent), but the rookie fifth-rounder didn't get a target during Sunday's 34-6 loss to the Rams.",
               "updatedAt": "2026-11-18T01:28Z",
               "expectedReturn": "",
               "position": "WR"
@@ -21068,6 +21116,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrell Shavers",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Bills head coach Joe Brady said Wednesday that Shavers (knee) has been reinstated from the PUP list, Katherine Fitzgerald of The Buffalo News reports.",
+              "updatedAt": "2026-11-18T18:13Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Ty Johnson",
               "team": "",
               "teamId": "",
@@ -21317,18 +21377,6 @@
               "updatedAt": "2026-11-15T16:35Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrell Shavers",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "The Bills did not activate Shavers (knee) from the reserve/PUP list, and he will not be available for Sunday's game against the Jets.",
-              "updatedAt": "2026-11-14T21:49Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -23168,6 +23216,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyler Conklin",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Conklin went without a target while playing 22 of the Lions' 71 offensive snaps in Sunday's 35-10 win over the Patriots in Munich.",
+              "updatedAt": "2026-11-18T17:14Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Jacob Saylors",
               "team": "",
               "teamId": "",
@@ -23453,18 +23513,6 @@
               "updatedAt": "2026-11-04T02:07Z",
               "expectedReturn": "2027-02-15",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Seth McLaughlin",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-02T18:51Z",
-              "expectedReturn": "",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -24068,6 +24116,66 @@
             },
             {
               "playerId": "",
+              "player": "Bernhard Raimann",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "OT"
+            },
+            {
+              "playerId": "",
+              "player": "Jerry Tillery",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Jalen Travis",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "OT"
+            },
+            {
+              "playerId": "",
+              "player": "Charvarius Ward",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Justin Walley",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Walley registered five tackles, a sack, a forced fumble and two pass breakups in Sunday's 24-22 win over the Dolphins.",
+              "updatedAt": "2026-11-18T17:53Z",
+              "expectedReturn": "",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "CJ Allen",
               "team": "",
               "teamId": "",
@@ -24083,11 +24191,11 @@
               "player": "Will Mallory",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
               "note": "Mallory (hamstring) was estimated as a non-participant for Tuesday's practice walkthrough.",
               "updatedAt": "2026-11-18T01:04Z",
-              "expectedReturn": "2026-11-19",
+              "expectedReturn": "2026-11-29",
               "position": "TE"
             },
             {
@@ -24164,30 +24272,6 @@
             },
             {
               "playerId": "",
-              "player": "Jerry Tillery",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-19",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen Travis",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "doubtful",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-19",
-              "position": "OT"
-            },
-            {
-              "playerId": "",
               "player": "Spencer Shrader",
               "team": "",
               "teamId": "",
@@ -24231,18 +24315,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Gardner (calf) was listed as a DNP for Monday's walkthrough practice.",
               "updatedAt": "2026-11-17T00:28Z",
-              "expectedReturn": "2026-11-19",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Charvarius Ward",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Colts head coach Shane Steichen said that Ward (shin) is uncertain to be available for Thursday's game against the Texans after exiting Sunday's 24-22 win over the Dolphins, James Boyd of The Athletic reports.",
-              "updatedAt": "2026-11-16T22:38Z",
               "expectedReturn": "2026-11-19",
               "position": "CB"
             },
@@ -24308,18 +24380,6 @@
             },
             {
               "playerId": "",
-              "player": "Bernhard Raimann",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Raimann has entered the league's concussion protocol and has been ruled out for the rest of Sunday's game against the Dolphins, James Boyd of The Athletic reports.",
-              "updatedAt": "2026-11-15T18:52Z",
-              "expectedReturn": "2026-11-19",
-              "position": "OT"
-            },
-            {
-              "playerId": "",
               "player": "Akeem Davis-Gaither",
               "team": "",
               "teamId": "",
@@ -24353,18 +24413,6 @@
               "updatedAt": "2026-11-14T17:24Z",
               "expectedReturn": "2026-12-20",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Haulcy",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Haulcy (ankle) was a full participant at Thursday's practice.",
-              "updatedAt": "2026-11-12T20:57Z",
-              "expectedReturn": "",
-              "position": "S"
             },
             {
               "playerId": "",
@@ -24668,6 +24716,18 @@
             },
             {
               "playerId": "",
+              "player": "Kenneth Walker III",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Walker (groin) won't practice Wednesday, Sam McDowell of The Kansas City Star reports.",
+              "updatedAt": "2026-11-18T18:03Z",
+              "expectedReturn": "2026-11-22",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Drue Tranquill",
               "team": "",
               "teamId": "",
@@ -24725,18 +24785,6 @@
               "updatedAt": "2026-11-17T12:19Z",
               "expectedReturn": "2026-11-22",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Kenneth Walker III",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-22",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -25273,7 +25321,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Dicker made all three of his field-goal tries and converted both of his two extra-point attempts during Monday's 23-20 win at Baltimore.",
+              "note": "Dicker made all three of his field-goal tries and converted both of his extra-point attempts during Monday's 23-20 win at Baltimore.",
               "updatedAt": "2026-11-18T01:55Z",
               "expectedReturn": "",
               "position": "PK"
@@ -25285,7 +25333,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Njoku played 19 offensive snaps but didn't show up in the box score otherwise during Monday's 23-20 win over the Ravens on Monday.",
+              "note": "Njoku played 19 offensive snaps but didn't get a target during Monday's 23-20 win over the Ravens on Monday.",
               "updatedAt": "2026-11-18T00:27Z",
               "expectedReturn": "",
               "position": "TE"
@@ -25565,6 +25613,18 @@
               "updatedAt": "2026-11-12T15:16Z",
               "expectedReturn": "",
               "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "Max Klare",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Klare went without a target while playing four of the Rams' 76 offensive snaps in Sunday's 34-6 win over the Cardinals.",
+              "updatedAt": "2026-11-18T17:23Z",
+              "expectedReturn": "",
+              "position": "TE"
             },
             {
               "playerId": "",
@@ -25856,14 +25916,14 @@
             },
             {
               "playerId": "",
-              "player": "Davante Adams",
+              "player": "Chris Bell",
               "team": "",
               "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "According to Ian Rapoport of NFL Network and ESPN,  Adams (hamstring) is believed to be targeting a return to action Nov. 25 against the Packers.",
-              "updatedAt": "2026-11-15T16:06Z",
-              "expectedReturn": "2026-11-25",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Bell (knee) is viewed as day-to-day ahead of Sunday's game against the Bills, Marcel Louis-Jacques of ESPN.com reports.",
+              "updatedAt": "2026-11-18T16:58Z",
+              "expectedReturn": "2026-11-22",
               "position": "WR"
             },
             {
@@ -25965,18 +26025,6 @@
             {
               "playerId": "",
               "player": "Jared Wayne",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Chris Bell",
               "team": "",
               "teamId": "",
               "status": "Questionable",
@@ -27656,25 +27704,13 @@
             },
             {
               "playerId": "",
-              "player": "Jaydon Blue",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Eagles signed Blue from their practice squad to their active roster Tuesday.",
-              "updatedAt": "2026-11-18T00:54Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
               "player": "Dontayvion Wicks",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
+              "note": "Coach Nick Sirianni relayed Wednesday that he feels good about the chances of Wicks (ankle) returning to action Sunday against the Steelers, Jeff McLane of The Philadelphia Inquirer reports.",
+              "updatedAt": "2026-11-18T17:49Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
             },
@@ -27685,10 +27721,34 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
+              "note": "Coach Nick Sirianni indicated Wednesday that he feels good about Smith (hamstring) returning to action Sunday against the Steelers, Jeff McLane of The Philadelphia Inquirer reports.",
+              "updatedAt": "2026-11-18T17:43Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Joe Milton",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Nick Sirianni confirmed that Milton will remain the Eagles' starting quarterback for Sunday's game against the Steelers, according to NFL reporter Andrew Siciliano.",
+              "updatedAt": "2026-11-18T17:33Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "Jaydon Blue",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Eagles signed Blue from their practice squad to their active roster Tuesday.",
+              "updatedAt": "2026-11-18T00:54Z",
+              "expectedReturn": "",
+              "position": "RB"
             },
             {
               "playerId": "",
@@ -27869,18 +27929,6 @@
               "updatedAt": "2026-11-09T00:28Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Joe Milton",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Milton completed 18 of 34 passes for 169 yards, no touchdowns and no interceptions in Sunday's 19-11 loss to the Giants. He also rushed nine times for 64 yards, ran in a two-point conversion and lost a fumble.",
-              "updatedAt": "2026-11-08T23:50Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -28256,6 +28304,30 @@
             },
             {
               "playerId": "",
+              "player": "Mike Evans",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Head coach Kyle Shanahan said Evans (Achilles) won't practice Wednesday but hopes the wide receiver will return to drills Thursday, Nick Wagoner of ESPN reports.",
+              "updatedAt": "2026-11-18T18:52Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Brandon Aiyuk",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Aiyuk's agent, Drew Rosenhaus, said Tuesday that the receiver is \"100 percent healthy\" and fully recovered from his November 2024 right knee surgery and plans to work out for interested teams once he's released by the 49ers, Dianna Russini ",
+              "updatedAt": "2026-11-18T17:55Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Dre Greenlaw",
               "team": "",
               "teamId": "",
@@ -28349,18 +28421,6 @@
               "updatedAt": "2026-11-17T00:16Z",
               "expectedReturn": "2026-11-22",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Mike Evans",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Head coach Kyle Shanahan said Monday that the 49ers are \"hoping to\" have Evans (Achilles) back at practice this week, Nick Wagoner of ESPN.com reports.",
-              "updatedAt": "2026-11-16T22:05Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -28541,18 +28601,6 @@
               "updatedAt": "2026-11-15T00:02Z",
               "expectedReturn": "2026-11-22",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Gracen Halton",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Halton recently underwent surgery to repair a broken leg and dislocated ankle that he suffered during the 49ers' Week 9 win over the Raiders, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-14T19:20Z",
-              "expectedReturn": "2027-02-15",
-              "position": "DT"
             },
             {
               "playerId": "",
@@ -28861,10 +28909,22 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "The Buccaneers aren't ruling Mayfield (foot) out from playing in Sunday's game at Detroit, but the team views the quarterback as \"probably a long shot for this week,\" Jeremy Fowler of ESPN.com reports.",
-              "updatedAt": "2026-11-18T15:58Z",
+              "note": "Coach Todd Bowles said Wednesday that Mayfield (foot), who didn't practice Wednesday, is \"a lot better\" than he was a week ago, Scott Smith of the Buccaneers' official site reports.",
+              "updatedAt": "2026-11-18T18:37Z",
               "expectedReturn": "2026-11-22",
               "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "Yaya Diaby",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-18T18:29Z",
+              "expectedReturn": "2026-11-22",
+              "position": "LB"
             },
             {
               "playerId": "",
@@ -28873,22 +28933,10 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Daniels \"seems to be trending\" toward drawing the start at quarterback for the Buccaneers on Sunday in Detroit while Baker Mayfield tends to a foot strain, Ian Rapoport of NFL Network reports.",
-              "updatedAt": "2026-11-17T22:42Z",
+              "note": "Daniels is slated to take all of the first-teams reps Wednesday with Baker Mayfield (foot) sidelined for the Buccaneers' first Week 11 practice, Greg Auman of Fox Sports reports.",
+              "updatedAt": "2026-11-18T17:47Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Yaya Diaby",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "doubtful",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-22",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -29156,6 +29204,30 @@
             },
             {
               "playerId": "",
+              "player": "Wan'Dale Robinson",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Coach Robert Saleh said Wednesday that Robinson (ankle) -- who was placed on IR on Tuesady -- is out for the rest of the season, Terry McCormick of TitanInsider.com reports.",
+              "updatedAt": "2026-11-18T17:29Z",
+              "expectedReturn": "2027-02-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Carnell Tate",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Titans head coach Robert Saleh said that Tate (shoulder) will practice Wednesday, Turron Davenport of ESPN.com reports.",
+              "updatedAt": "2026-11-18T17:25Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Julius Chestnut",
               "team": "",
               "teamId": "",
@@ -29176,18 +29248,6 @@
               "note": "Restrepo, whom the Titans signed off their practice squad Tuesday, could be in store for more playing time out of the slot moving forward after Tennessee placed Wan'Dale Robinson (ankle) on injured reserve, Mark Mihalko of USA Today reports",
               "updatedAt": "2026-11-18T15:25Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Wan'Dale Robinson",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Titans placed Robinson (ankle) on injured reserve Tuesday, Jim Wyatt of the team's official site reports.",
-              "updatedAt": "2026-11-17T21:26Z",
-              "expectedReturn": "2026-12-20",
               "position": "WR"
             },
             {
@@ -29309,18 +29369,6 @@
               "updatedAt": "2026-11-16T20:09Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Carnell Tate",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action in Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
-              "updatedAt": "2026-11-16T14:23Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -29755,7 +29803,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-18T17:11:26.853Z",
+          "checkedAt": "2026-11-18T18:59:25.591Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -31687,7 +31735,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T17:11:30.393Z",
+        "generatedAt": "2026-11-18T18:59:27.392Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -31945,7 +31993,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Higgins played 24 of 35 offensive snaps (68.6 percent) but didn't show up on the box score otherwise during the Cardinals' 34-6 loss to the Rams on Sunday.",
+              "note": "Higgins played 24 of 35 offensive snaps (68.6 percent) but didn't get a target during the Cardinals' 34-6 loss to the Rams on Sunday.",
               "updatedAt": "2026-11-18T01:38Z",
               "expectedReturn": "",
               "position": "TE"
@@ -31969,7 +32017,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Virgil was on the field for 16 of the Cardinals' 35 offensive snaps (45.7 percent), but the rookie fifth-rounder didn't show up on the box score otherwise during Sunday's 34-6 loss to the Rams.",
+              "note": "Virgil was on the field for 16 of the Cardinals' 35 offensive snaps (45.7 percent), but the rookie fifth-rounder didn't get a target during Sunday's 34-6 loss to the Rams.",
               "updatedAt": "2026-11-18T01:28Z",
               "expectedReturn": "",
               "position": "WR"
@@ -32804,6 +32852,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrell Shavers",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Bills head coach Joe Brady said Wednesday that Shavers (knee) has been reinstated from the PUP list, Katherine Fitzgerald of The Buffalo News reports.",
+              "updatedAt": "2026-11-18T18:13Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Ty Johnson",
               "team": "",
               "teamId": "",
@@ -33053,18 +33113,6 @@
               "updatedAt": "2026-11-15T16:35Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrell Shavers",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "The Bills did not activate Shavers (knee) from the reserve/PUP list, and he will not be available for Sunday's game against the Jets.",
-              "updatedAt": "2026-11-14T21:49Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -34904,6 +34952,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyler Conklin",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Conklin went without a target while playing 22 of the Lions' 71 offensive snaps in Sunday's 35-10 win over the Patriots in Munich.",
+              "updatedAt": "2026-11-18T17:14Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Jacob Saylors",
               "team": "",
               "teamId": "",
@@ -35189,18 +35249,6 @@
               "updatedAt": "2026-11-04T02:07Z",
               "expectedReturn": "2027-02-15",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Seth McLaughlin",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-02T18:51Z",
-              "expectedReturn": "",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -35804,6 +35852,66 @@
             },
             {
               "playerId": "",
+              "player": "Bernhard Raimann",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "OT"
+            },
+            {
+              "playerId": "",
+              "player": "Jerry Tillery",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Jalen Travis",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "OT"
+            },
+            {
+              "playerId": "",
+              "player": "Charvarius Ward",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-18T18:42Z",
+              "expectedReturn": "2026-11-29",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Justin Walley",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Walley registered five tackles, a sack, a forced fumble and two pass breakups in Sunday's 24-22 win over the Dolphins.",
+              "updatedAt": "2026-11-18T17:53Z",
+              "expectedReturn": "",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "CJ Allen",
               "team": "",
               "teamId": "",
@@ -35819,11 +35927,11 @@
               "player": "Will Mallory",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
               "note": "Mallory (hamstring) was estimated as a non-participant for Tuesday's practice walkthrough.",
               "updatedAt": "2026-11-18T01:04Z",
-              "expectedReturn": "2026-11-19",
+              "expectedReturn": "2026-11-29",
               "position": "TE"
             },
             {
@@ -35900,30 +36008,6 @@
             },
             {
               "playerId": "",
-              "player": "Jerry Tillery",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-19",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen Travis",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "doubtful",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-19",
-              "position": "OT"
-            },
-            {
-              "playerId": "",
               "player": "Spencer Shrader",
               "team": "",
               "teamId": "",
@@ -35967,18 +36051,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Gardner (calf) was listed as a DNP for Monday's walkthrough practice.",
               "updatedAt": "2026-11-17T00:28Z",
-              "expectedReturn": "2026-11-19",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Charvarius Ward",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Colts head coach Shane Steichen said that Ward (shin) is uncertain to be available for Thursday's game against the Texans after exiting Sunday's 24-22 win over the Dolphins, James Boyd of The Athletic reports.",
-              "updatedAt": "2026-11-16T22:38Z",
               "expectedReturn": "2026-11-19",
               "position": "CB"
             },
@@ -36044,18 +36116,6 @@
             },
             {
               "playerId": "",
-              "player": "Bernhard Raimann",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Raimann has entered the league's concussion protocol and has been ruled out for the rest of Sunday's game against the Dolphins, James Boyd of The Athletic reports.",
-              "updatedAt": "2026-11-15T18:52Z",
-              "expectedReturn": "2026-11-19",
-              "position": "OT"
-            },
-            {
-              "playerId": "",
               "player": "Akeem Davis-Gaither",
               "team": "",
               "teamId": "",
@@ -36089,18 +36149,6 @@
               "updatedAt": "2026-11-14T17:24Z",
               "expectedReturn": "2026-12-20",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Haulcy",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Haulcy (ankle) was a full participant at Thursday's practice.",
-              "updatedAt": "2026-11-12T20:57Z",
-              "expectedReturn": "",
-              "position": "S"
             },
             {
               "playerId": "",
@@ -36404,6 +36452,18 @@
             },
             {
               "playerId": "",
+              "player": "Kenneth Walker III",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Walker (groin) won't practice Wednesday, Sam McDowell of The Kansas City Star reports.",
+              "updatedAt": "2026-11-18T18:03Z",
+              "expectedReturn": "2026-11-22",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Drue Tranquill",
               "team": "",
               "teamId": "",
@@ -36461,18 +36521,6 @@
               "updatedAt": "2026-11-17T12:19Z",
               "expectedReturn": "2026-11-22",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Kenneth Walker III",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-22",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -37009,7 +37057,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Dicker made all three of his field-goal tries and converted both of his two extra-point attempts during Monday's 23-20 win at Baltimore.",
+              "note": "Dicker made all three of his field-goal tries and converted both of his extra-point attempts during Monday's 23-20 win at Baltimore.",
               "updatedAt": "2026-11-18T01:55Z",
               "expectedReturn": "",
               "position": "PK"
@@ -37021,7 +37069,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Njoku played 19 offensive snaps but didn't show up in the box score otherwise during Monday's 23-20 win over the Ravens on Monday.",
+              "note": "Njoku played 19 offensive snaps but didn't get a target during Monday's 23-20 win over the Ravens on Monday.",
               "updatedAt": "2026-11-18T00:27Z",
               "expectedReturn": "",
               "position": "TE"
@@ -37301,6 +37349,18 @@
               "updatedAt": "2026-11-12T15:16Z",
               "expectedReturn": "",
               "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "Max Klare",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Klare went without a target while playing four of the Rams' 76 offensive snaps in Sunday's 34-6 win over the Cardinals.",
+              "updatedAt": "2026-11-18T17:23Z",
+              "expectedReturn": "",
+              "position": "TE"
             },
             {
               "playerId": "",
@@ -37592,14 +37652,14 @@
             },
             {
               "playerId": "",
-              "player": "Davante Adams",
+              "player": "Chris Bell",
               "team": "",
               "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "According to Ian Rapoport of NFL Network and ESPN,  Adams (hamstring) is believed to be targeting a return to action Nov. 25 against the Packers.",
-              "updatedAt": "2026-11-15T16:06Z",
-              "expectedReturn": "2026-11-25",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Bell (knee) is viewed as day-to-day ahead of Sunday's game against the Bills, Marcel Louis-Jacques of ESPN.com reports.",
+              "updatedAt": "2026-11-18T16:58Z",
+              "expectedReturn": "2026-11-22",
               "position": "WR"
             },
             {
@@ -37701,18 +37761,6 @@
             {
               "playerId": "",
               "player": "Jared Wayne",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Chris Bell",
               "team": "",
               "teamId": "",
               "status": "Questionable",
@@ -39392,25 +39440,13 @@
             },
             {
               "playerId": "",
-              "player": "Jaydon Blue",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Eagles signed Blue from their practice squad to their active roster Tuesday.",
-              "updatedAt": "2026-11-18T00:54Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
               "player": "Dontayvion Wicks",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
+              "note": "Coach Nick Sirianni relayed Wednesday that he feels good about the chances of Wicks (ankle) returning to action Sunday against the Steelers, Jeff McLane of The Philadelphia Inquirer reports.",
+              "updatedAt": "2026-11-18T17:49Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
             },
@@ -39421,10 +39457,34 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
+              "note": "Coach Nick Sirianni indicated Wednesday that he feels good about Smith (hamstring) returning to action Sunday against the Steelers, Jeff McLane of The Philadelphia Inquirer reports.",
+              "updatedAt": "2026-11-18T17:43Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Joe Milton",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Nick Sirianni confirmed that Milton will remain the Eagles' starting quarterback for Sunday's game against the Steelers, according to NFL reporter Andrew Siciliano.",
+              "updatedAt": "2026-11-18T17:33Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "Jaydon Blue",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Eagles signed Blue from their practice squad to their active roster Tuesday.",
+              "updatedAt": "2026-11-18T00:54Z",
+              "expectedReturn": "",
+              "position": "RB"
             },
             {
               "playerId": "",
@@ -39605,18 +39665,6 @@
               "updatedAt": "2026-11-09T00:28Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Joe Milton",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Milton completed 18 of 34 passes for 169 yards, no touchdowns and no interceptions in Sunday's 19-11 loss to the Giants. He also rushed nine times for 64 yards, ran in a two-point conversion and lost a fumble.",
-              "updatedAt": "2026-11-08T23:50Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -39992,6 +40040,30 @@
             },
             {
               "playerId": "",
+              "player": "Mike Evans",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Head coach Kyle Shanahan said Evans (Achilles) won't practice Wednesday but hopes the wide receiver will return to drills Thursday, Nick Wagoner of ESPN reports.",
+              "updatedAt": "2026-11-18T18:52Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Brandon Aiyuk",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Aiyuk's agent, Drew Rosenhaus, said Tuesday that the receiver is \"100 percent healthy\" and fully recovered from his November 2024 right knee surgery and plans to work out for interested teams once he's released by the 49ers, Dianna Russini ",
+              "updatedAt": "2026-11-18T17:55Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Dre Greenlaw",
               "team": "",
               "teamId": "",
@@ -40085,18 +40157,6 @@
               "updatedAt": "2026-11-17T00:16Z",
               "expectedReturn": "2026-11-22",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Mike Evans",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Head coach Kyle Shanahan said Monday that the 49ers are \"hoping to\" have Evans (Achilles) back at practice this week, Nick Wagoner of ESPN.com reports.",
-              "updatedAt": "2026-11-16T22:05Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -40277,18 +40337,6 @@
               "updatedAt": "2026-11-15T00:02Z",
               "expectedReturn": "2026-11-22",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Gracen Halton",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Halton recently underwent surgery to repair a broken leg and dislocated ankle that he suffered during the 49ers' Week 9 win over the Raiders, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-14T19:20Z",
-              "expectedReturn": "2027-02-15",
-              "position": "DT"
             },
             {
               "playerId": "",
@@ -40597,10 +40645,22 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "The Buccaneers aren't ruling Mayfield (foot) out from playing in Sunday's game at Detroit, but the team views the quarterback as \"probably a long shot for this week,\" Jeremy Fowler of ESPN.com reports.",
-              "updatedAt": "2026-11-18T15:58Z",
+              "note": "Coach Todd Bowles said Wednesday that Mayfield (foot), who didn't practice Wednesday, is \"a lot better\" than he was a week ago, Scott Smith of the Buccaneers' official site reports.",
+              "updatedAt": "2026-11-18T18:37Z",
               "expectedReturn": "2026-11-22",
               "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "Yaya Diaby",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-18T18:29Z",
+              "expectedReturn": "2026-11-22",
+              "position": "LB"
             },
             {
               "playerId": "",
@@ -40609,22 +40669,10 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Daniels \"seems to be trending\" toward drawing the start at quarterback for the Buccaneers on Sunday in Detroit while Baker Mayfield tends to a foot strain, Ian Rapoport of NFL Network reports.",
-              "updatedAt": "2026-11-17T22:42Z",
+              "note": "Daniels is slated to take all of the first-teams reps Wednesday with Baker Mayfield (foot) sidelined for the Buccaneers' first Week 11 practice, Greg Auman of Fox Sports reports.",
+              "updatedAt": "2026-11-18T17:47Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Yaya Diaby",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "doubtful",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-22",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -40892,6 +40940,30 @@
             },
             {
               "playerId": "",
+              "player": "Wan'Dale Robinson",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Coach Robert Saleh said Wednesday that Robinson (ankle) -- who was placed on IR on Tuesady -- is out for the rest of the season, Terry McCormick of TitanInsider.com reports.",
+              "updatedAt": "2026-11-18T17:29Z",
+              "expectedReturn": "2027-02-15",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Carnell Tate",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Titans head coach Robert Saleh said that Tate (shoulder) will practice Wednesday, Turron Davenport of ESPN.com reports.",
+              "updatedAt": "2026-11-18T17:25Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Julius Chestnut",
               "team": "",
               "teamId": "",
@@ -40912,18 +40984,6 @@
               "note": "Restrepo, whom the Titans signed off their practice squad Tuesday, could be in store for more playing time out of the slot moving forward after Tennessee placed Wan'Dale Robinson (ankle) on injured reserve, Mark Mihalko of USA Today reports",
               "updatedAt": "2026-11-18T15:25Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Wan'Dale Robinson",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Titans placed Robinson (ankle) on injured reserve Tuesday, Jim Wyatt of the team's official site reports.",
-              "updatedAt": "2026-11-17T21:26Z",
-              "expectedReturn": "2026-12-20",
               "position": "WR"
             },
             {
@@ -41045,18 +41105,6 @@
               "updatedAt": "2026-11-16T20:09Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Carnell Tate",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action in Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
-              "updatedAt": "2026-11-16T14:23Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -41491,7 +41539,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-18T17:11:26.853Z",
+          "checkedAt": "2026-11-18T18:59:25.591Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -49933,7 +49981,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T17:11:31.908Z",
+        "generatedAt": "2026-11-18T18:59:29.026Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
