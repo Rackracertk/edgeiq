@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-18T13:18:32.520Z",
+  "generatedAt": "2026-11-18T14:59:58.415Z",
   "publishedDateET": "2026-11-18",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1533,7 +1533,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-18T13:18:28.934Z",
+          "checkedAt": "2026-11-18T14:59:54.322Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10780,7 +10780,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T13:18:30.309Z",
+        "generatedAt": "2026-11-18T14:59:55.453Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 210,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -12166,7 +12166,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-18T13:18:28.934Z",
+          "checkedAt": "2026-11-18T14:59:54.322Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20153,7 +20153,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T13:18:30.444Z",
+        "generatedAt": "2026-11-18T14:59:55.625Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 210,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -22297,7 +22297,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Corley caught all three of his targets for 37 yards in addition to returning to kicks for 51 yards during Cleveland's win over the Texans on Sunday.",
+              "note": "Corley caught all three of his targets for 37 yards in addition to returning two kicks for 51 yards during Cleveland's win over the Texans on Sunday.",
               "updatedAt": "2026-11-18T02:17Z",
               "expectedReturn": "",
               "position": "WR"
@@ -28285,7 +28285,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Greenlaw logged eight tackles (four solo), including 05 sacks, during San Francisco's win over the Cowboys on Sunday.",
+              "note": "Greenlaw logged eight tackles (four solo), including 0.5 sacks, during San Francisco's win over the Cowboys on Sunday.",
               "updatedAt": "2026-11-18T03:05Z",
               "expectedReturn": "",
               "position": "LB"
@@ -29779,7 +29779,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-18T13:18:29.009Z",
+          "checkedAt": "2026-11-18T14:59:54.413Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -31711,7 +31711,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T13:18:30.868Z",
+        "generatedAt": "2026-11-18T14:59:56.188Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -34033,7 +34033,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Corley caught all three of his targets for 37 yards in addition to returning to kicks for 51 yards during Cleveland's win over the Texans on Sunday.",
+              "note": "Corley caught all three of his targets for 37 yards in addition to returning two kicks for 51 yards during Cleveland's win over the Texans on Sunday.",
               "updatedAt": "2026-11-18T02:17Z",
               "expectedReturn": "",
               "position": "WR"
@@ -40021,7 +40021,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Greenlaw logged eight tackles (four solo), including 05 sacks, during San Francisco's win over the Cowboys on Sunday.",
+              "note": "Greenlaw logged eight tackles (four solo), including 0.5 sacks, during San Francisco's win over the Cowboys on Sunday.",
               "updatedAt": "2026-11-18T03:05Z",
               "expectedReturn": "",
               "position": "LB"
@@ -41515,7 +41515,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-18T13:18:29.009Z",
+          "checkedAt": "2026-11-18T14:59:54.413Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -49957,7 +49957,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-18T13:18:32.520Z",
+        "generatedAt": "2026-11-18T14:59:58.414Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
