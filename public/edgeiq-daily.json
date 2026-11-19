@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T11:06:49.403Z",
+  "generatedAt": "2026-11-19T13:22:03.198Z",
   "publishedDateET": "2026-11-19",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1305,7 +1305,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-19T11:06:43.182Z",
+          "checkedAt": "2026-11-19T13:21:54.905Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -9327,7 +9327,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T11:06:46.303Z",
+        "generatedAt": "2026-11-19T13:22:00.471Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 222,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10719,7 +10719,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-19T11:06:43.182Z",
+          "checkedAt": "2026-11-19T13:21:54.905Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -19861,7 +19861,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T11:06:46.542Z",
+        "generatedAt": "2026-11-19T13:22:00.664Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 222,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -29487,7 +29487,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-19T11:06:43.261Z",
+          "checkedAt": "2026-11-19T13:21:55.051Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -31419,7 +31419,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T11:06:47.108Z",
+        "generatedAt": "2026-11-19T13:22:01.200Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -41223,7 +41223,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-19T11:06:43.261Z",
+          "checkedAt": "2026-11-19T13:21:55.051Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -49665,7 +49665,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T11:06:49.402Z",
+        "generatedAt": "2026-11-19T13:22:03.197Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
