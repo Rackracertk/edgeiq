@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { SPORTS, parseESPNEvent, recentForm, pairMarketQuotes, matchByFixture } from './multisport-core.mjs';
+import { SPORTS, parseESPNEvent, recentForm, matchupEvidence, pairMarketQuotes, matchByFixture } from './multisport-core.mjs';
 
 const TODAY = new Date();
 const DAY = 86400000;
@@ -102,7 +102,8 @@ async function main() {
       let games=source.future.map(toTeamGame);
       for(const game of games)game.form={
         home:recentForm(source.completed,game.home.id),
-        away:recentForm(source.completed,game.away.id)};
+        away:recentForm(source.completed,game.away.id),
+        context:matchupEvidence(source.completed,game)};
       if(allowed) {
         const odds=await fetchOdds(feed);
         // Limit market comparisons to validated odds events; do not create

@@ -127,3 +127,30 @@ export function matchByFixture(events,home,away,time) {
   return events.find(g=>Math.abs(Date.parse(g.time)-t)<24*3600000 &&
     comparableName(g.home.name)===h && comparableName(g.away.name)===a);
 }
+
+export function matchupEvidence(completedGames,upcoming) {
+  const valid=completedGames.filter(g=>g.completed && g.home.score!==null && g.away.score!==null &&
+    Date.parse(g.time)<Date.parse(upcoming.time));
+  const home=upcoming.home.id,away=upcoming.away.id;
+  function since(teamId) {
+    const recent=valid.filter(g=>g.home.id===teamId||g.away.id===teamId)
+      .sort((a,b)=>b.time.localeCompare(a.time))[0];
+    if(!recent)return null;
+    return Math.max(0,Math.floor((Date.parse(upcoming.time)-Date.parse(recent.time))/86400000));
+  }
+  const h2h=valid.filter(g=>(g.home.id===home&&g.away.id===away) ||
+    (g.home.id===away&&g.away.id===home)).sort((a,b)=>b.time.localeCompare(a.time)).slice(0,5);
+  const homeWins=h2h.filter(g=>(g.home.id===home?g.home.score:g.away.score)>
+    (g.home.id===home?g.away.score:g.home.score)).length;
+  const awayWins=h2h.filter(g=>(g.home.id===away?g.home.score:g.away.score)>
+    (g.home.id===away?g.away.score:g.home.score)).length;
+  return {
+    daysSinceLastGame:{home:since(home),away:since(away)},
+    homeVenue:recentForm(valid.filter(g=>g.home.id===home),home),
+    awayVenue:recentForm(valid.filter(g=>g.away.id===away),away),
+    headToHead:{games:h2h.length,homeWins,awayWins,draws:h2h.length-homeWins-awayWins,
+      avgCombinedScore:h2h.length?Number((h2h.reduce((total,g)=>total+g.home.score+g.away.score,0)/h2h.length).toFixed(2)):null,
+      latest:h2h.length?{time:h2h[0].time,homeTeam:h2h[0].home.name,
+        homeScore:h2h[0].home.score,awayTeam:h2h[0].away.name,awayScore:h2h[0].away.score}:null}
+  };
+}

@@ -12,8 +12,12 @@ type Team = {id:string;name:string;short:string;score:number|null};
 type Market = {id:string;market:string;category:string;participant:string;side:string;line:number|null;
   odds:number;sportsbook:string;books:number;noVigProbability:number|null;
   breakEvenProbability:number|null;priceComparison:number|null;observedAt:string};
+type Context = {daysSinceLastGame:{home:number|null;away:number|null};
+  homeVenue:Form;awayVenue:Form;headToHead:{games:number;homeWins:number;awayWins:number;
+    draws:number;avgCombinedScore:number|null;latest:{time:string;homeTeam:string;
+    homeScore:number;awayTeam:string;awayScore:number}|null}};
 type Match = {id:string;league:string;time:string;home:Team;away:Team;
-  form:{home:Form;away:Form}|null;markets:Market[];marketSource:string;source:string};
+  form:{home:Form;away:Form;context?:Context}|null;markets:Market[];marketSource:string;source:string};
 type League = {league:string;games:Match[];completedSamples:number;oddsConfigured:boolean;updatedAt:string};
 type Publication = {schemaVersion:number;generatedAt:string;oddsStatus:string;
   researchWindow:string;methodology:string;sports:Record<AddedSport,{label:string;leagues:League[]}>;issues:string[]};
@@ -47,6 +51,15 @@ function MatchCard({match}:{match:Match}) {
      <FormSummary title={match.away.short||match.away.name} form={match.form?.away}/>
      <FormSummary title={match.home.short||match.home.name} form={match.form?.home}/>
    </div>
+   {match.form?.context&&<details className="multi-context">
+     <summary>Rest, venue splits &amp; head-to-head</summary>
+     <div className="multi-context-grid">
+      <p><strong>{match.away.short||match.away.name}:</strong> {match.form.context.daysSinceLastGame.away??"N/A"} full days since last recorded final. On the road: {match.form.context.awayVenue.wins}W–{match.form.context.awayVenue.draws}D–{match.form.context.awayVenue.losses}L (last {match.form.context.awayVenue.games} qualifying road games).</p>
+      <p><strong>{match.home.short||match.home.name}:</strong> {match.form.context.daysSinceLastGame.home??"N/A"} full days since last recorded final. At home: {match.form.context.homeVenue.wins}W–{match.form.context.homeVenue.draws}D–{match.form.context.homeVenue.losses}L (last {match.form.context.homeVenue.games} qualifying home games).</p>
+     </div>
+     {match.form.context.headToHead.games>0?<p>Recent head-to-head, last {match.form.context.headToHead.games} within the observed 20-day history: home side {match.form.context.headToHead.homeWins}W, away side {match.form.context.headToHead.awayWins}W, {match.form.context.headToHead.draws} draws. Average combined score: {match.form.context.headToHead.avgCombinedScore}. These are earlier matchups, not predicted scores.</p>:<p>No completed head-to-head meetings found in the limited 20-day observation window.</p>}
+    </details>}
+
    <p className="multi-caption">Observed scores only · recent results are not a predicted outcome. {match.markets.length>0?'Bookmaker markets in the cheat-sheet tab.':'No verified odds attached to this matchup.'}</p>
  </article>
 }
