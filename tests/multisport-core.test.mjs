@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { SPORTS, americanProbability, comparableName, parseESPNEvent,
- recentForm, pairMarketQuotes, matchByFixture } from '../scripts/multisport-core.mjs';
+ recentForm, matchupEvidence, pairMarketQuotes, matchByFixture } from '../scripts/multisport-core.mjs';
 
 test('five sports exist with official sport and league identifiers',()=>{
  assert.deepEqual(Object.keys(SPORTS),['MLB','NHL','NCAAF','NCAAB','SOCCER']);
@@ -87,4 +87,33 @@ test('only same teams and close kickoff time join across providers',()=>{
  assert.equal(matchByFixture([game],'Barcelona','Real Madrid','2026-11-20T20:45:00Z'),game);
  assert.equal(matchByFixture([game],'Barcelona','Real Madrid','2026-12-20T20:45:00Z'),undefined);
  assert.equal(matchByFixture([game],'Barcelona','Valencia','2026-11-20T20:45:00Z'),undefined);
+});
+
+test('matchup evidence uses only eligible finals and actual venue history',()=>{
+ const past=[
+  parseESPNEvent(makeEvent('a','2026-11-09T19:00:00Z','3','1'),'NHL'),
+  parseESPNEvent(makeEvent('b','2026-11-12T19:00:00Z','1','2'),'NHL'),
+  parseESPNEvent(makeEvent('c','2026-11-13T19:00:00Z','1','1'),'NHL'),
+ ];
+ // Last observed final on Nov 13; only data preceding the upcoming event counts.
+ const upcoming=parseESPNEvent(makeEvent('up','2026-11-20T19:00:00Z',null,null,false),'NHL');
+ const evidence=matchupEvidence(past,upcoming);
+ assert.equal(evidence.headToHead.games,3);
+ assert.equal(evidence.headToHead.homeWins,1);
+ assert.equal(evidence.headToHead.awayWins,1);
+ assert.equal(evidence.headToHead.draws,1);
+ assert.equal(evidence.headToHead.avgCombinedScore,3);
+ assert.equal(evidence.homeVenue.games,3);
+ assert.equal(evidence.awayVenue.games,3);
+ assert.equal(evidence.daysSinceLastGame.home,7);
+ assert.equal(evidence.daysSinceLastGame.away,7);
+ assert.equal(evidence.headToHead.latest.time,'2026-11-13T19:00:00Z');
+});
+test('no completed history never generates rest estimates or head-to-head facts',()=>{
+ const future=parseESPNEvent(makeEvent('u','2026-11-20T19:00:00Z',null,null,false),'SOCCER');
+ const result=matchupEvidence([],future);
+ assert.equal(result.daysSinceLastGame.home,null);
+ assert.equal(result.headToHead.games,0);
+ assert.equal(result.headToHead.avgCombinedScore,null);
+ assert.equal(result.headToHead.latest,null);
 });
