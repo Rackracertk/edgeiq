@@ -1,0 +1,53 @@
+name: EDGEIQ five-sport scheduled research publisher
+
+on:
+  schedule:
+    # UTC; two daily snapshots to limit data-provider quota usage.
+    - cron: '35 11,22 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/edgeiq-multisport.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: edgeiq-five-sport-research-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      EDGEIQ_ODDS_API_KEY: ${{ secrets.EDGEIQ_ODDS_API_KEY }}
+      EDGEIQ_ODDS_DISPLAY_AUTHORIZED: ${{ vars.EDGEIQ_ODDS_DISPLAY_AUTHORIZED }}
+      EDGEIQ_PROPS_ENABLED: ${{ vars.EDGEIQ_PROPS_ENABLED }}
+      EDGEIQ_MAX_PROP_EVENTS: ${{ vars.EDGEIQ_MAX_PROP_EVENTS }}
+    steps:
+      - name: Checkout actual Cloudflare Pages deployment branch
+        uses: actions/checkout@v4
+        with:
+          ref: edgeiq-launch-foundation-2026
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify sportsbook normalization and form calculations
+        run: node --test tests/multisport-core.test.mjs
+      - name: Publish actual scheduled matchups and optional authorized odds
+        run: node scripts/publish-multisport.mjs
+      - name: Commit only published multi-sport research data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/edgeiq-multisport.json
+          if git diff --cached --quiet; then
+            echo 'No multi-sport changes to publish'
+          else
+            git commit -m 'data: refresh five-sport matchups and authorized market snapshots'
+            git pull --rebase origin edgeiq-launch-foundation-2026
+            git push origin HEAD:edgeiq-launch-foundation-2026
+          fi
