@@ -49,16 +49,16 @@ const formatTime = (iso: string) => new Intl.DateTimeFormat('en-US', {
 }).format(new Date(iso))
 
 export default function DailyCheatSheet({
-  nbaPlayers, nbaHistory, nbaLoading, nbaError, onPro, onMarkets, onInjuries, onResearch,
+  nbaLoading, nbaError, onPro, onMarkets, onInjuries, onResearch,
 }: Props) {
   const [sport, setSport] = useState<CheatSport>('NBA')
   const [advance, setAdvance] = useState<'today' | 'tomorrow'>('today')
   const [slates, setSlates] = useState<Record<string, Slate>>({})
   const [publication, setPublication] = useState<DailyPublication | null>(null)
   const [publicationStatus, setPublicationStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading')
-  const [currentNFLRoster, setCurrentNFLRoster] = useState<CurrentRosterMap | null>(null)
+  const [, setCurrentNFLRoster] = useState<CurrentRosterMap | null>(null)
   const [reports, setReports] = useState<Record<string, InjuryData>>({})
-  const [nflRows, setNflRows] = useState<NFLHistoryRow[]>([])
+  const [, setNflRows] = useState<NFLHistoryRow[]>([])
   const [nflPartial, setNflPartial] = useState(false)
   const [loadingKey, setLoadingKey] = useState<string | null>(null)
   const [retry, setRetry] = useState(0)
