@@ -33,7 +33,8 @@ function toTeamGame(game) {
   return {id:game.id,league:game.league,time:game.time,home:game.home,away:game.away,
     form:null,markets:[],marketSource:'No authenticated sportsbook snapshot',source:'ESPN public scoreboard (unofficial)'};
 }
-function dayOf(iso){return String(iso||'').slice(0,10).replaceAll('-','')}
+// ESPN date queries group by league-local calendar day, while kickoff timestamps are UTC.
+// Do not drop cross-midnight games; deduplicate by the stable ESPN event ID.
 async function fetchESPN(feed) {
   const dates=Array.from({length:30},(_,i)=>i-20);
   const collected=await grouped(dates,9,async shift=>{
@@ -41,7 +42,7 @@ async function fetchESPN(feed) {
     try {
       const data=await json('https://site.api.espn.com/apis/site/v2/sports/'+feed.espn+'/scoreboard?dates='+date+'&limit=500');
       return (Array.isArray(data.events)?data.events:[])
-        .map(e=>parseESPNEvent(e,feed.league)).filter(e=>e && dayOf(e.time)===date);
+        .map(e=>parseESPNEvent(e,feed.league)).filter(Boolean);
     } catch(error) {
       issues.push(feed.league+' schedule '+date+': '+String(error));
       return [];
