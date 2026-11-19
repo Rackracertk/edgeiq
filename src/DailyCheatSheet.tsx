@@ -7,6 +7,7 @@ import {
 } from './cheatSheetData'
 import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, type InjuryData } from './analytics/injuryCenter'
 import { americanOddsBreakEven, type ElitePick } from './analytics/eliteResearch'
+import { selectHistoricalResearchPicks } from './analytics/publishedResearch'
 import './DailyCheatSheet.css'
 
 type MarketVerifiedCard = {
@@ -183,13 +184,12 @@ export default function DailyCheatSheet({
     shouldExcludeInjury(findInjury(report?.injuries ?? [], playerId, player, team, teamId))
   const picks = useMemo(() => {
     if (!slate?.games.length) return []
-    // Actual-market-only: no sportsbook quote means no displayed bettable pick.
-    if (publishedBoard) {
-      const verified = publishedBoard.marketVerified?.map(entry => entry.pick) ?? []
-      return pickMode === 'all' ? verified : verified.filter(p => p.recentHits / p.recentGames >= .9)
-    }
-    return []
-  }, [slate, sport, nbaHistory, nbaPlayers, nflRows, report?.checkedAt, reportAvailable, publishedBoard, pickMode, currentNFLRoster])
+    // The actual-market feed above remains strictly verified-offer-only.
+    // Historical observations below come from completed game logs and MUST
+    // remain available when the authorized sportsbook feed is not connected.
+    // The displayed historical lines are reference thresholds, not bettable odds.
+    return selectHistoricalResearchPicks(publishedBoard, pickMode)
+  }, [slate, publishedBoard, pickMode])
   useEffect(() => {
     if (!reportAvailable) return
     setSelectedPicks(current => current.filter(pick => Date.parse(pick.gameTime) > Date.now() &&
@@ -300,7 +300,7 @@ export default function DailyCheatSheet({
       <span className="eyebrow gold">SPORTSBOOK-VERIFIED · EXACT LINES</span>
       <h2 style={{margin:'8px 0'}}>Verified market opportunities</h2>
       {!publishedBoard?.marketVerified?.length ?
-        <p role="status">No verified, current sportsbook player props are available for this slate. {publishedBoard?.marketStatus === 'NOT_CONNECTED' ? 'An authorized sportsbook odds feed has not been connected.' : 'A current matching sportsbook quote could not be verified.'} Historical research appears below and must not be confused with offered betting lines.</p> :
+        <p role="status">No verified, current sportsbook player props are available for this slate. {publishedBoard?.marketStatus === 'NOT_CONNECTED' ? 'An authorized sportsbook odds feed has not been connected.' : 'A current matching sportsbook quote could not be verified.'} Historical research remains available below as reference thresholds, never as currently offered sportsbook lines.</p> :
         <div className="edge-cards">{publishedBoard.marketVerified.map(({pick,market}) =>
           <article key={pick.id} className="panel" style={{padding:16,marginBottom:12}}>
             <strong>{pick.player} · {pick.team} vs {pick.opponent}</strong>
@@ -333,7 +333,7 @@ export default function DailyCheatSheet({
     </div>
 
     <div className="cheat-section-title">
-      <div><span className="eyebrow">FREE BETA · COMPLETE NBA &amp; NFL PROPS</span><h2>{pickMode === 'elite' ? 'Elite 90%+ historical trends' : 'All available over/under prop research'}</h2></div>
+      <div><span className="eyebrow">FREE BETA · COMPLETED-GAME RESEARCH</span><h2>{pickMode === 'elite' ? 'Elite 90%+ historical trends' : 'Historical over/under research thresholds'}</h2></div>
       <span className="small-tag">{sport} · {slate?.label ?? 'CHECKING'}</span>
     </div>
 
@@ -378,7 +378,7 @@ export default function DailyCheatSheet({
       <h3>No qualifying trends for this slate</h3>
       <p>{picks.length ? 'No qualifying observations match these filters. Try another stat, the opposite side, or turn off position-only filtering.' : pickMode === 'elite'
         ? 'No 90%+ historical trends passed the screening for this slate. Try All Props for additional research without elite labeling.'
-        : 'No eligible over/under trends with sufficient verified history for this slate. We do not invent missing player lines or games.'}</p>
+        : 'No over/under observations passed the historical screening for this slate. Reference thresholds are never represented as real sportsbook lines.'}</p>
       {(picks.length > 0 || pickMode === 'elite') && <button className="nav" onClick={() => { setCategory('ALL'); setPropGroup('ALL'); setDirection('ALL'); setMatchupOnly(false);setPickMode('all') }}>Show all research</button>}
     </section> : <>
       <div className="cheat-grid">
@@ -386,6 +386,7 @@ export default function DailyCheatSheet({
           const active = selected.some(item => item.id === pick.id)
           return <article className={active ? 'cheat-card selected' : 'cheat-card'} key={pick.id}>
             <div className="cheat-card-top"><span>#{index + 1} · {pick.sport} · {pick.recentHits / pick.recentGames >= .9 ? 'ELITE 90%+' : 'RESEARCH 60–89%'} · {pick.researchGrade}</span><span>{formatTime(pick.gameTime)}</span></div>
+            <p className="cheat-mode-note">Historical reference threshold — not a verified sportsbook line</p>
             <div className="cheat-player"><h3>{pick.player}</h3><span>{pick.matchup} · {pick.position !== 'UNKNOWN' ? pick.position : 'Position unverified'}</span></div>
             <div className="cheat-prop"><span>{['Double-Double', 'Triple-Double'].includes(pick.category) ? (pick.direction === 'over' ? 'YES' : 'NO') : pick.direction.toUpperCase() + ' ' + pick.line}</span><strong>{pick.category}</strong></div>
             <div className="cheat-elite-header">
