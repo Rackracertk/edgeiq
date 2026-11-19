@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T17:11:56.351Z",
+  "generatedAt": "2026-11-19T19:03:50.657Z",
   "publishedDateET": "2026-11-19",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -421,24 +421,24 @@
               "player": "Draymond Green",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Green (elbow) is available for Wednesday's game against the Mavericks.",
-              "updatedAt": "2026-11-19T14:59Z",
-              "expectedReturn": "2026-11-19",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Green (elbow) is out for Thursday's game against the Grizzlies.",
+              "updatedAt": "2026-11-19T18:51Z",
+              "expectedReturn": "2026-11-22",
               "position": "F"
             },
             {
               "playerId": "",
-              "player": "Al Horford",
+              "player": "LJ Cryer",
               "team": "",
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Horford (back) is out for Wednesday's game against the Mavericks, but will play Thursday against the Grizzlies, Nick Friedell of The Athletic reports.",
-              "updatedAt": "2026-11-19T14:51Z",
+              "note": "Cryer (back) is questionable for Thursday's game against Memphis.",
+              "updatedAt": "2026-11-19T18:46Z",
               "expectedReturn": "2026-11-19",
-              "position": "C"
+              "position": "G"
             },
             {
               "playerId": "",
@@ -727,18 +727,6 @@
               "updatedAt": "2026-11-15T23:46Z",
               "expectedReturn": "2026-12-14",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Zyon Pullin",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Pullin (quadriceps) is listed as questionable for Thursday's game against the Knicks.",
-              "updatedAt": "2026-11-18T23:11Z",
-              "expectedReturn": "2026-11-19",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -1155,8 +1143,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Harper (hip) won't play in Thursday's game against the Clippers, Jeff McDonald of the San Antonio Express-News reports.",
-              "updatedAt": "2026-11-18T23:05Z",
+              "note": "Harper (hip) will undergo further testing Thursday, but his return date remains uncertain and he won't be available to face the Clippers, Jeff McDonald of the San Antonio Express-News reports.",
+              "updatedAt": "2026-11-19T17:40Z",
               "expectedReturn": "2026-11-21",
               "position": "G"
             },
@@ -1341,7 +1329,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-19T17:11:53.038Z",
+          "checkedAt": "2026-11-19T19:03:48.300Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -9363,7 +9351,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T17:11:54.707Z",
+        "generatedAt": "2026-11-19T19:03:49.187Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 222,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -9871,24 +9859,24 @@
               "player": "Draymond Green",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Green (elbow) is available for Wednesday's game against the Mavericks.",
-              "updatedAt": "2026-11-19T14:59Z",
-              "expectedReturn": "2026-11-19",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Green (elbow) is out for Thursday's game against the Grizzlies.",
+              "updatedAt": "2026-11-19T18:51Z",
+              "expectedReturn": "2026-11-22",
               "position": "F"
             },
             {
               "playerId": "",
-              "player": "Al Horford",
+              "player": "LJ Cryer",
               "team": "",
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Horford (back) is out for Wednesday's game against the Mavericks, but will play Thursday against the Grizzlies, Nick Friedell of The Athletic reports.",
-              "updatedAt": "2026-11-19T14:51Z",
+              "note": "Cryer (back) is questionable for Thursday's game against Memphis.",
+              "updatedAt": "2026-11-19T18:46Z",
               "expectedReturn": "2026-11-19",
-              "position": "C"
+              "position": "G"
             },
             {
               "playerId": "",
@@ -10177,18 +10165,6 @@
               "updatedAt": "2026-11-15T23:46Z",
               "expectedReturn": "2026-12-14",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Zyon Pullin",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Pullin (quadriceps) is listed as questionable for Thursday's game against the Knicks.",
-              "updatedAt": "2026-11-18T23:11Z",
-              "expectedReturn": "2026-11-19",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -10605,8 +10581,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Harper (hip) won't play in Thursday's game against the Clippers, Jeff McDonald of the San Antonio Express-News reports.",
-              "updatedAt": "2026-11-18T23:05Z",
+              "note": "Harper (hip) will undergo further testing Thursday, but his return date remains uncertain and he won't be available to face the Clippers, Jeff McDonald of the San Antonio Express-News reports.",
+              "updatedAt": "2026-11-19T17:40Z",
               "expectedReturn": "2026-11-21",
               "position": "G"
             },
@@ -10791,7 +10767,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-19T17:11:53.038Z",
+          "checkedAt": "2026-11-19T19:03:48.300Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -19933,7 +19909,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T17:11:54.830Z",
+        "generatedAt": "2026-11-19T19:03:49.294Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 222,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -20577,8 +20553,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "out",
-              "updatedAt": "2026-11-19T17:08Z",
+              "note": "Ravens head coach Jesse Minter said that Humphrey won't play Sunday against the Panthers after the defensive back made a derogatory comment about the city of Baltimore in an episode of his podcast released Wednesday, Jamison Hensley of ESPN",
+              "updatedAt": "2026-11-19T17:07Z",
               "expectedReturn": "2026-11-29",
               "position": "CB"
             },
@@ -20589,7 +20565,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Ioane (shoulder) was a limited participant in Wednesday's practice.",
+              "note": "Ioane (shoulder/knee) was a limited participant in Wednesday's practice.",
               "updatedAt": "2026-11-19T02:19Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
@@ -20913,7 +20889,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Benford (groin) did not participate in Wednesday's practice.",
+              "note": "Benford (groin) was estimated as a nonparticipant in Wednesday's walkthrough.",
               "updatedAt": "2026-11-19T01:26Z",
               "expectedReturn": "2026-11-22",
               "position": "CB"
@@ -20937,7 +20913,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Hooker (knee) was a limited participant in Wednesday's practice.",
+              "note": "Bishop (knee) was a limited participant in Wednesday's walkthrough.",
               "updatedAt": "2026-11-19T00:57Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
@@ -20949,7 +20925,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Hooker (knee) was a limited participant in Wednesday's practice.",
+              "note": "Hooker (knee) was a limited participant in Wednesday's walkthrough.",
               "updatedAt": "2026-11-19T00:54Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
@@ -21172,6 +21148,18 @@
             },
             {
               "playerId": "",
+              "player": "Darren Waller",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Waller (knee) is suited up for Thursday's practice, Mike Kaye of ESPN.com reports.",
+              "updatedAt": "2026-11-19T18:48Z",
+              "expectedReturn": "2026-11-22",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Will Lee III",
               "team": "",
               "teamId": "",
@@ -21229,18 +21217,6 @@
               "updatedAt": "2026-11-18T20:16Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Darren Waller",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Waller didn't practice Wednesday due to a knee issue, and afterward head coach Dave Canales called the tight end's injury a \"concern,\" Steve Reed of the Associated Press reports.",
-              "updatedAt": "2026-11-18T20:11Z",
-              "expectedReturn": "2026-11-22",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -22711,11 +22687,11 @@
               "player": "Talanoa Hufanga",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
               "note": "Hufanga (ankle) was a full participant at practice Wednesday, Aric DiLalla of the Broncos' official site reports.",
               "updatedAt": "2026-11-19T01:27Z",
-              "expectedReturn": "2026-11-22",
+              "expectedReturn": "",
               "position": "S"
             },
             {
@@ -23872,6 +23848,30 @@
             },
             {
               "playerId": "",
+              "player": "Charlie Heck",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-19T18:03Z",
+              "expectedReturn": "2026-11-19",
+              "position": "OT"
+            },
+            {
+              "playerId": "",
+              "player": "Sauce Gardner",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "According to Jane Slater of NFL Network, Gardner (calf) is not in line to play Thursday night against the Texans.",
+              "updatedAt": "2026-11-19T17:03Z",
+              "expectedReturn": "2026-11-19",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Jalen Travis",
               "team": "",
               "teamId": "",
@@ -23893,18 +23893,6 @@
               "updatedAt": "2026-11-19T01:55Z",
               "expectedReturn": "2026-11-29",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Sauce Gardner",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Gardner (calf) is listed as questionable for Thursday's game against the Texans.",
-              "updatedAt": "2026-11-19T00:03Z",
-              "expectedReturn": "2026-11-19",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -24160,15 +24148,15 @@
             },
             {
               "playerId": "",
-              "player": "Mo Alie-Cox",
+              "player": "Bhayshul Tuten",
               "team": "",
               "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Colts placed Alie-Cox (groin) on injured reserve Saturday.",
-              "updatedAt": "2026-11-14T17:24Z",
-              "expectedReturn": "2026-12-20",
-              "position": "TE"
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Tuten (ankle/foot) was working off to the side during the stretching portion of Thursday's practice, according to Ryan O'Halloran of The Florida Times-Union.",
+              "updatedAt": "2026-11-19T17:31Z",
+              "expectedReturn": "2026-11-22",
+              "position": "RB"
             },
             {
               "playerId": "",
@@ -24265,18 +24253,6 @@
               "updatedAt": "2026-11-18T21:25Z",
               "expectedReturn": "2026-11-22",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Bhayshul Tuten",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Tuten (ankle/foot) was a limited participant in Wednesday's practice, Ryan O'Halloran of The Florida Times-Union reports.",
-              "updatedAt": "2026-11-18T21:22Z",
-              "expectedReturn": "2026-11-22",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -24849,7 +24825,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Coach Klint Kubiak said Wednesday that Bowers (ankle) doesn't need to practice this week to play Sunday Sunday against the Broncos, Sam Warren of The Athletic reports.",
+              "note": "Coach Klint Kubiak said Wednesday that Bowers (ankle) doesn't need to practice this week to play Sunday against the Broncos, Sam Warren of The Athletic reports.",
               "updatedAt": "2026-11-18T22:01Z",
               "expectedReturn": "2026-11-22",
               "position": "TE"
@@ -25672,6 +25648,18 @@
             },
             {
               "playerId": "",
+              "player": "Caleb Douglas",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Douglas (shoulder) continued to don a non-contact jersey during Thursday's practice, Barry Jackson of the Miami Herald reports.",
+              "updatedAt": "2026-11-19T18:09Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Andrew Meyer",
               "team": "",
               "teamId": "",
@@ -25751,18 +25739,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Bell (knee) was a limited participant in Wednesday's practice, David Furones of the South Florida Sun Sentinel reports.",
               "updatedAt": "2026-11-18T22:13Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Caleb Douglas",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Douglas was a limited participant in Wednesday's practice due to a shoulder injury, David Furones of the South Florida Sun Sentinel reports.",
-              "updatedAt": "2026-11-18T22:08Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
             },
@@ -27760,11 +27736,23 @@
             },
             {
               "playerId": "",
+              "player": "Michael Pittman Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Pittman (foot) participated in practice Thursday, Nick Farabaugh of PennLive.com reports.",
+              "updatedAt": "2026-11-19T18:28Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Nick Herbig",
               "team": "",
               "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Herbig (hip) did not participate in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
               "updatedAt": "2026-11-19T02:13Z",
               "expectedReturn": "2026-11-22",
@@ -27827,18 +27815,6 @@
               "reason": "INJURY_STATUS_IR",
               "note": "Wilson (finger), who was designated for return from injured reserve earlier Wednesday, was a full participant in his return to practice.",
               "updatedAt": "2026-11-18T22:57Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Michael Pittman Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Pittman (foot) was limited in his return to practice Wednesday, Teresa Varley of the Steelers' official site reports.",
-              "updatedAt": "2026-11-18T22:44Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
             },
@@ -28665,8 +28641,8 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Mayfield (foot) was seen participating in Thursday's practice, Greg Auman of Fox Sports reports.",
-              "updatedAt": "2026-11-19T16:53Z",
+              "note": "Mayfield (foot/right thumb) said that he felt good but was \"limited\" at Thursday's practice, and he's hopeful to do more at Friday's session, Scott Smith of the Buccaneers' official site reports.",
+              "updatedAt": "2026-11-19T18:37Z",
               "expectedReturn": "2026-11-22",
               "position": "QB"
             },
@@ -29260,6 +29236,30 @@
             },
             {
               "playerId": "",
+              "player": "Lucas Patrick",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-19T17:47Z",
+              "expectedReturn": "",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Jacory Croskey-Merritt",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Commanders head coach Dan Quinn confirmed that Croskey-Merritt (groin) will practice Thursday, Tashan Reed of The Washington Post reports.",
+              "updatedAt": "2026-11-19T17:38Z",
+              "expectedReturn": "2026-11-23",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Luke McCaffrey",
               "team": "",
               "teamId": "",
@@ -29272,18 +29272,6 @@
             },
             {
               "playerId": "",
-              "player": "Jacory Croskey-Merritt",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Commanders designated Croskey-Merritt (groin) for return from injured reserve Tuesday.",
-              "updatedAt": "2026-11-17T19:02Z",
-              "expectedReturn": "2026-11-23",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
               "player": "Colson Yankoff",
               "team": "",
               "teamId": "",
@@ -29293,18 +29281,6 @@
               "updatedAt": "2026-11-17T12:19Z",
               "expectedReturn": "2026-11-23",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Lucas Patrick",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-23",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -29559,7 +29535,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-19T17:11:53.074Z",
+          "checkedAt": "2026-11-19T19:03:48.360Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -31491,7 +31467,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T17:11:55.126Z",
+        "generatedAt": "2026-11-19T19:03:49.567Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -32313,8 +32289,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "out",
-              "updatedAt": "2026-11-19T17:08Z",
+              "note": "Ravens head coach Jesse Minter said that Humphrey won't play Sunday against the Panthers after the defensive back made a derogatory comment about the city of Baltimore in an episode of his podcast released Wednesday, Jamison Hensley of ESPN",
+              "updatedAt": "2026-11-19T17:07Z",
               "expectedReturn": "2026-11-29",
               "position": "CB"
             },
@@ -32325,7 +32301,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Ioane (shoulder) was a limited participant in Wednesday's practice.",
+              "note": "Ioane (shoulder/knee) was a limited participant in Wednesday's practice.",
               "updatedAt": "2026-11-19T02:19Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
@@ -32649,7 +32625,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Benford (groin) did not participate in Wednesday's practice.",
+              "note": "Benford (groin) was estimated as a nonparticipant in Wednesday's walkthrough.",
               "updatedAt": "2026-11-19T01:26Z",
               "expectedReturn": "2026-11-22",
               "position": "CB"
@@ -32673,7 +32649,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Hooker (knee) was a limited participant in Wednesday's practice.",
+              "note": "Bishop (knee) was a limited participant in Wednesday's walkthrough.",
               "updatedAt": "2026-11-19T00:57Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
@@ -32685,7 +32661,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Hooker (knee) was a limited participant in Wednesday's practice.",
+              "note": "Hooker (knee) was a limited participant in Wednesday's walkthrough.",
               "updatedAt": "2026-11-19T00:54Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
@@ -32908,6 +32884,18 @@
             },
             {
               "playerId": "",
+              "player": "Darren Waller",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Waller (knee) is suited up for Thursday's practice, Mike Kaye of ESPN.com reports.",
+              "updatedAt": "2026-11-19T18:48Z",
+              "expectedReturn": "2026-11-22",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Will Lee III",
               "team": "",
               "teamId": "",
@@ -32965,18 +32953,6 @@
               "updatedAt": "2026-11-18T20:16Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Darren Waller",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Waller didn't practice Wednesday due to a knee issue, and afterward head coach Dave Canales called the tight end's injury a \"concern,\" Steve Reed of the Associated Press reports.",
-              "updatedAt": "2026-11-18T20:11Z",
-              "expectedReturn": "2026-11-22",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -34447,11 +34423,11 @@
               "player": "Talanoa Hufanga",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
               "note": "Hufanga (ankle) was a full participant at practice Wednesday, Aric DiLalla of the Broncos' official site reports.",
               "updatedAt": "2026-11-19T01:27Z",
-              "expectedReturn": "2026-11-22",
+              "expectedReturn": "",
               "position": "S"
             },
             {
@@ -35608,6 +35584,30 @@
             },
             {
               "playerId": "",
+              "player": "Charlie Heck",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-19T18:03Z",
+              "expectedReturn": "2026-11-19",
+              "position": "OT"
+            },
+            {
+              "playerId": "",
+              "player": "Sauce Gardner",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "According to Jane Slater of NFL Network, Gardner (calf) is not in line to play Thursday night against the Texans.",
+              "updatedAt": "2026-11-19T17:03Z",
+              "expectedReturn": "2026-11-19",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Jalen Travis",
               "team": "",
               "teamId": "",
@@ -35629,18 +35629,6 @@
               "updatedAt": "2026-11-19T01:55Z",
               "expectedReturn": "2026-11-29",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Sauce Gardner",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Gardner (calf) is listed as questionable for Thursday's game against the Texans.",
-              "updatedAt": "2026-11-19T00:03Z",
-              "expectedReturn": "2026-11-19",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -35896,15 +35884,15 @@
             },
             {
               "playerId": "",
-              "player": "Mo Alie-Cox",
+              "player": "Bhayshul Tuten",
               "team": "",
               "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Colts placed Alie-Cox (groin) on injured reserve Saturday.",
-              "updatedAt": "2026-11-14T17:24Z",
-              "expectedReturn": "2026-12-20",
-              "position": "TE"
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Tuten (ankle/foot) was working off to the side during the stretching portion of Thursday's practice, according to Ryan O'Halloran of The Florida Times-Union.",
+              "updatedAt": "2026-11-19T17:31Z",
+              "expectedReturn": "2026-11-22",
+              "position": "RB"
             },
             {
               "playerId": "",
@@ -36001,18 +35989,6 @@
               "updatedAt": "2026-11-18T21:25Z",
               "expectedReturn": "2026-11-22",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Bhayshul Tuten",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Tuten (ankle/foot) was a limited participant in Wednesday's practice, Ryan O'Halloran of The Florida Times-Union reports.",
-              "updatedAt": "2026-11-18T21:22Z",
-              "expectedReturn": "2026-11-22",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -36585,7 +36561,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Coach Klint Kubiak said Wednesday that Bowers (ankle) doesn't need to practice this week to play Sunday Sunday against the Broncos, Sam Warren of The Athletic reports.",
+              "note": "Coach Klint Kubiak said Wednesday that Bowers (ankle) doesn't need to practice this week to play Sunday against the Broncos, Sam Warren of The Athletic reports.",
               "updatedAt": "2026-11-18T22:01Z",
               "expectedReturn": "2026-11-22",
               "position": "TE"
@@ -37408,6 +37384,18 @@
             },
             {
               "playerId": "",
+              "player": "Caleb Douglas",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Douglas (shoulder) continued to don a non-contact jersey during Thursday's practice, Barry Jackson of the Miami Herald reports.",
+              "updatedAt": "2026-11-19T18:09Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Andrew Meyer",
               "team": "",
               "teamId": "",
@@ -37487,18 +37475,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Bell (knee) was a limited participant in Wednesday's practice, David Furones of the South Florida Sun Sentinel reports.",
               "updatedAt": "2026-11-18T22:13Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Caleb Douglas",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Douglas was a limited participant in Wednesday's practice due to a shoulder injury, David Furones of the South Florida Sun Sentinel reports.",
-              "updatedAt": "2026-11-18T22:08Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
             },
@@ -39496,11 +39472,23 @@
             },
             {
               "playerId": "",
+              "player": "Michael Pittman Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Pittman (foot) participated in practice Thursday, Nick Farabaugh of PennLive.com reports.",
+              "updatedAt": "2026-11-19T18:28Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Nick Herbig",
               "team": "",
               "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Herbig (hip) did not participate in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
               "updatedAt": "2026-11-19T02:13Z",
               "expectedReturn": "2026-11-22",
@@ -39563,18 +39551,6 @@
               "reason": "INJURY_STATUS_IR",
               "note": "Wilson (finger), who was designated for return from injured reserve earlier Wednesday, was a full participant in his return to practice.",
               "updatedAt": "2026-11-18T22:57Z",
-              "expectedReturn": "2026-11-22",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Michael Pittman Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Pittman (foot) was limited in his return to practice Wednesday, Teresa Varley of the Steelers' official site reports.",
-              "updatedAt": "2026-11-18T22:44Z",
               "expectedReturn": "2026-11-22",
               "position": "WR"
             },
@@ -40401,8 +40377,8 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Mayfield (foot) was seen participating in Thursday's practice, Greg Auman of Fox Sports reports.",
-              "updatedAt": "2026-11-19T16:53Z",
+              "note": "Mayfield (foot/right thumb) said that he felt good but was \"limited\" at Thursday's practice, and he's hopeful to do more at Friday's session, Scott Smith of the Buccaneers' official site reports.",
+              "updatedAt": "2026-11-19T18:37Z",
               "expectedReturn": "2026-11-22",
               "position": "QB"
             },
@@ -40996,6 +40972,30 @@
             },
             {
               "playerId": "",
+              "player": "Lucas Patrick",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-19T17:47Z",
+              "expectedReturn": "",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Jacory Croskey-Merritt",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Commanders head coach Dan Quinn confirmed that Croskey-Merritt (groin) will practice Thursday, Tashan Reed of The Washington Post reports.",
+              "updatedAt": "2026-11-19T17:38Z",
+              "expectedReturn": "2026-11-23",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Luke McCaffrey",
               "team": "",
               "teamId": "",
@@ -41008,18 +41008,6 @@
             },
             {
               "playerId": "",
-              "player": "Jacory Croskey-Merritt",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "The Commanders designated Croskey-Merritt (groin) for return from injured reserve Tuesday.",
-              "updatedAt": "2026-11-17T19:02Z",
-              "expectedReturn": "2026-11-23",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
               "player": "Colson Yankoff",
               "team": "",
               "teamId": "",
@@ -41029,18 +41017,6 @@
               "updatedAt": "2026-11-17T12:19Z",
               "expectedReturn": "2026-11-23",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "Lucas Patrick",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-17T12:19Z",
-              "expectedReturn": "2026-11-23",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -41295,7 +41271,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-19T17:11:53.074Z",
+          "checkedAt": "2026-11-19T19:03:48.360Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -49737,7 +49713,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T17:11:56.350Z",
+        "generatedAt": "2026-11-19T19:03:50.656Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
