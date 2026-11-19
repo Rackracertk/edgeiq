@@ -39,6 +39,22 @@ jobs:
         run: node --test tests/multisport-core.test.mjs
       - name: Publish actual scheduled matchups and optional authorized odds
         run: node scripts/publish-multisport.mjs
+      - name: Refuse malformed or unsourced publication
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs'
+          const p=JSON.parse(readFileSync('public/edgeiq-multisport.json','utf8'))
+          if(p.schemaVersion!==1 || !Number.isFinite(Date.parse(p.generatedAt)))throw Error('Invalid publication version/time')
+          const expected=['MLB','NHL','NCAAF','NCAAB','SOCCER']
+          for(const sport of expected){
+            if(!Array.isArray(p.sports?.[sport]?.leagues))throw Error('Missing '+sport)
+            for(const league of p.sports[sport].leagues)for(const game of league.games){
+              if(!game.id || !game.home?.name || !game.away?.name || !Number.isFinite(Date.parse(game.time)))throw Error('Invalid fixture')
+              if(p.oddsStatus==='NOT_CONFIGURED' && game.markets.length)throw Error('Unlicensed market quotation')
+            }
+          }
+          console.log('Validated published five-sport research:',expected.join(', '))
+          NODE
       - name: Commit only published multi-sport research data
         run: |
           git config user.name 'github-actions[bot]'
