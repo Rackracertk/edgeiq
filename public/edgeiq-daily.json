@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T15:00:14.244Z",
+  "generatedAt": "2026-11-19T17:11:56.351Z",
   "publishedDateET": "2026-11-19",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -163,6 +163,18 @@
               "updatedAt": "2026-09-21T19:50Z",
               "expectedReturn": "2027-07-01",
               "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Grant Nelson",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Nelson signed a two-way contract with the Nets on Friday, Michael Scotto of HoopsHype.com reports.",
+              "updatedAt": "2026-11-19T15:45Z",
+              "expectedReturn": "2026-11-24",
+              "position": "F"
             },
             {
               "playerId": "",
@@ -334,6 +346,18 @@
             },
             {
               "playerId": "",
+              "player": "Ugonna Onyenso",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Onyenso agreed to a two-way contract with the Pistons on Thursday.",
+              "updatedAt": "2026-11-19T16:15Z",
+              "expectedReturn": "2026-11-21",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Taurean Prince",
               "team": "",
               "teamId": "",
@@ -394,13 +418,25 @@
             },
             {
               "playerId": "",
+              "player": "Draymond Green",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Green (elbow) is available for Wednesday's game against the Mavericks.",
+              "updatedAt": "2026-11-19T14:59Z",
+              "expectedReturn": "2026-11-19",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Al Horford",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Horford (back) is out for Wednesday's game against the Mavericks, but will play Thursday against the Grizzlies, Nick Friedell of The Athletic reports.",
-              "updatedAt": "2026-11-18T23:38Z",
+              "updatedAt": "2026-11-19T14:51Z",
               "expectedReturn": "2026-11-19",
               "position": "C"
             },
@@ -490,6 +526,18 @@
             },
             {
               "playerId": "",
+              "player": "Andrew Nembhard",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Nembhard (hip) won't play in Wednesday's game against the Rockets, Tony East of Forbes.com reports.",
+              "updatedAt": "2026-11-19T14:45Z",
+              "expectedReturn": "2026-11-20",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Braden Smith",
               "team": "",
               "teamId": "",
@@ -497,18 +545,6 @@
               "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Smith suffered a right ankle sprain during Wednesday's game against the Wizards, Tony East of Forbes.com reports.",
               "updatedAt": "2026-11-19T02:52Z",
-              "expectedReturn": "2026-11-20",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Andrew Nembhard",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Nembhard (hip) won't play in Wednesday's game against the Rockets, Tony East of Forbes.com reports.",
-              "updatedAt": "2026-11-18T22:27Z",
               "expectedReturn": "2026-11-20",
               "position": "G"
             },
@@ -557,7 +593,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Ingram (heel/Achilles) will remain on the inactive list for Thursday's game in San Antonio.",
               "updatedAt": "2026-11-18T23:11Z",
-              "expectedReturn": "2026-11-19",
+              "expectedReturn": "2026-11-21",
               "position": "F"
             },
             {
@@ -817,10 +853,10 @@
               "player": "Alex Caruso",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Caruso won't return to Wednesday's game against the Hawks due to right hip soreness, Clemente Almanza of USA Today reports.",
-              "updatedAt": "2026-11-19T03:13Z",
+              "updatedAt": "2026-11-19T14:50Z",
               "expectedReturn": "2026-11-20",
               "position": "G"
             },
@@ -881,7 +917,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Head coach Sean Sweeney said Wednesday that Nelson (ankle) has been doing \"some on-court stuff,\" though Sweeney added that the work has been \"minimal,\" Jason Beede of the Orlando Sentinel reports.",
               "updatedAt": "2026-11-18T17:25Z",
-              "expectedReturn": "2026-11-28",
+              "expectedReturn": "2026-11-29",
               "position": "F"
             },
             {
@@ -922,27 +958,27 @@
             },
             {
               "playerId": "",
-              "player": "Tyrese Maxey",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Maxey (foot) is out for Wednesday's game in Orlando, Ky Carlin of USA Today reports.",
-              "updatedAt": "2026-11-18T23:33Z",
-              "expectedReturn": "2026-11-21",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Dean Wade",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Wade (hamstring) is out for Wednesday's game in Orlando.",
-              "updatedAt": "2026-11-18T23:19Z",
+              "updatedAt": "2026-11-19T14:47Z",
               "expectedReturn": "2026-11-21",
               "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Tyrese Maxey",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Maxey (foot) is out for Wednesday's game in Orlando, Ky Carlin of USA Today reports.",
+              "updatedAt": "2026-11-19T14:46Z",
+              "expectedReturn": "2026-11-21",
+              "position": "G"
             },
             {
               "playerId": "",
@@ -1006,6 +1042,18 @@
             },
             {
               "playerId": "",
+              "player": "Chris Youngblood",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Youngblood (heel) has been ruled out for Thursday's game against the Bucks.",
+              "updatedAt": "2026-11-19T15:06Z",
+              "expectedReturn": "2026-11-21",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Robert Williams III",
               "team": "",
               "teamId": "",
@@ -1039,18 +1087,6 @@
               "updatedAt": "2026-11-18T22:53Z",
               "expectedReturn": "2026-11-19",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Chris Youngblood",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Youngblood (heel) has been ruled out for Tuesday's game at Minnesota.",
-              "updatedAt": "2026-11-17T19:19Z",
-              "expectedReturn": "2026-11-19",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -1305,7 +1341,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-19T15:00:09.582Z",
+          "checkedAt": "2026-11-19T17:11:53.038Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -9327,7 +9363,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T15:00:11.187Z",
+        "generatedAt": "2026-11-19T17:11:54.707Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 222,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -9580,6 +9616,18 @@
             },
             {
               "playerId": "",
+              "player": "Grant Nelson",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Nelson signed a two-way contract with the Nets on Friday, Michael Scotto of HoopsHype.com reports.",
+              "updatedAt": "2026-11-19T15:45Z",
+              "expectedReturn": "2026-11-24",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Grayson Allen",
               "team": "",
               "teamId": "",
@@ -9748,6 +9796,18 @@
             },
             {
               "playerId": "",
+              "player": "Ugonna Onyenso",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Onyenso agreed to a two-way contract with the Pistons on Thursday.",
+              "updatedAt": "2026-11-19T16:15Z",
+              "expectedReturn": "2026-11-21",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Taurean Prince",
               "team": "",
               "teamId": "",
@@ -9808,13 +9868,25 @@
             },
             {
               "playerId": "",
+              "player": "Draymond Green",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Green (elbow) is available for Wednesday's game against the Mavericks.",
+              "updatedAt": "2026-11-19T14:59Z",
+              "expectedReturn": "2026-11-19",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Al Horford",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Horford (back) is out for Wednesday's game against the Mavericks, but will play Thursday against the Grizzlies, Nick Friedell of The Athletic reports.",
-              "updatedAt": "2026-11-18T23:38Z",
+              "updatedAt": "2026-11-19T14:51Z",
               "expectedReturn": "2026-11-19",
               "position": "C"
             },
@@ -9904,6 +9976,18 @@
             },
             {
               "playerId": "",
+              "player": "Andrew Nembhard",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Nembhard (hip) won't play in Wednesday's game against the Rockets, Tony East of Forbes.com reports.",
+              "updatedAt": "2026-11-19T14:45Z",
+              "expectedReturn": "2026-11-20",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Braden Smith",
               "team": "",
               "teamId": "",
@@ -9911,18 +9995,6 @@
               "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Smith suffered a right ankle sprain during Wednesday's game against the Wizards, Tony East of Forbes.com reports.",
               "updatedAt": "2026-11-19T02:52Z",
-              "expectedReturn": "2026-11-20",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Andrew Nembhard",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Nembhard (hip) won't play in Wednesday's game against the Rockets, Tony East of Forbes.com reports.",
-              "updatedAt": "2026-11-18T22:27Z",
               "expectedReturn": "2026-11-20",
               "position": "G"
             },
@@ -9971,7 +10043,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Ingram (heel/Achilles) will remain on the inactive list for Thursday's game in San Antonio.",
               "updatedAt": "2026-11-18T23:11Z",
-              "expectedReturn": "2026-11-19",
+              "expectedReturn": "2026-11-21",
               "position": "F"
             },
             {
@@ -10231,10 +10303,10 @@
               "player": "Alex Caruso",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Caruso won't return to Wednesday's game against the Hawks due to right hip soreness, Clemente Almanza of USA Today reports.",
-              "updatedAt": "2026-11-19T03:13Z",
+              "updatedAt": "2026-11-19T14:50Z",
               "expectedReturn": "2026-11-20",
               "position": "G"
             },
@@ -10295,7 +10367,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "Head coach Sean Sweeney said Wednesday that Nelson (ankle) has been doing \"some on-court stuff,\" though Sweeney added that the work has been \"minimal,\" Jason Beede of the Orlando Sentinel reports.",
               "updatedAt": "2026-11-18T17:25Z",
-              "expectedReturn": "2026-11-28",
+              "expectedReturn": "2026-11-29",
               "position": "F"
             },
             {
@@ -10336,27 +10408,27 @@
             },
             {
               "playerId": "",
-              "player": "Tyrese Maxey",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Maxey (foot) is out for Wednesday's game in Orlando, Ky Carlin of USA Today reports.",
-              "updatedAt": "2026-11-18T23:33Z",
-              "expectedReturn": "2026-11-21",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Dean Wade",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Wade (hamstring) is out for Wednesday's game in Orlando.",
-              "updatedAt": "2026-11-18T23:19Z",
+              "updatedAt": "2026-11-19T14:47Z",
               "expectedReturn": "2026-11-21",
               "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Tyrese Maxey",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Maxey (foot) is out for Wednesday's game in Orlando, Ky Carlin of USA Today reports.",
+              "updatedAt": "2026-11-19T14:46Z",
+              "expectedReturn": "2026-11-21",
+              "position": "G"
             },
             {
               "playerId": "",
@@ -10420,6 +10492,18 @@
             },
             {
               "playerId": "",
+              "player": "Chris Youngblood",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Youngblood (heel) has been ruled out for Thursday's game against the Bucks.",
+              "updatedAt": "2026-11-19T15:06Z",
+              "expectedReturn": "2026-11-21",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Robert Williams III",
               "team": "",
               "teamId": "",
@@ -10453,18 +10537,6 @@
               "updatedAt": "2026-11-18T22:53Z",
               "expectedReturn": "2026-11-19",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Chris Youngblood",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Youngblood (heel) has been ruled out for Tuesday's game at Minnesota.",
-              "updatedAt": "2026-11-17T19:19Z",
-              "expectedReturn": "2026-11-19",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -10719,7 +10791,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-19T15:00:09.582Z",
+          "checkedAt": "2026-11-19T17:11:53.038Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -19861,7 +19933,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T15:00:11.435Z",
+        "generatedAt": "2026-11-19T17:11:54.830Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 222,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -20500,6 +20572,18 @@
             },
             {
               "playerId": "",
+              "player": "Marlon Humphrey",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-19T17:08Z",
+              "expectedReturn": "2026-11-29",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Olaivavega Ioane",
               "team": "",
               "teamId": "",
@@ -20785,18 +20869,6 @@
               "updatedAt": "2026-11-13T00:53Z",
               "expectedReturn": "",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Ryan Neuzil",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Ravens acquired Neuzil from the Falcons on Tuesday in exchange for guard Andrew Vorhees and a conditional 2028 sixth-round pick, Jamison Hensley of ESPN.com reports.",
-              "updatedAt": "2026-11-11T00:36Z",
-              "expectedReturn": "",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -23500,6 +23572,18 @@
             },
             {
               "playerId": "",
+              "player": "Xavier Hutchinson",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Hutchinson is expected to continue to benefit from elevated playing time Thursday against the Colts while Marvin Harrison (hamstring) is sidelined for a second straight game, Jared Koch of SI.com reports.",
+              "updatedAt": "2026-11-19T15:50Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Jake Hummel",
               "team": "",
               "teamId": "",
@@ -23747,18 +23831,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Dell brought in three of four targets for 21 yards and rushed once for no gain in the Texans' 27-24 loss to the Browns on Sunday.",
               "updatedAt": "2026-11-16T01:16Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Xavier Hutchinson",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Hutchinson brought in four of nine targets for 58 yards and a touchdown in the Texans' 27-24 loss to the Browns on Sunday.",
-              "updatedAt": "2026-11-16T01:12Z",
               "expectedReturn": "",
               "position": "WR"
             },
@@ -27988,6 +28060,30 @@
             },
             {
               "playerId": "",
+              "player": "Mike Evans",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "San Francisco general manager John Lynch said that \"there's a chance\" Evans (Achilles) will take part in a padded practice Thursday, Matt Maiocco of NBC Sports Bay Area reports.",
+              "updatedAt": "2026-11-19T16:26Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Christian Kirk",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Kirk announced Wednesday via his personal Instagram account that he recently underwent meniscus surgery.",
+              "updatedAt": "2026-11-19T15:22Z",
+              "expectedReturn": "2026-12-06",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Ji'Ayir Brown",
               "team": "",
               "teamId": "",
@@ -28092,18 +28188,6 @@
               "note": "Stribling (ankle) was doing some work on the side at Wednesday's practice, Nick Wagoner of ESPN.com reports.",
               "updatedAt": "2026-11-18T20:26Z",
               "expectedReturn": "2026-12-06",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Mike Evans",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Head coach Kyle Shanahan said Evans (Achilles) won't practice Wednesday, but Shanahan hopes the wide receiver will return to drills Thursday, Nick Wagoner of ESPN.com reports.",
-              "updatedAt": "2026-11-18T18:52Z",
-              "expectedReturn": "2026-11-22",
               "position": "WR"
             },
             {
@@ -28273,18 +28357,6 @@
               "updatedAt": "2026-11-16T03:50Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Christian McCaffrey",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "McCaffrey rushed 13 times for 62 yards and a touchdown and brought in all four targets for 161 yards and two more scores in the 49ers' 46-40 win over the Cowboys on Sunday. He also caught a two-point conversion pass.",
-              "updatedAt": "2026-11-16T03:03Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -28588,6 +28660,18 @@
             },
             {
               "playerId": "",
+              "player": "Baker Mayfield",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Mayfield (foot) was seen participating in Thursday's practice, Greg Auman of Fox Sports reports.",
+              "updatedAt": "2026-11-19T16:53Z",
+              "expectedReturn": "2026-11-22",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Josh Hayes",
               "team": "",
               "teamId": "",
@@ -28605,7 +28689,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Winfield (ankle) did not participate in practice Wednesday, Greg Auman of Fox Sports reports.",
+              "note": "Winfield (ankle) didn't participate in Wednesday's practice.",
               "updatedAt": "2026-11-18T19:52Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
@@ -28632,18 +28716,6 @@
               "note": "Daniels is slated to take all of the first-teams reps Wednesday with Baker Mayfield (foot) sidelined for the Buccaneers' first Week 11 practice, Greg Auman of Fox Sports reports.",
               "updatedAt": "2026-11-18T17:47Z",
               "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Baker Mayfield",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Mayfield (foot) isn't practicing Wednesday, Greg Auman of Fox Sports reports.",
-              "updatedAt": "2026-11-18T17:17Z",
-              "expectedReturn": "2026-11-22",
               "position": "QB"
             },
             {
@@ -29487,7 +29559,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-19T15:00:09.737Z",
+          "checkedAt": "2026-11-19T17:11:53.074Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -31419,7 +31491,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T15:00:12.002Z",
+        "generatedAt": "2026-11-19T17:11:55.126Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -32236,6 +32308,18 @@
             },
             {
               "playerId": "",
+              "player": "Marlon Humphrey",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-19T17:08Z",
+              "expectedReturn": "2026-11-29",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Olaivavega Ioane",
               "team": "",
               "teamId": "",
@@ -32521,18 +32605,6 @@
               "updatedAt": "2026-11-13T00:53Z",
               "expectedReturn": "",
               "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Ryan Neuzil",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Ravens acquired Neuzil from the Falcons on Tuesday in exchange for guard Andrew Vorhees and a conditional 2028 sixth-round pick, Jamison Hensley of ESPN.com reports.",
-              "updatedAt": "2026-11-11T00:36Z",
-              "expectedReturn": "",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -35236,6 +35308,18 @@
             },
             {
               "playerId": "",
+              "player": "Xavier Hutchinson",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Hutchinson is expected to continue to benefit from elevated playing time Thursday against the Colts while Marvin Harrison (hamstring) is sidelined for a second straight game, Jared Koch of SI.com reports.",
+              "updatedAt": "2026-11-19T15:50Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Jake Hummel",
               "team": "",
               "teamId": "",
@@ -35483,18 +35567,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Dell brought in three of four targets for 21 yards and rushed once for no gain in the Texans' 27-24 loss to the Browns on Sunday.",
               "updatedAt": "2026-11-16T01:16Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Xavier Hutchinson",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Hutchinson brought in four of nine targets for 58 yards and a touchdown in the Texans' 27-24 loss to the Browns on Sunday.",
-              "updatedAt": "2026-11-16T01:12Z",
               "expectedReturn": "",
               "position": "WR"
             },
@@ -39724,6 +39796,30 @@
             },
             {
               "playerId": "",
+              "player": "Mike Evans",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "San Francisco general manager John Lynch said that \"there's a chance\" Evans (Achilles) will take part in a padded practice Thursday, Matt Maiocco of NBC Sports Bay Area reports.",
+              "updatedAt": "2026-11-19T16:26Z",
+              "expectedReturn": "2026-11-22",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Christian Kirk",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Kirk announced Wednesday via his personal Instagram account that he recently underwent meniscus surgery.",
+              "updatedAt": "2026-11-19T15:22Z",
+              "expectedReturn": "2026-12-06",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Ji'Ayir Brown",
               "team": "",
               "teamId": "",
@@ -39828,18 +39924,6 @@
               "note": "Stribling (ankle) was doing some work on the side at Wednesday's practice, Nick Wagoner of ESPN.com reports.",
               "updatedAt": "2026-11-18T20:26Z",
               "expectedReturn": "2026-12-06",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Mike Evans",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Head coach Kyle Shanahan said Evans (Achilles) won't practice Wednesday, but Shanahan hopes the wide receiver will return to drills Thursday, Nick Wagoner of ESPN.com reports.",
-              "updatedAt": "2026-11-18T18:52Z",
-              "expectedReturn": "2026-11-22",
               "position": "WR"
             },
             {
@@ -40009,18 +40093,6 @@
               "updatedAt": "2026-11-16T03:50Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Christian McCaffrey",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "McCaffrey rushed 13 times for 62 yards and a touchdown and brought in all four targets for 161 yards and two more scores in the 49ers' 46-40 win over the Cowboys on Sunday. He also caught a two-point conversion pass.",
-              "updatedAt": "2026-11-16T03:03Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -40324,6 +40396,18 @@
             },
             {
               "playerId": "",
+              "player": "Baker Mayfield",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Mayfield (foot) was seen participating in Thursday's practice, Greg Auman of Fox Sports reports.",
+              "updatedAt": "2026-11-19T16:53Z",
+              "expectedReturn": "2026-11-22",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Josh Hayes",
               "team": "",
               "teamId": "",
@@ -40341,7 +40425,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Winfield (ankle) did not participate in practice Wednesday, Greg Auman of Fox Sports reports.",
+              "note": "Winfield (ankle) didn't participate in Wednesday's practice.",
               "updatedAt": "2026-11-18T19:52Z",
               "expectedReturn": "2026-11-22",
               "position": "S"
@@ -40368,18 +40452,6 @@
               "note": "Daniels is slated to take all of the first-teams reps Wednesday with Baker Mayfield (foot) sidelined for the Buccaneers' first Week 11 practice, Greg Auman of Fox Sports reports.",
               "updatedAt": "2026-11-18T17:47Z",
               "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Baker Mayfield",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Mayfield (foot) isn't practicing Wednesday, Greg Auman of Fox Sports reports.",
-              "updatedAt": "2026-11-18T17:17Z",
-              "expectedReturn": "2026-11-22",
               "position": "QB"
             },
             {
@@ -41223,7 +41295,7 @@
               "position": "WR"
             }
           ],
-          "checkedAt": "2026-11-19T15:00:09.737Z",
+          "checkedAt": "2026-11-19T17:11:53.074Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -49665,7 +49737,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-19T15:00:14.244Z",
+        "generatedAt": "2026-11-19T17:11:56.350Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 150,
         "publishedBy": "EDGEIQ unattended research publisher"
