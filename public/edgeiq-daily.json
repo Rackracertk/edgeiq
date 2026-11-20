@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-20T11:07:50.228Z",
+  "generatedAt": "2026-11-20T13:17:44.514Z",
   "publishedDateET": "2026-11-20",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1479,7 +1479,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-20T11:07:46.845Z",
+          "checkedAt": "2026-11-20T13:17:40.687Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10621,7 +10621,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-20T11:07:48.586Z",
+        "generatedAt": "2026-11-20T13:17:41.764Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 226,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -12043,7 +12043,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-20T11:07:46.845Z",
+          "checkedAt": "2026-11-20T13:17:40.687Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20905,7 +20905,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-20T11:07:48.700Z",
+        "generatedAt": "2026-11-20T13:17:41.943Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 226,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -25924,6 +25924,30 @@
             },
             {
               "playerId": "",
+              "player": "Trey Zuhn III",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-20T12:40Z",
+              "expectedReturn": "2026-11-22",
+              "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Ian Thomas",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-20T12:40Z",
+              "expectedReturn": "2026-11-22",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Brock Bowers",
               "team": "",
               "teamId": "",
@@ -26197,30 +26221,6 @@
               "updatedAt": "2026-11-16T02:10Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Malik Benson",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Benson (coach's decision) is inactive for Sunday's game against the Seahawks.",
-              "updatedAt": "2026-11-15T19:59Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Trey Zuhn III",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Zuhn (concussion) does not have any injury designation ahead of Sunday's game against the Seahawks, Ryan McFadden of ESPN.com reports.",
-              "updatedAt": "2026-11-14T02:14Z",
-              "expectedReturn": "",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -30711,7 +30711,7 @@
               "position": "CB"
             }
           ],
-          "checkedAt": "2026-11-20T11:07:46.880Z",
+          "checkedAt": "2026-11-20T13:17:40.812Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -39153,7 +39153,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-20T11:07:49.960Z",
+        "generatedAt": "2026-11-20T13:17:44.040Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -43990,6 +43990,30 @@
             },
             {
               "playerId": "",
+              "player": "Trey Zuhn III",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-20T12:40Z",
+              "expectedReturn": "2026-11-22",
+              "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Ian Thomas",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-20T12:40Z",
+              "expectedReturn": "2026-11-22",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Brock Bowers",
               "team": "",
               "teamId": "",
@@ -44263,30 +44287,6 @@
               "updatedAt": "2026-11-16T02:10Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Malik Benson",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Benson (coach's decision) is inactive for Sunday's game against the Seahawks.",
-              "updatedAt": "2026-11-15T19:59Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Trey Zuhn III",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Zuhn (concussion) does not have any injury designation ahead of Sunday's game against the Seahawks, Ryan McFadden of ESPN.com reports.",
-              "updatedAt": "2026-11-14T02:14Z",
-              "expectedReturn": "",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -48777,7 +48777,7 @@
               "position": "CB"
             }
           ],
-          "checkedAt": "2026-11-20T11:07:46.880Z",
+          "checkedAt": "2026-11-20T13:17:40.812Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -50534,7 +50534,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-20T11:07:50.228Z",
+        "generatedAt": "2026-11-20T13:17:44.513Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
