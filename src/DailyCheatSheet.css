@@ -1,0 +1,56 @@
+.cheatsheet{padding-bottom:12px}.cheat-hero{padding-bottom:36px}.cheat-hero h1{font-size:clamp(42px,5vw,64px)}.cheat-hero-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.cheat-hero-points span{font-size:11px;font-weight:750;color:#a9d5b8;background:#123626;border:1px solid #305d43;border-radius:100px;padding:8px 12px}
+.cheat-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:24px 0 14px;flex-wrap:wrap}.cheat-tabs{display:flex;gap:7px;background:#0b2319;padding:5px;border:1px solid #345541;border-radius:12px}.cheat-tab{border:0;border-radius:9px;background:transparent;color:#a9c0b3;font-size:14px;font-weight:850;padding:12px 23px}.cheat-tab.on{background:#ffb612;color:#0c2319}.cheat-toolbar-label{text-align:right;display:grid;gap:5px}.cheat-toolbar-label strong{font-size:14px;color:#e9f5eb}.cheat-toolbar-label span{font-size:11px;color:#96b2a1}
+.cheat-info{color:#b7cdbd;border:1px solid #47603b;background:#223523;border-radius:11px;font-size:12px;line-height:1.7;padding:14px 17px}.cheat-info strong{color:#f2e3aa}.cheat-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0 30px}.cheat-stats>div{display:grid;gap:8px;background:#132e22;border:1px solid #2b523c;border-radius:14px;padding:18px 22px}.cheat-stats span{color:#96b3a0;font-size:10px;font-weight:900;letter-spacing:1.5px}.cheat-stats strong{color:#f4fbf5;font-size:33px;line-height:1;font-weight:900}.cheat-stats small{color:#90aa9c;font-size:11px}
+.cheat-section-title{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:28px 0 17px}.cheat-section-title h2{font-size:26px;margin:5px 0 0;letter-spacing:-.8px}.cheat-controls{display:flex;gap:13px;align-items:end;flex-wrap:wrap;margin-bottom:19px}.cheat-controls label{display:grid;gap:8px;color:#92b09d;font-size:10px;letter-spacing:1.3px;font-weight:900}.cheat-controls select{min-width:190px;border-radius:9px;background:#09231a;border:1px solid #3b674c;color:#eef8f1;padding:11px 13px;font-size:13px}.cheat-count{margin:0 0 12px auto;font-size:12px;color:#a8c9b3}.cheat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.cheat-card{background:linear-gradient(155deg,#142f23,#0c2319);border:1px solid #34523e;border-radius:16px;padding:20px;min-width:0;display:flex;flex-direction:column;gap:16px;transition:border-color .15s}.cheat-card.selected{border-color:#ffb612;box-shadow:0 0 0 1px #ffb61233}.cheat-card-top{display:flex;justify-content:space-between;gap:8px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#75c593}.cheat-card-top span:last-child{color:#b6cbb9;font-weight:600;letter-spacing:0}.cheat-player h3{font-size:21px;letter-spacing:-.5px;margin:0 0 5px}.cheat-player span{font-size:12px;color:#91b59d}.cheat-prop{display:flex;justify-content:space-between;gap:12px;align-items:center;border-radius:11px;padding:14px;background:#203d2c;border:1px solid #375c40}.cheat-prop span{font-weight:950;color:#ffbd24;font-size:23px;letter-spacing:-.5px}.cheat-prop strong{text-align:right;font-size:12px;color:#e4f4e7}.cheat-rates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.cheat-rates>div{background:#0a2017;border:1px solid #2e4736;border-radius:9px;padding:12px;display:grid;gap:6px}.cheat-rates small{color:#9bb8a6;font-size:10px;letter-spacing:1px;font-weight:850}.cheat-rates strong{font-size:21px;color:#f2f8ef}.cheat-reason{font-size:12px;color:#a7c1ac;line-height:1.6;margin:0;min-height:40px}.cheat-actions{display:flex;gap:9px;margin-top:auto}.cheat-actions button{border-radius:8px;padding:11px 13px;font-weight:800;font-size:12px}.cheat-save{background:#ffb612;color:#0a2a18;border:1px solid #ffb612;flex:1}.cheat-save.added{background:#244e35;color:#a4e9ba;border-color:#5b976c}.cheat-research{background:transparent;color:#d4e8d8;border:1px solid #426c50}
+.cheat-empty{padding:28px;margin:15px 0 26px}.cheat-empty h3{font-size:23px;margin:0}.cheat-empty p{font-size:13px;color:#a9c3b2;line-height:1.7}.cheat-more{display:block;margin:20px auto 32px;border:1px solid #5b825c;border-radius:9px;background:#173c28;color:#d2f2db;padding:13px 26px;font-size:13px;font-weight:850}
+.cheat-shortlist{margin:30px 0;padding:24px}.cheat-shortlist-items{display:grid;gap:8px}.cheat-shortlist-items>div{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0d2319;padding:10px 14px;border:1px solid #355642;border-radius:9px;color:#d9e9da;font-size:12px}.cheat-shortlist-items button{background:transparent;border:0;color:#ffcf7b;text-decoration:underline;font-size:11px}.cheat-shortlist-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:17px}.cheat-shortlist-actions .nav{border:1px solid #416a4b}.cheat-shortlist-actions span{color:#acd3b5;font-size:12px}
+.cheat-pro{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:32px 0 17px;padding:25px 28px;border:1px solid #997825;background:linear-gradient(125deg,#2c3020,#173c28);border-radius:15px}.cheat-pro h2{font-size:23px;margin:7px 0}.cheat-pro p{font-size:12px;line-height:1.8;max-width:600px;color:#b8ceba}.cheat-pro .cta{flex:none}.cheat-footnote{line-height:1.7;padding:0 4px}
+@media(max-width:1100px){.cheat-grid{grid-template-columns:1fr}.cheat-pro{align-items:start;flex-direction:column}.cheat-stats>div{padding:16px}}@media(max-width:650px){.cheat-toolbar-label{text-align:left}.cheat-stats{gap:7px}.cheat-stats>div{padding:12px 10px}.cheat-stats strong{font-size:25px}.cheat-stats span{font-size:9px}.cheat-stats small{font-size:9px}.cheat-section-title{align-items:start;flex-direction:column}.cheat-controls select{min-width:140px;width:100%}.cheat-controls label{flex:1;min-width:130px}.cheat-count{margin:0 0 7px}.cheat-card{padding:16px}.cheat-pro{padding:20px}.cheat-pro .cta{white-space:normal}}
+
+.cheat-injury-ok,.cheat-injury-unavailable{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:17px 19px;margin:16px 0;border:1px solid #416c51;border-radius:12px;background:#173629}
+.cheat-injury-unavailable{background:#38251a;border-color:#8c5e31}
+.cheat-injury-ok strong{color:#aaf1b9;font-size:14px}.cheat-injury-unavailable strong{color:#ffdaaa;font-size:14px}
+.cheat-injury-ok p,.cheat-injury-unavailable p{font-size:12px;color:#cedfd0;line-height:1.6;margin:5px 0}
+.cheat-injury-ok small,.cheat-injury-unavailable small{font-size:10px;color:#acc5ac}
+.cheat-toolbar .cheat-tab{padding:10px 16px}
+@media(max-width:700px){.cheat-toolbar{align-items:stretch}.cheat-toolbar .cheat-tabs{width:100%;justify-content:center}.cheat-toolbar .cheat-tab{flex:1}.cheat-toolbar-label{width:100%}}
+
+/* Elite research: keep statistical evidence visible without claiming guaranteed outcomes. */
+.cheat-matchup-toggle{display:flex!important;align-items:center;gap:8px;min-height:40px;letter-spacing:0!important;font-size:12px!important;color:#d2ead5!important}
+.cheat-matchup-toggle input{accent-color:#ffb612;width:17px;height:17px}
+.cheat-elite-header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:13px 15px;background:#132d20;border:1px solid #4e7748;border-radius:10px}
+.cheat-elite-header>span{font-size:10px;color:#a8d6b1;font-weight:900;letter-spacing:1px}
+.cheat-elite-header strong{margin-left:auto;color:#ffcb46;font-size:31px;font-weight:950}
+.cheat-elite-header small{flex-basis:100%;color:#97bba3;font-size:11px}
+.cheat-defense{display:grid;gap:9px;border:1px solid #37624b;background:#10291d;border-radius:11px;padding:14px}
+.cheat-defense>div{display:flex;justify-content:space-between;gap:8px;color:#d5ebdc;font-size:11px}
+.cheat-defense>div span{color:#f2cb7a}
+.cheat-defense p{margin:0;color:#abc6b2;font-size:12px;line-height:1.7}
+.cheat-defense p b{color:#eaf8ea}
+.cheat-defense p small{display:block;color:#8fbe9b;margin-top:4px}
+.cheat-evidence{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px;color:#9fc0ab;font-size:11px}
+.cheat-evidence b{color:#eaf5e8}
+.cheat-deep-research{padding:12px 14px;border-radius:10px;border:1px solid #41644d;background:#0a2117;color:#a8c8b1;font-size:12px}
+.cheat-deep-research summary{color:#ffd06b;cursor:pointer;font-weight:850}
+.cheat-deep-research p{line-height:1.65;margin:12px 0 4px}
+.cheat-deep-research b{color:#f5f8f1}
+.cheat-deep-research>small{display:block;margin-top:12px;font-size:10px;line-height:1.5}
+.cheat-odds-input{display:grid;gap:8px;margin:14px 0 4px;color:#c2d7c5;font-size:11px;font-weight:750}
+.cheat-odds-input input{width:180px;max-width:100%;border:1px solid #4a7456;border-radius:8px;padding:10px;color:#eff7ef;background:#132d20;font-size:13px}
+@media(max-width:650px){.cheat-elite-header strong{font-size:27px}.cheat-matchup-toggle{width:100%}}
+
+.cheat-publish-live,.cheat-publish-fallback{display:flex;gap:9px;flex-wrap:wrap;align-items:center;justify-content:space-between;border:1px solid #43805c;background:#123b28;padding:14px 16px;margin:0 0 14px;border-radius:10px;font-size:12px;color:#bfeacc}
+.cheat-publish-live strong{color:#e6f8e7}.cheat-publish-live span{color:#9ac9ac}
+.cheat-publish-fallback{background:#352819;border-color:#8e6c35;color:#f1d49f}
+.cheat-publish-fallback strong{color:#ffe2a6}.cheat-publish-fallback span{color:#ddc6a1}
+
+/* Full-prop research: intentional separation between historical 60%+ and 90%+. */
+.cheat-mode-switch{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:0 0 14px}
+.cheat-mode-switch .cheat-tab{cursor:pointer;border:1px solid #3c6548;border-radius:9px;padding:12px 17px;background:#10291e;color:#cde9d2;font-weight:800;font-size:12px;transition:background .15s,border-color .15s}
+.cheat-mode-switch .cheat-tab.on{background:#244c31;color:#ffcf63;border-color:#d9ac3b}
+.cheat-mode-switch .cheat-tab:focus-visible,.cheat-group-btn:focus-visible{outline:2px solid #ffb612;outline-offset:3px}
+.cheat-mode-note{font-size:11px;color:#a6c4ac;flex:1;line-height:1.55;min-width:190px}
+.cheat-prop-groups{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.cheat-group-btn{border:1px solid #3e684e;background:#112c20;border-radius:30px;color:#b7d5bf;font-size:12px;font-weight:750;padding:10px 14px;cursor:pointer}
+.cheat-group-btn.active{background:#244b32;border-color:#ffbd37;color:#ffdc8d}
+@media(max-width:650px){.cheat-mode-switch .cheat-tab{flex:1}.cheat-mode-note{flex-basis:100%}.cheat-prop-groups{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding:0 0 8px}.cheat-group-btn{white-space:nowrap;flex:none}}

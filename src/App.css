@@ -6,3 +6,8 @@
 .trend-hit,.trend-miss,.trend-push{flex:1;width:auto;border-radius:3px}
 .legend-hit{color:#64db93}.legend-miss{color:#ffb612}.legend-push{color:#a7b5aa}
 .push-chip{display:inline-block;padding:5px 9px;border-radius:6px;font-size:10px;font-weight:800;background:#3a493e;color:#d4dfd6}
+/* Account and billing controls */
+button:disabled { opacity: .58; cursor: not-allowed }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #ffb612; outline-offset: 3px }
+form input[type=email] { width:100%; color:#f3fff4; background:#0a2419; padding:12px; border:1px solid #47715b; border-radius:9px }
+@media (max-width:760px) { .pricing-grid { display:grid; grid-template-columns:1fr } }
