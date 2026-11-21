@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-21T22:47:48.755Z",
+  "generatedAt": "2026-11-21T23:44:44.081Z",
   "publishedDateET": "2026-11-21",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -367,11 +367,11 @@
               "player": "P.J. Washington",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Washington (illness/shoulder) has been downgraded from questionable to doubtful ahead of Saturday's game against the Clippers.",
-              "updatedAt": "2026-11-21T19:22Z",
-              "expectedReturn": "2026-11-21",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Washington (illness/shoulder) is listed as out for Saturday's game against the Clippers.",
+              "updatedAt": "2026-11-21T23:14Z",
+              "expectedReturn": "2026-11-22",
               "position": "F"
             },
             {
@@ -385,18 +385,6 @@
               "updatedAt": "2026-11-21T15:08Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Walter Clayton Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Clayton (knee) is questionable for Saturday's game against the Clippers.",
-              "updatedAt": "2026-11-20T22:35Z",
-              "expectedReturn": "2026-11-21",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -448,6 +436,18 @@
             },
             {
               "playerId": "",
+              "player": "Ronald Holland II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Holland (knee) is listed as questionable for Sunday's game against Atlanta.",
+              "updatedAt": "2026-11-21T23:05Z",
+              "expectedReturn": "2026-11-22",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Ebuka Okorie",
               "team": "",
               "teamId": "",
@@ -469,18 +469,6 @@
               "updatedAt": "2026-11-21T22:23Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Ronald Holland II",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Holland (knee) is listed as out for Friday's game against Toronto.",
-              "updatedAt": "2026-11-21T00:34Z",
-              "expectedReturn": "2026-11-22",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -928,6 +916,18 @@
             },
             {
               "playerId": "",
+              "player": "Karl-Anthony Towns",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Towns (illness) won't play in Saturday's game versus the Trail Blazers.",
+              "updatedAt": "2026-11-21T22:51Z",
+              "expectedReturn": "2026-11-22",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "OG Anunoby",
               "team": "",
               "teamId": "",
@@ -937,18 +937,6 @@
               "updatedAt": "2026-11-21T21:49Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Karl-Anthony Towns",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Towns is questionable for Saturday's game against the Trail Blazers due to an illness.",
-              "updatedAt": "2026-11-21T16:05Z",
-              "expectedReturn": "2026-11-21",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -964,13 +952,25 @@
             },
             {
               "playerId": "",
+              "player": "Shai Gilgeous-Alexander",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Gilgeous-Alexander (back/neck) is listed as questionable for Sunday's game versus Miami.",
+              "updatedAt": "2026-11-21T22:45Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Nikola Topic",
               "team": "",
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Topic (hip) is out for Friday's game against New Orleans.",
-              "updatedAt": "2026-11-21T22:36Z",
+              "note": "Topic (hip) is listed as out for Sunday's game versus the Heat.",
+              "updatedAt": "2026-11-21T22:39Z",
               "expectedReturn": "2026-11-23",
               "position": "G"
             },
@@ -1419,7 +1419,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-21T22:47:45.222Z",
+          "checkedAt": "2026-11-21T23:44:40.630Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10001,7 +10001,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T22:47:46.836Z",
+        "generatedAt": "2026-11-21T23:44:42.466Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 236,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10401,11 +10401,11 @@
               "player": "P.J. Washington",
               "team": "",
               "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Washington (illness/shoulder) has been downgraded from questionable to doubtful ahead of Saturday's game against the Clippers.",
-              "updatedAt": "2026-11-21T19:22Z",
-              "expectedReturn": "2026-11-21",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Washington (illness/shoulder) is listed as out for Saturday's game against the Clippers.",
+              "updatedAt": "2026-11-21T23:14Z",
+              "expectedReturn": "2026-11-22",
               "position": "F"
             },
             {
@@ -10419,18 +10419,6 @@
               "updatedAt": "2026-11-21T15:08Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Walter Clayton Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Clayton (knee) is questionable for Saturday's game against the Clippers.",
-              "updatedAt": "2026-11-20T22:35Z",
-              "expectedReturn": "2026-11-21",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -10482,6 +10470,18 @@
             },
             {
               "playerId": "",
+              "player": "Ronald Holland II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Holland (knee) is listed as questionable for Sunday's game against Atlanta.",
+              "updatedAt": "2026-11-21T23:05Z",
+              "expectedReturn": "2026-11-22",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Ebuka Okorie",
               "team": "",
               "teamId": "",
@@ -10503,18 +10503,6 @@
               "updatedAt": "2026-11-21T22:23Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Ronald Holland II",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Holland (knee) is listed as out for Friday's game against Toronto.",
-              "updatedAt": "2026-11-21T00:34Z",
-              "expectedReturn": "2026-11-22",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -10962,6 +10950,18 @@
             },
             {
               "playerId": "",
+              "player": "Karl-Anthony Towns",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Towns (illness) won't play in Saturday's game versus the Trail Blazers.",
+              "updatedAt": "2026-11-21T22:51Z",
+              "expectedReturn": "2026-11-22",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "OG Anunoby",
               "team": "",
               "teamId": "",
@@ -10971,18 +10971,6 @@
               "updatedAt": "2026-11-21T21:49Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Karl-Anthony Towns",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Towns is questionable for Saturday's game against the Trail Blazers due to an illness.",
-              "updatedAt": "2026-11-21T16:05Z",
-              "expectedReturn": "2026-11-21",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -10998,13 +10986,25 @@
             },
             {
               "playerId": "",
+              "player": "Shai Gilgeous-Alexander",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Gilgeous-Alexander (back/neck) is listed as questionable for Sunday's game versus Miami.",
+              "updatedAt": "2026-11-21T22:45Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Nikola Topic",
               "team": "",
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Topic (hip) is out for Friday's game against New Orleans.",
-              "updatedAt": "2026-11-21T22:36Z",
+              "note": "Topic (hip) is listed as out for Sunday's game versus the Heat.",
+              "updatedAt": "2026-11-21T22:39Z",
               "expectedReturn": "2026-11-23",
               "position": "G"
             },
@@ -11453,7 +11453,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-21T22:47:45.222Z",
+          "checkedAt": "2026-11-21T23:44:40.630Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20525,7 +20525,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T22:47:46.983Z",
+        "generatedAt": "2026-11-21T23:44:42.578Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 236,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -30331,7 +30331,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-21T22:47:45.205Z",
+          "checkedAt": "2026-11-21T23:44:40.676Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -38773,7 +38773,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T22:47:48.440Z",
+        "generatedAt": "2026-11-21T23:44:43.803Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -48397,7 +48397,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-21T22:47:45.205Z",
+          "checkedAt": "2026-11-21T23:44:40.676Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -50154,7 +50154,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T22:47:48.754Z",
+        "generatedAt": "2026-11-21T23:44:44.080Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
