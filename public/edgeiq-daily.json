@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-21T14:55:43.160Z",
+  "generatedAt": "2026-11-21T16:51:45.653Z",
   "publishedDateET": "2026-11-21",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -229,10 +229,10 @@
               "player": "Nolan Traore",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Traore (hamstring) won't return to Friday's game against Orlando, Meghan Triplett of YES Network reports. He finished with four points (2-6 FG, 0-2 3Pt) and two assists over 18 minutes.",
-              "updatedAt": "2026-11-21T02:25Z",
+              "updatedAt": "2026-11-21T14:51Z",
               "expectedReturn": "2026-11-23",
               "position": "G"
             },
@@ -241,10 +241,10 @@
               "player": "Grant Nelson",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Nelson (ankle) has been ruled out for Friday's game against Orlando.",
-              "updatedAt": "2026-11-19T21:18Z",
+              "updatedAt": "2026-11-21T14:51Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
             },
@@ -301,10 +301,10 @@
               "player": "Jalen Smith",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Smith (illness) is out for Friday's game against the Wizards, Joel Lorenzi of The Athletic reports.",
-              "updatedAt": "2026-11-20T23:19Z",
+              "updatedAt": "2026-11-21T14:54Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
             },
@@ -370,6 +370,18 @@
             },
             {
               "playerId": "",
+              "player": "Tobi Lawal",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Lawal (groin) is out for Saturday's game against the Clippers.",
+              "updatedAt": "2026-11-21T15:08Z",
+              "expectedReturn": "2026-11-22",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "P.J. Washington",
               "team": "",
               "teamId": "",
@@ -403,18 +415,6 @@
               "updatedAt": "2026-11-20T19:31Z",
               "expectedReturn": "2026-11-27",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Tobi Lawal",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Lawal is out for Wednesday's game against the Warriors due to tightness in his right groin.",
-              "updatedAt": "2026-11-19T14:51Z",
-              "expectedReturn": "2026-11-21",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -454,6 +454,18 @@
             },
             {
               "playerId": "",
+              "player": "Ebuka Okorie",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Okorie (oblique) has been ruled out for Friday's game against Toronto.",
+              "updatedAt": "2026-11-21T14:53Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Ronald Holland II",
               "team": "",
               "teamId": "",
@@ -475,18 +487,6 @@
               "updatedAt": "2026-11-20T23:02Z",
               "expectedReturn": "2026-12-13",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Ebuka Okorie",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Okorie (oblique) has been ruled out for Friday's game against Toronto.",
-              "updatedAt": "2026-11-19T21:43Z",
-              "expectedReturn": "2026-11-22",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -898,6 +898,30 @@
             },
             {
               "playerId": "",
+              "player": "OG Anunoby",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Anunoby (calf) has been downgraded to doubtful for Saturday's game against the Trail Bllazers.",
+              "updatedAt": "2026-11-21T16:09Z",
+              "expectedReturn": "2026-11-21",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Karl-Anthony Towns",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Towns is questionable for Saturday's game against the Trail Blazers due to an illness.",
+              "updatedAt": "2026-11-21T16:05Z",
+              "expectedReturn": "2026-11-21",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Jordan Clarkson",
               "team": "",
               "teamId": "",
@@ -910,37 +934,25 @@
             },
             {
               "playerId": "",
-              "player": "OG Anunoby",
+              "player": "Nikola Topic",
               "team": "",
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Anunoby (calf) is questionable for Saturday's game against Portland.",
-              "updatedAt": "2026-11-20T22:10Z",
-              "expectedReturn": "2026-11-21",
-              "position": "F"
+              "note": "Topic (hip) is out for Friday's game against New Orleans.",
+              "updatedAt": "2026-11-21T14:54Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
             },
             {
               "playerId": "",
               "player": "Alex Caruso",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Caruso (hip) is listed as out for Friday's game against the Pelicans.",
-              "updatedAt": "2026-11-20T23:24Z",
-              "expectedReturn": "2026-11-22",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Nikola Topic",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Topic (hip) is out for Friday's game against New Orleans.",
-              "updatedAt": "2026-11-20T17:02Z",
+              "updatedAt": "2026-11-21T14:54Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
             },
@@ -1042,6 +1054,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Maxey",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Maxey (foot) will be a true game-time decision for Saturday's game against the Bucks, head coach Nick Nurse told Ky Carlin of USA Today.",
+              "updatedAt": "2026-11-21T16:25Z",
+              "expectedReturn": "2026-11-21",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Dominick Barlow",
               "team": "",
               "teamId": "",
@@ -1063,18 +1087,6 @@
               "updatedAt": "2026-11-20T22:11Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Maxey",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Maxey (foot) is questionable for Saturday's game against the Bucks.",
-              "updatedAt": "2026-11-20T22:07Z",
-              "expectedReturn": "2026-11-21",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -1117,10 +1129,10 @@
               "player": "Ryan Dunn",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Dunn won't return to Friday's game against the Jazz due to a right quad injury, Amanda Pflugrad of 3TV Phoenix reports.",
-              "updatedAt": "2026-11-21T04:06Z",
+              "updatedAt": "2026-11-21T14:55Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
             },
@@ -1201,10 +1213,10 @@
               "player": "Precious Achiuwa",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Achiuwa (lower leg) has been ruled out for Friday's game against the Lakers.",
-              "updatedAt": "2026-11-20T21:21Z",
+              "updatedAt": "2026-11-21T14:55Z",
               "expectedReturn": "2026-11-21",
               "position": "F"
             },
@@ -1270,6 +1282,18 @@
             },
             {
               "playerId": "",
+              "player": "Collin Murray-Boyles",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Murray-Boyles (concussion) has been ruled out for Friday's game against the Pistons.",
+              "updatedAt": "2026-11-21T14:52Z",
+              "expectedReturn": "2026-11-23",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Kawhi Leonard",
               "team": "",
               "teamId": "",
@@ -1278,18 +1302,6 @@
               "note": "Leonard (knee) could return in the next few weeks, per Shams Charania of ESPN.",
               "updatedAt": "2026-11-20T20:42Z",
               "expectedReturn": "2026-12-03",
-              "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Collin Murray-Boyles",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Murray-Boyles (concussion) has been ruled out for Friday's game against the Pistons.",
-              "updatedAt": "2026-11-19T21:41Z",
-              "expectedReturn": "2026-11-23",
               "position": "F"
             },
             {
@@ -1357,10 +1369,10 @@
               "player": "Felix Okpara",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Okpara (illness) is available for Friday's game against Toronto.",
-              "updatedAt": "2026-11-21T00:43Z",
+              "updatedAt": "2026-11-21T14:54Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
             },
@@ -1413,7 +1425,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-21T14:55:39.500Z",
+          "checkedAt": "2026-11-21T16:51:41.798Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10170,7 +10182,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T14:55:40.312Z",
+        "generatedAt": "2026-11-21T16:51:42.898Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 235,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10414,10 +10426,10 @@
               "player": "Nolan Traore",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Traore (hamstring) won't return to Friday's game against Orlando, Meghan Triplett of YES Network reports. He finished with four points (2-6 FG, 0-2 3Pt) and two assists over 18 minutes.",
-              "updatedAt": "2026-11-21T02:25Z",
+              "updatedAt": "2026-11-21T14:51Z",
               "expectedReturn": "2026-11-23",
               "position": "G"
             },
@@ -10426,10 +10438,10 @@
               "player": "Grant Nelson",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Nelson (ankle) has been ruled out for Friday's game against Orlando.",
-              "updatedAt": "2026-11-19T21:18Z",
+              "updatedAt": "2026-11-21T14:51Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
             },
@@ -10486,10 +10498,10 @@
               "player": "Jalen Smith",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Smith (illness) is out for Friday's game against the Wizards, Joel Lorenzi of The Athletic reports.",
-              "updatedAt": "2026-11-20T23:19Z",
+              "updatedAt": "2026-11-21T14:54Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
             },
@@ -10555,6 +10567,18 @@
             },
             {
               "playerId": "",
+              "player": "Tobi Lawal",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Lawal (groin) is out for Saturday's game against the Clippers.",
+              "updatedAt": "2026-11-21T15:08Z",
+              "expectedReturn": "2026-11-22",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "P.J. Washington",
               "team": "",
               "teamId": "",
@@ -10588,18 +10612,6 @@
               "updatedAt": "2026-11-20T19:31Z",
               "expectedReturn": "2026-11-27",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Tobi Lawal",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Lawal is out for Wednesday's game against the Warriors due to tightness in his right groin.",
-              "updatedAt": "2026-11-19T14:51Z",
-              "expectedReturn": "2026-11-21",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -10639,6 +10651,18 @@
             },
             {
               "playerId": "",
+              "player": "Ebuka Okorie",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Okorie (oblique) has been ruled out for Friday's game against Toronto.",
+              "updatedAt": "2026-11-21T14:53Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Ronald Holland II",
               "team": "",
               "teamId": "",
@@ -10660,18 +10684,6 @@
               "updatedAt": "2026-11-20T23:02Z",
               "expectedReturn": "2026-12-13",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Ebuka Okorie",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Okorie (oblique) has been ruled out for Friday's game against Toronto.",
-              "updatedAt": "2026-11-19T21:43Z",
-              "expectedReturn": "2026-11-22",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -11083,6 +11095,30 @@
             },
             {
               "playerId": "",
+              "player": "OG Anunoby",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Anunoby (calf) has been downgraded to doubtful for Saturday's game against the Trail Bllazers.",
+              "updatedAt": "2026-11-21T16:09Z",
+              "expectedReturn": "2026-11-21",
+              "position": "F"
+            },
+            {
+              "playerId": "",
+              "player": "Karl-Anthony Towns",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Towns is questionable for Saturday's game against the Trail Blazers due to an illness.",
+              "updatedAt": "2026-11-21T16:05Z",
+              "expectedReturn": "2026-11-21",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Jordan Clarkson",
               "team": "",
               "teamId": "",
@@ -11095,37 +11131,25 @@
             },
             {
               "playerId": "",
-              "player": "OG Anunoby",
+              "player": "Nikola Topic",
               "team": "",
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Anunoby (calf) is questionable for Saturday's game against Portland.",
-              "updatedAt": "2026-11-20T22:10Z",
-              "expectedReturn": "2026-11-21",
-              "position": "F"
+              "note": "Topic (hip) is out for Friday's game against New Orleans.",
+              "updatedAt": "2026-11-21T14:54Z",
+              "expectedReturn": "2026-11-22",
+              "position": "G"
             },
             {
               "playerId": "",
               "player": "Alex Caruso",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Caruso (hip) is listed as out for Friday's game against the Pelicans.",
-              "updatedAt": "2026-11-20T23:24Z",
-              "expectedReturn": "2026-11-22",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Nikola Topic",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Topic (hip) is out for Friday's game against New Orleans.",
-              "updatedAt": "2026-11-20T17:02Z",
+              "updatedAt": "2026-11-21T14:54Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
             },
@@ -11227,6 +11251,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Maxey",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Maxey (foot) will be a true game-time decision for Saturday's game against the Bucks, head coach Nick Nurse told Ky Carlin of USA Today.",
+              "updatedAt": "2026-11-21T16:25Z",
+              "expectedReturn": "2026-11-21",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Dominick Barlow",
               "team": "",
               "teamId": "",
@@ -11248,18 +11284,6 @@
               "updatedAt": "2026-11-20T22:11Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Maxey",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Maxey (foot) is questionable for Saturday's game against the Bucks.",
-              "updatedAt": "2026-11-20T22:07Z",
-              "expectedReturn": "2026-11-21",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -11302,10 +11326,10 @@
               "player": "Ryan Dunn",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Dunn won't return to Friday's game against the Jazz due to a right quad injury, Amanda Pflugrad of 3TV Phoenix reports.",
-              "updatedAt": "2026-11-21T04:06Z",
+              "updatedAt": "2026-11-21T14:55Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
             },
@@ -11386,10 +11410,10 @@
               "player": "Precious Achiuwa",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Achiuwa (lower leg) has been ruled out for Friday's game against the Lakers.",
-              "updatedAt": "2026-11-20T21:21Z",
+              "updatedAt": "2026-11-21T14:55Z",
               "expectedReturn": "2026-11-21",
               "position": "F"
             },
@@ -11455,6 +11479,18 @@
             },
             {
               "playerId": "",
+              "player": "Collin Murray-Boyles",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Murray-Boyles (concussion) has been ruled out for Friday's game against the Pistons.",
+              "updatedAt": "2026-11-21T14:52Z",
+              "expectedReturn": "2026-11-23",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Kawhi Leonard",
               "team": "",
               "teamId": "",
@@ -11463,18 +11499,6 @@
               "note": "Leonard (knee) could return in the next few weeks, per Shams Charania of ESPN.",
               "updatedAt": "2026-11-20T20:42Z",
               "expectedReturn": "2026-12-03",
-              "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Collin Murray-Boyles",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Murray-Boyles (concussion) has been ruled out for Friday's game against the Pistons.",
-              "updatedAt": "2026-11-19T21:41Z",
-              "expectedReturn": "2026-11-23",
               "position": "F"
             },
             {
@@ -11542,10 +11566,10 @@
               "player": "Felix Okpara",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Okpara (illness) is available for Friday's game against Toronto.",
-              "updatedAt": "2026-11-21T00:43Z",
+              "updatedAt": "2026-11-21T14:54Z",
               "expectedReturn": "2026-11-22",
               "position": "F"
             },
@@ -11598,7 +11622,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-21T14:55:39.500Z",
+          "checkedAt": "2026-11-21T16:51:41.798Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20670,7 +20694,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T14:55:40.509Z",
+        "generatedAt": "2026-11-21T16:51:43.103Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 235,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -27177,6 +27201,18 @@
             },
             {
               "playerId": "",
+              "player": "Tommy DeVito",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Mike Vrabel said Friday that DeVito will start in Week 12 against the Chargers on Sunday, Nov. 29, Mike Reiss and Adam Schefter of ESPN report.",
+              "updatedAt": "2026-11-21T15:06Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "A.J. Brown",
               "team": "",
               "teamId": "",
@@ -27342,18 +27378,6 @@
               "updatedAt": "2026-11-16T19:30Z",
               "expectedReturn": "",
               "position": "OT"
-            },
-            {
-              "playerId": "",
-              "player": "Tommy DeVito",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Mike Reiss of ESPN.com notes via ESPN's Adam Schefter that there are fears  DeVito's teammate, Drake Maye, may have sustained a fractured ankle during Week 10 action.",
-              "updatedAt": "2026-11-16T17:52Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -28077,6 +28101,18 @@
             },
             {
               "playerId": "",
+              "player": "Breece Hall",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Aaron Glenn told reporters Friday that Hall could see a bump in touches for Sunday's game against the Chargers, Howie Kussoy of the New York Post reports.",
+              "updatedAt": "2026-11-21T15:12Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Dylan Parham",
               "team": "",
               "teamId": "",
@@ -28338,18 +28374,6 @@
               "updatedAt": "2026-11-15T23:54Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Breece Hall",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Hall rushed 11 times for 41 yards and caught all four of his targets for 67 yards in Sunday's 31-12 loss to the Bills.",
-              "updatedAt": "2026-11-15T22:06Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -29577,6 +29601,18 @@
             },
             {
               "playerId": "",
+              "player": "Baker Mayfield",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Mayfield (thumb) is dealing with a plantar fascia injury in his foot, and he would wear a special orthotic and new cleats to stabilize his foot if he's cleared to play against the Lions on Sunday, Tom Pelissero of The Ringer and Netflix rep",
+              "updatedAt": "2026-11-21T15:31Z",
+              "expectedReturn": "2026-11-22",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Josh Hayes",
               "team": "",
               "teamId": "",
@@ -29621,18 +29657,6 @@
               "note": "Head coach Todd Bowles expressed optimism Friday that Baker Mayfield (foot/thumb) will start against the Lions on Sunday, which would leave Daniels as the Buccaneers' QB2, Scott Smith and Brianna Dix of the team's official site report.",
               "updatedAt": "2026-11-20T23:39Z",
               "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Baker Mayfield",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Mayfield (foot) is trending in the right direction to start Sunday's game against the Lions after looking good in Friday's practice, Scott Smith of the Buccaneers' official site reports.",
-              "updatedAt": "2026-11-20T17:25Z",
-              "expectedReturn": "2026-11-22",
               "position": "QB"
             },
             {
@@ -30177,6 +30201,18 @@
             },
             {
               "playerId": "",
+              "player": "Rachaad White",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "White (heel) was not on the field during the opening portion of Saturday's practice session, Nicki Jhabvala of The Athletic reports.",
+              "updatedAt": "2026-11-21T16:32Z",
+              "expectedReturn": "2026-11-23",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Laremy Tunsil",
               "team": "",
               "teamId": "",
@@ -30198,18 +30234,6 @@
               "updatedAt": "2026-11-20T21:50Z",
               "expectedReturn": "2026-11-23",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Rachaad White",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "White was limited at Friday's practice due to a heel injury.",
-              "updatedAt": "2026-11-20T21:09Z",
-              "expectedReturn": "2026-11-23",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -30476,7 +30500,7 @@
               "position": "CB"
             }
           ],
-          "checkedAt": "2026-11-21T14:55:39.483Z",
+          "checkedAt": "2026-11-21T16:51:41.848Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -38918,7 +38942,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T14:55:42.600Z",
+        "generatedAt": "2026-11-21T16:51:45.182Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -45243,6 +45267,18 @@
             },
             {
               "playerId": "",
+              "player": "Tommy DeVito",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Mike Vrabel said Friday that DeVito will start in Week 12 against the Chargers on Sunday, Nov. 29, Mike Reiss and Adam Schefter of ESPN report.",
+              "updatedAt": "2026-11-21T15:06Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "A.J. Brown",
               "team": "",
               "teamId": "",
@@ -45408,18 +45444,6 @@
               "updatedAt": "2026-11-16T19:30Z",
               "expectedReturn": "",
               "position": "OT"
-            },
-            {
-              "playerId": "",
-              "player": "Tommy DeVito",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Mike Reiss of ESPN.com notes via ESPN's Adam Schefter that there are fears  DeVito's teammate, Drake Maye, may have sustained a fractured ankle during Week 10 action.",
-              "updatedAt": "2026-11-16T17:52Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -46143,6 +46167,18 @@
             },
             {
               "playerId": "",
+              "player": "Breece Hall",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Aaron Glenn told reporters Friday that Hall could see a bump in touches for Sunday's game against the Chargers, Howie Kussoy of the New York Post reports.",
+              "updatedAt": "2026-11-21T15:12Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Dylan Parham",
               "team": "",
               "teamId": "",
@@ -46404,18 +46440,6 @@
               "updatedAt": "2026-11-15T23:54Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Breece Hall",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Hall rushed 11 times for 41 yards and caught all four of his targets for 67 yards in Sunday's 31-12 loss to the Bills.",
-              "updatedAt": "2026-11-15T22:06Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -47643,6 +47667,18 @@
             },
             {
               "playerId": "",
+              "player": "Baker Mayfield",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Mayfield (thumb) is dealing with a plantar fascia injury in his foot, and he would wear a special orthotic and new cleats to stabilize his foot if he's cleared to play against the Lions on Sunday, Tom Pelissero of The Ringer and Netflix rep",
+              "updatedAt": "2026-11-21T15:31Z",
+              "expectedReturn": "2026-11-22",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Josh Hayes",
               "team": "",
               "teamId": "",
@@ -47687,18 +47723,6 @@
               "note": "Head coach Todd Bowles expressed optimism Friday that Baker Mayfield (foot/thumb) will start against the Lions on Sunday, which would leave Daniels as the Buccaneers' QB2, Scott Smith and Brianna Dix of the team's official site report.",
               "updatedAt": "2026-11-20T23:39Z",
               "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Baker Mayfield",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Mayfield (foot) is trending in the right direction to start Sunday's game against the Lions after looking good in Friday's practice, Scott Smith of the Buccaneers' official site reports.",
-              "updatedAt": "2026-11-20T17:25Z",
-              "expectedReturn": "2026-11-22",
               "position": "QB"
             },
             {
@@ -48243,6 +48267,18 @@
             },
             {
               "playerId": "",
+              "player": "Rachaad White",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "White (heel) was not on the field during the opening portion of Saturday's practice session, Nicki Jhabvala of The Athletic reports.",
+              "updatedAt": "2026-11-21T16:32Z",
+              "expectedReturn": "2026-11-23",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Laremy Tunsil",
               "team": "",
               "teamId": "",
@@ -48264,18 +48300,6 @@
               "updatedAt": "2026-11-20T21:50Z",
               "expectedReturn": "2026-11-23",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Rachaad White",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "White was limited at Friday's practice due to a heel injury.",
-              "updatedAt": "2026-11-20T21:09Z",
-              "expectedReturn": "2026-11-23",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -48542,7 +48566,7 @@
               "position": "CB"
             }
           ],
-          "checkedAt": "2026-11-21T14:55:39.483Z",
+          "checkedAt": "2026-11-21T16:51:41.848Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -50299,7 +50323,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T14:55:43.159Z",
+        "generatedAt": "2026-11-21T16:51:45.652Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
