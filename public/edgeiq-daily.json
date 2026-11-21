@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-21T12:59:27.691Z",
+  "generatedAt": "2026-11-21T14:55:43.160Z",
   "publishedDateET": "2026-11-21",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -253,10 +253,10 @@
               "player": "Grant Williams",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Williams (hamstring) is listed as out for Friday's game versus the Hawks.",
-              "updatedAt": "2026-11-19T22:21Z",
+              "updatedAt": "2026-11-21T14:49Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
             },
@@ -265,10 +265,10 @@
               "player": "Grayson Allen",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Allen (concussion) has been ruled out for Friday's game against Atlanta.",
-              "updatedAt": "2026-11-19T22:02Z",
+              "updatedAt": "2026-11-21T14:49Z",
               "expectedReturn": "2026-11-23",
               "position": "G"
             },
@@ -613,10 +613,10 @@
               "player": "T.J. McConnell",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Rick Carlisle revealed during his postgame interview that McConnell exited Friday's 128-119 loss with a left hamstring issue, Tony East of Forbes.com reports.",
-              "updatedAt": "2026-11-21T04:58Z",
+              "updatedAt": "2026-11-21T14:51Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
             },
@@ -1413,7 +1413,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-21T12:59:24.196Z",
+          "checkedAt": "2026-11-21T14:55:39.500Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10170,7 +10170,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T12:59:25.806Z",
+        "generatedAt": "2026-11-21T14:55:40.312Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 235,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10438,10 +10438,10 @@
               "player": "Grant Williams",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Williams (hamstring) is listed as out for Friday's game versus the Hawks.",
-              "updatedAt": "2026-11-19T22:21Z",
+              "updatedAt": "2026-11-21T14:49Z",
               "expectedReturn": "2026-11-23",
               "position": "F"
             },
@@ -10450,10 +10450,10 @@
               "player": "Grayson Allen",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Allen (concussion) has been ruled out for Friday's game against Atlanta.",
-              "updatedAt": "2026-11-19T22:02Z",
+              "updatedAt": "2026-11-21T14:49Z",
               "expectedReturn": "2026-11-23",
               "position": "G"
             },
@@ -10798,10 +10798,10 @@
               "player": "T.J. McConnell",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Rick Carlisle revealed during his postgame interview that McConnell exited Friday's 128-119 loss with a left hamstring issue, Tony East of Forbes.com reports.",
-              "updatedAt": "2026-11-21T04:58Z",
+              "updatedAt": "2026-11-21T14:51Z",
               "expectedReturn": "2026-11-22",
               "position": "G"
             },
@@ -11598,7 +11598,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-21T12:59:24.196Z",
+          "checkedAt": "2026-11-21T14:55:39.500Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -20670,7 +20670,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T12:59:25.932Z",
+        "generatedAt": "2026-11-21T14:55:40.509Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 235,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -25466,8 +25466,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Walker (groin) wasn't spotted during the portion of Friday's practice open to the media, Pete Sweeney of The Kansas City Star reports.",
-              "updatedAt": "2026-11-20T18:01Z",
+              "note": "Walker (groin) has been ruled out for Sunday's game against the Cardinals.",
+              "updatedAt": "2026-11-20T20:13Z",
               "expectedReturn": "2026-11-26",
               "position": "RB"
             },
@@ -30476,7 +30476,7 @@
               "position": "CB"
             }
           ],
-          "checkedAt": "2026-11-21T12:59:24.295Z",
+          "checkedAt": "2026-11-21T14:55:39.483Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -38918,7 +38918,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T12:59:27.370Z",
+        "generatedAt": "2026-11-21T14:55:42.600Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -43532,8 +43532,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Walker (groin) wasn't spotted during the portion of Friday's practice open to the media, Pete Sweeney of The Kansas City Star reports.",
-              "updatedAt": "2026-11-20T18:01Z",
+              "note": "Walker (groin) has been ruled out for Sunday's game against the Cardinals.",
+              "updatedAt": "2026-11-20T20:13Z",
               "expectedReturn": "2026-11-26",
               "position": "RB"
             },
@@ -48542,7 +48542,7 @@
               "position": "CB"
             }
           ],
-          "checkedAt": "2026-11-21T12:59:24.295Z",
+          "checkedAt": "2026-11-21T14:55:39.483Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -50299,7 +50299,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-21T12:59:27.690Z",
+        "generatedAt": "2026-11-21T14:55:43.159Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
