@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-22T12:58:16.913Z",
+  "generatedAt": "2026-11-22T14:54:16.596Z",
   "publishedDateET": "2026-11-22",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1467,7 +1467,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-22T12:58:13.889Z",
+          "checkedAt": "2026-11-22T14:54:12.821Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10539,7 +10539,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-22T12:58:14.821Z",
+        "generatedAt": "2026-11-22T14:54:13.820Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 241,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -12057,7 +12057,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-22T12:58:13.889Z",
+          "checkedAt": "2026-11-22T14:54:12.821Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21413,7 +21413,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-22T12:58:15.000Z",
+        "generatedAt": "2026-11-22T14:54:14.047Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 241,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -24932,6 +24932,30 @@
             },
             {
               "playerId": "",
+              "player": "Micah Parsons",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Parsons (knee) is \"on track\" to return from the PUP list to make his season debut Wednesday against the Rams, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-22T14:36Z",
+              "expectedReturn": "2026-11-25",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
+              "player": "Luke Musgrave",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Packers head coach Matt LaFleur said Saturday that he doesn't anticipate Musgrove (neck) returning from the PUP list this season, according to NFL reporter Jason B. Hirschhorn.",
+              "updatedAt": "2026-11-22T14:06Z",
+              "expectedReturn": "2027-02-15",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Brandon Cisse",
               "team": "",
               "teamId": "",
@@ -24965,18 +24989,6 @@
               "updatedAt": "2026-11-22T00:33Z",
               "expectedReturn": "2026-11-25",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Micah Parsons",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Parsons (knee) participated in practice Saturday, Bill Huber of SI.com reports.",
-              "updatedAt": "2026-11-22T00:31Z",
-              "expectedReturn": "2026-11-25",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -25217,18 +25229,6 @@
               "updatedAt": "2026-11-15T17:18Z",
               "expectedReturn": "",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Javon Bullard",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Bullard (ankle) is active for Sunday's game against the Vikings.",
-              "updatedAt": "2026-11-15T17:12Z",
-              "expectedReturn": "",
-              "position": "S"
             },
             {
               "playerId": "",
@@ -25532,6 +25532,18 @@
             },
             {
               "playerId": "",
+              "player": "Alec Pierce",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Pierce's season \"is almost certainly over\" due to the heel injury that landed the wideout on IR on Sept. 26, according to Ian Rapoport of NFL Network.",
+              "updatedAt": "2026-11-22T12:52Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Bryce Boettcher",
               "team": "",
               "teamId": "",
@@ -25820,15 +25832,27 @@
             },
             {
               "playerId": "",
-              "player": "Justin Walley",
+              "player": "Jordan Davis",
               "team": "",
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Walley registered five tackles, a sack, a forced fumble and two pass breakups in Sunday's 24-22 win over the Dolphins.",
-              "updatedAt": "2026-11-18T17:53Z",
+              "note": "Davis is slated to make his Jaguars debut Sunday against the Giants, Adam Schefter of ESPN reports.",
+              "updatedAt": "2026-11-22T14:11Z",
               "expectedReturn": "",
-              "position": "CB"
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Jessie Bates III",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Bates is slated to make his Jaguars debut Sunday against the Giants, Adam Schefter of ESPN reports.",
+              "updatedAt": "2026-11-22T14:09Z",
+              "expectedReturn": "",
+              "position": "S"
             },
             {
               "playerId": "",
@@ -26036,18 +26060,6 @@
             },
             {
               "playerId": "",
-              "player": "Jessie Bates III",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-16T19:22Z",
-              "expectedReturn": "",
-              "position": "S"
-            },
-            {
-              "playerId": "",
               "player": "CJ Williams",
               "team": "",
               "teamId": "",
@@ -26117,18 +26129,6 @@
               "updatedAt": "2026-11-16T01:25Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Brenton Strange",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Strange caught two of three targets for nine yards and a touchdown in Sunday's 40-23 win over the Titans.",
-              "updatedAt": "2026-11-16T01:10Z",
-              "expectedReturn": "",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -27032,14 +27032,26 @@
             },
             {
               "playerId": "",
+              "player": "Davante Adams",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Adams (hamstring) has an \"outside chance\" to return from injured reserve for the Rams' Week 13 matchup with the Chiefs but is more likely to be activated around mid-December, Ian Rapoport of NFL Networkreports.",
+              "updatedAt": "2026-11-22T14:32Z",
+              "expectedReturn": "2026-12-13",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Puka Nacua",
               "team": "",
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Nacua (knee) is expected to be sidelined 4-to-5 months after undergoing MCL surgery, which means he likely won't be able to return to action even if the Rams advance to the Super Bowl, Adam Schefter of ESPN reports.",
+              "note": "Nacua (knee/toe) is expected to be sidelined 4-to-5 months after undergoing surgery Tuesday to repair his MCL, which means he won't be on track to return at any point during the playoffs, Adam Schefter of ESPN reports.",
               "updatedAt": "2026-11-22T01:25Z",
-              "expectedReturn": "2027-01-10",
+              "expectedReturn": "2027-02-15",
               "position": "WR"
             },
             {
@@ -27100,18 +27112,6 @@
               "note": "The Rams are expected to lean more on Mumpfield and the rest of the team's wide receivers in the absence of Puka Nacua (knee/toe), the latter of whom is expected to be sidelined for the remainder of the regular season, Nate Atkins and Jonat",
               "updatedAt": "2026-11-20T23:18Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Davante Adams",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Coach Sean McVay noted Friday that Adams (hamstring) isn't expected to practice this weekend, Greg Beacham of the Associated Press reports.",
-              "updatedAt": "2026-11-20T17:49Z",
-              "expectedReturn": "2026-12-03",
               "position": "WR"
             },
             {
@@ -27925,7 +27925,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Head coach Mike Vrabel said Friday that DeVito will start in Week 12 against the Chargers on Sunday, Nov. 29, Mike Reiss and Adam Schefter of ESPN report.",
+              "note": "Head coach Mike Vrabel said Friday that DeVito will start in Week 12 against the Chargers on Nov. 29, Mike Reiss and Adam Schefter of ESPN.com report.",
               "updatedAt": "2026-11-21T15:06Z",
               "expectedReturn": "",
               "position": "QB"
@@ -31219,7 +31219,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-22T12:58:13.965Z",
+          "checkedAt": "2026-11-22T14:54:12.885Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -39661,7 +39661,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-22T12:58:16.570Z",
+        "generatedAt": "2026-11-22T14:54:16.124Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -42998,6 +42998,30 @@
             },
             {
               "playerId": "",
+              "player": "Micah Parsons",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Parsons (knee) is \"on track\" to return from the PUP list to make his season debut Wednesday against the Rams, Ian Rapoport of NFL Network reports.",
+              "updatedAt": "2026-11-22T14:36Z",
+              "expectedReturn": "2026-11-25",
+              "position": "DE"
+            },
+            {
+              "playerId": "",
+              "player": "Luke Musgrave",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Packers head coach Matt LaFleur said Saturday that he doesn't anticipate Musgrove (neck) returning from the PUP list this season, according to NFL reporter Jason B. Hirschhorn.",
+              "updatedAt": "2026-11-22T14:06Z",
+              "expectedReturn": "2027-02-15",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Brandon Cisse",
               "team": "",
               "teamId": "",
@@ -43031,18 +43055,6 @@
               "updatedAt": "2026-11-22T00:33Z",
               "expectedReturn": "2026-11-25",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Micah Parsons",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Parsons (knee) participated in practice Saturday, Bill Huber of SI.com reports.",
-              "updatedAt": "2026-11-22T00:31Z",
-              "expectedReturn": "2026-11-25",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -43283,18 +43295,6 @@
               "updatedAt": "2026-11-15T17:18Z",
               "expectedReturn": "",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Javon Bullard",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Bullard (ankle) is active for Sunday's game against the Vikings.",
-              "updatedAt": "2026-11-15T17:12Z",
-              "expectedReturn": "",
-              "position": "S"
             },
             {
               "playerId": "",
@@ -43598,6 +43598,18 @@
             },
             {
               "playerId": "",
+              "player": "Alec Pierce",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Pierce's season \"is almost certainly over\" due to the heel injury that landed the wideout on IR on Sept. 26, according to Ian Rapoport of NFL Network.",
+              "updatedAt": "2026-11-22T12:52Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Bryce Boettcher",
               "team": "",
               "teamId": "",
@@ -43886,15 +43898,27 @@
             },
             {
               "playerId": "",
-              "player": "Justin Walley",
+              "player": "Jordan Davis",
               "team": "",
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Walley registered five tackles, a sack, a forced fumble and two pass breakups in Sunday's 24-22 win over the Dolphins.",
-              "updatedAt": "2026-11-18T17:53Z",
+              "note": "Davis is slated to make his Jaguars debut Sunday against the Giants, Adam Schefter of ESPN reports.",
+              "updatedAt": "2026-11-22T14:11Z",
               "expectedReturn": "",
-              "position": "CB"
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Jessie Bates III",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Bates is slated to make his Jaguars debut Sunday against the Giants, Adam Schefter of ESPN reports.",
+              "updatedAt": "2026-11-22T14:09Z",
+              "expectedReturn": "",
+              "position": "S"
             },
             {
               "playerId": "",
@@ -44102,18 +44126,6 @@
             },
             {
               "playerId": "",
-              "player": "Jessie Bates III",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-16T19:22Z",
-              "expectedReturn": "",
-              "position": "S"
-            },
-            {
-              "playerId": "",
               "player": "CJ Williams",
               "team": "",
               "teamId": "",
@@ -44183,18 +44195,6 @@
               "updatedAt": "2026-11-16T01:25Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Brenton Strange",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Strange caught two of three targets for nine yards and a touchdown in Sunday's 40-23 win over the Titans.",
-              "updatedAt": "2026-11-16T01:10Z",
-              "expectedReturn": "",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -45098,14 +45098,26 @@
             },
             {
               "playerId": "",
+              "player": "Davante Adams",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "Adams (hamstring) has an \"outside chance\" to return from injured reserve for the Rams' Week 13 matchup with the Chiefs but is more likely to be activated around mid-December, Ian Rapoport of NFL Networkreports.",
+              "updatedAt": "2026-11-22T14:32Z",
+              "expectedReturn": "2026-12-13",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Puka Nacua",
               "team": "",
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Nacua (knee) is expected to be sidelined 4-to-5 months after undergoing MCL surgery, which means he likely won't be able to return to action even if the Rams advance to the Super Bowl, Adam Schefter of ESPN reports.",
+              "note": "Nacua (knee/toe) is expected to be sidelined 4-to-5 months after undergoing surgery Tuesday to repair his MCL, which means he won't be on track to return at any point during the playoffs, Adam Schefter of ESPN reports.",
               "updatedAt": "2026-11-22T01:25Z",
-              "expectedReturn": "2027-01-10",
+              "expectedReturn": "2027-02-15",
               "position": "WR"
             },
             {
@@ -45166,18 +45178,6 @@
               "note": "The Rams are expected to lean more on Mumpfield and the rest of the team's wide receivers in the absence of Puka Nacua (knee/toe), the latter of whom is expected to be sidelined for the remainder of the regular season, Nate Atkins and Jonat",
               "updatedAt": "2026-11-20T23:18Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Davante Adams",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Coach Sean McVay noted Friday that Adams (hamstring) isn't expected to practice this weekend, Greg Beacham of the Associated Press reports.",
-              "updatedAt": "2026-11-20T17:49Z",
-              "expectedReturn": "2026-12-03",
               "position": "WR"
             },
             {
@@ -45991,7 +45991,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Head coach Mike Vrabel said Friday that DeVito will start in Week 12 against the Chargers on Sunday, Nov. 29, Mike Reiss and Adam Schefter of ESPN report.",
+              "note": "Head coach Mike Vrabel said Friday that DeVito will start in Week 12 against the Chargers on Nov. 29, Mike Reiss and Adam Schefter of ESPN.com report.",
               "updatedAt": "2026-11-21T15:06Z",
               "expectedReturn": "",
               "position": "QB"
@@ -49285,7 +49285,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-22T12:58:13.965Z",
+          "checkedAt": "2026-11-22T14:54:12.885Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -51042,7 +51042,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-22T12:58:16.912Z",
+        "generatedAt": "2026-11-22T14:54:16.596Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 151,
         "publishedBy": "EDGEIQ unattended research publisher"
