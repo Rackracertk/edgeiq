@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-22T23:16:16.086Z",
+  "generatedAt": "2026-11-23T12:33:00.260Z",
   "oddsStatus": "NOT_CONFIGURED",
   "methodology": "Displayed team form is observed completed-game history, not a predictive win rate. Bookmaker markets are displayed only with owner-authorized The Odds API access; no synthetic prop lines. Market-implied/no-vig percentages are not model-calibrated probabilities or guaranteed outcomes.",
   "researchWindow": "ESPN public completed scoreboards in the preceding 20 days. Fewer than 5 samples are labeled as such.",
@@ -13,7 +13,7 @@
           "games": [],
           "completedSamples": 0,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:11.566Z"
+          "updatedAt": "2026-11-23T12:32:56.652Z"
         }
       ]
     },
@@ -23,289 +23,6 @@
         {
           "league": "NHL",
           "games": [
-            {
-              "id": "401892770",
-              "league": "NHL",
-              "time": "2026-11-23T00:00Z",
-              "home": {
-                "id": "19",
-                "name": "St. Louis Blues",
-                "short": "STL",
-                "score": 0
-              },
-              "away": {
-                "id": "6",
-                "name": "Edmonton Oilers",
-                "short": "EDM",
-                "score": 0
-              },
-              "form": {
-                "home": {
-                  "games": 5,
-                  "wins": 4,
-                  "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 4.8,
-                  "concededAvg": 3.6,
-                  "results": [
-                    "W",
-                    "W",
-                    "W",
-                    "L",
-                    "W"
-                  ]
-                },
-                "away": {
-                  "games": 5,
-                  "wins": 3,
-                  "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 3.2,
-                  "concededAvg": 2.8,
-                  "results": [
-                    "L",
-                    "L",
-                    "W",
-                    "W",
-                    "W"
-                  ]
-                },
-                "context": {
-                  "daysSinceLastGame": {
-                    "home": 1,
-                    "away": 1
-                  },
-                  "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
-                    "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 5.25,
-                    "concededAvg": 4.5,
-                    "results": [
-                      "W",
-                      "W",
-                      "L",
-                      "W"
-                    ]
-                  },
-                  "awayVenue": {
-                    "games": 5,
-                    "wins": 3,
-                    "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 3.2,
-                    "concededAvg": 2.8,
-                    "results": [
-                      "L",
-                      "L",
-                      "W",
-                      "W",
-                      "W"
-                    ]
-                  },
-                  "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
-                    "awayWins": 0,
-                    "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
-                  }
-                }
-              },
-              "markets": [],
-              "marketSource": "No authenticated sportsbook snapshot",
-              "source": "ESPN public scoreboard (unofficial)"
-            },
-            {
-              "id": "401892771",
-              "league": "NHL",
-              "time": "2026-11-23T00:00Z",
-              "home": {
-                "id": "9",
-                "name": "Dallas Stars",
-                "short": "DAL",
-                "score": 0
-              },
-              "away": {
-                "id": "16",
-                "name": "Pittsburgh Penguins",
-                "short": "PIT",
-                "score": 0
-              },
-              "form": {
-                "home": {
-                  "games": 5,
-                  "wins": 4,
-                  "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3,
-                  "concededAvg": 3,
-                  "results": [
-                    "W",
-                    "W",
-                    "W",
-                    "W",
-                    "L"
-                  ]
-                },
-                "away": {
-                  "games": 5,
-                  "wins": 1,
-                  "draws": 0,
-                  "losses": 4,
-                  "scoredAvg": 2.2,
-                  "concededAvg": 4,
-                  "results": [
-                    "L",
-                    "L",
-                    "L",
-                    "W",
-                    "L"
-                  ]
-                },
-                "context": {
-                  "daysSinceLastGame": {
-                    "home": 2,
-                    "away": 1
-                  },
-                  "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
-                    "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 2.75,
-                    "concededAvg": 3,
-                    "results": [
-                      "W",
-                      "W",
-                      "L",
-                      "W"
-                    ]
-                  },
-                  "awayVenue": {
-                    "games": 4,
-                    "wins": 2,
-                    "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 3.25,
-                    "concededAvg": 3.25,
-                    "results": [
-                      "L",
-                      "W",
-                      "L",
-                      "W"
-                    ]
-                  },
-                  "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
-                    "awayWins": 0,
-                    "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
-                  }
-                }
-              },
-              "markets": [],
-              "marketSource": "No authenticated sportsbook snapshot",
-              "source": "ESPN public scoreboard (unofficial)"
-            },
-            {
-              "id": "401892772",
-              "league": "NHL",
-              "time": "2026-11-23T01:00Z",
-              "home": {
-                "id": "22",
-                "name": "Vancouver Canucks",
-                "short": "VAN",
-                "score": 0
-              },
-              "away": {
-                "id": "4",
-                "name": "Chicago Blackhawks",
-                "short": "CHI",
-                "score": 0
-              },
-              "form": {
-                "home": {
-                  "games": 5,
-                  "wins": 3,
-                  "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 3,
-                  "concededAvg": 3.6,
-                  "results": [
-                    "W",
-                    "L",
-                    "W",
-                    "W",
-                    "L"
-                  ]
-                },
-                "away": {
-                  "games": 5,
-                  "wins": 3,
-                  "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 3.4,
-                  "results": [
-                    "W",
-                    "L",
-                    "W",
-                    "L",
-                    "W"
-                  ]
-                },
-                "context": {
-                  "daysSinceLastGame": {
-                    "home": 0,
-                    "away": 1
-                  },
-                  "homeVenue": {
-                    "games": 4,
-                    "wins": 1,
-                    "draws": 0,
-                    "losses": 3,
-                    "scoredAvg": 2.5,
-                    "concededAvg": 4,
-                    "results": [
-                      "W",
-                      "L",
-                      "L",
-                      "L"
-                    ]
-                  },
-                  "awayVenue": {
-                    "games": 4,
-                    "wins": 1,
-                    "draws": 0,
-                    "losses": 3,
-                    "scoredAvg": 2.5,
-                    "concededAvg": 5.25,
-                    "results": [
-                      "W",
-                      "L",
-                      "L",
-                      "L"
-                    ]
-                  },
-                  "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
-                    "awayWins": 0,
-                    "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
-                  }
-                }
-              },
-              "markets": [],
-              "marketSource": "No authenticated sportsbook snapshot",
-              "source": "ESPN public scoreboard (unofficial)"
-            },
             {
               "id": "401892773",
               "league": "NHL",
@@ -562,18 +279,17 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
-                    "wins": 3,
+                    "games": 4,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 2,
-                    "scoredAvg": 2.4,
-                    "concededAvg": 2.6,
+                    "scoredAvg": 2.5,
+                    "concededAvg": 3,
                     "results": [
                       "W",
                       "L",
                       "W",
-                      "L",
-                      "W"
+                      "L"
                     ]
                   },
                   "headToHead": {
@@ -991,15 +707,15 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 3,
+                  "wins": 2,
                   "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 3.2,
-                  "concededAvg": 2.8,
+                  "losses": 3,
+                  "scoredAvg": 3.8,
+                  "concededAvg": 3.8,
                   "results": [
                     "L",
                     "L",
-                    "W",
+                    "L",
                     "W",
                     "W"
                   ]
@@ -1021,7 +737,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 3,
+                    "home": 2,
                     "away": 3
                   },
                   "homeVenue": {
@@ -1039,18 +755,17 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
+                    "games": 4,
                     "wins": 4,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 3.2,
-                    "concededAvg": 2.2,
+                    "losses": 0,
+                    "scoredAvg": 3.5,
+                    "concededAvg": 2,
                     "results": [
                       "W",
                       "W",
                       "W",
-                      "W",
-                      "L"
+                      "W"
                     ]
                   },
                   "headToHead": {
@@ -1180,15 +895,15 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 1,
+                  "wins": 2,
                   "draws": 0,
-                  "losses": 4,
-                  "scoredAvg": 2.8,
-                  "concededAvg": 3.2,
+                  "losses": 3,
+                  "scoredAvg": 3.6,
+                  "concededAvg": 3,
                   "results": [
-                    "L",
                     "W",
                     "L",
+                    "W",
                     "L",
                     "L"
                   ]
@@ -1210,7 +925,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 4,
+                    "home": 3,
                     "away": 3
                   },
                   "homeVenue": {
@@ -1274,16 +989,16 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 4,
+                  "wins": 3,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 1.8,
+                  "losses": 2,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 2.4,
                   "results": [
+                    "L",
                     "W",
                     "W",
                     "L",
-                    "W",
                     "W"
                   ]
                 },
@@ -1304,21 +1019,21 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 5,
+                    "home": 3,
                     "away": 3
                   },
                   "homeVenue": {
                     "games": 5,
-                    "wins": 4,
+                    "wins": 3,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 3.2,
-                    "concededAvg": 1.6,
+                    "losses": 2,
+                    "scoredAvg": 2.8,
+                    "concededAvg": 2.4,
                     "results": [
+                      "L",
                       "W",
                       "W",
                       "L",
-                      "W",
                       "W"
                     ]
                   },
@@ -1403,18 +1118,17 @@
                     "away": 4
                   },
                   "homeVenue": {
-                    "games": 5,
+                    "games": 4,
                     "wins": 3,
                     "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 3.8,
-                    "concededAvg": 4,
+                    "losses": 1,
+                    "scoredAvg": 4,
+                    "concededAvg": 3.75,
                     "results": [
                       "W",
                       "L",
                       "W",
-                      "W",
-                      "L"
+                      "W"
                     ]
                   },
                   "awayVenue": {
@@ -1481,20 +1195,20 @@
                   "wins": 4,
                   "draws": 0,
                   "losses": 1,
-                  "scoredAvg": 4.8,
-                  "concededAvg": 3.6,
+                  "scoredAvg": 5.6,
+                  "concededAvg": 4.4,
                   "results": [
                     "W",
                     "W",
                     "W",
-                    "L",
-                    "W"
+                    "W",
+                    "L"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 4,
-                    "away": 4
+                    "away": 3
                   },
                   "homeVenue": {
                     "games": 3,
@@ -1560,14 +1274,14 @@
                   "wins": 1,
                   "draws": 0,
                   "losses": 4,
-                  "scoredAvg": 2.2,
-                  "concededAvg": 4,
+                  "scoredAvg": 1.8,
+                  "concededAvg": 3.2,
                   "results": [
                     "L",
                     "L",
                     "L",
-                    "W",
-                    "L"
+                    "L",
+                    "W"
                   ]
                 },
                 "away": {
@@ -1587,7 +1301,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 4,
+                    "home": 3,
                     "away": 4
                   },
                   "homeVenue": {
@@ -1605,18 +1319,17 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
-                    "wins": 3,
+                    "games": 4,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 2,
-                    "scoredAvg": 2.4,
-                    "concededAvg": 2.6,
+                    "scoredAvg": 2.5,
+                    "concededAvg": 3,
                     "results": [
                       "W",
                       "L",
                       "W",
-                      "L",
-                      "W"
+                      "L"
                     ]
                   },
                   "headToHead": {
@@ -1861,20 +1574,20 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3,
-                  "concededAvg": 3.6,
+                  "scoredAvg": 3.4,
+                  "concededAvg": 3.8,
                   "results": [
+                    "L",
                     "W",
                     "L",
                     "W",
-                    "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 4,
-                    "away": 3
+                    "away": 2
                   },
                   "homeVenue": {
                     "games": 3,
@@ -1937,17 +1650,17 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 4,
+                  "wins": 5,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3,
-                  "concededAvg": 3,
+                  "losses": 0,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 1.4,
                   "results": [
                     "W",
                     "W",
                     "W",
                     "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "away": {
@@ -1967,17 +1680,18 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 5,
+                    "home": 3,
                     "away": 4
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
+                    "games": 5,
+                    "wins": 4,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 2.75,
-                    "concededAvg": 3,
+                    "scoredAvg": 2.4,
+                    "concededAvg": 2.4,
                     "results": [
+                      "W",
                       "W",
                       "W",
                       "L",
@@ -2243,20 +1957,20 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 3.4,
+                  "scoredAvg": 4.4,
+                  "concededAvg": 3.6,
                   "results": [
                     "W",
-                    "L",
                     "W",
                     "L",
-                    "W"
+                    "W",
+                    "L"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 3,
-                    "away": 4
+                    "away": 3
                   },
                   "homeVenue": {
                     "games": 4,
@@ -2273,13 +1987,14 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 4,
-                    "wins": 1,
+                    "games": 5,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 3,
-                    "scoredAvg": 2.5,
-                    "concededAvg": 5.25,
+                    "scoredAvg": 3.2,
+                    "concededAvg": 4.8,
                     "results": [
+                      "W",
                       "W",
                       "L",
                       "L",
@@ -2553,18 +2268,17 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
-                    "wins": 3,
+                    "games": 4,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 2,
-                    "scoredAvg": 2.4,
-                    "concededAvg": 2.6,
+                    "scoredAvg": 2.5,
+                    "concededAvg": 3,
                     "results": [
                       "W",
                       "L",
                       "W",
-                      "L",
-                      "W"
+                      "L"
                     ]
                   },
                   "headToHead": {
@@ -2696,23 +2410,8 @@
                   "wins": 4,
                   "draws": 0,
                   "losses": 1,
-                  "scoredAvg": 4.8,
-                  "concededAvg": 3.6,
-                  "results": [
-                    "W",
-                    "W",
-                    "W",
-                    "L",
-                    "W"
-                  ]
-                },
-                "away": {
-                  "games": 5,
-                  "wins": 4,
-                  "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3,
-                  "concededAvg": 3,
+                  "scoredAvg": 5.6,
+                  "concededAvg": 4.4,
                   "results": [
                     "W",
                     "W",
@@ -2721,19 +2420,35 @@
                     "L"
                   ]
                 },
+                "away": {
+                  "games": 5,
+                  "wins": 5,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 1.4,
+                  "results": [
+                    "W",
+                    "W",
+                    "W",
+                    "W",
+                    "W"
+                  ]
+                },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 5,
-                    "away": 7
+                    "home": 4,
+                    "away": 4
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
+                    "games": 5,
+                    "wins": 4,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 5.25,
-                    "concededAvg": 4.5,
+                    "scoredAvg": 5.2,
+                    "concededAvg": 4.4,
                     "results": [
+                      "W",
                       "W",
                       "W",
                       "L",
@@ -2787,16 +2502,16 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 4,
+                  "wins": 3,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 1.8,
+                  "losses": 2,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 2.4,
                   "results": [
+                    "L",
                     "W",
                     "W",
                     "L",
-                    "W",
                     "W"
                   ]
                 },
@@ -2817,21 +2532,21 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 7,
+                    "home": 4,
                     "away": 5
                   },
                   "homeVenue": {
                     "games": 5,
-                    "wins": 4,
+                    "wins": 3,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 3.2,
-                    "concededAvg": 1.6,
+                    "losses": 2,
+                    "scoredAvg": 2.8,
+                    "concededAvg": 2.4,
                     "results": [
+                      "L",
                       "W",
                       "W",
                       "L",
-                      "W",
                       "W"
                     ]
                   },
@@ -2899,20 +2614,20 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3,
-                  "concededAvg": 3.6,
+                  "scoredAvg": 3.4,
+                  "concededAvg": 3.8,
                   "results": [
+                    "L",
                     "W",
                     "L",
                     "W",
-                    "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 5,
-                    "away": 5
+                    "away": 4
                   },
                   "homeVenue": {
                     "games": 3,
@@ -3414,18 +3129,17 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
+                    "games": 4,
                     "wins": 4,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 3.2,
-                    "concededAvg": 2.2,
+                    "losses": 0,
+                    "scoredAvg": 3.5,
+                    "concededAvg": 2,
                     "results": [
                       "W",
                       "W",
                       "W",
-                      "W",
-                      "L"
+                      "W"
                     ]
                   },
                   "headToHead": {
@@ -3464,14 +3178,14 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 3.4,
+                  "scoredAvg": 4.4,
+                  "concededAvg": 3.6,
                   "results": [
                     "W",
-                    "L",
                     "W",
                     "L",
-                    "W"
+                    "W",
+                    "L"
                   ]
                 },
                 "away": {
@@ -3491,22 +3205,21 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 6,
+                    "home": 4,
                     "away": 5
                   },
                   "homeVenue": {
-                    "games": 5,
+                    "games": 4,
                     "wins": 2,
                     "draws": 0,
-                    "losses": 3,
-                    "scoredAvg": 3.4,
-                    "concededAvg": 3.8,
+                    "losses": 2,
+                    "scoredAvg": 3.75,
+                    "concededAvg": 3.5,
                     "results": [
                       "L",
                       "W",
                       "L",
-                      "W",
-                      "L"
+                      "W"
                     ]
                   },
                   "awayVenue": {
@@ -3654,15 +3367,15 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 1,
+                  "wins": 2,
                   "draws": 0,
-                  "losses": 4,
-                  "scoredAvg": 2.8,
-                  "concededAvg": 3.2,
+                  "losses": 3,
+                  "scoredAvg": 3.6,
+                  "concededAvg": 3,
                   "results": [
-                    "L",
                     "W",
                     "L",
+                    "W",
                     "L",
                     "L"
                   ]
@@ -3672,20 +3385,20 @@
                   "wins": 1,
                   "draws": 0,
                   "losses": 4,
-                  "scoredAvg": 2.2,
-                  "concededAvg": 4,
+                  "scoredAvg": 1.8,
+                  "concededAvg": 3.2,
                   "results": [
                     "L",
                     "L",
                     "L",
-                    "W",
-                    "L"
+                    "L",
+                    "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 6,
-                    "away": 6
+                    "home": 5,
+                    "away": 5
                   },
                   "homeVenue": {
                     "games": 4,
@@ -3702,13 +3415,14 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 4,
+                    "games": 5,
                     "wins": 2,
                     "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 3.25,
-                    "concededAvg": 3.25,
+                    "losses": 3,
+                    "scoredAvg": 2.6,
+                    "concededAvg": 2.8,
                     "results": [
+                      "L",
                       "L",
                       "W",
                       "L",
@@ -3748,15 +3462,15 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 3,
+                  "wins": 2,
                   "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 3.2,
-                  "concededAvg": 2.8,
+                  "losses": 3,
+                  "scoredAvg": 3.8,
+                  "concededAvg": 3.8,
                   "results": [
                     "L",
                     "L",
-                    "W",
+                    "L",
                     "W",
                     "W"
                   ]
@@ -3778,7 +3492,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 6,
+                    "home": 5,
                     "away": 5
                   },
                   "homeVenue": {
@@ -3951,37 +3665,36 @@
                 },
                 "away": {
                   "games": 5,
-                  "wins": 4,
+                  "wins": 3,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 1.8,
+                  "losses": 2,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 2.4,
                   "results": [
+                    "L",
                     "W",
                     "W",
                     "L",
-                    "W",
                     "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 7,
-                    "away": 8
+                    "away": 6
                   },
                   "homeVenue": {
-                    "games": 5,
+                    "games": 4,
                     "wins": 3,
                     "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 3.8,
-                    "concededAvg": 4,
+                    "losses": 1,
+                    "scoredAvg": 4,
+                    "concededAvg": 3.75,
                     "results": [
                       "W",
                       "L",
                       "W",
-                      "W",
-                      "L"
+                      "W"
                     ]
                   },
                   "awayVenue": {
@@ -4272,18 +3985,17 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
-                    "wins": 3,
+                    "games": 4,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 2,
-                    "scoredAvg": 2.4,
-                    "concededAvg": 2.6,
+                    "scoredAvg": 2.5,
+                    "concededAvg": 3,
                     "results": [
                       "W",
                       "L",
                       "W",
-                      "L",
-                      "W"
+                      "L"
                     ]
                   },
                   "headToHead": {
@@ -4328,14 +4040,14 @@
                   "wins": 1,
                   "draws": 0,
                   "losses": 4,
-                  "scoredAvg": 2.2,
-                  "concededAvg": 4,
+                  "scoredAvg": 1.8,
+                  "concededAvg": 3.2,
                   "results": [
                     "L",
                     "L",
                     "L",
-                    "W",
-                    "L"
+                    "L",
+                    "W"
                   ]
                 },
                 "away": {
@@ -4355,7 +4067,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 7,
+                    "home": 6,
                     "away": 7
                   },
                   "homeVenue": {
@@ -4512,14 +4224,14 @@
                   "wins": 4,
                   "draws": 0,
                   "losses": 1,
-                  "scoredAvg": 4.8,
-                  "concededAvg": 3.6,
+                  "scoredAvg": 5.6,
+                  "concededAvg": 4.4,
                   "results": [
                     "W",
                     "W",
                     "W",
-                    "L",
-                    "W"
+                    "W",
+                    "L"
                   ]
                 },
                 "away": {
@@ -4539,17 +4251,18 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 7,
+                    "home": 6,
                     "away": 7
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
+                    "games": 5,
+                    "wins": 4,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 5.25,
-                    "concededAvg": 4.5,
+                    "scoredAvg": 5.2,
+                    "concededAvg": 4.4,
                     "results": [
+                      "W",
                       "W",
                       "W",
                       "L",
@@ -4697,17 +4410,17 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 4,
+                  "wins": 5,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3,
-                  "concededAvg": 3,
+                  "losses": 0,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 1.4,
                   "results": [
                     "W",
                     "W",
                     "W",
                     "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "away": {
@@ -4727,17 +4440,18 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 8,
+                    "home": 6,
                     "away": 6
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
+                    "games": 5,
+                    "wins": 4,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 2.75,
-                    "concededAvg": 3,
+                    "scoredAvg": 2.4,
+                    "concededAvg": 2.4,
                     "results": [
+                      "W",
                       "W",
                       "W",
                       "L",
@@ -4995,15 +4709,15 @@
                 },
                 "away": {
                   "games": 5,
-                  "wins": 3,
+                  "wins": 2,
                   "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 3.2,
-                  "concededAvg": 2.8,
+                  "losses": 3,
+                  "scoredAvg": 3.8,
+                  "concededAvg": 3.8,
                   "results": [
                     "L",
                     "L",
-                    "W",
+                    "L",
                     "W",
                     "W"
                   ]
@@ -5011,7 +4725,7 @@
                 "context": {
                   "daysSinceLastGame": {
                     "home": 7,
-                    "away": 7
+                    "away": 6
                   },
                   "homeVenue": {
                     "games": 4,
@@ -5029,15 +4743,15 @@
                   },
                   "awayVenue": {
                     "games": 5,
-                    "wins": 3,
+                    "wins": 2,
                     "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 3.2,
-                    "concededAvg": 2.8,
+                    "losses": 3,
+                    "scoredAvg": 3.8,
+                    "concededAvg": 3.8,
                     "results": [
                       "L",
                       "L",
-                      "W",
+                      "L",
                       "W",
                       "W"
                     ]
@@ -5078,14 +4792,14 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 3.4,
+                  "scoredAvg": 4.4,
+                  "concededAvg": 3.6,
                   "results": [
                     "W",
-                    "L",
                     "W",
                     "L",
-                    "W"
+                    "W",
+                    "L"
                   ]
                 },
                 "away": {
@@ -5105,22 +4819,21 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 7,
+                    "home": 6,
                     "away": 7
                   },
                   "homeVenue": {
-                    "games": 5,
+                    "games": 4,
                     "wins": 2,
                     "draws": 0,
-                    "losses": 3,
-                    "scoredAvg": 3.4,
-                    "concededAvg": 3.8,
+                    "losses": 2,
+                    "scoredAvg": 3.75,
+                    "concededAvg": 3.5,
                     "results": [
                       "L",
                       "W",
                       "L",
-                      "W",
-                      "L"
+                      "W"
                     ]
                   },
                   "awayVenue": {
@@ -5189,20 +4902,20 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3,
-                  "concededAvg": 3.6,
+                  "scoredAvg": 3.4,
+                  "concededAvg": 3.8,
                   "results": [
+                    "L",
                     "W",
                     "L",
                     "W",
-                    "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 7,
-                    "away": 7
+                    "away": 6
                   },
                   "homeVenue": {
                     "games": 5,
@@ -5462,14 +5175,14 @@
                   "wins": 1,
                   "draws": 0,
                   "losses": 4,
-                  "scoredAvg": 2.2,
-                  "concededAvg": 4,
+                  "scoredAvg": 1.8,
+                  "concededAvg": 3.2,
                   "results": [
                     "L",
                     "L",
                     "L",
-                    "W",
-                    "L"
+                    "L",
+                    "W"
                   ]
                 },
                 "away": {
@@ -5489,7 +5202,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 9,
+                    "home": 8,
                     "away": 9
                   },
                   "homeVenue": {
@@ -5667,20 +5380,20 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3.8,
-                  "concededAvg": 3.4,
+                  "scoredAvg": 4.4,
+                  "concededAvg": 3.6,
                   "results": [
                     "W",
-                    "L",
                     "W",
                     "L",
-                    "W"
+                    "W",
+                    "L"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 9,
-                    "away": 9
+                    "away": 7
                   },
                   "homeVenue": {
                     "games": 5,
@@ -5698,13 +5411,14 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 4,
-                    "wins": 1,
+                    "games": 5,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 3,
-                    "scoredAvg": 2.5,
-                    "concededAvg": 5.25,
+                    "scoredAvg": 3.2,
+                    "concededAvg": 4.8,
                     "results": [
+                      "W",
                       "W",
                       "L",
                       "L",
@@ -5899,18 +5613,17 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
-                    "wins": 3,
+                    "games": 4,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 2,
-                    "scoredAvg": 2.4,
-                    "concededAvg": 2.6,
+                    "scoredAvg": 2.5,
+                    "concededAvg": 3,
                     "results": [
                       "W",
                       "L",
                       "W",
-                      "L",
-                      "W"
+                      "L"
                     ]
                   },
                   "headToHead": {
@@ -6058,20 +5771,20 @@
                   "wins": 3,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 3,
-                  "concededAvg": 3.6,
+                  "scoredAvg": 3.4,
+                  "concededAvg": 3.8,
                   "results": [
+                    "L",
                     "W",
                     "L",
                     "W",
-                    "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 10,
-                    "away": 9
+                    "away": 8
                   },
                   "homeVenue": {
                     "games": 4,
@@ -6325,38 +6038,38 @@
               "form": {
                 "home": {
                   "games": 5,
-                  "wins": 3,
+                  "wins": 2,
                   "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 3.2,
-                  "concededAvg": 2.8,
+                  "losses": 3,
+                  "scoredAvg": 3.8,
+                  "concededAvg": 3.8,
                   "results": [
                     "L",
                     "L",
-                    "W",
+                    "L",
                     "W",
                     "W"
                   ]
                 },
                 "away": {
                   "games": 5,
-                  "wins": 1,
+                  "wins": 2,
                   "draws": 0,
-                  "losses": 4,
-                  "scoredAvg": 2.8,
-                  "concededAvg": 3.2,
+                  "losses": 3,
+                  "scoredAvg": 3.6,
+                  "concededAvg": 3,
                   "results": [
-                    "L",
                     "W",
                     "L",
+                    "W",
                     "L",
                     "L"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 10,
-                    "away": 10
+                    "home": 9,
+                    "away": 9
                   },
                   "homeVenue": {
                     "games": 4,
@@ -6374,15 +6087,15 @@
                   },
                   "awayVenue": {
                     "games": 5,
-                    "wins": 1,
+                    "wins": 2,
                     "draws": 0,
-                    "losses": 4,
-                    "scoredAvg": 2.8,
-                    "concededAvg": 3.2,
+                    "losses": 3,
+                    "scoredAvg": 3.6,
+                    "concededAvg": 3,
                     "results": [
-                      "L",
                       "W",
                       "L",
+                      "W",
                       "L",
                       "L"
                     ]
@@ -6435,23 +6148,23 @@
                 },
                 "away": {
                   "games": 5,
-                  "wins": 4,
+                  "wins": 5,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3,
-                  "concededAvg": 3,
+                  "losses": 0,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 1.4,
                   "results": [
                     "W",
                     "W",
                     "W",
                     "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": 9,
-                    "away": 11
+                    "away": 9
                   },
                   "homeVenue": {
                     "games": 4,
@@ -6658,18 +6371,308 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 5,
+                    "games": 4,
                     "wins": 4,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 3.2,
-                    "concededAvg": 2.2,
+                    "losses": 0,
+                    "scoredAvg": 3.5,
+                    "concededAvg": 2,
                     "results": [
                       "W",
                       "W",
                       "W",
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401892840",
+              "league": "NHL",
+              "time": "2026-12-03T00:30Z",
+              "home": {
+                "id": "10",
+                "name": "Montreal Canadiens",
+                "short": "MTL",
+                "score": 0
+              },
+              "away": {
+                "id": "20",
+                "name": "Tampa Bay Lightning",
+                "short": "TB",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 5,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 3,
+                  "scoredAvg": 2,
+                  "concededAvg": 2.8,
+                  "results": [
+                    "L",
+                    "W",
+                    "W",
+                    "L",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 5,
+                  "wins": 3,
+                  "draws": 0,
+                  "losses": 2,
+                  "scoredAvg": 2.6,
+                  "concededAvg": 2.4,
+                  "results": [
+                    "L",
+                    "W",
+                    "W",
+                    "L",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 5,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 4,
+                    "scoredAvg": 2.8,
+                    "concededAvg": 3.8,
+                    "results": [
+                      "L",
+                      "L",
+                      "L",
                       "W",
                       "L"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 4,
+                    "wins": 3,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 4.5,
+                    "concededAvg": 2.75,
+                    "results": [
+                      "W",
+                      "W",
+                      "L",
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401892841",
+              "league": "NHL",
+              "time": "2026-12-03T01:00Z",
+              "home": {
+                "id": "19",
+                "name": "St. Louis Blues",
+                "short": "STL",
+                "score": 0
+              },
+              "away": {
+                "id": "16",
+                "name": "Pittsburgh Penguins",
+                "short": "PIT",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 5,
+                  "wins": 4,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 5.6,
+                  "concededAvg": 4.4,
+                  "results": [
+                    "W",
+                    "W",
+                    "W",
+                    "W",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 5,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 4,
+                  "scoredAvg": 1.8,
+                  "concededAvg": 3.2,
+                  "results": [
+                    "L",
+                    "L",
+                    "L",
+                    "L",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 10,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 5,
+                    "wins": 4,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 5.2,
+                    "concededAvg": 4.4,
+                    "results": [
+                      "W",
+                      "W",
+                      "W",
+                      "L",
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 5,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 3,
+                    "scoredAvg": 2.6,
+                    "concededAvg": 2.8,
+                    "results": [
+                      "L",
+                      "L",
+                      "W",
+                      "L",
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 1,
+                    "homeWins": 1,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": 7,
+                    "latest": {
+                      "time": "2026-11-20T00:00Z",
+                      "homeTeam": "Pittsburgh Penguins",
+                      "homeScore": 2,
+                      "awayTeam": "St. Louis Blues",
+                      "awayScore": 5
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401892842",
+              "league": "NHL",
+              "time": "2026-12-03T02:30Z",
+              "home": {
+                "id": "129764",
+                "name": "Utah Mammoth",
+                "short": "UTA",
+                "score": 0
+              },
+              "away": {
+                "id": "28",
+                "name": "Winnipeg Jets",
+                "short": "WPG",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 5,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 3,
+                  "scoredAvg": 2.8,
+                  "concededAvg": 2.6,
+                  "results": [
+                    "W",
+                    "W",
+                    "L",
+                    "L",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 5,
+                  "wins": 3,
+                  "draws": 0,
+                  "losses": 2,
+                  "scoredAvg": 4.4,
+                  "concededAvg": 3.4,
+                  "results": [
+                    "L",
+                    "W",
+                    "L",
+                    "W",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 5,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 3,
+                    "scoredAvg": 2.8,
+                    "concededAvg": 2.6,
+                    "results": [
+                      "W",
+                      "W",
+                      "L",
+                      "L",
+                      "L"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 3,
+                    "wins": 3,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 6,
+                    "concededAvg": 3.67,
+                    "results": [
+                      "W",
+                      "W",
+                      "W"
                     ]
                   },
                   "headToHead": {
@@ -6689,7 +6692,7 @@
           ],
           "completedSamples": 142,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:12.119Z"
+          "updatedAt": "2026-11-23T12:32:57.238Z"
         }
       ]
     },
@@ -12479,7 +12482,7 @@
           ],
           "completedSamples": 200,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:12.638Z"
+          "updatedAt": "2026-11-23T12:32:57.740Z"
         }
       ]
     },
@@ -12489,173 +12492,6 @@
         {
           "league": "NCAAB",
           "games": [
-            {
-              "id": "401920905",
-              "league": "NCAAB",
-              "time": "2026-11-23T00:00Z",
-              "home": {
-                "id": "26",
-                "name": "UCLA Bruins",
-                "short": "UCLA",
-                "score": 0
-              },
-              "away": {
-                "id": "48",
-                "name": "Delaware Blue Hens",
-                "short": "DEL",
-                "score": 0
-              },
-              "form": {
-                "home": {
-                  "games": 5,
-                  "wins": 5,
-                  "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": 96.8,
-                  "concededAvg": 62.4,
-                  "results": [
-                    "W",
-                    "W",
-                    "W",
-                    "W",
-                    "W"
-                  ]
-                },
-                "away": {
-                  "games": 0,
-                  "wins": 0,
-                  "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": null,
-                  "concededAvg": null,
-                  "results": []
-                },
-                "context": {
-                  "daysSinceLastGame": {
-                    "home": 3,
-                    "away": null
-                  },
-                  "homeVenue": {
-                    "games": 5,
-                    "wins": 5,
-                    "draws": 0,
-                    "losses": 0,
-                    "scoredAvg": 96.8,
-                    "concededAvg": 62.4,
-                    "results": [
-                      "W",
-                      "W",
-                      "W",
-                      "W",
-                      "W"
-                    ]
-                  },
-                  "awayVenue": {
-                    "games": 0,
-                    "wins": 0,
-                    "draws": 0,
-                    "losses": 0,
-                    "scoredAvg": null,
-                    "concededAvg": null,
-                    "results": []
-                  },
-                  "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
-                    "awayWins": 0,
-                    "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
-                  }
-                }
-              },
-              "markets": [],
-              "marketSource": "No authenticated sportsbook snapshot",
-              "source": "ESPN public scoreboard (unofficial)"
-            },
-            {
-              "id": "401926774",
-              "league": "NCAAB",
-              "time": "2026-11-23T01:00Z",
-              "home": {
-                "id": "30",
-                "name": "USC Trojans",
-                "short": "USC",
-                "score": 0
-              },
-              "away": {
-                "id": "309",
-                "name": "Louisiana Ragin' Cajuns",
-                "short": "UL",
-                "score": 0
-              },
-              "form": {
-                "home": {
-                  "games": 5,
-                  "wins": 5,
-                  "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": 96.6,
-                  "concededAvg": 62.2,
-                  "results": [
-                    "W",
-                    "W",
-                    "W",
-                    "W",
-                    "W"
-                  ]
-                },
-                "away": {
-                  "games": 0,
-                  "wins": 0,
-                  "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": null,
-                  "concededAvg": null,
-                  "results": []
-                },
-                "context": {
-                  "daysSinceLastGame": {
-                    "home": 2,
-                    "away": null
-                  },
-                  "homeVenue": {
-                    "games": 4,
-                    "wins": 4,
-                    "draws": 0,
-                    "losses": 0,
-                    "scoredAvg": 101.5,
-                    "concededAvg": 61.5,
-                    "results": [
-                      "W",
-                      "W",
-                      "W",
-                      "W"
-                    ]
-                  },
-                  "awayVenue": {
-                    "games": 0,
-                    "wins": 0,
-                    "draws": 0,
-                    "losses": 0,
-                    "scoredAvg": null,
-                    "concededAvg": null,
-                    "results": []
-                  },
-                  "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
-                    "awayWins": 0,
-                    "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
-                  }
-                }
-              },
-              "markets": [],
-              "marketSource": "No authenticated sportsbook snapshot",
-              "source": "ESPN public scoreboard (unofficial)"
-            },
             {
               "id": "401921708",
               "league": "NCAAB",
@@ -12674,14 +12510,13 @@
               },
               "form": {
                 "home": {
-                  "games": 5,
-                  "wins": 5,
+                  "games": 4,
+                  "wins": 4,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 96.8,
-                  "concededAvg": 71.4,
+                  "scoredAvg": 97.5,
+                  "concededAvg": 68.5,
                   "results": [
-                    "W",
                     "W",
                     "W",
                     "W",
@@ -12703,14 +12538,13 @@
                     "away": null
                   },
                   "homeVenue": {
-                    "games": 5,
-                    "wins": 5,
+                    "games": 4,
+                    "wins": 4,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 96.8,
-                    "concededAvg": 71.4,
+                    "scoredAvg": 97.5,
+                    "concededAvg": 68.5,
                     "results": [
-                      "W",
                       "W",
                       "W",
                       "W",
@@ -12787,14 +12621,13 @@
                     "away": null
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 4,
+                    "games": 3,
+                    "wins": 3,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 113.5,
-                    "concededAvg": 63.25,
+                    "scoredAvg": 111.33,
+                    "concededAvg": 69.33,
                     "results": [
-                      "W",
                       "W",
                       "W",
                       "W"
@@ -12870,15 +12703,14 @@
                     "away": null
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
+                    "games": 3,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 92.25,
-                    "concededAvg": 69.75,
+                    "scoredAvg": 91.33,
+                    "concededAvg": 71.33,
                     "results": [
                       "L",
-                      "W",
                       "W",
                       "W"
                     ]
@@ -12924,18 +12756,17 @@
               },
               "form": {
                 "home": {
-                  "games": 5,
+                  "games": 4,
                   "wins": 4,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 86.8,
-                  "concededAvg": 75,
+                  "losses": 0,
+                  "scoredAvg": 89.75,
+                  "concededAvg": 72.75,
                   "results": [
                     "W",
                     "W",
                     "W",
-                    "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "away": {
@@ -13126,15 +12957,13 @@
                     "results": []
                   },
                   "awayVenue": {
-                    "games": 1,
+                    "games": 0,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 67,
-                    "concededAvg": 77,
-                    "results": [
-                      "L"
-                    ]
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -13168,18 +12997,17 @@
               },
               "form": {
                 "home": {
-                  "games": 5,
-                  "wins": 3,
+                  "games": 4,
+                  "wins": 2,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 88.2,
-                  "concededAvg": 76.2,
+                  "scoredAvg": 89.25,
+                  "concededAvg": 78.25,
                   "results": [
                     "L",
                     "W",
                     "W",
-                    "L",
-                    "W"
+                    "L"
                   ]
                 },
                 "away": {
@@ -13197,17 +13025,16 @@
                     "away": null
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
+                    "games": 3,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 92,
-                    "concededAvg": 75.5,
+                    "scoredAvg": 94.67,
+                    "concededAvg": 78,
                     "results": [
                       "W",
                       "W",
-                      "L",
-                      "W"
+                      "L"
                     ]
                   },
                   "awayVenue": {
@@ -13266,14 +13093,13 @@
                   ]
                 },
                 "away": {
-                  "games": 2,
+                  "games": 1,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 67.5,
+                  "losses": 1,
+                  "scoredAvg": 72,
                   "concededAvg": 95,
                   "results": [
-                    "L",
                     "L"
                   ]
                 },
@@ -13283,29 +13109,27 @@
                     "away": 19
                   },
                   "homeVenue": {
-                    "games": 5,
-                    "wins": 4,
+                    "games": 4,
+                    "wins": 3,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 82,
-                    "concededAvg": 68.4,
+                    "scoredAvg": 83.25,
+                    "concededAvg": 68.75,
                     "results": [
                       "L",
-                      "W",
                       "W",
                       "W",
                       "W"
                     ]
                   },
                   "awayVenue": {
-                    "games": 2,
+                    "games": 1,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 67.5,
+                    "losses": 1,
+                    "scoredAvg": 72,
                     "concededAvg": 95,
                     "results": [
-                      "L",
                       "L"
                     ]
                   },
@@ -13341,14 +13165,13 @@
               },
               "form": {
                 "home": {
-                  "games": 2,
+                  "games": 1,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 75.5,
-                  "concededAvg": 89,
+                  "losses": 1,
+                  "scoredAvg": 68,
+                  "concededAvg": 84,
                   "results": [
-                    "L",
                     "L"
                   ]
                 },
@@ -13422,28 +13245,26 @@
               },
               "form": {
                 "home": {
-                  "games": 4,
-                  "wins": 3,
+                  "games": 3,
+                  "wins": 2,
                   "draws": 0,
                   "losses": 1,
-                  "scoredAvg": 88,
-                  "concededAvg": 73.5,
+                  "scoredAvg": 89.33,
+                  "concededAvg": 74.67,
                   "results": [
                     "W",
                     "L",
-                    "W",
                     "W"
                   ]
                 },
                 "away": {
-                  "games": 5,
-                  "wins": 5,
+                  "games": 4,
+                  "wins": 4,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 82,
-                  "concededAvg": 51.2,
+                  "scoredAvg": 83.5,
+                  "concededAvg": 53.5,
                   "results": [
-                    "W",
                     "W",
                     "W",
                     "W",
@@ -13456,14 +13277,13 @@
                     "away": 6
                   },
                   "homeVenue": {
-                    "games": 3,
-                    "wins": 3,
+                    "games": 2,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 91.33,
-                    "concededAvg": 65.33,
+                    "scoredAvg": 95,
+                    "concededAvg": 63,
                     "results": [
-                      "W",
                       "W",
                       "W"
                     ]
@@ -13597,14 +13417,13 @@
               },
               "form": {
                 "home": {
-                  "games": 5,
-                  "wins": 5,
+                  "games": 4,
+                  "wins": 4,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 94,
-                  "concededAvg": 64.2,
+                  "scoredAvg": 98,
+                  "concededAvg": 64.5,
                   "results": [
-                    "W",
                     "W",
                     "W",
                     "W",
@@ -13626,14 +13445,13 @@
                     "away": null
                   },
                   "homeVenue": {
-                    "games": 5,
-                    "wins": 5,
+                    "games": 4,
+                    "wins": 4,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 94,
-                    "concededAvg": 64.2,
+                    "scoredAvg": 98,
+                    "concededAvg": 64.5,
                     "results": [
-                      "W",
                       "W",
                       "W",
                       "W",
@@ -13690,16 +13508,15 @@
                   "results": []
                 },
                 "away": {
-                  "games": 4,
-                  "wins": 3,
+                  "games": 3,
+                  "wins": 2,
                   "draws": 0,
                   "losses": 1,
-                  "scoredAvg": 85.25,
-                  "concededAvg": 70.75,
+                  "scoredAvg": 87.67,
+                  "concededAvg": 70.33,
                   "results": [
                     "W",
                     "L",
-                    "W",
                     "W"
                   ]
                 },
@@ -13923,8 +13740,8 @@
                   "wins": 5,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 96.6,
-                  "concededAvg": 62.2,
+                  "scoredAvg": 94,
+                  "concededAvg": 60.8,
                   "results": [
                     "W",
                     "W",
@@ -13944,7 +13761,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 5,
+                    "home": 2,
                     "away": null
                   },
                   "homeVenue": {
@@ -13952,8 +13769,8 @@
                     "wins": 4,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 101.5,
-                    "concededAvg": 61.5,
+                    "scoredAvg": 98.25,
+                    "concededAvg": 59.75,
                     "results": [
                       "W",
                       "W",
@@ -14098,15 +13915,14 @@
                   ]
                 },
                 "away": {
-                  "games": 5,
-                  "wins": 4,
+                  "games": 4,
+                  "wins": 3,
                   "draws": 0,
                   "losses": 1,
-                  "scoredAvg": 83.4,
-                  "concededAvg": 63.4,
+                  "scoredAvg": 82.75,
+                  "concededAvg": 67.75,
                   "results": [
                     "L",
-                    "W",
                     "W",
                     "W",
                     "W"
@@ -14295,14 +14111,13 @@
                     "away": 5
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 4,
+                    "games": 3,
+                    "wins": 3,
                     "draws": 0,
                     "losses": 0,
                     "scoredAvg": 96,
-                    "concededAvg": 65.5,
+                    "concededAvg": 67.67,
                     "results": [
-                      "W",
                       "W",
                       "W",
                       "W"
@@ -14356,8 +14171,8 @@
                   "wins": 5,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 96.6,
-                  "concededAvg": 62.2,
+                  "scoredAvg": 94,
+                  "concededAvg": 60.8,
                   "results": [
                     "W",
                     "W",
@@ -14377,7 +14192,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 6,
+                    "home": 3,
                     "away": null
                   },
                   "homeVenue": {
@@ -14385,8 +14200,8 @@
                     "wins": 4,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 101.5,
-                    "concededAvg": 61.5,
+                    "scoredAvg": 98.25,
+                    "concededAvg": 59.75,
                     "results": [
                       "W",
                       "W",
@@ -14439,8 +14254,8 @@
                   "wins": 5,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 96.8,
-                  "concededAvg": 62.4,
+                  "scoredAvg": 97,
+                  "concededAvg": 57,
                   "results": [
                     "W",
                     "W",
@@ -14462,7 +14277,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 7,
+                    "home": 3,
                     "away": 21
                   },
                   "homeVenue": {
@@ -14470,8 +14285,8 @@
                     "wins": 5,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 96.8,
-                    "concededAvg": 62.4,
+                    "scoredAvg": 97,
+                    "concededAvg": 57,
                     "results": [
                       "W",
                       "W",
@@ -14795,15 +14610,14 @@
                     "away": 5
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 3,
+                    "games": 3,
+                    "wins": 2,
                     "draws": 0,
                     "losses": 1,
-                    "scoredAvg": 92.25,
-                    "concededAvg": 69.75,
+                    "scoredAvg": 91.33,
+                    "concededAvg": 71.33,
                     "results": [
                       "L",
-                      "W",
                       "W",
                       "W"
                     ]
@@ -14878,14 +14692,13 @@
                     "away": null
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 4,
+                    "games": 3,
+                    "wins": 3,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 113.5,
-                    "concededAvg": 63.25,
+                    "scoredAvg": 111.33,
+                    "concededAvg": 69.33,
                     "results": [
-                      "W",
                       "W",
                       "W",
                       "W"
@@ -14947,14 +14760,13 @@
                   ]
                 },
                 "away": {
-                  "games": 2,
+                  "games": 1,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 2,
+                  "losses": 1,
                   "scoredAvg": 68,
-                  "concededAvg": 96.5,
+                  "concededAvg": 109,
                   "results": [
-                    "L",
                     "L"
                   ]
                 },
@@ -14964,28 +14776,26 @@
                     "away": 18
                   },
                   "homeVenue": {
-                    "games": 4,
-                    "wins": 4,
+                    "games": 3,
+                    "wins": 3,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 89.25,
-                    "concededAvg": 60.5,
+                    "scoredAvg": 87.67,
+                    "concededAvg": 62.33,
                     "results": [
-                      "W",
                       "W",
                       "W",
                       "W"
                     ]
                   },
                   "awayVenue": {
-                    "games": 2,
+                    "games": 1,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 2,
+                    "losses": 1,
                     "scoredAvg": 68,
-                    "concededAvg": 96.5,
+                    "concededAvg": 109,
                     "results": [
-                      "L",
                       "L"
                     ]
                   },
@@ -15690,14 +15500,13 @@
               },
               "form": {
                 "home": {
-                  "games": 2,
+                  "games": 1,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 2,
-                  "scoredAvg": 48,
-                  "concededAvg": 92,
+                  "losses": 1,
+                  "scoredAvg": 50,
+                  "concededAvg": 98,
                   "results": [
-                    "L",
                     "L"
                   ]
                 },
@@ -16363,15 +16172,13 @@
               },
               "form": {
                 "home": {
-                  "games": 1,
+                  "games": 0,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 70,
-                  "concededAvg": 84,
-                  "results": [
-                    "L"
-                  ]
+                  "losses": 0,
+                  "scoredAvg": null,
+                  "concededAvg": null,
+                  "results": []
                 },
                 "away": {
                   "games": 0,
@@ -16384,7 +16191,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 25,
+                    "home": null,
                     "away": null
                   },
                   "homeVenue": {
@@ -16814,20 +16621,18 @@
                   "results": []
                 },
                 "away": {
-                  "games": 1,
+                  "games": 0,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 59,
-                  "concededAvg": 109,
-                  "results": [
-                    "L"
-                  ]
+                  "losses": 0,
+                  "scoredAvg": null,
+                  "concededAvg": null,
+                  "results": []
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": null,
-                    "away": 25
+                    "away": null
                   },
                   "homeVenue": {
                     "games": 0,
@@ -16839,15 +16644,13 @@
                     "results": []
                   },
                   "awayVenue": {
-                    "games": 1,
+                    "games": 0,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 59,
-                    "concededAvg": 109,
-                    "results": [
-                      "L"
-                    ]
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -16964,20 +16767,18 @@
                   "results": []
                 },
                 "away": {
-                  "games": 1,
+                  "games": 0,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 65,
-                  "concededAvg": 95,
-                  "results": [
-                    "L"
-                  ]
+                  "losses": 0,
+                  "scoredAvg": null,
+                  "concededAvg": null,
+                  "results": []
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": null,
-                    "away": 25
+                    "away": null
                   },
                   "homeVenue": {
                     "games": 0,
@@ -16989,15 +16790,13 @@
                     "results": []
                   },
                   "awayVenue": {
-                    "games": 1,
+                    "games": 0,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 65,
-                    "concededAvg": 95,
-                    "results": [
-                      "L"
-                    ]
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -18146,13 +17945,15 @@
               },
               "form": {
                 "home": {
-                  "games": 0,
+                  "games": 1,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": null,
-                  "concededAvg": null,
-                  "results": []
+                  "losses": 1,
+                  "scoredAvg": 56,
+                  "concededAvg": 82,
+                  "results": [
+                    "L"
+                  ]
                 },
                 "away": {
                   "games": 0,
@@ -18165,7 +17966,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": null,
+                    "home": 5,
                     "away": null
                   },
                   "homeVenue": {
@@ -18375,18 +18176,20 @@
                   "results": []
                 },
                 "away": {
-                  "games": 0,
+                  "games": 1,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": null,
-                  "concededAvg": null,
-                  "results": []
+                  "losses": 1,
+                  "scoredAvg": 48,
+                  "concededAvg": 85,
+                  "results": [
+                    "L"
+                  ]
                 },
                 "context": {
                   "daysSinceLastGame": {
                     "home": null,
-                    "away": null
+                    "away": 5
                   },
                   "homeVenue": {
                     "games": 0,
@@ -18398,13 +18201,15 @@
                     "results": []
                   },
                   "awayVenue": {
-                    "games": 0,
+                    "games": 1,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 0,
-                    "scoredAvg": null,
-                    "concededAvg": null,
-                    "results": []
+                    "losses": 1,
+                    "scoredAvg": 48,
+                    "concededAvg": 85,
+                    "results": [
+                      "L"
+                    ]
                   },
                   "headToHead": {
                     "games": 0,
@@ -18950,15 +18755,13 @@
               },
               "form": {
                 "home": {
-                  "games": 1,
+                  "games": 0,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 63,
-                  "concededAvg": 78,
-                  "results": [
-                    "L"
-                  ]
+                  "losses": 0,
+                  "scoredAvg": null,
+                  "concededAvg": null,
+                  "results": []
                 },
                 "away": {
                   "games": 1,
@@ -18973,7 +18776,7 @@
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 25,
+                    "home": null,
                     "away": 23
                   },
                   "homeVenue": {
@@ -19081,11 +18884,161 @@
               "markets": [],
               "marketSource": "No authenticated sportsbook snapshot",
               "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401920139",
+              "league": "NCAAB",
+              "time": "2026-11-28T22:00Z",
+              "home": {
+                "id": "2934",
+                "name": "Cal State Bakersfield Roadrunners",
+                "short": "CSUB",
+                "score": 0
+              },
+              "away": {
+                "id": "2464",
+                "name": "Northern Arizona Lumberjacks",
+                "short": "NAU",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 0,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": null,
+                  "concededAvg": null,
+                  "results": []
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 2,
+                  "scoredAvg": 68,
+                  "concededAvg": 84,
+                  "results": [
+                    "L",
+                    "L"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": null,
+                    "away": 14
+                  },
+                  "homeVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "awayVenue": {
+                    "games": 2,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 2,
+                    "scoredAvg": 68,
+                    "concededAvg": 84,
+                    "results": [
+                      "L",
+                      "L"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401917548",
+              "league": "NCAAB",
+              "time": "2026-11-28T22:00Z",
+              "home": {
+                "id": "2547",
+                "name": "Seattle U Redhawks",
+                "short": "SEA",
+                "score": 0
+              },
+              "away": {
+                "id": "300",
+                "name": "UC Irvine Anteaters",
+                "short": "UCI",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 0,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": null,
+                  "concededAvg": null,
+                  "results": []
+                },
+                "away": {
+                  "games": 0,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": null,
+                  "concededAvg": null,
+                  "results": []
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": null,
+                    "away": null
+                  },
+                  "homeVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "awayVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
             }
           ],
-          "completedSamples": 152,
+          "completedSamples": 136,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:13.209Z"
+          "updatedAt": "2026-11-23T12:32:58.136Z"
         }
       ]
     },
@@ -19124,14 +19077,13 @@
                   ]
                 },
                 "away": {
-                  "games": 2,
-                  "wins": 2,
+                  "games": 1,
+                  "wins": 1,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 2,
-                  "concededAvg": 0.5,
+                  "scoredAvg": 3,
+                  "concededAvg": 1,
                   "results": [
-                    "W",
                     "W"
                   ]
                 },
@@ -19150,15 +19102,13 @@
                     "results": []
                   },
                   "awayVenue": {
-                    "games": 1,
-                    "wins": 1,
+                    "games": 0,
+                    "wins": 0,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 1,
-                    "concededAvg": 0,
-                    "results": [
-                      "W"
-                    ]
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -19519,14 +19469,13 @@
               },
               "form": {
                 "home": {
-                  "games": 2,
-                  "wins": 2,
+                  "games": 1,
+                  "wins": 1,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 2,
-                  "concededAvg": 0.5,
+                  "scoredAvg": 3,
+                  "concededAvg": 1,
                   "results": [
-                    "W",
                     "W"
                   ]
                 },
@@ -19613,16 +19562,15 @@
                   ]
                 },
                 "away": {
-                  "games": 3,
+                  "games": 2,
                   "wins": 0,
                   "draws": 2,
-                  "losses": 1,
-                  "scoredAvg": 1,
-                  "concededAvg": 1.33,
+                  "losses": 0,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 1.5,
                   "results": [
                     "D",
-                    "D",
-                    "L"
+                    "D"
                   ]
                 },
                 "context": {
@@ -20075,11 +20023,661 @@
               "markets": [],
               "marketSource": "No authenticated sportsbook snapshot",
               "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401879222",
+              "league": "Premier League",
+              "time": "2026-12-02T19:30Z",
+              "home": {
+                "id": "363",
+                "name": "Chelsea",
+                "short": "CHE",
+                "score": 0
+              },
+              "away": {
+                "id": "384",
+                "name": "Crystal Palace",
+                "short": "CRY",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 2,
+                  "scoredAvg": 0.5,
+                  "concededAvg": 2.5,
+                  "results": [
+                    "L",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 2,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 3,
+                  "results": [
+                    "L",
+                    "L"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 1,
+                    "concededAvg": 4,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 2,
+                    "concededAvg": 3,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401879220",
+              "league": "Premier League",
+              "time": "2026-12-02T19:30Z",
+              "home": {
+                "id": "306",
+                "name": "Hull City",
+                "short": "HUL",
+                "score": 0
+              },
+              "away": {
+                "id": "393",
+                "name": "Nottingham Forest",
+                "short": "NFO",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "W",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 1.5,
+                  "results": [
+                    "L",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 10,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 2,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 0,
+                    "concededAvg": 2,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401879219",
+              "league": "Premier League",
+              "time": "2026-12-02T19:30Z",
+              "home": {
+                "id": "364",
+                "name": "Liverpool",
+                "short": "LIV",
+                "score": 0
+              },
+              "away": {
+                "id": "366",
+                "name": "Sunderland",
+                "short": "SUN",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 3.5,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 1,
+                  "losses": 0,
+                  "scoredAvg": 0.5,
+                  "concededAvg": 0,
+                  "results": [
+                    "D",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 10,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 4,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 1,
+                    "losses": 0,
+                    "scoredAvg": 0,
+                    "concededAvg": 0,
+                    "results": [
+                      "D"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401879218",
+              "league": "Premier League",
+              "time": "2026-12-02T19:30Z",
+              "home": {
+                "id": "382",
+                "name": "Manchester City",
+                "short": "MNC",
+                "score": 0
+              },
+              "away": {
+                "id": "357",
+                "name": "Leeds United",
+                "short": "LEE",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 1,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 2,
+                  "results": [
+                    "D",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 2.5,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 1,
+                    "losses": 0,
+                    "scoredAvg": 1,
+                    "concededAvg": 1,
+                    "results": [
+                      "D"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 4,
+                    "concededAvg": 1,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401879223",
+              "league": "Premier League",
+              "time": "2026-12-02T20:15Z",
+              "home": {
+                "id": "349",
+                "name": "AFC Bournemouth",
+                "short": "BOU",
+                "score": 0
+              },
+              "away": {
+                "id": "331",
+                "name": "Brighton & Hove Albion",
+                "short": "BHA",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 2,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 1,
+                  "results": [
+                    "L",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 2,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 0,
+                    "concededAvg": 2,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401878751",
+              "league": "Premier League",
+              "time": "2026-12-02T20:15Z",
+              "home": {
+                "id": "362",
+                "name": "Aston Villa",
+                "short": "AVL",
+                "score": 0
+              },
+              "away": {
+                "id": "368",
+                "name": "Everton",
+                "short": "EVE",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 2,
+                  "losses": 0,
+                  "scoredAvg": 2,
+                  "concededAvg": 2,
+                  "results": [
+                    "D",
+                    "D"
+                  ]
+                },
+                "away": {
+                  "games": 1,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 3,
+                  "concededAvg": 1,
+                  "results": [
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 26
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 1,
+                    "losses": 0,
+                    "scoredAvg": 0,
+                    "concededAvg": 0,
+                    "results": [
+                      "D"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401878750",
+              "league": "Premier League",
+              "time": "2026-12-02T20:15Z",
+              "home": {
+                "id": "337",
+                "name": "Brentford",
+                "short": "BRE",
+                "score": 0
+              },
+              "away": {
+                "id": "359",
+                "name": "Arsenal",
+                "short": "ARS",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 1,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 0,
+                  "concededAvg": 2,
+                  "results": [
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 1,
+                  "losses": 0,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 1,
+                  "results": [
+                    "D",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 24,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 1,
+                    "losses": 0,
+                    "scoredAvg": 2,
+                    "concededAvg": 2,
+                    "results": [
+                      "D"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401879217",
+              "league": "Premier League",
+              "time": "2026-12-02T20:15Z",
+              "home": {
+                "id": "361",
+                "name": "Newcastle United",
+                "short": "NEW",
+                "score": 0
+              },
+              "away": {
+                "id": "360",
+                "name": "Manchester United",
+                "short": "MAN",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 2,
+                  "losses": 0,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 1.5,
+                  "results": [
+                    "D",
+                    "D"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 1,
+                  "losses": 1,
+                  "scoredAvg": 2,
+                  "concededAvg": 4,
+                  "results": [
+                    "L",
+                    "D"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 1,
+                    "losses": 0,
+                    "scoredAvg": 2,
+                    "concededAvg": 2,
+                    "results": [
+                      "D"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 0,
+                    "concededAvg": 4,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
             }
           ],
-          "completedSamples": 20,
+          "completedSamples": 19,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:13.682Z"
+          "updatedAt": "2026-11-23T12:32:58.504Z"
         },
         {
           "league": "La Liga",
@@ -20594,16 +21192,15 @@
                   ]
                 },
                 "away": {
-                  "games": 3,
+                  "games": 2,
                   "wins": 1,
                   "draws": 1,
-                  "losses": 1,
+                  "losses": 0,
                   "scoredAvg": 1,
-                  "concededAvg": 1,
+                  "concededAvg": 0.5,
                   "results": [
                     "W",
-                    "D",
-                    "L"
+                    "D"
                   ]
                 },
                 "context": {
@@ -20623,15 +21220,13 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 1,
+                    "games": 0,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 1,
-                    "concededAvg": 2,
-                    "results": [
-                      "L"
-                    ]
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -20665,16 +21260,15 @@
               },
               "form": {
                 "home": {
-                  "games": 3,
-                  "wins": 1,
+                  "games": 2,
+                  "wins": 0,
                   "draws": 1,
                   "losses": 1,
-                  "scoredAvg": 1,
-                  "concededAvg": 1.33,
+                  "scoredAvg": 0.5,
+                  "concededAvg": 1.5,
                   "results": [
                     "L",
-                    "D",
-                    "W"
+                    "D"
                   ]
                 },
                 "away": {
@@ -20695,15 +21289,13 @@
                     "away": 7
                   },
                   "homeVenue": {
-                    "games": 1,
-                    "wins": 1,
+                    "games": 0,
+                    "wins": 0,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 2,
-                    "concededAvg": 1,
-                    "results": [
-                      "W"
-                    ]
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "awayVenue": {
                     "games": 1,
@@ -20973,11 +21565,181 @@
               "markets": [],
               "marketSource": "No authenticated sportsbook snapshot",
               "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401882698",
+              "league": "La Liga",
+              "time": "2026-12-02T18:00Z",
+              "home": {
+                "id": "89",
+                "name": "Real Sociedad",
+                "short": "RSO",
+                "score": 0
+              },
+              "away": {
+                "id": "86",
+                "name": "Real Madrid",
+                "short": "RMA",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 1.5,
+                  "results": [
+                    "L",
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 2.5,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 10,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 1,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 3,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401882700",
+              "league": "La Liga",
+              "time": "2026-12-02T20:30Z",
+              "home": {
+                "id": "83",
+                "name": "Barcelona",
+                "short": "BAR",
+                "score": 0
+              },
+              "away": {
+                "id": "1068",
+                "name": "Atlético Madrid",
+                "short": "ATM",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 2.5,
+                  "concededAvg": 1.5,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 2,
+                  "concededAvg": 1,
+                  "results": [
+                    "W",
+                    "L"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 10,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 3,
+                    "concededAvg": 2,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 3,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 1,
+                    "homeWins": 1,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": 3,
+                    "latest": {
+                      "time": "2026-11-08T20:00Z",
+                      "homeTeam": "Atlético Madrid",
+                      "homeScore": 1,
+                      "awayTeam": "Barcelona",
+                      "awayScore": 2
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
             }
           ],
-          "completedSamples": 20,
+          "completedSamples": 19,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:14.254Z"
+          "updatedAt": "2026-11-23T12:32:58.818Z"
         },
         {
           "league": "Bundesliga",
@@ -21723,7 +22485,7 @@
           ],
           "completedSamples": 18,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:14.626Z"
+          "updatedAt": "2026-11-23T12:32:59.108Z"
         },
         {
           "league": "Serie A",
@@ -21757,15 +22519,14 @@
                   ]
                 },
                 "away": {
-                  "games": 2,
-                  "wins": 1,
+                  "games": 1,
+                  "wins": 0,
                   "draws": 1,
                   "losses": 0,
-                  "scoredAvg": 3,
+                  "scoredAvg": 2,
                   "concededAvg": 2,
                   "results": [
-                    "D",
-                    "W"
+                    "D"
                   ]
                 },
                 "context": {
@@ -21785,15 +22546,13 @@
                     ]
                   },
                   "awayVenue": {
-                    "games": 1,
-                    "wins": 1,
+                    "games": 0,
+                    "wins": 0,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 4,
-                    "concededAvg": 2,
-                    "results": [
-                      "W"
-                    ]
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -21921,16 +22680,15 @@
                   ]
                 },
                 "away": {
-                  "games": 3,
-                  "wins": 1,
+                  "games": 2,
+                  "wins": 0,
                   "draws": 0,
                   "losses": 2,
-                  "scoredAvg": 1.67,
-                  "concededAvg": 2.33,
+                  "scoredAvg": 1,
+                  "concededAvg": 3.5,
                   "results": [
                     "L",
-                    "L",
-                    "W"
+                    "L"
                   ]
                 },
                 "context": {
@@ -21948,15 +22706,13 @@
                     "results": []
                   },
                   "awayVenue": {
-                    "games": 1,
-                    "wins": 1,
+                    "games": 0,
+                    "wins": 0,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 3,
-                    "concededAvg": 0,
-                    "results": [
-                      "W"
-                    ]
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -22166,15 +22922,14 @@
                   ]
                 },
                 "away": {
-                  "games": 2,
-                  "wins": 1,
+                  "games": 1,
+                  "wins": 0,
                   "draws": 1,
                   "losses": 0,
-                  "scoredAvg": 3,
+                  "scoredAvg": 2,
                   "concededAvg": 2,
                   "results": [
-                    "D",
-                    "W"
+                    "D"
                   ]
                 },
                 "context": {
@@ -22192,15 +22947,13 @@
                     "results": []
                   },
                   "awayVenue": {
-                    "games": 1,
-                    "wins": 1,
+                    "games": 0,
+                    "wins": 0,
                     "draws": 0,
                     "losses": 0,
-                    "scoredAvg": 4,
-                    "concededAvg": 2,
-                    "results": [
-                      "W"
-                    ]
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
                   },
                   "headToHead": {
                     "games": 0,
@@ -22234,14 +22987,13 @@
               },
               "form": {
                 "home": {
-                  "games": 3,
+                  "games": 2,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 3,
-                  "scoredAvg": 0.67,
-                  "concededAvg": 3,
+                  "losses": 2,
+                  "scoredAvg": 0,
+                  "concededAvg": 2.5,
                   "results": [
-                    "L",
                     "L",
                     "L"
                   ]
@@ -22264,14 +23016,13 @@
                     "away": 7
                   },
                   "homeVenue": {
-                    "games": 2,
+                    "games": 1,
                     "wins": 0,
                     "draws": 0,
-                    "losses": 2,
-                    "scoredAvg": 1,
-                    "concededAvg": 3,
+                    "losses": 1,
+                    "scoredAvg": 0,
+                    "concededAvg": 2,
                     "results": [
-                      "L",
                       "L"
                     ]
                   },
@@ -22489,16 +23240,15 @@
                   ]
                 },
                 "away": {
-                  "games": 3,
+                  "games": 2,
                   "wins": 1,
                   "draws": 1,
-                  "losses": 1,
-                  "scoredAvg": 1.67,
-                  "concededAvg": 2.33,
+                  "losses": 0,
+                  "scoredAvg": 2.5,
+                  "concededAvg": 2,
                   "results": [
                     "D",
-                    "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "context": {
@@ -22623,9 +23373,9 @@
               "source": "ESPN public scoreboard (unofficial)"
             }
           ],
-          "completedSamples": 21,
+          "completedSamples": 19,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:15.068Z"
+          "updatedAt": "2026-11-23T12:32:59.473Z"
         },
         {
           "league": "Ligue 1",
@@ -22648,14 +23398,13 @@
               },
               "form": {
                 "home": {
-                  "games": 3,
-                  "wins": 3,
+                  "games": 2,
+                  "wins": 2,
                   "draws": 0,
                   "losses": 0,
-                  "scoredAvg": 1.67,
+                  "scoredAvg": 1.5,
                   "concededAvg": 0,
                   "results": [
-                    "W",
                     "W",
                     "W"
                   ]
@@ -23069,16 +23818,15 @@
                   ]
                 },
                 "away": {
-                  "games": 3,
+                  "games": 2,
                   "wins": 1,
                   "draws": 1,
-                  "losses": 1,
-                  "scoredAvg": 1,
-                  "concededAvg": 1,
+                  "losses": 0,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 0.5,
                   "results": [
                     "D",
-                    "W",
-                    "L"
+                    "W"
                   ]
                 },
                 "context": {
@@ -23367,172 +24115,13 @@
               "source": "ESPN public scoreboard (unofficial)"
             }
           ],
-          "completedSamples": 19,
+          "completedSamples": 18,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:15.613Z"
+          "updatedAt": "2026-11-23T12:32:59.841Z"
         },
         {
           "league": "MLS",
           "games": [
-            {
-              "id": "401933730",
-              "league": "MLS",
-              "time": "2026-11-22T23:30Z",
-              "home": {
-                "id": "182",
-                "name": "Chicago Fire FC",
-                "short": "CHI",
-                "score": 0
-              },
-              "away": {
-                "id": "21300",
-                "name": "Charlotte FC",
-                "short": "CLT",
-                "score": 0
-              },
-              "form": {
-                "home": {
-                  "games": 1,
-                  "wins": 0,
-                  "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3,
-                  "concededAvg": 4,
-                  "results": [
-                    "L"
-                  ]
-                },
-                "away": {
-                  "games": 1,
-                  "wins": 0,
-                  "draws": 1,
-                  "losses": 0,
-                  "scoredAvg": 3,
-                  "concededAvg": 3,
-                  "results": [
-                    "D"
-                  ]
-                },
-                "context": {
-                  "daysSinceLastGame": {
-                    "home": 15,
-                    "away": 15
-                  },
-                  "homeVenue": {
-                    "games": 1,
-                    "wins": 0,
-                    "draws": 0,
-                    "losses": 1,
-                    "scoredAvg": 3,
-                    "concededAvg": 4,
-                    "results": [
-                      "L"
-                    ]
-                  },
-                  "awayVenue": {
-                    "games": 1,
-                    "wins": 0,
-                    "draws": 1,
-                    "losses": 0,
-                    "scoredAvg": 3,
-                    "concededAvg": 3,
-                    "results": [
-                      "D"
-                    ]
-                  },
-                  "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
-                    "awayWins": 0,
-                    "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
-                  }
-                }
-              },
-              "markets": [],
-              "marketSource": "No authenticated sportsbook snapshot",
-              "source": "ESPN public scoreboard (unofficial)"
-            },
-            {
-              "id": "401933729",
-              "league": "MLS",
-              "time": "2026-11-23T01:30Z",
-              "home": {
-                "id": "9727",
-                "name": "Vancouver Whitecaps",
-                "short": "VAN",
-                "score": 0
-              },
-              "away": {
-                "id": "4771",
-                "name": "Real Salt Lake",
-                "short": "RSL",
-                "score": 0
-              },
-              "form": {
-                "home": {
-                  "games": 1,
-                  "wins": 1,
-                  "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": 2,
-                  "concededAvg": 0,
-                  "results": [
-                    "W"
-                  ]
-                },
-                "away": {
-                  "games": 2,
-                  "wins": 1,
-                  "draws": 1,
-                  "losses": 0,
-                  "scoredAvg": 1.5,
-                  "concededAvg": 1,
-                  "results": [
-                    "D",
-                    "W"
-                  ]
-                },
-                "context": {
-                  "daysSinceLastGame": {
-                    "home": 15,
-                    "away": 2
-                  },
-                  "homeVenue": {
-                    "games": 0,
-                    "wins": 0,
-                    "draws": 0,
-                    "losses": 0,
-                    "scoredAvg": null,
-                    "concededAvg": null,
-                    "results": []
-                  },
-                  "awayVenue": {
-                    "games": 1,
-                    "wins": 0,
-                    "draws": 1,
-                    "losses": 0,
-                    "scoredAvg": 1,
-                    "concededAvg": 1,
-                    "results": [
-                      "D"
-                    ]
-                  },
-                  "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
-                    "awayWins": 0,
-                    "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
-                  }
-                }
-              },
-              "markets": [],
-              "marketSource": "No authenticated sportsbook snapshot",
-              "source": "ESPN public scoreboard (unofficial)"
-            },
             {
               "id": "401933728",
               "league": "MLS",
@@ -23789,32 +24378,34 @@
               },
               "form": {
                 "home": {
-                  "games": 2,
+                  "games": 3,
                   "wins": 1,
                   "draws": 1,
-                  "losses": 0,
-                  "scoredAvg": 1.5,
-                  "concededAvg": 1,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 1.33,
                   "results": [
+                    "L",
                     "D",
                     "W"
                   ]
                 },
                 "away": {
-                  "games": 1,
-                  "wins": 1,
+                  "games": 2,
+                  "wins": 2,
                   "draws": 0,
                   "losses": 0,
                   "scoredAvg": 2,
                   "concededAvg": 0,
                   "results": [
+                    "W",
                     "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 8,
-                    "away": 20
+                    "home": 5,
+                    "away": 5
                   },
                   "homeVenue": {
                     "games": 1,
@@ -23839,12 +24430,18 @@
                     ]
                   },
                   "headToHead": {
-                    "games": 0,
+                    "games": 1,
                     "homeWins": 0,
-                    "awayWins": 0,
+                    "awayWins": 1,
                     "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
+                    "avgCombinedScore": 2,
+                    "latest": {
+                      "time": "2026-11-23T01:30Z",
+                      "homeTeam": "Vancouver Whitecaps",
+                      "homeScore": 2,
+                      "awayTeam": "Real Salt Lake",
+                      "awayScore": 0
+                    }
                   }
                 }
               },
@@ -23870,31 +24467,33 @@
               },
               "form": {
                 "home": {
-                  "games": 1,
-                  "wins": 0,
+                  "games": 2,
+                  "wins": 1,
                   "draws": 1,
                   "losses": 0,
-                  "scoredAvg": 3,
-                  "concededAvg": 3,
+                  "scoredAvg": 2.5,
+                  "concededAvg": 2,
                   "results": [
+                    "W",
                     "D"
                   ]
                 },
                 "away": {
-                  "games": 1,
+                  "games": 2,
                   "wins": 0,
                   "draws": 0,
-                  "losses": 1,
-                  "scoredAvg": 3,
-                  "concededAvg": 4,
+                  "losses": 2,
+                  "scoredAvg": 2,
+                  "concededAvg": 3,
                   "results": [
+                    "L",
                     "L"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 20,
-                    "away": 20
+                    "home": 5,
+                    "away": 5
                   },
                   "homeVenue": {
                     "games": 0,
@@ -23915,12 +24514,18 @@
                     "results": []
                   },
                   "headToHead": {
-                    "games": 0,
-                    "homeWins": 0,
+                    "games": 1,
+                    "homeWins": 1,
                     "awayWins": 0,
                     "draws": 0,
-                    "avgCombinedScore": null,
-                    "latest": null
+                    "avgCombinedScore": 3,
+                    "latest": {
+                      "time": "2026-11-22T23:30Z",
+                      "homeTeam": "Chicago Fire FC",
+                      "homeScore": 1,
+                      "awayTeam": "Charlotte FC",
+                      "awayScore": 2
+                    }
                   }
                 }
               },
@@ -24114,32 +24719,34 @@
               },
               "form": {
                 "home": {
-                  "games": 2,
-                  "wins": 1,
+                  "games": 3,
+                  "wins": 2,
                   "draws": 0,
                   "losses": 1,
-                  "scoredAvg": 1.5,
-                  "concededAvg": 1.5,
+                  "scoredAvg": 1.33,
+                  "concededAvg": 1,
                   "results": [
+                    "W",
                     "W",
                     "L"
                   ]
                 },
                 "away": {
-                  "games": 1,
+                  "games": 2,
                   "wins": 1,
                   "draws": 0,
-                  "losses": 0,
-                  "scoredAvg": 2,
-                  "concededAvg": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 0.5,
                   "results": [
+                    "L",
                     "W"
                   ]
                 },
                 "context": {
                   "daysSinceLastGame": {
-                    "home": 8,
-                    "away": 21
+                    "home": 6,
+                    "away": 6
                   },
                   "homeVenue": {
                     "games": 1,
@@ -24164,17 +24771,17 @@
                     ]
                   },
                   "headToHead": {
-                    "games": 1,
-                    "homeWins": 0,
+                    "games": 2,
+                    "homeWins": 1,
                     "awayWins": 1,
                     "draws": 0,
-                    "avgCombinedScore": 2,
+                    "avgCombinedScore": 1.5,
                     "latest": {
-                      "time": "2026-11-07T21:00Z",
-                      "homeTeam": "FC Cincinnati",
+                      "time": "2026-11-22T21:00Z",
+                      "homeTeam": "Nashville SC",
                       "homeScore": 0,
-                      "awayTeam": "Nashville SC",
-                      "awayScore": 2
+                      "awayTeam": "FC Cincinnati",
+                      "awayScore": 1
                     }
                   }
                 }
@@ -24344,11 +24951,703 @@
               "markets": [],
               "marketSource": "No authenticated sportsbook snapshot",
               "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933717",
+              "league": "MLS",
+              "time": "2026-12-02T20:00Z",
+              "home": {
+                "id": "9727",
+                "name": "Vancouver Whitecaps",
+                "short": "VAN",
+                "score": 0
+              },
+              "away": {
+                "id": "4771",
+                "name": "Real Salt Lake",
+                "short": "RSL",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 2,
+                  "concededAvg": 0,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 3,
+                  "wins": 1,
+                  "draws": 1,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 1.33,
+                  "results": [
+                    "L",
+                    "D",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 9,
+                    "away": 9
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 2,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 2,
+                    "wins": 0,
+                    "draws": 1,
+                    "losses": 1,
+                    "scoredAvg": 0.5,
+                    "concededAvg": 1.5,
+                    "results": [
+                      "L",
+                      "D"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 1,
+                    "homeWins": 1,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": 2,
+                    "latest": {
+                      "time": "2026-11-23T01:30Z",
+                      "homeTeam": "Vancouver Whitecaps",
+                      "homeScore": 2,
+                      "awayTeam": "Real Salt Lake",
+                      "awayScore": 0
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933719",
+              "league": "MLS",
+              "time": "2026-12-03T00:00Z",
+              "home": {
+                "id": "189",
+                "name": "New England Revolution",
+                "short": "NE",
+                "score": 0
+              },
+              "away": {
+                "id": "10739",
+                "name": "Philadelphia Union",
+                "short": "PHI",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "W",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 2,
+                  "concededAvg": 1.5,
+                  "results": [
+                    "L",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 2,
+                    "concededAvg": 0,
+                    "results": [
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 0,
+                    "concededAvg": 2,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 1,
+                    "homeWins": 1,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": 2,
+                    "latest": {
+                      "time": "2026-11-21T19:00Z",
+                      "homeTeam": "New England Revolution",
+                      "homeScore": 2,
+                      "awayTeam": "Philadelphia Union",
+                      "awayScore": 0
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933720",
+              "league": "MLS",
+              "time": "2026-12-03T00:30Z",
+              "home": {
+                "id": "20232",
+                "name": "Inter Miami CF",
+                "short": "MIA",
+                "score": 0
+              },
+              "away": {
+                "id": "183",
+                "name": "Columbus Crew",
+                "short": "CLB",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 1,
+                  "losses": 1,
+                  "scoredAvg": 1.5,
+                  "concededAvg": 3,
+                  "results": [
+                    "L",
+                    "D"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 3.5,
+                  "concededAvg": 1.5,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 2,
+                    "wins": 0,
+                    "draws": 1,
+                    "losses": 1,
+                    "scoredAvg": 1.5,
+                    "concededAvg": 3,
+                    "results": [
+                      "L",
+                      "D"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 2,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 3.5,
+                    "concededAvg": 1.5,
+                    "results": [
+                      "W",
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 1,
+                    "homeWins": 0,
+                    "awayWins": 1,
+                    "draws": 0,
+                    "avgCombinedScore": 3,
+                    "latest": {
+                      "time": "2026-11-21T23:00Z",
+                      "homeTeam": "Inter Miami CF",
+                      "homeScore": 0,
+                      "awayTeam": "Columbus Crew",
+                      "awayScore": 3
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933718",
+              "league": "MLS",
+              "time": "2026-12-03T01:00Z",
+              "home": {
+                "id": "182",
+                "name": "Chicago Fire FC",
+                "short": "CHI",
+                "score": 0
+              },
+              "away": {
+                "id": "21300",
+                "name": "Charlotte FC",
+                "short": "CLT",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 2,
+                  "scoredAvg": 2,
+                  "concededAvg": 3,
+                  "results": [
+                    "L",
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 1,
+                  "losses": 0,
+                  "scoredAvg": 2.5,
+                  "concededAvg": 2,
+                  "results": [
+                    "W",
+                    "D"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 10,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 2,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 2,
+                    "scoredAvg": 2,
+                    "concededAvg": 3,
+                    "results": [
+                      "L",
+                      "L"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 2,
+                    "wins": 1,
+                    "draws": 1,
+                    "losses": 0,
+                    "scoredAvg": 2.5,
+                    "concededAvg": 2,
+                    "results": [
+                      "W",
+                      "D"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 1,
+                    "homeWins": 0,
+                    "awayWins": 1,
+                    "draws": 0,
+                    "avgCombinedScore": 3,
+                    "latest": {
+                      "time": "2026-11-22T23:30Z",
+                      "homeTeam": "Chicago Fire FC",
+                      "homeScore": 1,
+                      "awayTeam": "Charlotte FC",
+                      "awayScore": 2
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933716",
+              "league": "MLS",
+              "time": "2026-12-03T01:00Z",
+              "home": {
+                "id": "185",
+                "name": "FC Dallas",
+                "short": "DAL",
+                "score": 0
+              },
+              "away": {
+                "id": "9723",
+                "name": "Portland Timbers",
+                "short": "POR",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 3,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "W",
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 1.5,
+                  "results": [
+                    "L",
+                    "W"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 11,
+                    "away": 11
+                  },
+                  "homeVenue": {
+                    "games": 2,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 3,
+                    "concededAvg": 0.5,
+                    "results": [
+                      "W",
+                      "W"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 2,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 1,
+                    "concededAvg": 1.5,
+                    "results": [
+                      "L",
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 1,
+                    "homeWins": 1,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": 3,
+                    "latest": {
+                      "time": "2026-11-21T21:00Z",
+                      "homeTeam": "FC Dallas",
+                      "homeScore": 3,
+                      "awayTeam": "Portland Timbers",
+                      "awayScore": 0
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933736",
+              "league": "MLS",
+              "time": "2026-12-03T01:00Z",
+              "home": {
+                "id": "18986",
+                "name": "Nashville SC",
+                "short": "NSH",
+                "score": 0
+              },
+              "away": {
+                "id": "18267",
+                "name": "FC Cincinnati",
+                "short": "CIN",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 2,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 0.5,
+                  "results": [
+                    "L",
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 3,
+                  "wins": 2,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1.33,
+                  "concededAvg": 1,
+                  "results": [
+                    "W",
+                    "W",
+                    "L"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 10,
+                    "away": 10
+                  },
+                  "homeVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 0,
+                    "concededAvg": 1,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "awayVenue": {
+                    "games": 2,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": 2,
+                    "concededAvg": 0.5,
+                    "results": [
+                      "W",
+                      "W"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 2,
+                    "homeWins": 1,
+                    "awayWins": 1,
+                    "draws": 0,
+                    "avgCombinedScore": 1.5,
+                    "latest": {
+                      "time": "2026-11-22T21:00Z",
+                      "homeTeam": "Nashville SC",
+                      "homeScore": 0,
+                      "awayTeam": "FC Cincinnati",
+                      "awayScore": 1
+                    }
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933735",
+              "league": "MLS",
+              "time": "2026-12-03T01:00Z",
+              "home": {
+                "id": "21812",
+                "name": "St. Louis CITY SC",
+                "short": "STL",
+                "score": 0
+              },
+              "away": {
+                "id": "18966",
+                "name": "LAFC",
+                "short": "LAFC",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 1,
+                  "wins": 1,
+                  "draws": 0,
+                  "losses": 0,
+                  "scoredAvg": 1,
+                  "concededAvg": 0,
+                  "results": [
+                    "W"
+                  ]
+                },
+                "away": {
+                  "games": 1,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 2,
+                  "results": [
+                    "L"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 25,
+                    "away": 25
+                  },
+                  "homeVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "awayVenue": {
+                    "games": 1,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 1,
+                    "scoredAvg": 1,
+                    "concededAvg": 2,
+                    "results": [
+                      "L"
+                    ]
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
+            },
+            {
+              "id": "401933715",
+              "league": "MLS",
+              "time": "2026-12-03T03:00Z",
+              "home": {
+                "id": "191",
+                "name": "San Jose Earthquakes",
+                "short": "SJ",
+                "score": 0
+              },
+              "away": {
+                "id": "6077",
+                "name": "Houston Dynamo FC",
+                "short": "HOU",
+                "score": 0
+              },
+              "form": {
+                "home": {
+                  "games": 1,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 1,
+                  "concededAvg": 3,
+                  "results": [
+                    "L"
+                  ]
+                },
+                "away": {
+                  "games": 1,
+                  "wins": 0,
+                  "draws": 0,
+                  "losses": 1,
+                  "scoredAvg": 0,
+                  "concededAvg": 1,
+                  "results": [
+                    "L"
+                  ]
+                },
+                "context": {
+                  "daysSinceLastGame": {
+                    "home": 25,
+                    "away": 25
+                  },
+                  "homeVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "awayVenue": {
+                    "games": 0,
+                    "wins": 0,
+                    "draws": 0,
+                    "losses": 0,
+                    "scoredAvg": null,
+                    "concededAvg": null,
+                    "results": []
+                  },
+                  "headToHead": {
+                    "games": 0,
+                    "homeWins": 0,
+                    "awayWins": 0,
+                    "draws": 0,
+                    "avgCombinedScore": null,
+                    "latest": null
+                  }
+                }
+              },
+              "markets": [],
+              "marketSource": "No authenticated sportsbook snapshot",
+              "source": "ESPN public scoreboard (unofficial)"
             }
           ],
-          "completedSamples": 20,
+          "completedSamples": 23,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-22T23:16:16.086Z"
+          "updatedAt": "2026-11-23T12:33:00.260Z"
         }
       ]
     }
