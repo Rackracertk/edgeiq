@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-23T13:25:02.679Z",
+  "generatedAt": "2026-11-23T15:10:35.682Z",
   "publishedDateET": "2026-11-23",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -262,6 +262,18 @@
             },
             {
               "playerId": "",
+              "player": "Paul George",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "George (rest) has been ruled out for Sunday's game against Golden State, Justin Turpin of WEEI.com reports.",
+              "updatedAt": "2026-11-23T15:07Z",
+              "expectedReturn": "2026-11-24",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Mitchell Robinson",
               "team": "",
               "teamId": "",
@@ -271,18 +283,6 @@
               "updatedAt": "2026-11-22T20:58Z",
               "expectedReturn": "2026-11-24",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Paul George",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "George (rest) has been ruled out for Sunday's game against Golden State, Justin Turpin of WEEI.com reports.",
-              "updatedAt": "2026-11-22T20:56Z",
-              "expectedReturn": "2026-11-24",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -769,10 +769,10 @@
               "player": "Giannis Antetokounmpo",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Antetokounmpo (groin) won't play in Sunday's game against Oklahoma City, Clemente Almanza of USA Today reports.",
-              "updatedAt": "2026-11-22T22:09Z",
+              "updatedAt": "2026-11-23T15:04Z",
               "expectedReturn": "2026-11-25",
               "position": "F"
             },
@@ -1357,10 +1357,10 @@
               "player": "Jaxson Hayes",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Hayes (knee) has been ruled out for the remainder of Sunday's game against the Mavericks, Grant Afseth of DallasHoopsJournal.com reports.",
-              "updatedAt": "2026-11-23T01:16Z",
+              "updatedAt": "2026-11-23T15:06Z",
               "expectedReturn": "2026-11-23",
               "position": "C"
             },
@@ -1449,7 +1449,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-23T13:25:00.380Z",
+          "checkedAt": "2026-11-23T15:10:33.385Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10914,7 +10914,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T13:25:01.732Z",
+        "generatedAt": "2026-11-23T15:10:34.776Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 248,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11047,6 +11047,18 @@
             },
             {
               "playerId": "",
+              "player": "Paul George",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "George (rest) has been ruled out for Sunday's game against Golden State, Justin Turpin of WEEI.com reports.",
+              "updatedAt": "2026-11-23T15:07Z",
+              "expectedReturn": "2026-11-24",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Mitchell Robinson",
               "team": "",
               "teamId": "",
@@ -11056,18 +11068,6 @@
               "updatedAt": "2026-11-22T20:58Z",
               "expectedReturn": "2026-11-24",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Paul George",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "George (rest) has been ruled out for Sunday's game against Golden State, Justin Turpin of WEEI.com reports.",
-              "updatedAt": "2026-11-22T20:56Z",
-              "expectedReturn": "2026-11-24",
-              "position": "F"
             },
             {
               "playerId": "",
@@ -11554,10 +11554,10 @@
               "player": "Giannis Antetokounmpo",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Antetokounmpo (groin) won't play in Sunday's game against Oklahoma City, Clemente Almanza of USA Today reports.",
-              "updatedAt": "2026-11-22T22:09Z",
+              "updatedAt": "2026-11-23T15:04Z",
               "expectedReturn": "2026-11-25",
               "position": "F"
             },
@@ -12142,10 +12142,10 @@
               "player": "Jaxson Hayes",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Hayes (knee) has been ruled out for the remainder of Sunday's game against the Mavericks, Grant Afseth of DallasHoopsJournal.com reports.",
-              "updatedAt": "2026-11-23T01:16Z",
+              "updatedAt": "2026-11-23T15:06Z",
               "expectedReturn": "2026-11-23",
               "position": "C"
             },
@@ -12234,7 +12234,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-23T13:25:00.380Z",
+          "checkedAt": "2026-11-23T15:10:33.385Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -18821,7 +18821,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T13:25:01.841Z",
+        "generatedAt": "2026-11-23T15:10:34.882Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 248,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -23079,7 +23079,7 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Little went 4-for-4 on field-goal attempts during Sunday's 23-18 loss to the Giants.",
               "updatedAt": "2026-11-23T05:28Z",
-              "expectedReturn": "2026-11-29",
+              "expectedReturn": "",
               "position": "PK"
             },
             {
@@ -25148,6 +25148,18 @@
             },
             {
               "playerId": "",
+              "player": "A.J. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "Patriots head coach Mike Vrabel said that he doesn't anticipate Brown (hamstring) playing Sunday against the Chargers, Mike Reiss of ESPN.com reports.",
+              "updatedAt": "2026-11-23T14:43Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Drake Maye",
               "team": "",
               "teamId": "",
@@ -25169,18 +25181,6 @@
               "updatedAt": "2026-11-21T15:06Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "Brown (hamstring) is expected to miss multiple weeks, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-20T19:15Z",
-              "expectedReturn": "2026-11-29",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -26648,6 +26648,18 @@
             },
             {
               "playerId": "",
+              "player": "DK Metcalf",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Metcalf will have his actions from Sunday's game against the Eagles reviewed \"for potential additional discipline, including a suspension,\" Ian Rapoport of ESPN and NFL Network reports.",
+              "updatedAt": "2026-11-23T13:39Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Chris Boswell",
               "team": "",
               "teamId": "",
@@ -26729,18 +26741,6 @@
               "updatedAt": "2026-11-22T23:10Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "DK Metcalf",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Metcalf was ejected in the third quarter of Sunday's game at Philadelphia, Brooks Kubena of The Athletic reports.",
-              "updatedAt": "2026-11-22T20:33Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -26948,6 +26948,18 @@
             },
             {
               "playerId": "",
+              "player": "Deommodore Lenoir",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-23T13:43Z",
+              "expectedReturn": "2026-11-29",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Keenan Allen",
               "team": "",
               "teamId": "",
@@ -27039,7 +27051,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "McKivitz (lower leg) was carted off the field Sunday night against the Vikings, Eric Branch of the San Francisco Chronicle reports.",
               "updatedAt": "2026-11-23T02:51Z",
-              "expectedReturn": "2026-11-29",
+              "expectedReturn": "2027-02-15",
               "position": "OT"
             },
             {
@@ -27231,18 +27243,6 @@
               "reason": "INJURY_STATUS_IR",
               "note": "Kirk announced Wednesday via his personal Instagram account that he recently underwent meniscus surgery.",
               "updatedAt": "2026-11-19T15:22Z",
-              "expectedReturn": "2026-12-06",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "De'Zhaun Stribling",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Stribling (ankle) was doing some work on the side at Wednesday's practice, Nick Wagoner of ESPN.com reports.",
-              "updatedAt": "2026-11-18T20:26Z",
               "expectedReturn": "2026-12-06",
               "position": "WR"
             },
@@ -28447,7 +28447,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-23T13:25:00.474Z",
+          "checkedAt": "2026-11-23T15:10:33.479Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -30204,7 +30204,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T13:25:02.248Z",
+        "generatedAt": "2026-11-23T15:10:35.277Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 162,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -34460,7 +34460,7 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Little went 4-for-4 on field-goal attempts during Sunday's 23-18 loss to the Giants.",
               "updatedAt": "2026-11-23T05:28Z",
-              "expectedReturn": "2026-11-29",
+              "expectedReturn": "",
               "position": "PK"
             },
             {
@@ -36529,6 +36529,18 @@
             },
             {
               "playerId": "",
+              "player": "A.J. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "Patriots head coach Mike Vrabel said that he doesn't anticipate Brown (hamstring) playing Sunday against the Chargers, Mike Reiss of ESPN.com reports.",
+              "updatedAt": "2026-11-23T14:43Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Drake Maye",
               "team": "",
               "teamId": "",
@@ -36550,18 +36562,6 @@
               "updatedAt": "2026-11-21T15:06Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "Brown (hamstring) is expected to miss multiple weeks, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-20T19:15Z",
-              "expectedReturn": "2026-11-29",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -38029,6 +38029,18 @@
             },
             {
               "playerId": "",
+              "player": "DK Metcalf",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Metcalf will have his actions from Sunday's game against the Eagles reviewed \"for potential additional discipline, including a suspension,\" Ian Rapoport of ESPN and NFL Network reports.",
+              "updatedAt": "2026-11-23T13:39Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Chris Boswell",
               "team": "",
               "teamId": "",
@@ -38110,18 +38122,6 @@
               "updatedAt": "2026-11-22T23:10Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "DK Metcalf",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Metcalf was ejected in the third quarter of Sunday's game at Philadelphia, Brooks Kubena of The Athletic reports.",
-              "updatedAt": "2026-11-22T20:33Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -38329,6 +38329,18 @@
             },
             {
               "playerId": "",
+              "player": "Deommodore Lenoir",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-23T13:43Z",
+              "expectedReturn": "2026-11-29",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Keenan Allen",
               "team": "",
               "teamId": "",
@@ -38420,7 +38432,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "McKivitz (lower leg) was carted off the field Sunday night against the Vikings, Eric Branch of the San Francisco Chronicle reports.",
               "updatedAt": "2026-11-23T02:51Z",
-              "expectedReturn": "2026-11-29",
+              "expectedReturn": "2027-02-15",
               "position": "OT"
             },
             {
@@ -38612,18 +38624,6 @@
               "reason": "INJURY_STATUS_IR",
               "note": "Kirk announced Wednesday via his personal Instagram account that he recently underwent meniscus surgery.",
               "updatedAt": "2026-11-19T15:22Z",
-              "expectedReturn": "2026-12-06",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "De'Zhaun Stribling",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Stribling (ankle) was doing some work on the side at Wednesday's practice, Nick Wagoner of ESPN.com reports.",
-              "updatedAt": "2026-11-18T20:26Z",
               "expectedReturn": "2026-12-06",
               "position": "WR"
             },
@@ -39828,7 +39828,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-23T13:25:00.474Z",
+          "checkedAt": "2026-11-23T15:10:33.479Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -41690,7 +41690,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T13:25:02.678Z",
+        "generatedAt": "2026-11-23T15:10:35.681Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 162,
         "publishedBy": "EDGEIQ unattended research publisher"
