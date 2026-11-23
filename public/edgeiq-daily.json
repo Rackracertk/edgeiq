@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-23T11:12:18.045Z",
+  "generatedAt": "2026-11-23T13:25:02.679Z",
   "publishedDateET": "2026-11-23",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1449,7 +1449,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-23T11:12:15.223Z",
+          "checkedAt": "2026-11-23T13:25:00.380Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10914,7 +10914,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T11:12:16.792Z",
+        "generatedAt": "2026-11-23T13:25:01.732Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 248,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -12234,7 +12234,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-23T11:12:15.223Z",
+          "checkedAt": "2026-11-23T13:25:00.380Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -18821,7 +18821,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T11:12:16.946Z",
+        "generatedAt": "2026-11-23T13:25:01.841Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 248,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -23060,14 +23060,26 @@
             },
             {
               "playerId": "",
+              "player": "Bhayshul Tuten",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Tuten (undisclosed) exited Sunday's 23-18 loss to the Giants after an eight-yard gain with 3:40 left in the contest, Garry Smitsof the Florida Times-Union reports.",
+              "updatedAt": "2026-11-23T12:56Z",
+              "expectedReturn": "2026-11-29",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Cam Little",
               "team": "",
               "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Little went 4-for-4 on field-goal attempts during Sunday's 23-18 loss to the Giants.",
               "updatedAt": "2026-11-23T05:28Z",
-              "expectedReturn": "",
+              "expectedReturn": "2026-11-29",
               "position": "PK"
             },
             {
@@ -23129,18 +23141,6 @@
               "updatedAt": "2026-11-23T02:38Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Bhayshul Tuten",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Tuten rushed 10 times for 33 yards and brought in all three targets for 20 yards in the Jaguars' 23-18 loss to the Giants on Sunday.",
-              "updatedAt": "2026-11-23T02:26Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -28447,7 +28447,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-23T11:12:15.315Z",
+          "checkedAt": "2026-11-23T13:25:00.474Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -30204,7 +30204,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T11:12:17.469Z",
+        "generatedAt": "2026-11-23T13:25:02.248Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 162,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -34441,14 +34441,26 @@
             },
             {
               "playerId": "",
+              "player": "Bhayshul Tuten",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Tuten (undisclosed) exited Sunday's 23-18 loss to the Giants after an eight-yard gain with 3:40 left in the contest, Garry Smitsof the Florida Times-Union reports.",
+              "updatedAt": "2026-11-23T12:56Z",
+              "expectedReturn": "2026-11-29",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Cam Little",
               "team": "",
               "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Little went 4-for-4 on field-goal attempts during Sunday's 23-18 loss to the Giants.",
               "updatedAt": "2026-11-23T05:28Z",
-              "expectedReturn": "",
+              "expectedReturn": "2026-11-29",
               "position": "PK"
             },
             {
@@ -34510,18 +34522,6 @@
               "updatedAt": "2026-11-23T02:38Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Bhayshul Tuten",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Tuten rushed 10 times for 33 yards and brought in all three targets for 20 yards in the Jaguars' 23-18 loss to the Giants on Sunday.",
-              "updatedAt": "2026-11-23T02:26Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -39828,7 +39828,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-23T11:12:15.315Z",
+          "checkedAt": "2026-11-23T13:25:00.474Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -41690,7 +41690,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-23T11:12:18.045Z",
+        "generatedAt": "2026-11-23T13:25:02.678Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 162,
         "publishedBy": "EDGEIQ unattended research publisher"
