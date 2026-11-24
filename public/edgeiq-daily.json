@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-24T15:08:03.760Z",
+  "generatedAt": "2026-11-24T17:10:37.646Z",
   "publishedDateET": "2026-11-24",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -448,24 +448,36 @@
             },
             {
               "playerId": "",
+              "player": "T.J. McConnell",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "McConnell (hamstring) was assigned to the G League's Noblesville Boom on Tuesday.",
+              "updatedAt": "2026-11-24T16:02Z",
+              "expectedReturn": "2026-11-27",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Haliburton (hamstring) was assigned to the G League's Noblesville Boom on Tuesday.",
+              "updatedAt": "2026-11-24T15:57Z",
+              "expectedReturn": "2026-12-13",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Aaron Nesmith",
               "team": "",
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Nesmith is out for Monday's game against the Thunder due to right foot soreness.",
-              "updatedAt": "2026-11-24T04:40Z",
-              "expectedReturn": "2026-11-27",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "T.J. McConnell",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "McConnell is out for Monday's game against the Thunder due to left hamstring soreness.",
               "updatedAt": "2026-11-24T04:40Z",
               "expectedReturn": "2026-11-27",
               "position": "G"
@@ -481,30 +493,6 @@
               "updatedAt": "2026-11-24T02:00Z",
               "expectedReturn": "2026-11-27",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Haliburton (hamstring) is expected to miss at least two more weeks, Shams Charania of ESPN reports.",
-              "updatedAt": "2026-11-20T20:41Z",
-              "expectedReturn": "2026-12-13",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Johnny Furphy",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Furphy (knee) is practicing with the G League's Noblesville Boom, per Alex Golden of SI.com.",
-              "updatedAt": "2026-10-30T19:06Z",
-              "expectedReturn": "2027-01-02",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -1132,6 +1120,18 @@
             },
             {
               "playerId": "",
+              "player": "Tre Mann",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Mann (illness) has been downgraded to questionable for Tuesday's game against Boston.",
+              "updatedAt": "2026-11-24T16:47Z",
+              "expectedReturn": "2026-11-24",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Tristan Vukcevic",
               "team": "",
               "teamId": "",
@@ -1179,7 +1179,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-24T15:08:00.803Z",
+          "checkedAt": "2026-11-24T17:10:35.037Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -7766,7 +7766,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T15:08:02.113Z",
+        "generatedAt": "2026-11-24T17:10:36.007Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 258,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -8319,24 +8319,36 @@
             },
             {
               "playerId": "",
+              "player": "T.J. McConnell",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "McConnell (hamstring) was assigned to the G League's Noblesville Boom on Tuesday.",
+              "updatedAt": "2026-11-24T16:02Z",
+              "expectedReturn": "2026-11-27",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Haliburton (hamstring) was assigned to the G League's Noblesville Boom on Tuesday.",
+              "updatedAt": "2026-11-24T15:57Z",
+              "expectedReturn": "2026-12-13",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Aaron Nesmith",
               "team": "",
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Nesmith is out for Monday's game against the Thunder due to right foot soreness.",
-              "updatedAt": "2026-11-24T04:40Z",
-              "expectedReturn": "2026-11-27",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "T.J. McConnell",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "McConnell is out for Monday's game against the Thunder due to left hamstring soreness.",
               "updatedAt": "2026-11-24T04:40Z",
               "expectedReturn": "2026-11-27",
               "position": "G"
@@ -8352,30 +8364,6 @@
               "updatedAt": "2026-11-24T02:00Z",
               "expectedReturn": "2026-11-27",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Haliburton (hamstring) is expected to miss at least two more weeks, Shams Charania of ESPN reports.",
-              "updatedAt": "2026-11-20T20:41Z",
-              "expectedReturn": "2026-12-13",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Johnny Furphy",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Furphy (knee) is practicing with the G League's Noblesville Boom, per Alex Golden of SI.com.",
-              "updatedAt": "2026-10-30T19:06Z",
-              "expectedReturn": "2027-01-02",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -9003,6 +8991,18 @@
             },
             {
               "playerId": "",
+              "player": "Tre Mann",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Mann (illness) has been downgraded to questionable for Tuesday's game against Boston.",
+              "updatedAt": "2026-11-24T16:47Z",
+              "expectedReturn": "2026-11-24",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Tristan Vukcevic",
               "team": "",
               "teamId": "",
@@ -9050,7 +9050,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-24T15:08:00.803Z",
+          "checkedAt": "2026-11-24T17:10:35.037Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -18185,7 +18185,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T15:08:02.301Z",
+        "generatedAt": "2026-11-24T17:10:36.185Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 258,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -18913,7 +18913,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Humphrey (coach's decision) has returned to the team's facility, but it remains unclear if he will play Sunday against the Texans, Jamison Hensley of ESPN.com reports.",
+              "note": "Ravens head coach Jesse Minter said Monday that Humphrey has returned to the team's facility, but a decision hasn't been made regarding the defensive back's status for Sunday's game against the Texans, Jamison Hensley of ESPN.com reports.",
               "updatedAt": "2026-11-24T00:07Z",
               "expectedReturn": "2026-11-29",
               "position": "CB"
@@ -19064,18 +19064,6 @@
             },
             {
               "playerId": "",
-              "player": "Kedon Slovis",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Slovis (coach's decision) is inactive for Sunday's game against the Panthers but will serve as the Ravens' emergency quarterback.",
-              "updatedAt": "2026-11-22T16:35Z",
-              "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
               "player": "Olaivavega Ioane",
               "team": "",
               "teamId": "",
@@ -19121,6 +19109,18 @@
               "updatedAt": "2026-11-18T04:26Z",
               "expectedReturn": "",
               "position": "S"
+            },
+            {
+              "playerId": "",
+              "player": "Mike Green",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Green racked up six tackles (four solo), including 2.0 sacks, in Monday's Week 10 loss to the Chargers.",
+              "updatedAt": "2026-11-18T04:03Z",
+              "expectedReturn": "",
+              "position": "LB"
             },
             {
               "playerId": "",
@@ -20324,6 +20324,18 @@
             },
             {
               "playerId": "",
+              "player": "Raheim Sanders",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "The Browns designated Sanders (hip) for return from injured reserve Tuesday.",
+              "updatedAt": "2026-11-24T15:58Z",
+              "expectedReturn": "2026-11-29",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Ronnie Hickman",
               "team": "",
               "teamId": "",
@@ -20609,18 +20621,6 @@
               "updatedAt": "2026-11-13T21:38Z",
               "expectedReturn": "",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Tytus Howard",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-13T21:38Z",
-              "expectedReturn": "",
-              "position": "OT"
             },
             {
               "playerId": "",
@@ -22513,7 +22513,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jaguars head coach Liam Coen said Tuten aggravated a right ankle injury in Sunday's 23-18 loss to the Giants, noting that an examination Monday revealed nothing \"too bad,\" Ryan O'Halloran of The Florida Times-Union reports.",
+              "note": "Jaguars head coach Liam Coen said Tuten aggravated a right ankle injury in Sunday's 23-18 loss to the Giants, while noting that an examination Monday revealed nothing \"too bad,\" Ryan O'Halloran of The Florida Times-Union reports.",
               "updatedAt": "2026-11-23T19:28Z",
               "expectedReturn": "2026-11-29",
               "position": "RB"
@@ -23324,6 +23324,18 @@
             },
             {
               "playerId": "",
+              "player": "Oronde Gadsden",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Gadsden went without a target while taking the field for 23 of the Chargers' 60 snaps on offense in Sunday's 27-24 loss to the Jets.",
+              "updatedAt": "2026-11-24T15:18Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Kendall Williamson",
               "team": "",
               "teamId": "",
@@ -23609,18 +23621,6 @@
               "updatedAt": "2026-11-21T00:30Z",
               "expectedReturn": "",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Donte Jackson",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-20T22:05Z",
-              "expectedReturn": "",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -23924,6 +23924,18 @@
             },
             {
               "playerId": "",
+              "player": "Will Kacmarek",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Kacmarek went without a target while logging 21 of 57 snaps on offense in Sunday's 26-9 loss to the Bills.",
+              "updatedAt": "2026-11-24T16:49Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Jaylin Simpson",
               "team": "",
               "teamId": "",
@@ -24212,15 +24224,15 @@
             },
             {
               "playerId": "",
-              "player": "Aaron Brewer",
+              "player": "Ben Yurosek",
               "team": "",
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Brewer (concussion) is active for Sunday's matchup versus Buffalo.",
-              "updatedAt": "2026-11-22T17:15Z",
+              "note": "Yurosek failed to draw a target while playing 29 of the Vikings' 67 offensive snaps in Sunday's 35-10 loss to the 49ers in Mexico City.",
+              "updatedAt": "2026-11-24T16:53Z",
               "expectedReturn": "",
-              "position": "C"
+              "position": "TE"
             },
             {
               "playerId": "",
@@ -24497,18 +24509,6 @@
               "updatedAt": "2026-11-15T17:03Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Carson Wentz",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Wentz (ankle) doesn't have an injury designation for Sunday's game at Green Bay, but Kirk Cousins will be Minnesota's starting quarterback.",
-              "updatedAt": "2026-11-13T22:03Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -26612,6 +26612,18 @@
             },
             {
               "playerId": "",
+              "player": "Sam Darnold",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Head coach Mike Macdonald said Monday that Darnold (quadriceps/rib) made a \"good bit of progress\" over the Seahawks' Week 11 bye and will start Sunday at San Francisco if he fares well during Wednesday's practice, Brady Henderson of ESPN.co",
+              "updatedAt": "2026-11-24T15:31Z",
+              "expectedReturn": "2026-11-29",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Leonard Williams",
               "team": "",
               "teamId": "",
@@ -26645,18 +26657,6 @@
               "updatedAt": "2026-11-24T12:39Z",
               "expectedReturn": "2026-11-29",
               "position": "OT"
-            },
-            {
-              "playerId": "",
-              "player": "Sam Darnold",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Darnold (quadriceps/ribs) was suited up for Monday's unofficial practice, Bob Condotta of The Seattle Times reports.",
-              "updatedAt": "2026-11-23T23:33Z",
-              "expectedReturn": "2026-11-29",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -27584,6 +27584,18 @@
             },
             {
               "playerId": "",
+              "player": "Jacory Croskey-Merritt",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Croskey-Merritt rushed 13 times for 54 yards and a touchdown and brought in two of three targets for 23 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
+              "updatedAt": "2026-11-24T05:06Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Stefon Diggs",
               "team": "",
               "teamId": "",
@@ -27639,18 +27651,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "White (heel) is active for Monday's game against the Bengals.",
               "updatedAt": "2026-11-23T23:48Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Jacory Croskey-Merritt",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Commanders activated Croskey-Merritt (groin) from injured reserve and removed his designation ahead of Monday's game against the Bengals.",
-              "updatedAt": "2026-11-23T21:20Z",
               "expectedReturn": "",
               "position": "RB"
             },
@@ -27811,7 +27811,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-24T15:08:00.896Z",
+          "checkedAt": "2026-11-24T17:10:35.169Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -29673,7 +29673,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T15:08:02.731Z",
+        "generatedAt": "2026-11-24T17:10:36.622Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -30435,7 +30435,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Humphrey (coach's decision) has returned to the team's facility, but it remains unclear if he will play Sunday against the Texans, Jamison Hensley of ESPN.com reports.",
+              "note": "Ravens head coach Jesse Minter said Monday that Humphrey has returned to the team's facility, but a decision hasn't been made regarding the defensive back's status for Sunday's game against the Texans, Jamison Hensley of ESPN.com reports.",
               "updatedAt": "2026-11-24T00:07Z",
               "expectedReturn": "2026-11-29",
               "position": "CB"
@@ -30586,18 +30586,6 @@
             },
             {
               "playerId": "",
-              "player": "Kedon Slovis",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Slovis (coach's decision) is inactive for Sunday's game against the Panthers but will serve as the Ravens' emergency quarterback.",
-              "updatedAt": "2026-11-22T16:35Z",
-              "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
               "player": "Olaivavega Ioane",
               "team": "",
               "teamId": "",
@@ -30643,6 +30631,18 @@
               "updatedAt": "2026-11-18T04:26Z",
               "expectedReturn": "",
               "position": "S"
+            },
+            {
+              "playerId": "",
+              "player": "Mike Green",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Green racked up six tackles (four solo), including 2.0 sacks, in Monday's Week 10 loss to the Chargers.",
+              "updatedAt": "2026-11-18T04:03Z",
+              "expectedReturn": "",
+              "position": "LB"
             },
             {
               "playerId": "",
@@ -31846,6 +31846,18 @@
             },
             {
               "playerId": "",
+              "player": "Raheim Sanders",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "The Browns designated Sanders (hip) for return from injured reserve Tuesday.",
+              "updatedAt": "2026-11-24T15:58Z",
+              "expectedReturn": "2026-11-29",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Ronnie Hickman",
               "team": "",
               "teamId": "",
@@ -32131,18 +32143,6 @@
               "updatedAt": "2026-11-13T21:38Z",
               "expectedReturn": "",
               "position": "C"
-            },
-            {
-              "playerId": "",
-              "player": "Tytus Howard",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-13T21:38Z",
-              "expectedReturn": "",
-              "position": "OT"
             },
             {
               "playerId": "",
@@ -34035,7 +34035,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jaguars head coach Liam Coen said Tuten aggravated a right ankle injury in Sunday's 23-18 loss to the Giants, noting that an examination Monday revealed nothing \"too bad,\" Ryan O'Halloran of The Florida Times-Union reports.",
+              "note": "Jaguars head coach Liam Coen said Tuten aggravated a right ankle injury in Sunday's 23-18 loss to the Giants, while noting that an examination Monday revealed nothing \"too bad,\" Ryan O'Halloran of The Florida Times-Union reports.",
               "updatedAt": "2026-11-23T19:28Z",
               "expectedReturn": "2026-11-29",
               "position": "RB"
@@ -34846,6 +34846,18 @@
             },
             {
               "playerId": "",
+              "player": "Oronde Gadsden",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Gadsden went without a target while taking the field for 23 of the Chargers' 60 snaps on offense in Sunday's 27-24 loss to the Jets.",
+              "updatedAt": "2026-11-24T15:18Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Kendall Williamson",
               "team": "",
               "teamId": "",
@@ -35131,18 +35143,6 @@
               "updatedAt": "2026-11-21T00:30Z",
               "expectedReturn": "",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Donte Jackson",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-20T22:05Z",
-              "expectedReturn": "",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -35446,6 +35446,18 @@
             },
             {
               "playerId": "",
+              "player": "Will Kacmarek",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Kacmarek went without a target while logging 21 of 57 snaps on offense in Sunday's 26-9 loss to the Bills.",
+              "updatedAt": "2026-11-24T16:49Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Jaylin Simpson",
               "team": "",
               "teamId": "",
@@ -35734,15 +35746,15 @@
             },
             {
               "playerId": "",
-              "player": "Aaron Brewer",
+              "player": "Ben Yurosek",
               "team": "",
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Brewer (concussion) is active for Sunday's matchup versus Buffalo.",
-              "updatedAt": "2026-11-22T17:15Z",
+              "note": "Yurosek failed to draw a target while playing 29 of the Vikings' 67 offensive snaps in Sunday's 35-10 loss to the 49ers in Mexico City.",
+              "updatedAt": "2026-11-24T16:53Z",
               "expectedReturn": "",
-              "position": "C"
+              "position": "TE"
             },
             {
               "playerId": "",
@@ -36019,18 +36031,6 @@
               "updatedAt": "2026-11-15T17:03Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Carson Wentz",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Wentz (ankle) doesn't have an injury designation for Sunday's game at Green Bay, but Kirk Cousins will be Minnesota's starting quarterback.",
-              "updatedAt": "2026-11-13T22:03Z",
-              "expectedReturn": "",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -38134,6 +38134,18 @@
             },
             {
               "playerId": "",
+              "player": "Sam Darnold",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Head coach Mike Macdonald said Monday that Darnold (quadriceps/rib) made a \"good bit of progress\" over the Seahawks' Week 11 bye and will start Sunday at San Francisco if he fares well during Wednesday's practice, Brady Henderson of ESPN.co",
+              "updatedAt": "2026-11-24T15:31Z",
+              "expectedReturn": "2026-11-29",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Leonard Williams",
               "team": "",
               "teamId": "",
@@ -38167,18 +38179,6 @@
               "updatedAt": "2026-11-24T12:39Z",
               "expectedReturn": "2026-11-29",
               "position": "OT"
-            },
-            {
-              "playerId": "",
-              "player": "Sam Darnold",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Darnold (quadriceps/ribs) was suited up for Monday's unofficial practice, Bob Condotta of The Seattle Times reports.",
-              "updatedAt": "2026-11-23T23:33Z",
-              "expectedReturn": "2026-11-29",
-              "position": "QB"
             },
             {
               "playerId": "",
@@ -39106,6 +39106,18 @@
             },
             {
               "playerId": "",
+              "player": "Jacory Croskey-Merritt",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Croskey-Merritt rushed 13 times for 54 yards and a touchdown and brought in two of three targets for 23 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
+              "updatedAt": "2026-11-24T05:06Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Stefon Diggs",
               "team": "",
               "teamId": "",
@@ -39161,18 +39173,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "White (heel) is active for Monday's game against the Bengals.",
               "updatedAt": "2026-11-23T23:48Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Jacory Croskey-Merritt",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Commanders activated Croskey-Merritt (groin) from injured reserve and removed his designation ahead of Monday's game against the Bengals.",
-              "updatedAt": "2026-11-23T21:20Z",
               "expectedReturn": "",
               "position": "RB"
             },
@@ -39333,7 +39333,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-24T15:08:00.896Z",
+          "checkedAt": "2026-11-24T17:10:35.169Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -44800,7 +44800,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T15:08:03.759Z",
+        "generatedAt": "2026-11-24T17:10:37.646Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
