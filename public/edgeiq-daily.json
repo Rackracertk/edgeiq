@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-24T13:22:00.448Z",
+  "generatedAt": "2026-11-24T15:08:03.760Z",
   "publishedDateET": "2026-11-24",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1179,7 +1179,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-24T13:21:57.035Z",
+          "checkedAt": "2026-11-24T15:08:00.803Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -7766,7 +7766,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T13:21:58.811Z",
+        "generatedAt": "2026-11-24T15:08:02.113Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 258,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -9050,7 +9050,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-24T13:21:57.035Z",
+          "checkedAt": "2026-11-24T15:08:00.803Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -18185,7 +18185,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T13:21:58.981Z",
+        "generatedAt": "2026-11-24T15:08:02.301Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 258,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -27584,18 +27584,6 @@
             },
             {
               "playerId": "",
-              "player": "Jacory Croskey-Merritt",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Croskey-Merritt rushed 13 times for 54 yards and a touchdown and brought in two of three targets for 23 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
-              "updatedAt": "2026-11-24T05:06Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
               "player": "Stefon Diggs",
               "team": "",
               "teamId": "",
@@ -27651,6 +27639,18 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "White (heel) is active for Monday's game against the Bengals.",
               "updatedAt": "2026-11-23T23:48Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Jacory Croskey-Merritt",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Commanders activated Croskey-Merritt (groin) from injured reserve and removed his designation ahead of Monday's game against the Bengals.",
+              "updatedAt": "2026-11-23T21:20Z",
               "expectedReturn": "",
               "position": "RB"
             },
@@ -27811,7 +27811,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-24T13:21:57.385Z",
+          "checkedAt": "2026-11-24T15:08:00.896Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -29673,7 +29673,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T13:21:59.417Z",
+        "generatedAt": "2026-11-24T15:08:02.731Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -39106,18 +39106,6 @@
             },
             {
               "playerId": "",
-              "player": "Jacory Croskey-Merritt",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Croskey-Merritt rushed 13 times for 54 yards and a touchdown and brought in two of three targets for 23 yards in the Commanders' 22-20 win over the Bengals on Monday night.",
-              "updatedAt": "2026-11-24T05:06Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
               "player": "Stefon Diggs",
               "team": "",
               "teamId": "",
@@ -39173,6 +39161,18 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "White (heel) is active for Monday's game against the Bengals.",
               "updatedAt": "2026-11-23T23:48Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Jacory Croskey-Merritt",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "The Commanders activated Croskey-Merritt (groin) from injured reserve and removed his designation ahead of Monday's game against the Bengals.",
+              "updatedAt": "2026-11-23T21:20Z",
               "expectedReturn": "",
               "position": "RB"
             },
@@ -39333,7 +39333,7 @@
               "position": "DT"
             }
           ],
-          "checkedAt": "2026-11-24T13:21:57.385Z",
+          "checkedAt": "2026-11-24T15:08:00.896Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -44800,7 +44800,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-24T13:22:00.448Z",
+        "generatedAt": "2026-11-24T15:08:03.759Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
