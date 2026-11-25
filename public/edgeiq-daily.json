@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T15:13:14.927Z",
+  "generatedAt": "2026-11-25T17:10:45.065Z",
   "publishedDateET": "2026-11-25",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -772,6 +772,18 @@
             },
             {
               "playerId": "",
+              "player": "Julian Reese",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "The Pelicans transferred Reese from the G League's Laketown Squadron, and he will be available for New Orleans' game against the Warriors on Monday.",
+              "updatedAt": "2026-11-25T16:11Z",
+              "expectedReturn": "2026-11-25",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Trendon Watford",
               "team": "",
               "teamId": "",
@@ -1089,8 +1101,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Raynaud (knee) is out for Wednesday's game against the Warriors.",
-              "updatedAt": "2026-11-25T04:21Z",
+              "note": "Raynaud (knee) was assigned to the G League's Stockton Kings on Wednesday, James Ham of ESPN 1320 Sacramento reports.",
+              "updatedAt": "2026-11-25T16:25Z",
               "expectedReturn": "2026-12-02",
               "position": "C"
             },
@@ -1299,7 +1311,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-25T15:13:12.522Z",
+          "checkedAt": "2026-11-25T17:10:41.838Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10434,7 +10446,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T15:13:13.407Z",
+        "generatedAt": "2026-11-25T17:10:42.854Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 261,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11239,6 +11251,18 @@
             },
             {
               "playerId": "",
+              "player": "Julian Reese",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "The Pelicans transferred Reese from the G League's Laketown Squadron, and he will be available for New Orleans' game against the Warriors on Monday.",
+              "updatedAt": "2026-11-25T16:11Z",
+              "expectedReturn": "2026-11-25",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Trendon Watford",
               "team": "",
               "teamId": "",
@@ -11556,8 +11580,8 @@
               "teamId": "",
               "status": "Out",
               "reason": "INJURY_STATUS_OUT",
-              "note": "Raynaud (knee) is out for Wednesday's game against the Warriors.",
-              "updatedAt": "2026-11-25T04:21Z",
+              "note": "Raynaud (knee) was assigned to the G League's Stockton Kings on Wednesday, James Ham of ESPN 1320 Sacramento reports.",
+              "updatedAt": "2026-11-25T16:25Z",
               "expectedReturn": "2026-12-02",
               "position": "C"
             },
@@ -11766,7 +11790,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-25T15:13:12.522Z",
+          "checkedAt": "2026-11-25T17:10:41.838Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21173,7 +21197,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T15:13:13.570Z",
+        "generatedAt": "2026-11-25T17:10:43.096Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 261,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -25112,6 +25136,18 @@
             },
             {
               "playerId": "",
+              "player": "Jonathan Taylor",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Taylor will be joined in the backfield in Sunday's game against the Giants by Anthony Richardson, who was named the Colts' new starting quarterback after Daniel Jones was cut Friday, Mike Chappell of Fox 59 News Indianapolis reports.",
+              "updatedAt": "2026-11-25T15:39Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Caden Curry",
               "team": "",
               "teamId": "",
@@ -25119,7 +25155,7 @@
               "reason": "INJURY_STATUS_IR",
               "note": "The Colts placed Curry (undisclosed) on injured reserve Tuesday.",
               "updatedAt": "2026-11-25T01:36Z",
-              "expectedReturn": "2027-01-03",
+              "expectedReturn": "2027-02-15",
               "position": "LB"
             },
             {
@@ -25397,18 +25433,6 @@
               "updatedAt": "2026-11-20T18:16Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Laquon Treadwell",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Treadwell failed to catch his lone target in Thursday night's 26-3 loss to the Texans.",
-              "updatedAt": "2026-11-20T16:07Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -25712,26 +25736,62 @@
             },
             {
               "playerId": "",
-              "player": "Trey Smith",
+              "player": "Peter Woods",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Smith (concussion) was a full participant in Tuesday's practice.",
-              "updatedAt": "2026-11-25T02:10Z",
+              "note": "questionable",
+              "updatedAt": "2026-11-25T16:56Z",
               "expectedReturn": "2026-11-26",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Omarr Norman-Lott",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-25T16:55Z",
+              "expectedReturn": "2026-12-03",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Trey Smith",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-25T16:55Z",
+              "expectedReturn": "",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Jaylon Moore",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-25T16:54Z",
+              "expectedReturn": "2026-12-03",
+              "position": "OT"
             },
             {
               "playerId": "",
               "player": "Noah Gray",
               "team": "",
               "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Gray (ribs) was a full participant at the Chiefs' practice Tuesday.",
-              "updatedAt": "2026-11-25T00:48Z",
-              "expectedReturn": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-25T16:53Z",
+              "expectedReturn": "2026-11-26",
               "position": "TE"
             },
             {
@@ -25739,11 +25799,11 @@
               "player": "Kenneth Walker III",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "The Chiefs listed Walker (groin) as a limited participant in Tuesday's practice.",
-              "updatedAt": "2026-11-24T21:49Z",
-              "expectedReturn": "2026-11-26",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Walker (groin) is slated to be out for Thursday's game against the Bills, according to NFL reporter Jordan Schultz.",
+              "updatedAt": "2026-11-25T16:48Z",
+              "expectedReturn": "2026-12-03",
               "position": "RB"
             },
             {
@@ -25757,18 +25817,6 @@
               "updatedAt": "2026-11-24T21:28Z",
               "expectedReturn": "2026-12-27",
               "position": "FB"
-            },
-            {
-              "playerId": "",
-              "player": "Jaylon Moore",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-24T12:39Z",
-              "expectedReturn": "2026-11-26",
-              "position": "OT"
             },
             {
               "playerId": "",
@@ -25829,30 +25877,6 @@
               "updatedAt": "2026-11-24T01:56Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Omarr Norman-Lott",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Norman-Lott (knee) was listed as a full participant for Monday's estimated practice.",
-              "updatedAt": "2026-11-24T01:18Z",
-              "expectedReturn": "2026-11-26",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Peter Woods",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Woods (neck) was listed as a full participant for Monday's estimated practice.",
-              "updatedAt": "2026-11-24T01:10Z",
-              "expectedReturn": "",
-              "position": "DT"
             },
             {
               "playerId": "",
@@ -28100,6 +28124,18 @@
             },
             {
               "playerId": "",
+              "player": "Chris Manhertz",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Mahertz secured his lone target for a 14-yard reception in Sunday's 23-18 win over the Jaguars.",
+              "updatedAt": "2026-11-25T16:18Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Abdul Carter",
               "team": "",
               "teamId": "",
@@ -28388,15 +28424,27 @@
             },
             {
               "playerId": "",
-              "player": "Jameis Winston",
+              "player": "Jeremy Ruckert",
               "team": "",
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Winston carried twice for one yard in Thursday's 24-21 loss to the Commanders.",
-              "updatedAt": "2026-11-18T16:31Z",
+              "note": "Ruckert went without a target while logging 16 of the Jets' 60 snaps on offense in Sunday's 27-24 win over the Chargers.",
+              "updatedAt": "2026-11-25T16:29Z",
               "expectedReturn": "",
-              "position": "QB"
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Andrew Beck",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Beck played all but one of his 13 snaps on special teams in Sunday's 27-24 win over the Chargers.",
+              "updatedAt": "2026-11-25T16:26Z",
+              "expectedReturn": "",
+              "position": "FB"
             },
             {
               "playerId": "",
@@ -28673,30 +28721,6 @@
               "updatedAt": "2026-11-22T19:37Z",
               "expectedReturn": "",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "David Onyemata",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Onyemata (abdomen) has been ruled out for Sunday's game against the Chargers, Brian Costello of the New York Post reports.",
-              "updatedAt": "2026-11-21T01:01Z",
-              "expectedReturn": "2026-11-29",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Tim Patrick",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-16T19:35Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -29005,7 +29029,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rodgers wasn't present at the Steelers' facility Wednesday morning, and \"it's unclear if he will show up at all\" during the day, according to NFL reporter Jordan Schultz.",
+              "note": "Rodgers wasn't present at the Steelers' facility Wednesday morning and isn't expected to participate in practice, NFL reporter Jordan Schultz.",
               "updatedAt": "2026-11-25T14:20Z",
               "expectedReturn": "",
               "position": "QB"
@@ -29300,6 +29324,30 @@
             },
             {
               "playerId": "",
+              "player": "Brayden Willis",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Willis went without a target while logging nine snaps on offense and 21 on special teams in Sunday's 35-10 win over the Vikings in Mexico City.",
+              "updatedAt": "2026-11-25T16:55Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Luke Farrell",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Farrell turned his lone target into a seven-yard reception in Sunday's 35-10 win over the Vikings in Mexico City.",
+              "updatedAt": "2026-11-25T16:51Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Ji'Ayir Brown",
               "team": "",
               "teamId": "",
@@ -29573,30 +29621,6 @@
               "updatedAt": "2026-11-23T00:02Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Upton Stout",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T00:02Z",
-              "expectedReturn": "",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Nate Hobbs",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Hobbs (groin) has been downgraded to out for Sunday night's game against the Vikings.",
-              "updatedAt": "2026-11-22T00:25Z",
-              "expectedReturn": "2026-11-29",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -29900,6 +29924,18 @@
             },
             {
               "playerId": "",
+              "player": "Jalen McMillan",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "The Buccaneers designated McMillan (knee) for return from injured reserve Wednesday, Scott Smith of the team's official site reports.",
+              "updatedAt": "2026-11-25T15:55Z",
+              "expectedReturn": "2026-11-30",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Tykee Smith",
               "team": "",
               "teamId": "",
@@ -30184,18 +30220,6 @@
               "note": "Hayes (knee) has been ruled out for Sunday's game against the Lions.",
               "updatedAt": "2026-11-21T01:19Z",
               "expectedReturn": "2026-11-30",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Zyon McCollum",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "McCollum recorded five tackles (four solo) and two interceptions in Sunday night's 27-24 loss to the Bears.",
-              "updatedAt": "2026-11-12T04:05Z",
-              "expectedReturn": "",
               "position": "CB"
             },
             {
@@ -30799,7 +30823,7 @@
               "position": "LB"
             }
           ],
-          "checkedAt": "2026-11-25T15:13:12.589Z",
+          "checkedAt": "2026-11-25T17:10:41.888Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -32661,7 +32685,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T15:13:13.972Z",
+        "generatedAt": "2026-11-25T17:10:43.702Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -36634,6 +36658,18 @@
             },
             {
               "playerId": "",
+              "player": "Jonathan Taylor",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Taylor will be joined in the backfield in Sunday's game against the Giants by Anthony Richardson, who was named the Colts' new starting quarterback after Daniel Jones was cut Friday, Mike Chappell of Fox 59 News Indianapolis reports.",
+              "updatedAt": "2026-11-25T15:39Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
               "player": "Caden Curry",
               "team": "",
               "teamId": "",
@@ -36641,7 +36677,7 @@
               "reason": "INJURY_STATUS_IR",
               "note": "The Colts placed Curry (undisclosed) on injured reserve Tuesday.",
               "updatedAt": "2026-11-25T01:36Z",
-              "expectedReturn": "2027-01-03",
+              "expectedReturn": "2027-02-15",
               "position": "LB"
             },
             {
@@ -36919,18 +36955,6 @@
               "updatedAt": "2026-11-20T18:16Z",
               "expectedReturn": "",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Laquon Treadwell",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Treadwell failed to catch his lone target in Thursday night's 26-3 loss to the Texans.",
-              "updatedAt": "2026-11-20T16:07Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -37234,26 +37258,62 @@
             },
             {
               "playerId": "",
-              "player": "Trey Smith",
+              "player": "Peter Woods",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Smith (concussion) was a full participant in Tuesday's practice.",
-              "updatedAt": "2026-11-25T02:10Z",
+              "note": "questionable",
+              "updatedAt": "2026-11-25T16:56Z",
               "expectedReturn": "2026-11-26",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Omarr Norman-Lott",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-25T16:55Z",
+              "expectedReturn": "2026-12-03",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Trey Smith",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "",
+              "updatedAt": "2026-11-25T16:55Z",
+              "expectedReturn": "",
               "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Jaylon Moore",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-25T16:54Z",
+              "expectedReturn": "2026-12-03",
+              "position": "OT"
             },
             {
               "playerId": "",
               "player": "Noah Gray",
               "team": "",
               "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Gray (ribs) was a full participant at the Chiefs' practice Tuesday.",
-              "updatedAt": "2026-11-25T00:48Z",
-              "expectedReturn": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-25T16:53Z",
+              "expectedReturn": "2026-11-26",
               "position": "TE"
             },
             {
@@ -37261,11 +37321,11 @@
               "player": "Kenneth Walker III",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "The Chiefs listed Walker (groin) as a limited participant in Tuesday's practice.",
-              "updatedAt": "2026-11-24T21:49Z",
-              "expectedReturn": "2026-11-26",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Walker (groin) is slated to be out for Thursday's game against the Bills, according to NFL reporter Jordan Schultz.",
+              "updatedAt": "2026-11-25T16:48Z",
+              "expectedReturn": "2026-12-03",
               "position": "RB"
             },
             {
@@ -37279,18 +37339,6 @@
               "updatedAt": "2026-11-24T21:28Z",
               "expectedReturn": "2026-12-27",
               "position": "FB"
-            },
-            {
-              "playerId": "",
-              "player": "Jaylon Moore",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-24T12:39Z",
-              "expectedReturn": "2026-11-26",
-              "position": "OT"
             },
             {
               "playerId": "",
@@ -37351,30 +37399,6 @@
               "updatedAt": "2026-11-24T01:56Z",
               "expectedReturn": "",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Omarr Norman-Lott",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Norman-Lott (knee) was listed as a full participant for Monday's estimated practice.",
-              "updatedAt": "2026-11-24T01:18Z",
-              "expectedReturn": "2026-11-26",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Peter Woods",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Woods (neck) was listed as a full participant for Monday's estimated practice.",
-              "updatedAt": "2026-11-24T01:10Z",
-              "expectedReturn": "",
-              "position": "DT"
             },
             {
               "playerId": "",
@@ -39622,6 +39646,18 @@
             },
             {
               "playerId": "",
+              "player": "Chris Manhertz",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Mahertz secured his lone target for a 14-yard reception in Sunday's 23-18 win over the Jaguars.",
+              "updatedAt": "2026-11-25T16:18Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Abdul Carter",
               "team": "",
               "teamId": "",
@@ -39910,15 +39946,27 @@
             },
             {
               "playerId": "",
-              "player": "Jameis Winston",
+              "player": "Jeremy Ruckert",
               "team": "",
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Winston carried twice for one yard in Thursday's 24-21 loss to the Commanders.",
-              "updatedAt": "2026-11-18T16:31Z",
+              "note": "Ruckert went without a target while logging 16 of the Jets' 60 snaps on offense in Sunday's 27-24 win over the Chargers.",
+              "updatedAt": "2026-11-25T16:29Z",
               "expectedReturn": "",
-              "position": "QB"
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Andrew Beck",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Beck played all but one of his 13 snaps on special teams in Sunday's 27-24 win over the Chargers.",
+              "updatedAt": "2026-11-25T16:26Z",
+              "expectedReturn": "",
+              "position": "FB"
             },
             {
               "playerId": "",
@@ -40195,30 +40243,6 @@
               "updatedAt": "2026-11-22T19:37Z",
               "expectedReturn": "",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "David Onyemata",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Onyemata (abdomen) has been ruled out for Sunday's game against the Chargers, Brian Costello of the New York Post reports.",
-              "updatedAt": "2026-11-21T01:01Z",
-              "expectedReturn": "2026-11-29",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Tim Patrick",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-16T19:35Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -40527,7 +40551,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rodgers wasn't present at the Steelers' facility Wednesday morning, and \"it's unclear if he will show up at all\" during the day, according to NFL reporter Jordan Schultz.",
+              "note": "Rodgers wasn't present at the Steelers' facility Wednesday morning and isn't expected to participate in practice, NFL reporter Jordan Schultz.",
               "updatedAt": "2026-11-25T14:20Z",
               "expectedReturn": "",
               "position": "QB"
@@ -40822,6 +40846,30 @@
             },
             {
               "playerId": "",
+              "player": "Brayden Willis",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Willis went without a target while logging nine snaps on offense and 21 on special teams in Sunday's 35-10 win over the Vikings in Mexico City.",
+              "updatedAt": "2026-11-25T16:55Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
+              "player": "Luke Farrell",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Farrell turned his lone target into a seven-yard reception in Sunday's 35-10 win over the Vikings in Mexico City.",
+              "updatedAt": "2026-11-25T16:51Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Ji'Ayir Brown",
               "team": "",
               "teamId": "",
@@ -41095,30 +41143,6 @@
               "updatedAt": "2026-11-23T00:02Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Upton Stout",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T00:02Z",
-              "expectedReturn": "",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Nate Hobbs",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Hobbs (groin) has been downgraded to out for Sunday night's game against the Vikings.",
-              "updatedAt": "2026-11-22T00:25Z",
-              "expectedReturn": "2026-11-29",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -41422,6 +41446,18 @@
             },
             {
               "playerId": "",
+              "player": "Jalen McMillan",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "The Buccaneers designated McMillan (knee) for return from injured reserve Wednesday, Scott Smith of the team's official site reports.",
+              "updatedAt": "2026-11-25T15:55Z",
+              "expectedReturn": "2026-11-30",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Tykee Smith",
               "team": "",
               "teamId": "",
@@ -41706,18 +41742,6 @@
               "note": "Hayes (knee) has been ruled out for Sunday's game against the Lions.",
               "updatedAt": "2026-11-21T01:19Z",
               "expectedReturn": "2026-11-30",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Zyon McCollum",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "McCollum recorded five tackles (four solo) and two interceptions in Sunday night's 27-24 loss to the Bears.",
-              "updatedAt": "2026-11-12T04:05Z",
-              "expectedReturn": "",
               "position": "CB"
             },
             {
@@ -42321,7 +42345,7 @@
               "position": "LB"
             }
           ],
-          "checkedAt": "2026-11-25T15:13:12.589Z",
+          "checkedAt": "2026-11-25T17:10:41.888Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -47788,7 +47812,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T15:13:14.927Z",
+        "generatedAt": "2026-11-25T17:10:45.064Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
