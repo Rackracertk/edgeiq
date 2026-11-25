@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T13:27:33.970Z",
+  "generatedAt": "2026-11-25T15:13:14.927Z",
   "publishedDateET": "2026-11-25",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1299,7 +1299,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-25T13:27:31.044Z",
+          "checkedAt": "2026-11-25T15:13:12.522Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10434,7 +10434,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T13:27:32.439Z",
+        "generatedAt": "2026-11-25T15:13:13.407Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 261,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11766,7 +11766,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-25T13:27:31.044Z",
+          "checkedAt": "2026-11-25T15:13:12.522Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21173,7 +21173,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T13:27:32.614Z",
+        "generatedAt": "2026-11-25T15:13:13.570Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 261,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -26917,7 +26917,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Anderson recorded 12 total tackles (eight solo), including 1.0 sacks, while also intercepting a pass during Sunday's 26-9 loss to the Bills.",
+              "note": "Anderson recorded 12 total tackles (eight solo), including 1.0 sacks, and also intercepted a pass during Sunday's 26-9 loss to the Bills.",
               "updatedAt": "2026-11-25T02:08Z",
               "expectedReturn": "",
               "position": "S"
@@ -28705,7 +28705,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Ebiketie (oblique) was estimated as a non-participant on the Eagles' injury report Tuesday.",
+              "note": "Ebiketie (oblique) was estimated as a nonparticipant on the Eagles' injury report Tuesday.",
               "updatedAt": "2026-11-25T02:19Z",
               "expectedReturn": "2026-11-26",
               "position": "LB"
@@ -29000,6 +29000,18 @@
             },
             {
               "playerId": "",
+              "player": "Aaron Rodgers",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Rodgers wasn't present at the Steelers' facility Wednesday morning, and \"it's unclear if he will show up at all\" during the day, according to NFL reporter Jordan Schultz.",
+              "updatedAt": "2026-11-25T14:20Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Mason Rudolph",
               "team": "",
               "teamId": "",
@@ -29007,18 +29019,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Rudolph will start Friday's game against the Broncos, Tom Pelissero of The Ringer and Netflix reports.",
               "updatedAt": "2026-11-25T04:25Z",
-              "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Aaron Rodgers",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rodgers has been benched by the Steelers, and Mason Rudolph will start Friday's game against the Broncos, Tom Pelissero of The Ringer and Netflix reports.",
-              "updatedAt": "2026-11-25T04:21Z",
               "expectedReturn": "",
               "position": "QB"
             },
@@ -30799,7 +30799,7 @@
               "position": "LB"
             }
           ],
-          "checkedAt": "2026-11-25T13:27:31.103Z",
+          "checkedAt": "2026-11-25T15:13:12.589Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -32661,7 +32661,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T13:27:33.011Z",
+        "generatedAt": "2026-11-25T15:13:13.972Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -38439,7 +38439,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Anderson recorded 12 total tackles (eight solo), including 1.0 sacks, while also intercepting a pass during Sunday's 26-9 loss to the Bills.",
+              "note": "Anderson recorded 12 total tackles (eight solo), including 1.0 sacks, and also intercepted a pass during Sunday's 26-9 loss to the Bills.",
               "updatedAt": "2026-11-25T02:08Z",
               "expectedReturn": "",
               "position": "S"
@@ -40227,7 +40227,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Ebiketie (oblique) was estimated as a non-participant on the Eagles' injury report Tuesday.",
+              "note": "Ebiketie (oblique) was estimated as a nonparticipant on the Eagles' injury report Tuesday.",
               "updatedAt": "2026-11-25T02:19Z",
               "expectedReturn": "2026-11-26",
               "position": "LB"
@@ -40522,6 +40522,18 @@
             },
             {
               "playerId": "",
+              "player": "Aaron Rodgers",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Rodgers wasn't present at the Steelers' facility Wednesday morning, and \"it's unclear if he will show up at all\" during the day, according to NFL reporter Jordan Schultz.",
+              "updatedAt": "2026-11-25T14:20Z",
+              "expectedReturn": "",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
               "player": "Mason Rudolph",
               "team": "",
               "teamId": "",
@@ -40529,18 +40541,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Rudolph will start Friday's game against the Broncos, Tom Pelissero of The Ringer and Netflix reports.",
               "updatedAt": "2026-11-25T04:25Z",
-              "expectedReturn": "",
-              "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Aaron Rodgers",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rodgers has been benched by the Steelers, and Mason Rudolph will start Friday's game against the Broncos, Tom Pelissero of The Ringer and Netflix reports.",
-              "updatedAt": "2026-11-25T04:21Z",
               "expectedReturn": "",
               "position": "QB"
             },
@@ -42321,7 +42321,7 @@
               "position": "LB"
             }
           ],
-          "checkedAt": "2026-11-25T13:27:31.103Z",
+          "checkedAt": "2026-11-25T15:13:12.589Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -47788,7 +47788,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-25T13:27:33.969Z",
+        "generatedAt": "2026-11-25T15:13:14.927Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 163,
         "publishedBy": "EDGEIQ unattended research publisher"
