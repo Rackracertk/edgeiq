@@ -1,6 +1,6 @@
 import {lazy,Suspense,useEffect,useMemo,useRef,useState} from 'react'
 import {supabase} from './supabaseClient'
-import {leagues,sportLabel,normalizeEvents,matches,clean,marketGroup,phaseLabels,catalog,type ScriptSport,type Fixture} from './analytics/scriptSports'
+import {leagues,normalizeEvents,matches,clean,marketGroup,phaseLabels,catalog,type ScriptSport,type Fixture} from './analytics/scriptSports'
 import {teamMatches,teamFor} from './analytics/teamDirectory'
 import {loadInjuryReport,type InjuryData} from './analytics/injuryCenter'
 import {findInjury,shouldExcludeInjury} from './analytics/injuryStatus'
