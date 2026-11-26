@@ -38,3 +38,14 @@ export function groupObservations(rows:Observation[]):EvidenceSeries[]{
  }
  return [...result.values()].map(s=>({...s,values:s.values.sort((a,b)=>b.date.localeCompare(a.date))})).sort((a,b)=>b.values.length-a.values.length||a.name.localeCompare(b.name)||a.category.localeCompare(b.category))
 }
+
+/** Simple scoring baseline; only additive team-scoring sports and five eligible finals per participant. */
+export function historicalScoreBaseline(history:Fixture[],game:Fixture){
+ if(!/^(basketball|football|baseball|hockey|soccer)\//.test(game.path)||game.participants.length!==2)return null
+ const eligible=eligibleHistory(history,game,Date.now())
+ const samples=game.participants.map(p=>eligible.filter(g=>g.participants.some(t=>t.id===p.id)).slice(0,5))
+ if(samples.some(s=>s.length<5))return null
+ const mean=(values:number[])=>values.reduce((a,b)=>a+b,0)/values.length
+ const summaries=samples.map((games,i)=>({scored:mean(games.map(g=>g.participants.find(p=>p.id===game.participants[i].id)!.score!)),allowed:mean(games.map(g=>g.participants.find(p=>p.id!==game.participants[i].id)!.score!))}))
+ return summaries.map((s,i)=>Math.round((s.scored+summaries[1-i].allowed)*50)/100)
+}
