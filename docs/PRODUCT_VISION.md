@@ -9,3 +9,6 @@ Publish short daily matchup breakdowns, player trend explanations, halftime obse
 
 ## Approved visual details
 Use the charcoal player research card across NBA, NFL, Script provider research and public recorded player statistics. Four L5/L10/L15/L20 tiles, green hit bars, muted red miss bars, gray pushes, dashed gold line, actual recorded values, recent average and expandable matchup details. No mock figures in production. A sportsbook line is shown only if verified; an analysis threshold in the standalone analyzer is not an offered quote. Missing verified injury, playing time and odds are explicitly unavailable.
+
+## Slip research
+Inside The Script, Game Lines → Betting Slips shows two- and three-leg same-book research combinations when fresh individual player prop quotes exist. Display observed prices, historical samples when matched, and missing evidence. Do not fabricate lines, combined odds, joint probability, parlay compatibility or wagers. Hide pregame combinations after start.
