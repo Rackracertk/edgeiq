@@ -1,0 +1,7 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {normalizeQuotes,sports} from '../scripts/publish-major-odds.mjs'
+import {selectMajorOdds} from '../src/analytics/majorOdds.ts'
+const now=Date.parse('2026-11-26T18:00:00Z'),time='2026-11-26T21:30:00Z'
+test('normalization preserves actual market timestamps and skips invalid offers',()=>{const quotes=normalizeQuotes({bookmakers:[{title:'Example',markets:[{key:'player_pass_yds',last_update:new Date(now).toISOString(),outcomes:[{description:'Player A',name:'Over',point:200.5,price:-110},{description:'Player B',name:'Over',price:-110}]}]}]},sports.NFL,now);assert.equal(quotes.length,1);assert.equal(quotes[0].line,200.5);assert.equal(quotes[0].observedAt,new Date(now).toISOString())})
+test('snapshot matches both team names and kickoff, rejects stale odds and live events',()=>{const game={state:'pre',date:time,participants:[{name:'Dallas Cowboys'},{name:'Philadelphia Eagles'}]};const snapshot={schemaVersion:1,games:[{sport:'NFL',home:'Dallas Cowboys',away:'Philadelphia Eagles',time,quotes:[{observedAt:new Date(now).toISOString()},{observedAt:new Date(now-16*60000).toISOString()}]}]};assert.equal(selectMajorOdds(snapshot,game,'NFL',now).length,1);assert.equal(selectMajorOdds(snapshot,{...game,state:'in'},'NFL',now).length,0);assert.equal(selectMajorOdds(snapshot,{...game,participants:[{name:'Dallas Cowboys'},{name:'Other'}]},'NFL',now).length,0)})
