@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T15:09:01.170Z",
+  "generatedAt": "2026-11-26T17:15:38.350Z",
   "publishedDateET": "2026-11-26",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -472,6 +472,18 @@
             },
             {
               "playerId": "",
+              "player": "Jalen Duren",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Detroit recalled Duren (hamstring) from the G League's Motor City Cruise on Wednesday.",
+              "updatedAt": "2026-11-26T15:31Z",
+              "expectedReturn": "2026-11-30",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Cade Cunningham",
               "team": "",
               "teamId": "",
@@ -517,18 +529,6 @@
               "updatedAt": "2026-11-24T18:30Z",
               "expectedReturn": "2026-11-27",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen Duren",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Duren (hamstring) is being assigned to the Motor City Cruise on Wednesday for practice as he ramps up for a return, Eric Vincent of ClutchPoints.com reports.",
-              "updatedAt": "2026-11-24T18:27Z",
-              "expectedReturn": "2026-11-30",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -976,6 +976,18 @@
             },
             {
               "playerId": "",
+              "player": "Colin Castleton",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Castleton totaled five points (2-4 FG, 1-1 3Pt) and four rebounds in seven minutes during Tuesday's 132-116 preseason win over the Cavaliers.",
+              "updatedAt": "2026-11-26T16:10Z",
+              "expectedReturn": "2026-11-27",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Jonathan Isaac",
               "team": "",
               "teamId": "",
@@ -1335,7 +1347,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-26T15:08:58.815Z",
+          "checkedAt": "2026-11-26T17:15:35.768Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10734,7 +10746,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T15:08:59.670Z",
+        "generatedAt": "2026-11-26T17:15:36.841Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11095,6 +11107,18 @@
             },
             {
               "playerId": "",
+              "player": "Jalen Duren",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Detroit recalled Duren (hamstring) from the G League's Motor City Cruise on Wednesday.",
+              "updatedAt": "2026-11-26T15:31Z",
+              "expectedReturn": "2026-11-30",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Cade Cunningham",
               "team": "",
               "teamId": "",
@@ -11140,18 +11164,6 @@
               "updatedAt": "2026-11-24T18:30Z",
               "expectedReturn": "2026-11-27",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen Duren",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Duren (hamstring) is being assigned to the Motor City Cruise on Wednesday for practice as he ramps up for a return, Eric Vincent of ClutchPoints.com reports.",
-              "updatedAt": "2026-11-24T18:27Z",
-              "expectedReturn": "2026-11-30",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -11599,6 +11611,18 @@
             },
             {
               "playerId": "",
+              "player": "Colin Castleton",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Castleton totaled five points (2-4 FG, 1-1 3Pt) and four rebounds in seven minutes during Tuesday's 132-116 preseason win over the Cavaliers.",
+              "updatedAt": "2026-11-26T16:10Z",
+              "expectedReturn": "2026-11-27",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Jonathan Isaac",
               "team": "",
               "teamId": "",
@@ -11958,7 +11982,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-26T15:08:58.815Z",
+          "checkedAt": "2026-11-26T17:15:35.768Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21247,7 +21271,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T15:08:59.801Z",
+        "generatedAt": "2026-11-26T17:15:36.975Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -22822,27 +22846,87 @@
             },
             {
               "playerId": "",
-              "player": "D'Marco Jackson",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jackson (elbow) is listed as questionable for Thursday's game against the Lions, Larry Mayer of the Bears' official site reports.",
-              "updatedAt": "2026-11-26T03:14Z",
-              "expectedReturn": "2026-11-26",
-              "position": "LB"
-            },
-            {
-              "playerId": "",
               "player": "Tyrique Stevenson Sr.",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Stevenson (groin) is questionable for Thursday's game against the Lions.",
-              "updatedAt": "2026-11-25T23:56Z",
-              "expectedReturn": "2026-11-26",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Stevenson (groin) is active to face Detroit on Thursday.",
+              "updatedAt": "2026-11-26T17:01Z",
+              "expectedReturn": "",
               "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Case Keenum",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Keenum (coach's decision) is inactive and tabbed as the Bears' emergency third quarterback Thursday in Detroit.",
+              "updatedAt": "2026-11-26T16:53Z",
+              "expectedReturn": "2026-12-06",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "Isaac Yiadom",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Jayden Loving",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Jordan McFadden",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Elijah Hicks",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "S"
+            },
+            {
+              "playerId": "",
+              "player": "D'Marco Jackson",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Jackson (elbow) is listed as questionable for Thursday's game against the Lions, Larry Mayer of the Bears' official site reports.",
+              "updatedAt": "2026-11-26T03:14Z",
+              "expectedReturn": "",
+              "position": "LB"
             },
             {
               "playerId": "",
@@ -22879,30 +22963,6 @@
               "updatedAt": "2026-11-25T20:15Z",
               "expectedReturn": "2026-12-06",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Isaac Yiadom",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Bears claimed Yiadom off waivers Tuesday.",
-              "updatedAt": "2026-11-25T02:11Z",
-              "expectedReturn": "",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Elijah Hicks",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Hicks is in the league's concussion protocol and has been ruled out for Thursday's game against the Lions on Thanksgiving Day, Courtney Cronin of ESPN.com reports.",
-              "updatedAt": "2026-11-25T01:36Z",
-              "expectedReturn": "2026-12-06",
-              "position": "S"
             },
             {
               "playerId": "",
@@ -23014,30 +23074,6 @@
             },
             {
               "playerId": "",
-              "player": "Jayden Loving",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:21Z",
-              "expectedReturn": "",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Jordan McFadden",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:21Z",
-              "expectedReturn": "",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Keyshaun Elliott",
               "team": "",
               "teamId": "",
@@ -23105,18 +23141,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Monangai carried the ball eight times for 18 yards and failed to catch his only target in Sunday's 21-13 win over the Saints.",
               "updatedAt": "2026-11-22T22:15Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "D'Andre Swift",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Swift carried the ball 13 times for 51 yards and caught both his targets for eight yards and a touchdown in Sunday's 21-13 win over the Saints.",
-              "updatedAt": "2026-11-22T22:10Z",
               "expectedReturn": "",
               "position": "RB"
             },
@@ -24322,6 +24346,66 @@
             },
             {
               "playerId": "",
+              "player": "DJ Wonnum",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Wonnum (back) is inactive for Thursday's Week 12 battle against the Bears.",
+              "updatedAt": "2026-11-26T16:51Z",
+              "expectedReturn": "2026-12-06",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "Chuck Clark",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Clark (hamstring) is inactive for Thursday's clash against Chicago.",
+              "updatedAt": "2026-11-26T16:46Z",
+              "expectedReturn": "2026-12-06",
+              "position": "S"
+            },
+            {
+              "playerId": "",
+              "player": "Ennis Rakestraw Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:33Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Tyrus Wheat",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:33Z",
+              "expectedReturn": "2026-12-06",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "Keith Abney II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:33Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Skyler Gill-Howard",
               "team": "",
               "teamId": "",
@@ -24331,42 +24415,6 @@
               "updatedAt": "2026-11-26T03:23Z",
               "expectedReturn": "2027-02-15",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Ennis Rakestraw Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Rakestraw (shoulder) has been ruled out ahead of Thursday's game against the Bears.",
-              "updatedAt": "2026-11-26T03:20Z",
-              "expectedReturn": "2026-12-06",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Chuck Clark",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Clark (hamstring) is listed as questionable for Thursday's game against the Bears.",
-              "updatedAt": "2026-11-26T01:04Z",
-              "expectedReturn": "2026-11-26",
-              "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "DJ Wonnum",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Wonnum (back) is listed as questionable for Thursday's game against the Bears.",
-              "updatedAt": "2026-11-26T00:56Z",
-              "expectedReturn": "2026-11-26",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -24490,18 +24538,6 @@
             },
             {
               "playerId": "",
-              "player": "Tyrus Wheat",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:27Z",
-              "expectedReturn": "",
-              "position": "LB"
-            },
-            {
-              "playerId": "",
               "player": "Amen Ogbongbemiga",
               "team": "",
               "teamId": "",
@@ -24511,18 +24547,6 @@
               "updatedAt": "2026-11-23T15:27Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Keith Abney II",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:27Z",
-              "expectedReturn": "",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -24619,6 +24643,78 @@
               "updatedAt": "2026-11-22T00:57Z",
               "expectedReturn": "2026-12-20",
               "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Trey Smack",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Smack made both of his field-goal tries and his lone extra-point attempt Wednesday in a loss to the Rams.",
+              "updatedAt": "2026-11-26T16:23Z",
+              "expectedReturn": "",
+              "position": "PK"
+            },
+            {
+              "playerId": "",
+              "player": "Skyy Moore",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Moore returned three kickoffs for 48 yards and one punt for 11 yards Wednesday in a loss to the Rams.",
+              "updatedAt": "2026-11-26T16:17Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Bo Melton",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Melton finished Wednesday's Thanksgiving Eve loss to the Rams with one rush for three yards and two catches (on three targets) for 20 yards. He also returned two kickoffs for 31 yards.",
+              "updatedAt": "2026-11-26T16:08Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Savion Williams",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Williams carried twice for 18 yards and caught one of three targets for three yards against the Rams in a Thanksgiving Eve loss Wednesday.",
+              "updatedAt": "2026-11-26T15:56Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Chris Brooks",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Brooks rushed once for four yards and caught four of five targets for 22 yards in Wednesday's Thanksgiving Eve loss to the Rams.",
+              "updatedAt": "2026-11-26T15:44Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "MarShawn Lloyd",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Lloyd rushed once for 10 yards and caught his only target for six yards in Wednesday's Week 12 loss to the Rams.",
+              "updatedAt": "2026-11-26T15:16Z",
+              "expectedReturn": "",
+              "position": "RB"
             },
             {
               "playerId": "",
@@ -24742,30 +24838,6 @@
             },
             {
               "playerId": "",
-              "player": "Bo Melton",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Melton (thigh) is active for Wednesday's game against the Rams, Mike Spofford of the Packers' official site reports.",
-              "updatedAt": "2026-11-26T00:08Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Skyy Moore",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Moore (ankle) is active for Wednesday's game against the Rams, Mike Spofford of the Packers' official site reports.",
-              "updatedAt": "2026-11-26T00:06Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
               "player": "Donovan Jennings",
               "team": "",
               "teamId": "",
@@ -24871,54 +24943,6 @@
               "updatedAt": "2026-11-19T02:35Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Xavier McKinney",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "McKinney registered six tackles (three solo) and an interception during the Packers' 30-10 loss to the Vikings in Week 10.",
-              "updatedAt": "2026-11-19T02:33Z",
-              "expectedReturn": "",
-              "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Savion Williams",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Williams caught two passes for 27 yards on two targets in Sunday's 30-10 loss to the Vikings.",
-              "updatedAt": "2026-11-17T04:31Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Chris Brooks",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Brooks rushed two times for one yard and caught his only target for two yards in Sunday's 30-10 loss to the Vikings.",
-              "updatedAt": "2026-11-17T04:28Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "J. Michael Sturdivant",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Sturdivant caught two passes for 37 yards and a touchdown on four targets in Sunday's 30-10 loss to the Vikings.",
-              "updatedAt": "2026-11-17T04:24Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -26722,13 +26746,49 @@
             },
             {
               "playerId": "",
+              "player": "Xavier Smith",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Smith gained 11 yards on two carries and caught his only target for four yards in a 26-13 win against Green Bay on Wednesday. He added 15 yards on his lone punt return.",
+              "updatedAt": "2026-11-26T16:40Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Ronnie Rivers",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Rivers returned four kickoffs for 102 yards and did not log a snap on offense in Wednesday's 26-13 victory over the Packers.",
+              "updatedAt": "2026-11-26T16:32Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Colby Parkinson",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Parkinson caught both of his targets for minus-1 yard in a 26-13 victory over the Packers on Wednesday.",
+              "updatedAt": "2026-11-26T15:30Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Bill Murray",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-26T12:31Z",
+              "note": "Murray (leg) exited the Rams' locker room in a walking boot and on crutches following Wednesday's 26-13 victory over Green Bay, Nate Atkins of The Athletic reports.",
+              "updatedAt": "2026-11-26T15:09Z",
               "expectedReturn": "2026-12-03",
               "position": "G"
             },
@@ -26983,42 +27043,6 @@
               "updatedAt": "2026-11-22T14:32Z",
               "expectedReturn": "2026-12-13",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Puka Nacua",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Nacua (knee/toe) is expected to be sidelined 4-to-5 months after undergoing surgery Tuesday to repair his right MCL, which means he won't be on track to return at any point during the playoffs, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-22T01:25Z",
-              "expectedReturn": "2027-02-15",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Quentin Lake",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Lake posted two tackles (one solo) during the Rams' 34-6 win over the Cardinals in Week 10.",
-              "updatedAt": "2026-11-19T02:55Z",
-              "expectedReturn": "",
-              "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Max Klare",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Klare went without a target while playing four of the Rams' 76 offensive snaps in Sunday's 34-6 win over the Cardinals.",
-              "updatedAt": "2026-11-18T17:23Z",
-              "expectedReturn": "",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -27327,7 +27351,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Rodgers (quadriceps) did not participate in Wednesday's practice.",
+              "note": "Rodgers (quadriceps) did not participate in Wednesday's walkthrough practice.",
               "updatedAt": "2026-11-26T02:33Z",
               "expectedReturn": "2026-11-29",
               "position": "CB"
@@ -27339,7 +27363,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Smith (thigh) did not practice Wednesday.",
+              "note": "Smith (thigh) did not participate in  Wednesday's walkthrough.",
               "updatedAt": "2026-11-26T02:31Z",
               "expectedReturn": "2026-11-29",
               "position": "S"
@@ -30909,7 +30933,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-26T15:08:58.844Z",
+          "checkedAt": "2026-11-26T17:15:35.818Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -36376,7 +36400,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T15:09:00.763Z",
+        "generatedAt": "2026-11-26T17:15:37.942Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 164,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -37913,27 +37937,87 @@
             },
             {
               "playerId": "",
-              "player": "D'Marco Jackson",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Jackson (elbow) is listed as questionable for Thursday's game against the Lions, Larry Mayer of the Bears' official site reports.",
-              "updatedAt": "2026-11-26T03:14Z",
-              "expectedReturn": "2026-11-26",
-              "position": "LB"
-            },
-            {
-              "playerId": "",
               "player": "Tyrique Stevenson Sr.",
               "team": "",
               "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Stevenson (groin) is questionable for Thursday's game against the Lions.",
-              "updatedAt": "2026-11-25T23:56Z",
-              "expectedReturn": "2026-11-26",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Stevenson (groin) is active to face Detroit on Thursday.",
+              "updatedAt": "2026-11-26T17:01Z",
+              "expectedReturn": "",
               "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Case Keenum",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Keenum (coach's decision) is inactive and tabbed as the Bears' emergency third quarterback Thursday in Detroit.",
+              "updatedAt": "2026-11-26T16:53Z",
+              "expectedReturn": "2026-12-06",
+              "position": "QB"
+            },
+            {
+              "playerId": "",
+              "player": "Isaac Yiadom",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Jayden Loving",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "DT"
+            },
+            {
+              "playerId": "",
+              "player": "Jordan McFadden",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "G"
+            },
+            {
+              "playerId": "",
+              "player": "Elijah Hicks",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:36Z",
+              "expectedReturn": "2026-12-06",
+              "position": "S"
+            },
+            {
+              "playerId": "",
+              "player": "D'Marco Jackson",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Jackson (elbow) is listed as questionable for Thursday's game against the Lions, Larry Mayer of the Bears' official site reports.",
+              "updatedAt": "2026-11-26T03:14Z",
+              "expectedReturn": "",
+              "position": "LB"
             },
             {
               "playerId": "",
@@ -37970,30 +38054,6 @@
               "updatedAt": "2026-11-25T20:15Z",
               "expectedReturn": "2026-12-06",
               "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Isaac Yiadom",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "The Bears claimed Yiadom off waivers Tuesday.",
-              "updatedAt": "2026-11-25T02:11Z",
-              "expectedReturn": "",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Elijah Hicks",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Hicks is in the league's concussion protocol and has been ruled out for Thursday's game against the Lions on Thanksgiving Day, Courtney Cronin of ESPN.com reports.",
-              "updatedAt": "2026-11-25T01:36Z",
-              "expectedReturn": "2026-12-06",
-              "position": "S"
             },
             {
               "playerId": "",
@@ -38105,30 +38165,6 @@
             },
             {
               "playerId": "",
-              "player": "Jayden Loving",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:21Z",
-              "expectedReturn": "",
-              "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Jordan McFadden",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:21Z",
-              "expectedReturn": "",
-              "position": "G"
-            },
-            {
-              "playerId": "",
               "player": "Keyshaun Elliott",
               "team": "",
               "teamId": "",
@@ -38196,18 +38232,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Monangai carried the ball eight times for 18 yards and failed to catch his only target in Sunday's 21-13 win over the Saints.",
               "updatedAt": "2026-11-22T22:15Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "D'Andre Swift",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Swift carried the ball 13 times for 51 yards and caught both his targets for eight yards and a touchdown in Sunday's 21-13 win over the Saints.",
-              "updatedAt": "2026-11-22T22:10Z",
               "expectedReturn": "",
               "position": "RB"
             },
@@ -39413,6 +39437,66 @@
             },
             {
               "playerId": "",
+              "player": "DJ Wonnum",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Wonnum (back) is inactive for Thursday's Week 12 battle against the Bears.",
+              "updatedAt": "2026-11-26T16:51Z",
+              "expectedReturn": "2026-12-06",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "Chuck Clark",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Clark (hamstring) is inactive for Thursday's clash against Chicago.",
+              "updatedAt": "2026-11-26T16:46Z",
+              "expectedReturn": "2026-12-06",
+              "position": "S"
+            },
+            {
+              "playerId": "",
+              "player": "Ennis Rakestraw Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:33Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
+              "player": "Tyrus Wheat",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:33Z",
+              "expectedReturn": "2026-12-06",
+              "position": "LB"
+            },
+            {
+              "playerId": "",
+              "player": "Keith Abney II",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "inactive",
+              "updatedAt": "2026-11-26T16:33Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Skyler Gill-Howard",
               "team": "",
               "teamId": "",
@@ -39422,42 +39506,6 @@
               "updatedAt": "2026-11-26T03:23Z",
               "expectedReturn": "2027-02-15",
               "position": "DT"
-            },
-            {
-              "playerId": "",
-              "player": "Ennis Rakestraw Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Rakestraw (shoulder) has been ruled out ahead of Thursday's game against the Bears.",
-              "updatedAt": "2026-11-26T03:20Z",
-              "expectedReturn": "2026-12-06",
-              "position": "CB"
-            },
-            {
-              "playerId": "",
-              "player": "Chuck Clark",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Clark (hamstring) is listed as questionable for Thursday's game against the Bears.",
-              "updatedAt": "2026-11-26T01:04Z",
-              "expectedReturn": "2026-11-26",
-              "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "DJ Wonnum",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Wonnum (back) is listed as questionable for Thursday's game against the Bears.",
-              "updatedAt": "2026-11-26T00:56Z",
-              "expectedReturn": "2026-11-26",
-              "position": "LB"
             },
             {
               "playerId": "",
@@ -39581,18 +39629,6 @@
             },
             {
               "playerId": "",
-              "player": "Tyrus Wheat",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:27Z",
-              "expectedReturn": "",
-              "position": "LB"
-            },
-            {
-              "playerId": "",
               "player": "Amen Ogbongbemiga",
               "team": "",
               "teamId": "",
@@ -39602,18 +39638,6 @@
               "updatedAt": "2026-11-23T15:27Z",
               "expectedReturn": "",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Keith Abney II",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "",
-              "updatedAt": "2026-11-23T15:27Z",
-              "expectedReturn": "",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -39710,6 +39734,78 @@
               "updatedAt": "2026-11-22T00:57Z",
               "expectedReturn": "2026-12-20",
               "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Trey Smack",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Smack made both of his field-goal tries and his lone extra-point attempt Wednesday in a loss to the Rams.",
+              "updatedAt": "2026-11-26T16:23Z",
+              "expectedReturn": "",
+              "position": "PK"
+            },
+            {
+              "playerId": "",
+              "player": "Skyy Moore",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Moore returned three kickoffs for 48 yards and one punt for 11 yards Wednesday in a loss to the Rams.",
+              "updatedAt": "2026-11-26T16:17Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Bo Melton",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Melton finished Wednesday's Thanksgiving Eve loss to the Rams with one rush for three yards and two catches (on three targets) for 20 yards. He also returned two kickoffs for 31 yards.",
+              "updatedAt": "2026-11-26T16:08Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Savion Williams",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Williams carried twice for 18 yards and caught one of three targets for three yards against the Rams in a Thanksgiving Eve loss Wednesday.",
+              "updatedAt": "2026-11-26T15:56Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Chris Brooks",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Brooks rushed once for four yards and caught four of five targets for 22 yards in Wednesday's Thanksgiving Eve loss to the Rams.",
+              "updatedAt": "2026-11-26T15:44Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "MarShawn Lloyd",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Lloyd rushed once for 10 yards and caught his only target for six yards in Wednesday's Week 12 loss to the Rams.",
+              "updatedAt": "2026-11-26T15:16Z",
+              "expectedReturn": "",
+              "position": "RB"
             },
             {
               "playerId": "",
@@ -39833,30 +39929,6 @@
             },
             {
               "playerId": "",
-              "player": "Bo Melton",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Melton (thigh) is active for Wednesday's game against the Rams, Mike Spofford of the Packers' official site reports.",
-              "updatedAt": "2026-11-26T00:08Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Skyy Moore",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Moore (ankle) is active for Wednesday's game against the Rams, Mike Spofford of the Packers' official site reports.",
-              "updatedAt": "2026-11-26T00:06Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
               "player": "Donovan Jennings",
               "team": "",
               "teamId": "",
@@ -39962,54 +40034,6 @@
               "updatedAt": "2026-11-19T02:35Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Xavier McKinney",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "McKinney registered six tackles (three solo) and an interception during the Packers' 30-10 loss to the Vikings in Week 10.",
-              "updatedAt": "2026-11-19T02:33Z",
-              "expectedReturn": "",
-              "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Savion Williams",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Williams caught two passes for 27 yards on two targets in Sunday's 30-10 loss to the Vikings.",
-              "updatedAt": "2026-11-17T04:31Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Chris Brooks",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Brooks rushed two times for one yard and caught his only target for two yards in Sunday's 30-10 loss to the Vikings.",
-              "updatedAt": "2026-11-17T04:28Z",
-              "expectedReturn": "",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "J. Michael Sturdivant",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Sturdivant caught two passes for 37 yards and a touchdown on four targets in Sunday's 30-10 loss to the Vikings.",
-              "updatedAt": "2026-11-17T04:24Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -41813,13 +41837,49 @@
             },
             {
               "playerId": "",
+              "player": "Xavier Smith",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Smith gained 11 yards on two carries and caught his only target for four yards in a 26-13 win against Green Bay on Wednesday. He added 15 yards on his lone punt return.",
+              "updatedAt": "2026-11-26T16:40Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Ronnie Rivers",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Rivers returned four kickoffs for 102 yards and did not log a snap on offense in Wednesday's 26-13 victory over the Packers.",
+              "updatedAt": "2026-11-26T16:32Z",
+              "expectedReturn": "",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Colby Parkinson",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Parkinson caught both of his targets for minus-1 yard in a 26-13 victory over the Packers on Wednesday.",
+              "updatedAt": "2026-11-26T15:30Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Bill Murray",
               "team": "",
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "questionable",
-              "updatedAt": "2026-11-26T12:31Z",
+              "note": "Murray (leg) exited the Rams' locker room in a walking boot and on crutches following Wednesday's 26-13 victory over Green Bay, Nate Atkins of The Athletic reports.",
+              "updatedAt": "2026-11-26T15:09Z",
               "expectedReturn": "2026-12-03",
               "position": "G"
             },
@@ -42074,42 +42134,6 @@
               "updatedAt": "2026-11-22T14:32Z",
               "expectedReturn": "2026-12-13",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Puka Nacua",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "Nacua (knee/toe) is expected to be sidelined 4-to-5 months after undergoing surgery Tuesday to repair his right MCL, which means he won't be on track to return at any point during the playoffs, Adam Schefter of ESPN reports.",
-              "updatedAt": "2026-11-22T01:25Z",
-              "expectedReturn": "2027-02-15",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Quentin Lake",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Lake posted two tackles (one solo) during the Rams' 34-6 win over the Cardinals in Week 10.",
-              "updatedAt": "2026-11-19T02:55Z",
-              "expectedReturn": "",
-              "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Max Klare",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Klare went without a target while playing four of the Rams' 76 offensive snaps in Sunday's 34-6 win over the Cardinals.",
-              "updatedAt": "2026-11-18T17:23Z",
-              "expectedReturn": "",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -42418,7 +42442,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Rodgers (quadriceps) did not participate in Wednesday's practice.",
+              "note": "Rodgers (quadriceps) did not participate in Wednesday's walkthrough practice.",
               "updatedAt": "2026-11-26T02:33Z",
               "expectedReturn": "2026-11-29",
               "position": "CB"
@@ -42430,7 +42454,7 @@
               "teamId": "",
               "status": "Questionable",
               "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Smith (thigh) did not practice Wednesday.",
+              "note": "Smith (thigh) did not participate in  Wednesday's walkthrough.",
               "updatedAt": "2026-11-26T02:31Z",
               "expectedReturn": "2026-11-29",
               "position": "S"
@@ -46000,7 +46024,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-26T15:08:58.844Z",
+          "checkedAt": "2026-11-26T17:15:35.818Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -48037,7 +48061,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T15:09:01.170Z",
+        "generatedAt": "2026-11-26T17:15:38.350Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 164,
         "publishedBy": "EDGEIQ unattended research publisher"
