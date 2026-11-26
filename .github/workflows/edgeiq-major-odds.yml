@@ -20,10 +20,14 @@ on:
         type: string
         default: '30'
       markets:
-        description: Core = up to three prop categories; expanded = up to eight
+        description: Core = three, expanded = eight, all = up to credit budget
         type: choice
-        options: [core, expanded]
+        options: [core, expanded, all]
         default: core
+      market_keys:
+        description: Optional comma-separated provider market keys (overrides category preset)
+        type: string
+        default: ''
       team:
         description: Optional team name (for example Dallas)
         type: string
@@ -56,6 +60,7 @@ jobs:
           ODDS_MODE: ${{ inputs.mode || 'both' }}
           ODDS_BUDGET: ${{ inputs.credit_budget || '30' }}
           ODDS_MARKETS: ${{ inputs.markets || 'core' }}
+          ODDS_MARKET_KEYS: ${{ inputs.market_keys }}
           ODDS_TEAM: ${{ inputs.team }}
           ODDS_CHECK_ONLY: ${{ github.event_name == 'push' }}
           ODDS_DISPLAY_CONFIRMED: ${{ inputs.confirm_display_rights }}
