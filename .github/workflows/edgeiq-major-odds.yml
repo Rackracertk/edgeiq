@@ -1,4 +1,4 @@
-name: EDGEIQ NBA NFL odds test
+name: EDGEIQ all sports odds publisher
 on:
   push:
     branches: [main]
@@ -8,8 +8,22 @@ on:
       sport:
         description: Sport
         type: choice
-        options: [NFL, NBA]
-        default: NFL
+        options: [ALL, NFL, NBA, MLB, NHL, NCAAF, NCAAB, WNBA, SOCCER, TENNIS, MMA]
+        default: ALL
+      mode:
+        description: Both = game lines and props; lines = wider coverage; props = event research
+        type: choice
+        options: [both, lines, props]
+        default: both
+      credit_budget:
+        description: Maximum credits per run (1 to 60)
+        type: string
+        default: '30'
+      markets:
+        description: Core = up to three prop categories; expanded = up to eight
+        type: choice
+        options: [core, expanded]
+        default: core
       team:
         description: Optional team name (for example Dallas)
         type: string
@@ -26,7 +40,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,7 +52,10 @@ jobs:
       - name: Verify key or publish limited odds snapshot
         env:
           EDGEIQ_ODDS_API_KEY: ${{ secrets.EDGEIQ_ODDS_API_KEY }}
-          ODDS_SPORT: ${{ inputs.sport || 'NFL' }}
+          ODDS_SPORT: ${{ inputs.sport || 'ALL' }}
+          ODDS_MODE: ${{ inputs.mode || 'both' }}
+          ODDS_BUDGET: ${{ inputs.credit_budget || '30' }}
+          ODDS_MARKETS: ${{ inputs.markets || 'core' }}
           ODDS_TEAM: ${{ inputs.team }}
           ODDS_CHECK_ONLY: ${{ github.event_name == 'push' }}
           ODDS_DISPLAY_CONFIRMED: ${{ inputs.confirm_display_rights }}
@@ -50,7 +67,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/edgeiq-major-odds.json
           if ! git diff --cached --quiet; then
-            git commit -m 'data: publish limited NBA NFL odds snapshot'
+            git commit -m 'data: publish quota-limited multi-sport odds snapshot'
             git pull --rebase origin edgeiq-launch-foundation-2026
             git push origin HEAD:edgeiq-launch-foundation-2026
           fi
