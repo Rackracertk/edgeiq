@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T12:35:22.006Z",
+  "generatedAt": "2026-11-26T17:26:29.366Z",
   "oddsStatus": "NOT_CONFIGURED",
   "methodology": "Displayed team form is observed completed-game history, not a predictive win rate. Bookmaker markets are displayed only with owner-authorized The Odds API access; no synthetic prop lines. Market-implied/no-vig percentages are not model-calibrated probabilities or guaranteed outcomes.",
   "researchWindow": "ESPN public completed scoreboards in the preceding 20 days. Fewer than 5 samples are labeled as such.",
@@ -13,7 +13,7 @@
           "games": [],
           "completedSamples": 0,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:19.714Z"
+          "updatedAt": "2026-11-26T17:26:20.346Z"
         }
       ]
     },
@@ -7262,7 +7262,7 @@
           ],
           "completedSamples": 138,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:20.014Z"
+          "updatedAt": "2026-11-26T17:26:21.307Z"
         }
       ]
     },
@@ -13641,7 +13641,7 @@
           ],
           "completedSamples": 195,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:20.451Z"
+          "updatedAt": "2026-11-26T17:26:22.291Z"
         }
       ]
     },
@@ -20073,7 +20073,19 @@
           ],
           "completedSamples": 120,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:20.760Z"
+          "updatedAt": "2026-11-26T17:26:23.064Z"
+        }
+      ]
+    },
+    "WNBA": {
+      "label": "WNBA",
+      "leagues": [
+        {
+          "league": "WNBA",
+          "games": [],
+          "completedSamples": 0,
+          "oddsConfigured": false,
+          "updatedAt": "2026-11-26T17:26:23.891Z"
         }
       ]
     },
@@ -22300,7 +22312,7 @@
           ],
           "completedSamples": 20,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:20.930Z"
+          "updatedAt": "2026-11-26T17:26:24.725Z"
         },
         {
           "league": "La Liga",
@@ -23701,7 +23713,7 @@
           ],
           "completedSamples": 20,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:21.093Z"
+          "updatedAt": "2026-11-26T17:26:25.643Z"
         },
         {
           "league": "Bundesliga",
@@ -25021,7 +25033,7 @@
           ],
           "completedSamples": 18,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:21.412Z"
+          "updatedAt": "2026-11-26T17:26:26.463Z"
         },
         {
           "league": "Serie A",
@@ -26166,7 +26178,7 @@
           ],
           "completedSamples": 20,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:21.567Z"
+          "updatedAt": "2026-11-26T17:26:27.284Z"
         },
         {
           "league": "Ligue 1",
@@ -27401,7 +27413,7 @@
           ],
           "completedSamples": 18,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:21.759Z"
+          "updatedAt": "2026-11-26T17:26:28.040Z"
         },
         {
           "league": "MLS",
@@ -28816,7 +28828,14 @@
           ],
           "completedSamples": 25,
           "oddsConfigured": false,
-          "updatedAt": "2026-11-26T12:35:22.006Z"
+          "updatedAt": "2026-11-26T17:26:28.623Z"
+        },
+        {
+          "league": "Champions League",
+          "games": [],
+          "completedSamples": 18,
+          "oddsConfigured": false,
+          "updatedAt": "2026-11-26T17:26:29.366Z"
         }
       ]
     }
