@@ -1,0 +1,56 @@
+name: EDGEIQ NBA NFL odds test
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/edgeiq-major-odds.yml']
+  workflow_dispatch:
+    inputs:
+      sport:
+        description: Sport
+        type: choice
+        options: [NFL, NBA]
+        default: NFL
+      team:
+        description: Optional team name (for example Dallas)
+        type: string
+        default: ''
+      confirm_display_rights:
+        description: Confirm permission to display provider odds in EDGEIQ
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: edgeiq-major-odds
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: edgeiq-launch-foundation-2026
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify key or publish limited odds snapshot
+        env:
+          EDGEIQ_ODDS_API_KEY: ${{ secrets.EDGEIQ_ODDS_API_KEY }}
+          ODDS_SPORT: ${{ inputs.sport || 'NFL' }}
+          ODDS_TEAM: ${{ inputs.team }}
+          ODDS_CHECK_ONLY: ${{ github.event_name == 'push' }}
+          ODDS_DISPLAY_CONFIRMED: ${{ inputs.confirm_display_rights }}
+        run: node scripts/publish-major-odds.mjs
+      - name: Commit snapshot to production branch
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/edgeiq-major-odds.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: publish limited NBA NFL odds snapshot'
+            git pull --rebase origin edgeiq-launch-foundation-2026
+            git push origin HEAD:edgeiq-launch-foundation-2026
+          fi
