@@ -1,51 +1,126 @@
 import {mkdir,writeFile,readFile} from 'node:fs/promises'
 import {pathToFileURL} from 'node:url'
-export const sports={NFL:{key:'americanfootball_nfl',markets:{player_pass_yds:'Passing Yards',player_rush_yds:'Rushing Yards',player_reception_yds:'Receiving Yards'}},NBA:{key:'basketball_nba',markets:{player_points:'Points',player_rebounds:'Rebounds',player_assists:'Assists'}}}
+const football={player_pass_yds:'Passing Yards',player_rush_yds:'Rushing Yards',player_reception_yds:'Receiving Yards',player_receptions:'Receptions',player_pass_tds:'Passing TDs',player_pass_completions:'Passing Completions',player_rush_attempts:'Rushing Attempts',player_sacks:'Sacks'}
+const basketball={player_points:'Points',player_rebounds:'Rebounds',player_assists:'Assists',player_threes:'3-Pointers Made',player_points_rebounds_assists:'PRA',player_points_assists:'Points + Assists',player_points_rebounds:'Points + Rebounds',player_rebounds_assists:'Assists + Rebounds',player_steals:'Steals',player_blocks:'Blocks',player_turnovers:'Turnovers'}
+const soccer={player_shots:'Shots',player_shots_on_target:'Shots on Target',player_assists:'Assists'}
+export const sports={
+ NFL:{key:'americanfootball_nfl',markets:football},NBA:{key:'basketball_nba',markets:basketball},
+ MLB:{key:'baseball_mlb',markets:{batter_hits:'Hits',pitcher_strikeouts:'Pitcher Strikeouts',batter_total_bases:'Total Bases',batter_home_runs:'Home Runs',batter_rbis:'RBIs',pitcher_outs:'Pitcher Outs'}},
+ NHL:{key:'icehockey_nhl',markets:{player_shots_on_goal:'Shots on Goal',player_points:'Points',player_total_saves:'Goalie Saves',player_assists:'Assists',player_goals:'Goals'}},
+ NCAAF:{key:'americanfootball_ncaaf',markets:football},NCAAB:{key:'basketball_ncaab',markets:basketball},WNBA:{key:'basketball_wnba',markets:basketball},
+ SOCCER:{keys:['soccer_epl','soccer_spain_la_liga','soccer_germany_bundesliga','soccer_italy_serie_a','soccer_france_ligue_one','soccer_usa_mls','soccer_uefa_champs_league'],markets:soccer},
+ TENNIS:{markets:{}},MMA:{key:'mma_mixed_martial_arts',markets:{}}
+}
+const gameMarkets={h2h:'Moneyline',spreads:'Spread',totals:'Game Total'}
+const normalize=s=>String(s??'').normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'')
+export function configurations(active,selection='ALL'){
+ const known=new Set(active.filter(s=>s.active!==false).map(s=>s.key))
+ return Object.entries(sports).filter(([sport])=>selection==='ALL'||sport===selection).flatMap(([sport,c])=>{
+  const keys=sport==='TENNIS'?[...known].filter(k=>/^tennis_(atp|wta)_/.test(k)&&!/(winner|outright|doubles)/.test(k)):c.keys??[c.key]
+  return keys.filter(k=>known.has(k)).map(key=>({sport,key,markets:sport==='SOCCER'&&key==='soccer_uefa_champs_league'?{}:c.markets}))
+ })
+}
 export function normalizeQuotes(data,config,now=Date.now()){
  const result=[]
  for(const book of data.bookmakers??[])for(const market of book.markets??[]){
-  const label=config.markets[market.key],stamp=market.last_update
+  const isGame=Object.hasOwn(gameMarkets,market.key),label=isGame?gameMarkets[market.key]:config.markets[market.key],stamp=market.last_update??book.last_update
   if(!label||!book.title||!Number.isFinite(Date.parse(stamp))||Date.parse(stamp)>now+60000||Date.parse(stamp)<now-15*60000)continue
   for(const row of market.outcomes??[]){
-   if(typeof row.description!=='string'||!row.description.trim()||!['Over','Under'].includes(row.name)||!Number.isFinite(row.point)||!Number.isInteger(row.price)||Math.abs(row.price)<100)continue
-   result.push({book:book.title,market:market.key,category:label,participant:row.description,participantId:'',side:row.name.toLowerCase(),line:row.point,odds:row.price,observedAt:stamp})
+   if(!Number.isInteger(row.price)||Math.abs(row.price)<100)continue
+   const participant=isGame?(market.key==='totals'?'Game total':row.name):row.description
+   if(typeof participant!=='string'||!participant.trim()||(!isGame&&!['Over','Under'].includes(row.name))||(market.key!=='h2h'&&!Number.isFinite(row.point)))continue
+   result.push({book:book.title,market:market.key,category:label,participant,participantId:'',side:isGame&&market.key!=='totals'?row.name:row.name.toLowerCase(),line:market.key==='h2h'?null:row.point,odds:row.price,observedAt:stamp})
   }
  }
  return result
+}
+export function mergeSnapshots(old,newGames,now=Date.now()){
+ const events=new Map()
+ for(const game of [...old,...newGames]){
+  if(Date.parse(game.time)<=now||!Array.isArray(game.quotes))continue
+  const id=[game.sport,[normalize(game.home),normalize(game.away)].sort().join('|'),Date.parse(game.time)].join('|')
+  const prior=events.get(id),quotes=new Map()
+  for(const q of [...(prior?.quotes??[]),...game.quotes]){
+   if(!Number.isFinite(Date.parse(q.observedAt))||Date.parse(q.observedAt)<now-15*60000||Date.parse(q.observedAt)>now+60000)continue
+   const key=[q.book,q.market,q.participant,q.side,q.line].join('|'),previous=quotes.get(key)
+   if(!previous||Date.parse(q.observedAt)>=Date.parse(previous.observedAt))quotes.set(key,q)
+  }
+  if(quotes.size)events.set(id,{...game,quotes:[...quotes.values()]})
+ }
+ return [...events.values()]
 }
 async function request(path,params={}){
  const url=new URL('https://api.the-odds-api.com/v4/'+path)
  for(const [k,v] of Object.entries(params))url.searchParams.set(k,v)
  const r=await fetch(url,{headers:{'x-api-key':process.env.EDGEIQ_ODDS_API_KEY,Accept:'application/json'},signal:AbortSignal.timeout(15000)}).catch(()=>null)
  if(!r)throw Error('Provider connection failed')
- if(!r.ok)throw Error('Odds API HTTP '+r.status+' (check key, plan and remaining quota)')
- const remaining=r.headers.get('x-requests-remaining')
- return {body:await r.json(),remaining:remaining===null?null:Number(remaining)}
+ if(!r.ok)throw Error('Odds API HTTP '+r.status)
+ const read=k=>{const v=r.headers.get(k);return v!==null&&Number.isFinite(Number(v))?Number(v):null}
+ return {body:await r.json(),remaining:read('x-requests-remaining'),cost:read('x-requests-last')}
 }
 async function main(){
  if(!process.env.EDGEIQ_ODDS_API_KEY)throw Error('Missing repository Actions secret EDGEIQ_ODDS_API_KEY')
- const sport=process.env.ODDS_SPORT||'NFL',config=sports[sport]
- if(!config)throw Error('Choose NBA or NFL')
- const events=await request('sports/'+config.key+'/events')
- console.log('Odds API authentication succeeded. Remaining credits:',events.remaining??'not reported')
+ const selection=process.env.ODDS_SPORT||'ALL',mode=process.env.ODDS_MODE||'both'
+ if(selection!=='ALL'&&!sports[selection])throw Error('Unknown sport')
+ if(!['both','lines','props'].includes(mode))throw Error('Unknown mode')
+ const discovery=await request('sports')
+ console.log('Odds API authentication succeeded. Remaining credits:',discovery.remaining??'not reported')
  if(process.env.ODDS_CHECK_ONLY==='true')return
  if(process.env.ODDS_DISPLAY_CONFIRMED!=='true')throw Error('Confirm provider display rights before publishing')
- const query=(process.env.ODDS_TEAM||'').trim().toLowerCase()
- const now=Date.now(), upcoming=events.body.filter(e=>Date.parse(e.commence_time)>now&&Date.parse(e.commence_time)<now+48*3600000&&(!query||(e.home_team+' '+e.away_team).toLowerCase().includes(query))).sort((a,b)=>a.commence_time.localeCompare(b.commence_time)).slice(0,2)
- if(!upcoming.length)throw Error('No upcoming matching games in next 48 hours')
- let remaining=events.remaining
- const games=[]
- for(const event of upcoming){
-  if(remaining===null||!Number.isFinite(remaining)||remaining<3)throw Error('Insufficient or unknown quota; stopped before spending credits')
-  const response=await request('sports/'+config.key+'/events/'+encodeURIComponent(event.id)+'/odds',{regions:'us',markets:Object.keys(config.markets).join(','),oddsFormat:'american',dateFormat:'iso'})
-  remaining=response.remaining
-  const quotes=normalizeQuotes(response.body,config)
-  games.push({sport,home:event.home_team,away:event.away_team,time:event.commence_time,quotes})
-  console.log(event.home_team,'vs',event.away_team,quotes.length,'fresh quotes; remaining credits',remaining)
+ const requested=Number(process.env.ODDS_BUDGET||30)
+ const cap=Number.isFinite(requested)?Math.max(1,Math.min(60,Math.floor(requested))):30
+ let remaining=discovery.remaining,spent=0,reserved=0
+ const query=(process.env.ODDS_TEAM||'').trim().toLowerCase(),now=Date.now()
+ const upcoming=e=>Date.parse(e.commence_time)>now&&Date.parse(e.commence_time)<now+48*3600000&&(!query||(e.home_team+' '+e.away_team).toLowerCase().includes(query))
+ const configs=configurations(discovery.body,selection)
+ if(!configs.length)throw Error('No active covered leagues found')
+ const issues=[],games=[],queues=[]
+ const canPay=n=>Number.isFinite(remaining)&&remaining>=n&&reserved+n<=cap
+ async function pay(path,markets){
+  const cost=markets.length
+  if(!canPay(cost))return null
+  reserved+=cost // reserve maximum before request; failures never reopen the allowance
+  try{
+   const result=await request(path,{regions:'us',markets:markets.join(','),oddsFormat:'american',dateFormat:'iso'})
+   remaining=result.remaining
+   spent+=result.cost??cost
+   return result.body
+  }catch(e){issues.push(path.split('/').slice(0,2).join('/')+': '+e.message);return null}
+ }
+ const add=(config,e)=>{const quotes=normalizeQuotes(e,config);if(quotes.length)games.push({sport:config.sport,home:e.home_team,away:e.away_team,time:e.commence_time,quotes})}
+ // League-wide moneylines first, then spread/total expansion; one league call covers all its games.
+ if(mode!=='props')for(const config of configs){
+  if(!canPay(1))break
+  const list=await pay('sports/'+config.key+'/odds',['h2h'])
+  if(Array.isArray(list))for(const event of list.filter(upcoming))add(config,event)
+ }
+ // Free event discovery, then rotate across sports rather than spending the entire budget on one.
+ if(mode!=='lines')for(const config of configs.filter(c=>Object.keys(c.markets).length)){
+  try{const r=await request('sports/'+config.key+'/events');remaining=r.remaining;queues.push({config,events:r.body.filter(upcoming).sort((a,b)=>a.commence_time.localeCompare(b.commence_time))})}catch(e){issues.push(config.key+': '+e.message)}
+ }
+ const propCount=process.env.ODDS_MARKETS==='expanded'?8:3
+ for(let round=0;queues.some(q=>q.events.length>round);round++){
+  let progressed=false
+  for(const {config,events} of queues){
+   const event=events[round],markets=Object.keys(config.markets).slice(0,Math.min(propCount,cap-reserved))
+   if(!event||!markets.length||!canPay(markets.length))continue
+   progressed=true
+   const response=await pay('sports/'+config.key+'/events/'+encodeURIComponent(event.id)+'/odds',markets)
+   if(response&&response.id===event.id)add(config,response)
+  }
+  if(!progressed)break
+ }
+ if(mode!=='props')for(const config of configs){
+  if(!canPay(2))break
+  const list=await pay('sports/'+config.key+'/odds',['spreads','totals'])
+  if(Array.isArray(list))for(const event of list.filter(upcoming))add(config,event)
  }
  let previous=[]
- try{const old=JSON.parse(await readFile('public/edgeiq-major-odds.json','utf8'));if(old.schemaVersion===1)previous=old.games.filter(g=>g.sport!==sport&&Date.parse(g.time)>now&&g.quotes.some(q=>Date.parse(q.observedAt)>=now-15*60000))}catch{}
+ try{const old=JSON.parse(await readFile('public/edgeiq-major-odds.json','utf8'));if(old.schemaVersion===1)previous=old.games}catch{}
+ const merged=mergeSnapshots(previous,games)
+ console.log('Credit ceiling:',cap,'reserved:',reserved,'provider-reported cost:',spent,'remaining:',remaining,'matches:',merged.length,'issues:',issues)
+ if(!games.length)throw Error('No fresh matching offers received; check provider coverage, quota and event time')
  await mkdir('public',{recursive:true})
- await writeFile('public/edgeiq-major-odds.json',JSON.stringify({schemaVersion:1,source:'The Odds API',generatedAt:new Date().toISOString(),games:[...previous,...games]})+'\n')
+ await writeFile('public/edgeiq-major-odds.json',JSON.stringify({schemaVersion:1,source:'The Odds API',generatedAt:new Date().toISOString(),games:merged})+'\n')
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)main().catch(e=>{console.error(e.message);process.exitCode=1})
