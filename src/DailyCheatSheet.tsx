@@ -466,9 +466,9 @@ export default function DailyCheatSheet({
     </section>}
 
     <section className="cheat-pro">
-      <div><span className="eyebrow gold">COMING TO EDGEIQ PRO</span><h2>Like the free board? Go deeper.</h2>
-        <p>During beta, all research cards and matchup evidence remain free. Later, EDGEIQ Pro can add licensed live sportsbook prices, independently validated projections, advanced filters, and alerting behind secure subscriptions. Billing remains off until those features are ready.</p></div>
-      <button className="cta" onClick={onPro}>See Pro plans & free interest list ↗</button>
+      <div><span className="eyebrow gold">FREE MATCHUP RESEARCH</span><h2>Want to understand the whole game?</h2>
+        <p>The Script brings matchup information, player history and game scenarios into one place. Everything currently available is free.</p></div>
+      <button className="cta" onClick={onPro}>Open The Script ↗</button>
     </section>
     <p className="footnote cheat-footnote">Independent statistical research for adults where applicable. All Props includes trends from 60% and Elite 90%+ has higher historical frequency; neither is a predictive model. ESPN public game summaries and scoreboards are unofficial data inputs, may be delayed or incomplete, and are not licensed sportsbook odds or injury reports. A 90–100% historical hit rate is not a 90–100% estimated probability of a future result. Scores rank evidence only; no odds-based value claim is made. Confirm all lines, teams and active status independently.</p>
   </div>

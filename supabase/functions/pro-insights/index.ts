@@ -1,4 +1,5 @@
-import { adminRequest, authorizedUser, preflight, requireEnv, respond } from '../_shared/core.ts'
+import { adminRequest, authorizedUser, preflight, respond } from '../_shared/core.ts'
+import {FREE_BETA,researchAllowed} from '../_shared/access-mode.ts'
 
 // All premium calculations run server-side against the licensed, normalized cache.
 // No client-provided player totals or subscription flags are trusted.
@@ -29,12 +30,13 @@ Deno.serve(async req => {
   if (blocked) return blocked
   if (req.method !== 'POST') return respond(req, { error: 'Method not allowed' }, 405)
   try {
-    const user = await authorizedUser(req)
+    if(!FREE_BETA){
+    let user;try{user=await authorizedUser(req)}catch{return respond(req,{error:'Sign in required'},401)}
     const subscriptions = await adminRequest('subscriptions?user_id=eq.' + encodeURIComponent(user.id) + '&select=status,current_period_end') as Array<{ status: string; current_period_end: string | null }>
     const s = subscriptions[0]
-    if (!s || !['active','trialing'].includes(s.status) || !s.current_period_end || Date.parse(s.current_period_end) <= Date.now()) {
-      return respond(req, { error: 'Active EDGEIQ Pro subscription required' }, 403)
-    }
+    if (!researchAllowed(!!s && ['active','trialing'].includes(s.status) && !!s.current_period_end && Date.parse(s.current_period_end)>Date.now())) {
+      return respond(req, { error: 'Active subscription required' }, 403)
+    }}
     if (Deno.env.get('SPORTS_LICENSE_APPROVED') !== 'true') return respond(req, { error: 'Verified sports feed not enabled' }, 503)
     const input = await req.json()
     const sport: string = input?.sport
@@ -93,6 +95,6 @@ Deno.serve(async req => {
     })
   } catch (error) {
     console.error('Pro insights error', error)
-    return respond(req, { error: 'Premium analysis currently unavailable' }, 503)
+    return respond(req, { error: 'Additional statistics currently unavailable' }, 503)
   }
 })

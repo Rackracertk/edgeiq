@@ -127,9 +127,9 @@ export default function GameLines({ onPro }: { onPro: () => void }) {
       : <div className="market-cards">{games.map(game => <MarketCard key={game.id} game={game}/>)}</div>}
 
     <section className="cheat-pro market-upsell">
-      <div><span className="eyebrow gold">EDGEIQ PRO · IN DEVELOPMENT</span><h2>Want deeper game intelligence?</h2>
-        <p>Join the free Pro interest list for future features such as verified line movement, historical cover rates, matchup projections, and matchup breakdowns. No payment is taken today.</p></div>
-      <button className="cta" onClick={onPro}>Explore Pro & join interest list</button>
+      <div><span className="eyebrow gold">FREE MATCHUP RESEARCH</span><h2>Want deeper game intelligence?</h2>
+        <p>Open The Script to explore the matchup, player history, game scenarios and available market comparisons.</p></div>
+      <button className="cta" onClick={onPro}>Open The Script</button>
     </section>
     <p className="footnote market-disclaimer">Independent sports research for adults where permitted. Quoted prices are informational and may have changed. ESPN public feed availability does not establish commercial redistribution rights; obtain appropriate data licensing before charging for these market-data services. Always check a licensed sportsbook for the actual price and eligibility. No betting transaction is placed on EDGEIQ.</p>
   </div>

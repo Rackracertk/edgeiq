@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { supabase } from './supabaseClient'
-import { usingLicensedFeed } from './verifiedFeed'
 import type { Direction } from './analytics/hitRates'
 
 type Group = { games: number; hits: number; rate: number; average: number } | null
@@ -14,7 +13,7 @@ type Props = {
   prop: string; line: number; direction: Direction; onUpgrade: () => void
 }
 
-export default function ProInsights({ sport, playerId, playerName, prop, line, direction, onUpgrade }: Props) {
+export default function ProInsights({ sport, playerId, playerName, prop, line, direction }: Props) {
   const [report, setReport] = useState<Insights | null>(null)
   const [working, setWorking] = useState(false)
   const [message, setMessage] = useState('')
@@ -25,20 +24,15 @@ export default function ProInsights({ sport, playerId, playerName, prop, line, d
     setWorking(true)
     setMessage('')
     try {
-      const { data: identity } = await supabase.auth.getUser()
-      if (!identity.user) {
-        setMessage('Sign in and activate EDGEIQ Pro to unlock these comparisons.')
-        return
-      }
       const { data, error } = await supabase.functions.invoke('pro-insights', {
         body: { sport, playerId, prop, line, direction },
       })
       if (error) throw error
       if (data?.error) throw new Error(data.error)
-      if (!data || typeof data.sampleSize !== 'number') throw new Error('Premium data is unavailable')
+      if (!data || typeof data.sampleSize !== 'number') throw new Error('Additional statistics are unavailable')
       setReport(data as Insights)
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : 'Premium analysis is unavailable')
+      setMessage(error instanceof Error ? error.message : 'Additional statistics are unavailable')
     } finally {
       setWorking(false)
     }
@@ -47,15 +41,14 @@ export default function ProInsights({ sport, playerId, playerName, prop, line, d
   return (
     <section className="panel log-panel" style={{ margin: '24px 0' }}>
       <div className="panel-title">
-        <div><span className="eyebrow gold">EDGEIQ PRO · VERIFIED COMPARISONS</span><h3>Advanced research splits</h3></div>
-        <span className="small-tag">SUBSCRIBERS</span>
+        <div><span className="eyebrow gold">FREE · MORE PLAYER STATS</span><h3>Advanced research splits</h3></div>
+        <span className="small-tag">FREE</span>
       </div>
       <p className="footnote">Historical season, home/away and opponent hit rates, computed server-side from the approved research feed. Not predictions or guaranteed outcomes.</p>
-      {!playerId ? <p className="footnote">Choose a player to begin.</p> : !usingLicensedFeed || !supabase ?
-        <p className="info-note">Advanced research will activate once the licensed data feed and customer accounts are connected.</p> : <>
+      {!playerId ? <p className="footnote">Choose a player to begin.</p> : !supabase ?
+        <p className="info-note">Additional statistics are unavailable right now. No account or subscription is required.</p> : <>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
-          <button className="cta" disabled={working} onClick={() => void load()}>{working ? 'Checking subscription…' : 'Load Pro comparisons for ' + (playerName ?? 'selected player')}</button>
-          <button className="nav" onClick={onUpgrade}>View Pro membership</button>
+          <button className="cta" disabled={working} onClick={() => void load()}>{working ? 'Loading statistics…' : 'Show more stats for ' + (playerName ?? 'selected player')}</button>
         </div>
         {message && <p role="status" className="info-note">{message}</p>}
         {report && <>

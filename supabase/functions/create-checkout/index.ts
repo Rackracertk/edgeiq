@@ -1,4 +1,5 @@
 import { adminRequest, authorizedUser, preflight, publicError, requireEnv, respond, stripe } from '../_shared/core.ts'
+import {checkoutAllowed} from '../_shared/access-mode.ts'
 
 // Stripe Price IDs are public identifiers (not API keys). These belong to
 // EDGEIQ's Stripe sandbox. Live prices must be explicitly configured via
@@ -13,6 +14,7 @@ Deno.serve(async (req: Request) => {
   const blocked = preflight(req)
   if (blocked) return blocked
   if (req.method !== 'POST') return respond(req, { error: 'Method not allowed' }, 405)
+  if (!checkoutAllowed()) return respond(req,{error:'EDGEIQ is free during beta. New subscriptions are paused.'},403)
   try {
     if (Deno.env.get('SPORTS_LICENSE_APPROVED') !== 'true') throw new Error('Subscriptions are not available until licensed research data is enabled')
     const feeds = await adminRequest('sports_cache?select=sport,refreshed_at') as Array<{sport: string; refreshed_at: string}>
