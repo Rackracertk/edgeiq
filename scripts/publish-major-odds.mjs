@@ -11,6 +11,11 @@ export const sports={
  SOCCER:{keys:['soccer_epl','soccer_spain_la_liga','soccer_germany_bundesliga','soccer_italy_serie_a','soccer_france_ligue_one','soccer_usa_mls','soccer_uefa_champs_league'],markets:soccer},
  TENNIS:{markets:{}},MMA:{key:'mma_mixed_martial_arts',markets:{}}
 }
+const alternateKeys={"football":"player_assists player_field_goals player_kicking_points player_pass_attempts player_pass_completions player_pass_interceptions player_pass_longest_completion player_pass_rush_yds player_pass_rush_reception_tds player_pass_rush_reception_yds player_pass_tds player_pass_yds player_receptions player_reception_longest player_reception_tds player_reception_yds player_rush_attempts player_rush_longest player_rush_reception_tds player_rush_reception_yds player_rush_tds player_rush_yds player_sacks player_solo_tackles player_tackles_assists","basketball":"player_points player_rebounds player_assists player_blocks player_steals player_turnovers player_threes player_points_assists player_points_rebounds player_rebounds_assists player_points_rebounds_assists player_fantasy_points","baseball":"batter_total_bases batter_home_runs batter_hits batter_rbis batter_walks batter_strikeouts batter_runs_scored batter_hits_runs_rbis batter_singles batter_doubles batter_triples batter_fantasy_score pitcher_hits_allowed pitcher_walks pitcher_earned_runs pitcher_strikeouts pitcher_outs","hockey":"player_points player_assists player_power_play_points player_goals player_shots_on_goal player_blocked_shots player_total_saves player_faceoffs_won player_time_on_ice","soccer":"player_assists player_shots player_shots_on_target"}
+const binaryMarkets={"player_anytime_td":"Anytime Touchdown","player_1st_td":"First Touchdown","player_last_td":"Last Touchdown","player_double_double":"Double-Double","player_triple_double":"Triple-Double","player_first_basket":"First Basket","player_first_team_basket":"First Team Basket","player_goal_scorer_anytime":"Anytime Goal","player_goal_scorer_first":"First Goal","player_goal_scorer_last":"Last Goal","player_first_goal_scorer":"First Goal","player_last_goal_scorer":"Last Goal","player_to_receive_card":"Yellow Cards","player_to_receive_red_card":"Red Cards"}
+const extraBySport={"football":{"player_anytime_td":"Anytime Touchdown","player_1st_td":"First Touchdown","player_last_td":"Last Touchdown"},"basketball":{"player_double_double":"Double-Double","player_triple_double":"Triple-Double","player_first_basket":"First Basket","player_first_team_basket":"First Team Basket"},"hockey":{"player_goal_scorer_anytime":"Anytime Goal","player_goal_scorer_first":"First Goal","player_goal_scorer_last":"Last Goal"},"soccer":{"player_goal_scorer_anytime":"Anytime Goal","player_first_goal_scorer":"First Goal","player_last_goal_scorer":"Last Goal","player_to_receive_card":"Yellow Cards","player_to_receive_red_card":"Red Cards"}}
+const familyBySport={"NFL":"football","NCAAF":"football","NBA":"basketball","WNBA":"basketball","NCAAB":"basketball","MLB":"baseball","NHL":"hockey","SOCCER":"soccer"}
+for(const [sport,config] of Object.entries(sports)){const family=familyBySport[sport];Object.assign(config.markets,extraBySport[family]??{});for(const key of (alternateKeys[family]??'').split(' ')){if(config.markets[key])config.markets[key+'_alternate']=config.markets[key]}}
 const gameMarkets={h2h:'Moneyline',spreads:'Spread',totals:'Game Total'}
 const normalize=s=>String(s??'').normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'')
 export function configurations(active,selection='ALL'){
@@ -28,8 +33,9 @@ export function normalizeQuotes(data,config,now=Date.now()){
   for(const row of market.outcomes??[]){
    if(!Number.isInteger(row.price)||Math.abs(row.price)<100)continue
    const participant=isGame?(market.key==='totals'?'Game total':row.name):row.description
-   if(typeof participant!=='string'||!participant.trim()||(!isGame&&!['Over','Under'].includes(row.name))||(market.key!=='h2h'&&!Number.isFinite(row.point)))continue
-   result.push({book:book.title,market:market.key,category:label,participant,participantId:'',side:isGame&&market.key!=='totals'?row.name:row.name.toLowerCase(),line:market.key==='h2h'?null:row.point,odds:row.price,observedAt:stamp})
+   const binary=!isGame&&Object.hasOwn(binaryMarkets,market.key)
+   if(typeof participant!=='string'||!participant.trim()||(!isGame&&!(binary?['Yes','No']:['Over','Under']).includes(row.name))||(!binary&&market.key!=='h2h'&&!Number.isFinite(row.point)))continue
+   result.push({book:book.title,market:market.key,category:label,participant,participantId:'',side:isGame&&market.key!=='totals'?row.name:row.name.toLowerCase(),line:market.key==='h2h'||binary?null:row.point,odds:row.price,observedAt:stamp})
   }
  }
  return result
@@ -98,11 +104,13 @@ async function main(){
  if(mode!=='lines')for(const config of configs.filter(c=>Object.keys(c.markets).length)){
   try{const r=await request('sports/'+config.key+'/events');remaining=r.remaining;queues.push({config,events:r.body.filter(upcoming).sort((a,b)=>a.commence_time.localeCompare(b.commence_time))})}catch(e){issues.push(config.key+': '+e.message)}
  }
- const propCount=process.env.ODDS_MARKETS==='expanded'?8:3
+ const modeMarkets=process.env.ODDS_MARKETS||'core'
+ const customKeys=(process.env.ODDS_MARKET_KEYS||'').split(',').map(k=>k.trim()).filter(Boolean)
+ const propCount=modeMarkets==='all'?60:modeMarkets==='expanded'?8:3
  for(let round=0;queues.some(q=>q.events.length>round);round++){
   let progressed=false
   for(const {config,events} of queues){
-   const event=events[round],markets=Object.keys(config.markets).slice(0,Math.min(propCount,cap-reserved))
+   const event=events[round],markets=(customKeys.length?[...new Set(customKeys)].filter(k=>Object.hasOwn(config.markets,k)):Object.keys(config.markets)).slice(0,Math.min(customKeys.length?60:propCount,cap-reserved))
    if(!event||!markets.length||!canPay(markets.length))continue
    progressed=true
    const response=await pay('sports/'+config.key+'/events/'+encodeURIComponent(event.id)+'/odds',markets)

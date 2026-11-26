@@ -3,17 +3,18 @@ import type {Fixture} from './scriptSports'
 import type {SlipQuote} from './slipResearch'
 import {selectMajorOdds} from './majorOdds.ts'
 type Snapshot=Parameters<typeof selectMajorOdds>[0]
-export type BoardOffer={key:string;game:Fixture;player:string;category:string;market:string;line:number;book:string;over:SlipQuote|null;under:SlipQuote|null}
+export type BoardOffer={key:string;game:Fixture;player:string;category:string;market:string;line:number;book:string;binary?:boolean;over:SlipQuote|null;under:SlipQuote|null}
 export type RosterPlayer={id:string;name:string;teamId:string;team:string;position:string}
 export const normalizedName=(s:string)=>s.normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'')
 export function buildPropBoard(snapshot:Snapshot|null,games:Fixture[],sport:string,now:number,maxAgeMinutes=15):BoardOffer[]{
  if(!snapshot)return []
  const map=new Map<string,BoardOffer>()
  for(const game of games)for(const q of selectMajorOdds(snapshot,game,sport,now,maxAgeMinutes)){
-  if(!/^(player_|batter_|pitcher_|goalie_|fighter_)/.test(q.market)||!['over','under'].includes(q.side)||!q.participant||!q.book||typeof q.line!=='number'||!Number.isFinite(q.line)||!Number.isInteger(q.odds)||Math.abs(q.odds??0)<100)continue
+  const binary=['yes','no'].includes(q.side)&&q.line===null
+  if(!/^(player_|batter_|pitcher_|goalie_|fighter_)/.test(q.market)||(!binary&&(!['over','under'].includes(q.side)||typeof q.line!=='number'||!Number.isFinite(q.line)))||!q.participant||!q.book||!Number.isInteger(q.odds)||Math.abs(q.odds??0)<100)continue
   const key=JSON.stringify([game.path,game.id,normalizedName(q.participant),q.market,q.line,q.book])
-  const row=map.get(key)??{key,game,player:q.participant,category:canonicalProp(sport,q.market,q.category),market:q.market,line:q.line,book:q.book,over:null,under:null}
-  const side=q.side as 'over'|'under'
+  const row=map.get(key)??{key,game,player:q.participant,category:canonicalProp(sport,q.market,q.category),market:q.market,line:binary?0.5:q.line!,book:q.book,binary,over:null,under:null}
+  const side=(binary?(q.side==='yes'?'over':'under'):q.side) as 'over'|'under'
   if(!row[side]||Date.parse(q.observedAt)>Date.parse(row[side]!.observedAt))row[side]=q
   map.set(key,row)
  }
