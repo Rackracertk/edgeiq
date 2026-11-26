@@ -26,7 +26,7 @@ type NBAResearchPublication = {
   teamAbbreviations: Record<string, string>
 }
 const props = NBA_PROP_CATEGORIES
-const periods = ['L5', 'L10', 'L20'] as const
+const periods = ['L5', 'L10', 'L15', 'L20'] as const
 const sports = [
   { id: 'NBA', name: 'NBA', label: 'Basketball', active: true },
   { id: 'NFL', name: 'NFL', label: 'Football', active: true },

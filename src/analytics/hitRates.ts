@@ -42,6 +42,9 @@ return {
   L10: results.length >= 10
     ? calculateHitRate(results.slice(0, 10), line, direction)
     : null,
+  L15: results.length >= 15
+    ? calculateHitRate(results.slice(0, 15), line, direction)
+    : null,
   L20: results.length >= 20
     ? calculateHitRate(results.slice(0, 20), line, direction)
     : null,

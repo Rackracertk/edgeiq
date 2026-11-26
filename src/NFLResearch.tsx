@@ -232,7 +232,7 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
       <div className="field"><label htmlFor="nfl-direction">DIRECTION</label><select id="nfl-direction" value={direction} onChange={event => setDirection(event.target.value as Direction)}><option value="over">Over</option><option value="under">Under</option></select></div>
     </section>
     <div className="section-head results-heading"><div><span className="eyebrow">PERFORMANCE SNAPSHOT</span><h2>{selected?.name ?? 'Select a player'} <span className="muted">{selected ? '· ' + direction + ' ' + line + ' ' + category : ''}</span></h2></div></div>
-    <div className="metrics">{(['L5', 'L10', 'L20'] as const).map(period => {
+    <div className="metrics">{(['L5', 'L10', 'L15', 'L20'] as const).map(period => {
       const count = Number(period.slice(1))
       const enough = values.length >= count
       const recent = values.slice(0, count)

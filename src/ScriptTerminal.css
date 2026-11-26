@@ -55,3 +55,5 @@
 .shell:not(.script-only-shell) .st-primary-tabs .nav.active{background:#224735;border-color:#c6a343}
 .shell:not(.script-only-shell) .st-topic-tabs .nav{border-color:#385047}
 .st-narrative{border:1px solid #42604d;border-radius:14px;padding:17px;margin:14px 0;background:#142820}.st-narrative h3{margin:12px 0}.st-narrative p{line-height:1.65}.st-story-phase{display:flex;gap:12px;align-items:flex-start;padding:8px 0;border-top:1px solid #35483d}.st-story-phase>span{color:#e9bb59;font-weight:700;padding-top:4px}.st-story-phase p{margin:0}
+
+.st-narrative h3{font-size:18px}.st-narrative .footnote{font-size:12px}.st-narrative details{margin:12px 0}.st-narrative summary{cursor:pointer;color:#e9bb59}

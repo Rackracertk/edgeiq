@@ -30,3 +30,5 @@ test('PRA and three-point value mapping', () => {
   assert.deepEqual(getPlayerPropValues(rows,'PRA'), [39])
   assert.deepEqual(getPlayerPropValues(rows,'3-Pointers Made'), [4])
 })
+
+test('L15 requires a complete fifteen-game sample',()=>{assert.equal(calculateRecentHitRates(Array(14).fill(5),2).L15,null);assert.equal(calculateRecentHitRates([...Array(9).fill(5),...Array(6).fill(1)],2).L15,60)})

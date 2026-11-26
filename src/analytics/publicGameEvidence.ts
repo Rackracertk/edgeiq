@@ -92,3 +92,18 @@ export function phaseEvidence(history:Fixture[],game:Fixture,now:number){
   return {name:p.name,n:samples.length,mean:samples.length?samples.reduce((a,b)=>a+b,0)/samples.length:null}
  })}))
 }
+
+export function conditionalGameFlow(history:Fixture[],game:Fixture,now:number){
+ const story=matchupNarrative(history,game,now)
+ const baseline=story.baseline
+ const kind=game.path.split('/')[0]
+ if(!baseline||baseline.length!==2)return null
+ const a=story.rows[0],b=story.rows[1]
+ const margin=baseline[0]-baseline[1]
+ const leader=margin>0?a:margin<0?b:null
+ const other=margin>0?b:a
+ const context=leader?leader.name+' has the higher recent scoring baseline by '+Math.abs(margin).toFixed(2)+' score units.':a.name+' and '+b.name+' have equal recent scoring baselines.'
+ const teamLead=leader?.name??a.name, teamTrail=leader?other.name:b.name
+ const scenarios:Record<string,string>={football:'If '+teamLead+' leads late, '+teamTrail+' may need more passing opportunities; a reversed lead can reverse that volume pattern.',basketball:'If '+teamLead+' builds a large lead, starter minutes on either side may decline; a close score may preserve closing rotations.',baseball:'If '+teamLead+' scores early, '+teamTrail+' may need more run production against later pitchers. Starter changes and bullpen availability can reverse that pattern.',hockey:'If '+teamTrail+' trails late, it may increase shot volume or pull its goalie; penalties can change the game at any time.',soccer:'If '+teamLead+' takes the lead, '+teamTrail+' may commit more players forward, opening counterattack space. Cards and substitutions can change that dynamic.'}
+ return {context,scenario:scenarios[kind]??'',reversal:'If the other side controls the opening phase, the score-dependent assumptions can reverse. The baseline is not a win probability or a verified prediction.'}
+}
