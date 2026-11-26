@@ -6,7 +6,7 @@ const names: Record<TeamSport, string[]> = {
 export const normalizeSearch = (value: string) => value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()
 export const teamsFor = (sport: TeamSport) => names[sport].map(entry => {
  const [code,name,...aliases] = entry.split('|')
- return {code,name,aliases}
+ return {code,name,aliases:[...aliases,name.split(' ').at(-1) ?? name,...(name.endsWith('Trail Blazers')?['Trail Blazers']:[])]}
 })
 export function teamFor(sport: TeamSport, value: string) {
  const q = normalizeSearch(value)

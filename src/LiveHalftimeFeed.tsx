@@ -10,12 +10,12 @@ type LiveGame = Game & { athletes: Athlete[]; boxscoreUnavailable?: boolean }
 const endpoints: Record<Sport, string> = { NBA: 'basketball/nba', NFL: 'football/nfl' }
 const nbaProps = ['Points', 'Rebounds', 'Assists', 'PRA', 'Points + Assists', 'Points + Rebounds', 'Assists + Rebounds', '3PT Made', 'Steals', 'Blocks', 'Steals + Blocks']
 const nflProps = ['Passing Yards', 'Pass Completions', 'Passing TD', 'Interceptions', 'Rushing Yards', 'Rushing Attempts', 'Receiving Yards', 'Receptions', 'Sacks']
-const toNumber = (v: unknown): number | null => {
+const toNumber = (v: unknown, signed=false): number | null => {
   if (typeof v !== 'string' && typeof v !== 'number') return null
   const s = String(v).trim()
   if (!s || !/^-?\d+(?:\.\d+)?$/.test(s)) return null
   const n = Number(s)
-  return Number.isFinite(n) && n >= 0 ? n : null
+  return Number.isFinite(n) && (signed || n >= 0) ? n : null
 }
 const show = (n: number | null | undefined) => n === null || n === undefined ? '—' : String(Math.round(n * 10) / 10)
 const dateET = (shift: number) => {
@@ -85,7 +85,7 @@ function parseNFL(data: any): Athlete[] {
         const stats: unknown[] = row.stats ?? []
         const get = (...keys: string[]) => {
           const idx = labels.findIndex(label => keys.includes(label))
-          return idx < 0 ? null : toNumber(stats[idx])
+          return idx < 0 ? null : toNumber(stats[idx],keys.includes('YDS') || keys.includes('YARDS'))
         }
         if (name.includes('pass')) {
           const yards = get('YDS', 'YARDS'), td = get('TD'), int = get('INT')
@@ -199,7 +199,7 @@ function LiveHalftimeFeed() {
       const pace = a.game.elapsed > 0 && a.game.period <= 4 ? val / a.game.elapsed * full : null
       const timeLeft = Math.max(0,full-a.game.elapsed)
       const neededRate = remaining !== null && timeLeft > 0 && !a.game.completed ? remaining/timeLeft : null
-      return <tr key={lineKey}><td><strong>{a.name}</strong><small>{teamName(sport,a.team)} · {a.game.label}{a.minutes !== null ? ' · ' + show(a.minutes) + ' min' : ''}{a.fouls !== null ? ' · ' + show(a.fouls) + ' PF' : ''}</small></td><td className="ht-live-stat">{show(val)}</td><td>{a.game.completed ? 'FINAL' : show(pace)}</td><td><input aria-label={'Line for ' + a.name + ' ' + category} inputMode="decimal" type="number" min="0" step="any" placeholder="Enter line" value={entered} onChange={e => setLines(old => ({ ...old, [lineKey]: e.target.value }))} /></td><td>{remaining === null ? '—' : val > validTarget! ? 'Over reached' : 'More than ' + show(remaining)}</td><td>{neededRate===null?'—':show(neededRate)}</td><td><span className={'ht-live-state ' + (a.game.state === 'in' ? 'live' : '')}>{a.game.status}</span></td></tr>
+      return <tr key={lineKey}><td><strong>{a.name}</strong><small>{teamName(sport,a.team)} · {a.game.label}{a.minutes !== null ? ' · ' + show(a.minutes) + ' min' : ''}{a.fouls !== null ? ' · ' + show(a.fouls) + ' PF' : ''}</small></td><td className="ht-live-stat">{show(val)}</td><td>{a.game.completed ? 'FINAL' : show(pace)}</td><td><input aria-label={'Line for ' + a.name + ' ' + category} inputMode="decimal" type="number" min="0" step="any" placeholder="Enter line" value={entered} onChange={e => setLines(old => ({ ...old, [lineKey]: e.target.value }))} /></td><td>{remaining === null ? '—' : a.game.completed ? val>validTarget!?'Final: over':val===validTarget?'Final: push':'Final: under' : val > validTarget! ? 'Currently above' : 'More than ' + show(remaining)}</td><td>{neededRate===null?'—':show(neededRate)}</td><td><span className={'ht-live-state ' + (a.game.state === 'in' ? 'live' : '')}>{a.game.status}</span></td></tr>
     })}</tbody></table></div>}
     <p className="ht-live-disclaimer">*Pace is a straight-line extrapolation using game-clock time; it does not account for playing time, game flow, or substitutions. ESPN game statistics may be delayed or revised. Player totals and game status are sourced from ESPN; entered prop lines are your own inputs, not live sportsbook prices. No betting outcomes are guaranteed. For research only.</p>
   </section>

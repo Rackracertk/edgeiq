@@ -5,7 +5,7 @@ import {
   loadNFLHistory,
   type CheatPick, type CheatSport, type NFLHistoryRow, type Slate, type CurrentRosterMap,
 } from './cheatSheetData'
-import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, type InjuryData } from './analytics/injuryCenter'
+import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, loadInjuryReport, easternDate, type InjuryData } from './analytics/injuryCenter'
 import { americanOddsBreakEven, type ElitePick } from './analytics/eliteResearch'
 import { selectHistoricalResearchPicks } from './analytics/publishedResearch'
 import './DailyCheatSheet.css'
@@ -59,10 +59,12 @@ export default function DailyCheatSheet({
   const [publicationStatus, setPublicationStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading')
   const [, setCurrentNFLRoster] = useState<CurrentRosterMap | null>(null)
   const [reports, setReports] = useState<Record<string, InjuryData>>({})
+  const [currentReport,setCurrentReport]=useState<{sport:CheatSport;report:InjuryData}|null>(null)
   const [, setNflRows] = useState<NFLHistoryRow[]>([])
   const [nflPartial, setNflPartial] = useState(false)
   const [loadingKey, setLoadingKey] = useState<string | null>(null)
   const [retry, setRetry] = useState(0)
+  useEffect(()=>{let active=true;setCurrentReport(null);void loadInjuryReport(sport).then(report=>{if(active)setCurrentReport({sport,report})}).catch(()=>{});return()=>{active=false}},[sport,retry])
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [category, setCategory] = useState('ALL')
   const [teamFilter,setTeamFilter] = useState('all')
@@ -183,8 +185,9 @@ export default function DailyCheatSheet({
   }, [])
 
   const slate = publishedBoard ?? slates[key]
-  const report = publishedBoard?.report ?? reports[key]
-  const reportAvailable = report?.available === true
+  const latest = currentReport?.sport===sport?currentReport.report:undefined
+  const report = latest?.available ? latest : publishedBoard?.report ?? reports[key] ?? latest
+  const reportAvailable = report?.available === true && Date.now()-Date.parse(report.checkedAt)<15*60000
   const excluded = (playerId: string, player: string, team: string, teamId: string) =>
     shouldExcludeInjury(findInjury(report?.injuries ?? [], playerId, player, team, teamId))
   const picks = useMemo(() => {
@@ -193,8 +196,8 @@ export default function DailyCheatSheet({
     // Historical observations below come from completed game logs and MUST
     // remain available when the authorized sportsbook feed is not connected.
     // The displayed historical lines are reference thresholds, not bettable odds.
-    return selectHistoricalResearchPicks(publishedBoard, pickMode)
-  }, [slate, publishedBoard, pickMode])
+    return selectHistoricalResearchPicks(publishedBoard, pickMode).filter(pick=>!reportAvailable || !shouldExcludeInjury(findInjury(report?.injuries ?? [],pick.playerId,pick.player,pick.team,slate.games.find(g=>g.date===pick.gameTime)?.teams.find(t=>t.abbreviation===pick.team)?.id ?? '')))
+  }, [slate, publishedBoard, pickMode, report, reportAvailable])
   useEffect(() => {
     if (!reportAvailable) return
     setSelectedPicks(current => current.filter(pick => Date.parse(pick.gameTime) > Date.now() &&
@@ -312,7 +315,7 @@ export default function DailyCheatSheet({
       <h2 style={{margin:'8px 0'}}>Verified market opportunities</h2>
       {!publishedBoard?.marketVerified?.length ?
         <p role="status">No verified, current sportsbook player props are available for this slate. {publishedBoard?.marketStatus === 'NOT_CONNECTED' ? 'An authorized sportsbook odds feed has not been connected.' : 'A current matching sportsbook quote could not be verified.'} Historical research remains available below as reference thresholds, never as currently offered sportsbook lines.</p> :
-        <div className="edge-cards">{publishedBoard.marketVerified.map(({pick,market}) =>
+        <div className="edge-cards">{publishedBoard.marketVerified.filter(({pick})=>!reportAvailable || !excluded(pick.playerId,pick.player,pick.team,slate?.games.find(g=>g.date===pick.gameTime)?.teams.find(t=>t.abbreviation===pick.team)?.id??'')).map(({pick,market}) =>
           <article key={pick.id} className="panel" style={{padding:16,marginBottom:12}}>
             <strong>{pick.player} · {pick.team} vs {pick.opponent}</strong>
             <p><b>{pick.direction.toUpperCase()} {market.consensusLine} {pick.category}</b> · best odds {market.bestOdds > 0 ? '+' : ''}{market.bestOdds} · {market.sportsbookCount} verified sportsbook{market.sportsbookCount === 1 ? '' : 's'}</p>
@@ -329,7 +332,7 @@ export default function DailyCheatSheet({
 
     {report && <section className={reportAvailable ? 'cheat-injury-ok' : 'cheat-injury-unavailable'} role="status">
       <div><strong>{reportAvailable ? 'Availability screening active' : 'Injury screening unavailable'}</strong>
-        <p>{reportAvailable ? excludedCount + ' unavailable / uncertain athletes excluded for this slate. Remaining eligible candidates automatically move up the rankings.' : 'The injury source could not be verified. The board shows historical research only. Injury status is NOT screened; do not treat these trends as cleared picks.'}</p>
+        <p>{reportAvailable ? excludedCount + ' unavailable / uncertain athletes excluded for this slate. Remaining eligible candidates automatically move up the rankings.' : 'The injury source could not be verified within the last 15 minutes. The board shows historical research only. Injury status is NOT screened; do not treat these trends as cleared picks.'}</p>
         <small>{reportAvailable ? 'Checked ' + new Date(report.checkedAt).toLocaleString() + ' · ' + report.source : (report.error ?? 'Source unavailable')}</small>
       </div>
       <button className="market-refresh" onClick={onInjuries}>Open Injury Center ↗</button>
