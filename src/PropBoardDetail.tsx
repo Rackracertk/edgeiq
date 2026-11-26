@@ -1,5 +1,6 @@
 import {useEffect,useState} from 'react'
 import PlayerResearchCard from './PlayerResearchCard'
+import {parseCustomLine,parseAmericanOdds,impliedProbability} from './analytics/customProp'
 import {getNBAGamePropValue,NBA_PROP_CATEGORIES,type NBAPlayerGame} from './analytics/nbaData'
 import {extractNBAPlayerStats} from './analytics/espnData'
 import {parseNFLBoxscore} from './analytics/nflBoxscore'
@@ -11,7 +12,7 @@ type Hist=Record<string,Rows>
 const date=(t:number)=>new Date(t).toISOString().slice(0,10).replaceAll('-','')
 async function get(url:string,signal:AbortSignal){const r=await fetch(url,{signal});if(!r.ok)throw Error('Unavailable');return r.json()}
 export default function PropBoardDetail({sport,game,offer,side='over',player}:{sport:ScriptSport;game:Fixture;offer?:BoardOffer;side?:'over'|'under';player?:RosterPlayer}){
- const [hist,setHist]=useState<Hist>({}),[status,setStatus]=useState('Loading recorded game history…'),[stat,setStat]=useState('')
+ const [hist,setHist]=useState<Hist>({}),[status,setStatus]=useState('Loading recorded game history…'),[stat,setStat]=useState(''),[custom,setCustom]=useState(false),[customLine,setCustomLine]=useState(''),[customOdds,setCustomOdds]=useState(''),[customSide,setCustomSide]=useState<'over'|'under'>(side)
  const name=offer?.player??player?.name??''
  const wanted=offer?(sport==='NBA'?nbaCategory[offer.market]:sport==='NFL'?nflCategory[offer.market]:undefined):undefined
  useEffect(()=>{let active=true;const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),25000)
@@ -44,7 +45,14 @@ export default function PropBoardDetail({sport,game,offer,side='over',player}:{s
  void run().catch(()=>{if(active)setStatus('Player history unavailable.')}).finally(()=>clearTimeout(timeout));return()=>{active=false;clearTimeout(timeout);controller.abort()}
  },[sport,game.id,game.path,game.date,name,player?.id])
  const categories=Object.keys(hist).sort(),category=wanted??(categories.includes(stat)?stat:categories[0]??offer?.category??'Recorded stats')
- const line=offer&&wanted===category?offer.line:null
+ const observedLine=offer&&wanted===category?offer.line:null
+ const observedOdds=observedLine!==null?offer?.[side]?.odds??null:null
+ const line=custom?parseCustomLine(customLine):observedLine
+ const direction=custom?customSide:side
+ const hypotheticalOdds=parseAmericanOdds(customOdds)
+ const implied=hypotheticalOdds===null?null:impliedProbability(hypotheticalOdds)
+ function resetCustom(){setCustom(false);setCustomLine('');setCustomOdds('');setCustomSide(side)}
+ function startCustom(){setCustomLine(observedLine===null?'':String(observedLine));setCustomOdds(observedOdds===null?'':String(observedOdds));setCustomSide(side);setCustom(true)}
  const archived=!!offer&&Date.now()-Date.parse((offer[side]??offer.over??offer.under)?.observedAt??'')>15*60000
- return <div className="prop-inline-detail"><p className="footnote" role="status">{status}</p>{!wanted&&categories.length>0&&<label>Recorded stat<select value={category} onChange={e=>setStat(e.target.value)}>{categories.map(c=><option key={c}>{c}</option>)}</select></label>}{offer&&!wanted&&<p className="footnote">Exact historical market mapping unavailable. Recorded statistics are displayed separately, without applying the sportsbook line to another stat.</p>}{hist[category]?.length?<PlayerResearchCard name={name} category={category} rows={hist[category]} line={line} direction={side} lineSource={line!==null?offer?.book+(archived?' · expired observed line':' · observed line'):'Verified sportsbook line'}/>:Object.keys(hist).length>0&&<p className="footnote">No recorded observations for this exact market.</p>}</div>
+ return <div className="prop-inline-detail"><p className="footnote" role="status">{status}</p>{!wanted&&categories.length>0&&<label>Recorded stat<select value={category} onChange={e=>{setStat(e.target.value);resetCustom()}}>{categories.map(c=><option key={c}>{c}</option>)}</select></label>}{offer&&!wanted&&<p className="footnote">Exact historical market mapping unavailable. Recorded statistics are displayed separately, without applying the sportsbook line to another stat.</p>}{hist[category]?.length>0&&<div className="prop-custom"><div className="prop-custom-heading"><button type="button" className="nav" onClick={custom?resetCustom:startCustom}>{custom?'Reset to published line':'Adjust line / odds'}</button>{custom&&<small>Custom analysis only</small>}</div>{custom&&<><div className="prop-custom-inputs"><label>Prop line<div className="prop-stepper"><button type="button" aria-label="Decrease line by 0.5" onClick={()=>setCustomLine(String((parseCustomLine(customLine)??0)-0.5))}>−</button><input type="number" step="any" value={customLine} onChange={e=>setCustomLine(e.target.value)} placeholder="Enter line"/><button type="button" aria-label="Increase line by 0.5" onClick={()=>setCustomLine(String((parseCustomLine(customLine)??0)+0.5))}>+</button></div></label><label>Direction<select value={customSide} onChange={e=>setCustomSide(e.target.value as 'over'|'under')}><option value="over">Over</option><option value="under">Under</option></select></label><label>American odds (optional)<input type="text" inputMode="text" placeholder="e.g. -110 or +150" value={customOdds} onChange={e=>setCustomOdds(e.target.value)}/></label></div>{customLine.trim()&&line===null&&<p className="footnote">Enter a valid numeric line.</p>}{customOdds.trim()&&hypotheticalOdds===null&&<p className="footnote">Enter American odds of +100 or higher, or -100 or lower.</p>}{implied!==null&&<p className="prop-custom-implied">Implied probability at entered odds: <strong>{implied.toFixed(1)}%</strong></p>}<p className="footnote">The chart and historical hit rates use your custom line and direction. Changing the price only changes the implied probability; it does not change historical results or create a sportsbook offer.</p></>}</div>}{hist[category]?.length?<PlayerResearchCard name={name} category={category} rows={hist[category]} line={line} direction={direction} lineSource={custom?'Custom analysis line':line!==null?offer?.book+(archived?' · expired observed line':' · observed line'):'Verified sportsbook line'}/>:Object.keys(hist).length>0&&<p className="footnote">No recorded observations for this exact market.</p>}</div>
 }
