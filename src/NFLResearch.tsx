@@ -1,5 +1,7 @@
+import PlayerResearchCard from './PlayerResearchCard'
+import {usePlayerInjury} from './usePlayerInjury'
 import { useEffect, useMemo, useState } from 'react'
-import { calculateRecentHitRates, type Direction } from './analytics/hitRates'
+import { type Direction } from './analytics/hitRates'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 import ProInsights from './ProInsights'
 import { rankNFLDefensiveYards } from './analytics/nflDefensiveYards'
@@ -146,6 +148,7 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
     return Array.from(map.values()).sort((a,b)=>a.name.localeCompare(b.name))
   }, [rows,currentNFLRoster,rosterStatus])
   const selected = players.find(player => player.id === playerId)
+  const injury=usePlayerInjury('NFL',selected?.id,selected?.name,selected?.team)
   useEffect(() => {
     onResearchChange(selected ? { playerId: selected.id, playerName: selected.name, statCategory: category, line, direction } : null)
   }, [selected?.id, selected?.name, category, line, direction, onResearchChange])
@@ -195,7 +198,6 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
   }, [selected?.team, licensedUpcoming])
   const suggestions = query && !selected ? players.filter(player => player.name.toLowerCase().includes(query.toLowerCase())).slice(0, 8) : []
   const history = Array.from(new Map(rows.filter(row => row.playerId === playerId && category in row.stats).map(row => [row.gameId, row])).values()).sort((a, b) => b.date.localeCompare(a.date))
-  const values = history.map(row => row.stats[category])
   // Independent defensive rankings from completed games: passing and rushing
   // totals are summed from offensive player box scores for each opponent.
   const defensivePassing = useMemo(() => rankNFLDefensiveYards(rows, 'Passing Yards'), [rows])
@@ -210,9 +212,7 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
     ? matchupIndex < activeDefense.length / 3 ? 'TOUGH' :
       matchupIndex >= activeDefense.length * 2 / 3 ? 'FAVORABLE' : 'AVERAGE'
     : 'UNAVAILABLE'
-  const rates = calculateRecentHitRates(values, line, direction)
   const hit = (value: number) => direction === 'over' ? value > line : value < line
-  const avg = values.length ? (values.slice(0, 10).reduce((a, b) => a + b, 0) / Math.min(values.length, 10)).toFixed(1) : '—'
 
   return <>
     <section className="hero"><div className="eyebrow gold">NFL PLAYER RESEARCH</div><h1>Football <span className="gold">analytics.</span></h1><p>Explore verified historical player box scores and over/under trends. Past results do not predict future outcomes.</p></section>
@@ -228,18 +228,12 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
         {suggestions.length > 0 && <div className="suggestions">{suggestions.map(player => <button key={player.id} onClick={() => { setPlayerId(player.id); setQuery(player.name) }}>{player.name}<span>{player.team}</span></button>)}</div>}
       </div>
       <div className="field"><label htmlFor="nfl-stat">STAT CATEGORY</label><select id="nfl-stat" value={category} onChange={event => { const next = event.target.value as Category; setCategory(next); setLine(defaultNFLLine(next)); setDirection('over') }}>{categories.map(item => <option key={item}>{item}</option>)}</select></div>
-      <div className="field"><label htmlFor="nfl-line">PROP LINE</label><input id="nfl-line" type="number" min="0" step="0.5" value={line} onChange={event => setLine(Number(event.target.value))} /></div>
+      <div className="field"><label htmlFor="nfl-line">ANALYSIS LINE</label><input id="nfl-line" type="number" min="0" step="0.5" value={line} onChange={event => setLine(Number(event.target.value))} /></div>
       <div className="field"><label htmlFor="nfl-direction">DIRECTION</label><select id="nfl-direction" value={direction} onChange={event => setDirection(event.target.value as Direction)}><option value="over">Over</option><option value="under">Under</option></select></div>
     </section>
-    <div className="section-head results-heading"><div><span className="eyebrow">PERFORMANCE SNAPSHOT</span><h2>{selected?.name ?? 'Select a player'} <span className="muted">{selected ? '· ' + direction + ' ' + line + ' ' + category : ''}</span></h2></div></div>
-    <div className="metrics">{(['L5', 'L10', 'L15', 'L20'] as const).map(period => {
-      const count = Number(period.slice(1))
-      const enough = values.length >= count
-      const recent = values.slice(0, count)
-      return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES</div><div className="metric-value">{selected && enough && rates[period] !== null ? rates[period] + '%' : 'N/A'}</div><div className="metric-sub">{!selected ? 'Select a player' : enough ? recent.filter(hit).length + ' of ' + count + ' games hit' : 'Only ' + values.length + ' games available'}</div><div className="metric-track" style={{ display: 'flex', gap: 3, background: 'transparent' }}>{Array.from({ length: count }, (_, i) => <span key={i} style={{ flex: 1, background: enough ? (hit(recent[i]) ? '#64db93' : '#637b6a') : '#31513d' }} />)}</div></div>
-    })}<div className="metric gold-metric"><div className="metric-label">LAST 10 AVG</div><div className="metric-value">{avg}</div><div className="metric-sub">{category} per game (up to 10)</div><div className="metric-track gold-track"><span style={{ width: values.length ? '100%' : '0%' }} /></div></div></div>
+    {selected?<PlayerResearchCard name={selected.name} category={category} rows={history.map(r=>({value:r.stats[category],date:r.date,gameId:r.gameId}))} line={line} direction={direction} injury={injury} defense={<a href="#nfl-defense-detail">View matchup</a>}/>:<section className="panel"><p>Select a player to see their research card.</p></section>}
     <ProInsights sport="NFL" playerId={selected?.id} playerName={selected?.name} prop={category} line={line} direction={direction} onUpgrade={onUpgrade} />
-    <section className="panel log-panel">
+    <section id="nfl-defense-detail" className="panel log-panel">
       <div className="panel-title"><div><span className="eyebrow">PLAYER VS DEFENSE</span><h3>Opponent matchup explorer</h3></div><span className="small-tag">2026 REGULAR SEASON</span></div>
       <p className="footnote">Select a player, then compare their next scheduled opponent or any available NFL defense. Rankings use passing yards allowed for passing/receiving props and rushing yards allowed for rushing props. Both complete leaderboards are below. These are historical team totals, not a prediction of your selected player's performance.</p>
       <div className="field" style={{ maxWidth: 420, marginBottom: 20 }}>

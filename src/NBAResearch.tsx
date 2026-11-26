@@ -1,9 +1,11 @@
+import PlayerResearchCard from './PlayerResearchCard'
+import {usePlayerInjury} from './usePlayerInjury'
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import ProInsights from './ProInsights'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 import NBAOpponentExplorer from './NBAOpponentExplorer'
-import { calculateAverage, calculateRecentHitRates, type Direction } from './analytics/hitRates'
+import { type Direction } from './analytics/hitRates'
 import { getPlayerPropValues, getNBAGamePropValue, NBA_PROP_CATEGORIES, isNBABinaryProp, defaultNBALine, type NBAPlayerGame } from './analytics/nbaData'
 import { getNBABoxScore, extractNBAPlayerStats, getRecentNBAGames, buildNBAPlayerHistory } from './analytics/espnData'
 import { getCachedData, setCachedData } from './analytics/cache'
@@ -16,7 +18,6 @@ type NBAResearchPublication = {
   teamAbbreviations: Record<string, string>
 }
 const props = NBA_PROP_CATEGORIES
-const periods = ['L5', 'L10', 'L20'] as const
 
 function NBAResearch() {
   const [players, setPlayers] = useState<ReturnType<typeof extractNBAPlayerStats>>([])
@@ -145,23 +146,15 @@ function NBAResearch() {
   }, [])
 
   const selected = players.find((p) => String(p.id) === playerId)
+  const injury=usePlayerInjury('NBA',selected?String(selected.id):undefined,selected?.name,selected?.team)
   const games: NBAPlayerGame[] = selected ? history[String(selected.id)] ?? [] : []
   const eligibleGames = games.filter(game => getNBAGamePropValue(game, prop) !== null)
   const values = getPlayerPropValues(eligibleGames, prop)
-  const rates = calculateRecentHitRates(values, line, direction)
-  const average = calculateAverage(values.slice(0, 10))
   const suggestions = useMemo(() => query.trim().length > 0 && !selected
     ? players.filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 8)
     : [], [players, query, selected])
   const hits = (value: number) => direction === 'over' ? value > line : value < line
-  const hitCount = values.filter(hits).length
   const lineLabel = isNBABinaryProp(prop) ? (direction === 'over' ? 'Yes' : 'No') : `${direction === 'over' ? 'Over' : 'Under'} ${line}`
-  const format = (n: number | null) => n === null ? 'N/A' : `${n}%`
-  const periodStats = (count: number) => {
-    if (values.length < count) return null
-    const recent = values.slice(0, count)
-    return { hitCount: recent.filter(hits).length, results: recent }
-  }
 
   return <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one place.</p></section>
@@ -175,25 +168,13 @@ function NBAResearch() {
               {suggestions.length > 0 && <div className="suggestions">{suggestions.map((p) => <button key={String(p.id)} onClick={() => { setPlayerId(String(p.id)); setQuery(p.name) }}>{p.name}<span>{p.team}</span></button>)}</div>}
             </div>
             <div className="field"><label htmlFor="prop">STAT CATEGORY</label><select id="prop" value={prop} onChange={(e) => { const next = e.target.value; setProp(next); setLine(defaultNBALine(next)); setDirection('over') }}>{props.map((p) => <option key={p}>{p}</option>)}</select></div>
-            <div className="field"><label htmlFor="line">REFERENCE THRESHOLD</label><input id="line" type="number" min="0" step="0.5" disabled={isNBABinaryProp(prop)} value={line} onChange={(e) => setLine(Number(e.target.value))} /></div>
+            <div className="field"><label htmlFor="line">ANALYSIS LINE</label><input id="line" type="number" min="0" step="0.5" disabled={isNBABinaryProp(prop)} value={line} onChange={(e) => setLine(Number(e.target.value))} /></div>
             <div className="field"><label htmlFor="direction">DIRECTION</label><select id="direction" value={direction} onChange={(e) => setDirection(e.target.value as Direction)}><option value="over">{isNBABinaryProp(prop) ? 'Yes' : 'Over'}</option><option value="under">{isNBABinaryProp(prop) ? 'No' : 'Under'}</option></select></div>
           </section>
-          <div className="section-head results-heading"><div><span className="eyebrow">PERFORMANCE SNAPSHOT</span><h2>{selected ? selected.name : 'Select a player'} <span className="muted">{selected ? '· ' + lineLabel + ' ' + prop : ''}</span></h2></div></div>
-          <div className="metrics">
-            {periods.map((period) => { const count = Number(period.slice(1)); const stats = selected ? periodStats(count) : null; const recentValues = values.slice(0, count); return <div className="metric" key={period}><div className="metric-label">LAST {count} GAMES <span className="metric-mark">↗</span></div><div className="metric-value">{selected ? format(rates[period]) : '—'}</div><div className="metric-sub">{!selected ? 'Select a player to begin' : stats ? `${stats.hitCount} of ${count} games hit · ${lineLabel.toUpperCase()}` : `Only ${values.length} of ${count} games available`}</div><div className="metric-track" role="img" aria-label={stats ? `${stats.hitCount} hits in ${count} games` : `Only ${recentValues.length} valid games available`} style={{ display: 'flex', gap: '3px', background: 'transparent', overflow: 'visible' }}>{recentValues.map((value, i) => <span key={i} className={value === line ? 'trend-push' : hits(value) ? 'trend-hit' : 'trend-miss'} />)}</div></div> })}
-            <div className="metric gold-metric"><div className="metric-label">LAST 10 AVG <span className="metric-mark">◎</span></div><div className="metric-value">{selected && average !== null ? average : '—'}</div><div className="metric-sub">{selected ? `${prop} average · ${Math.min(10, values.length)} available games` : 'Awaiting selection'}</div><div className="metric-track gold-track"><span style={{ width: average === null ? '0%' : '100%' }} /></div></div>
-          </div>
-          <NBAOpponentExplorer selected={selected} history={history} prop={prop} line={line} direction={direction} nextOpponents={nbaUpcoming} teamLabels={nbaTeamLabels} />
+          {selected?<PlayerResearchCard name={selected.name} category={prop} rows={eligibleGames.map((g,i)=>({value:values[i],date:g.date,gameId:g.gameId}))} line={line} direction={direction} injury={injury} defense={<a href="#nba-defense-detail" onClick={()=>{const el=document.getElementById("nba-defense-detail");if(el instanceof HTMLDetailsElement)el.open=true}}>View matchup</a>}/>:<section className="panel"><p>Select a player to see their research card.</p></section>}
+          <details className="panel pr-advanced" id="nba-defense-detail"><summary>Opponent defense and matchup analysis</summary>
+          <NBAOpponentExplorer selected={selected} history={history} prop={prop} line={line} direction={direction} nextOpponents={nbaUpcoming} teamLabels={nbaTeamLabels} /></details>
           <ProInsights sport="NBA" playerId={selected ? String(selected.id) : null} playerName={selected?.name} prop={prop} line={line} direction={direction} onUpgrade={() => {}} />
-          <div className="details-grid">
-            <section className="panel"><div className="panel-title"><div><span className="eyebrow">RECENT PERFORMANCE</span><h3>Game-by-game trend</h3></div><span className="small-tag">{prop}</span></div>
-              {values.length ? <><div className="chart">{values.slice(0, 10).reverse().map((v, i) => <div className="bar-col" key={eligibleGames.slice(0, 10).reverse()[i]?.gameId ?? i}><span className="bar-value">{v}</span><div className={`bar ${v === line ? 'push' : hits(v) ? 'hit' : 'miss'}`} style={{ height: `${Math.max(5, (v / Math.max(...values.slice(0, 10), line + 1)) * 100)}%` }} /><span className="bar-label">{Math.min(10, values.length) - i}</span></div>)}</div><p className="footnote trend-legend">Most recent games at right. <span className="legend-hit">Green = hit</span> · <span className="legend-miss">Gold = miss</span> · <span className="legend-push">Gray = push</span>.</p></> : <div className="empty">{loading ? 'Loading verified player game history…' : error ? 'Game trends are unavailable until ESPN data loads.' : 'Choose a player to display their recent game trends.'}</div>}
-            </section>
-            <section className="panel"><div className="panel-title"><div><span className="eyebrow">RESEARCH SUMMARY</span><h3>Prop breakdown</h3></div></div>
-              <div className="summary-row"><span>Selected line</span><strong>{lineLabel}</strong></div><div className="summary-row"><span>Games available</span><strong>{eligibleGames.length}</strong></div><div className="summary-row"><span>Hits in available games</span><strong>{selected ? `${hitCount} / ${values.length}` : '—'}</strong></div><div className="summary-row"><span>Last 10 average</span><strong>{selected && average !== null ? average : '—'}</strong></div>
-              <div className="info-note">Matchup rankings use the completed game box scores currently loaded by EDGEIQ. They are historical team-level comparisons, not player-specific predictions.</div>
-            </section>
-          </div>
           <section className="panel log-panel"><div className="panel-title"><div><span className="eyebrow">HISTORICAL RESULTS</span><h3>Recent game log</h3></div><span className="small-tag">NEWEST FIRST</span></div>
             <div className="table-wrap"><table><thead><tr><th>DATE</th><th>OPPONENT</th><th>VENUE</th><th>PTS</th><th>REB</th><th>AST</th><th>3PM</th><th>STL</th><th>BLK</th><th>PRA</th><th>{prop.toUpperCase()} {lineLabel.toUpperCase()}</th></tr></thead><tbody>{games.slice(0, 20).map((g) => { const val = getPlayerPropValues([g], prop)[0]; return <tr key={g.gameId ?? g.date}><td>{new Date(g.date).toLocaleDateString()}</td><td>{g.opponent ?? '—'}</td><td>{g.homeAway === 'home' ? 'HOME' : g.homeAway === 'away' ? 'AWAY' : '—'}</td><td>{g.points}</td><td>{g.rebounds}</td><td>{g.assists}</td><td>{g.threes}</td><td>{g.steals ?? '—'}</td><td>{g.blocks ?? '—'}</td><td>{g.points + g.rebounds + g.assists}</td><td>{val === undefined ? <span className="footnote">N/A</span> : <span className={val === line ? 'push-chip' : hits(val) ? 'hit-chip' : 'miss-chip'}>{val === line ? 'PUSH' : hits(val) ? 'HIT' : 'MISS'}</span>}</td></tr> })}{games.length === 0 && <tr><td colSpan={11} className="table-empty">{loading ? 'Loading verified game history…' : error ? 'Game history unavailable; see the data error above.' : 'Select a player to view their game log.'}</td></tr>}</tbody></table></div>
           </section>
