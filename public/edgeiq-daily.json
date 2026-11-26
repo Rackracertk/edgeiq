@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T11:03:34.069Z",
+  "generatedAt": "2026-11-26T13:26:39.300Z",
   "publishedDateET": "2026-11-26",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1335,7 +1335,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-26T11:03:30.022Z",
+          "checkedAt": "2026-11-26T13:26:36.019Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10734,7 +10734,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T11:03:31.918Z",
+        "generatedAt": "2026-11-26T13:26:37.192Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11958,7 +11958,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-26T11:03:30.022Z",
+          "checkedAt": "2026-11-26T13:26:36.019Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21247,7 +21247,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T11:03:32.134Z",
+        "generatedAt": "2026-11-26T13:26:37.393Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -26722,6 +26722,18 @@
             },
             {
               "playerId": "",
+              "player": "Bill Murray",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-26T12:31Z",
+              "expectedReturn": "2026-12-03",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Konata Mumpfield",
               "team": "",
               "teamId": "",
@@ -27007,18 +27019,6 @@
               "updatedAt": "2026-11-18T17:23Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "CJ Daniels",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Daniels caught one of two targets for 22 yards in Sunday's 34-6 win over the Cardinals.",
-              "updatedAt": "2026-11-17T04:58Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -30909,7 +30909,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-26T11:03:30.112Z",
+          "checkedAt": "2026-11-26T13:26:36.115Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -36376,7 +36376,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T11:03:33.494Z",
+        "generatedAt": "2026-11-26T13:26:38.739Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 164,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -41813,6 +41813,18 @@
             },
             {
               "playerId": "",
+              "player": "Bill Murray",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "questionable",
+              "updatedAt": "2026-11-26T12:31Z",
+              "expectedReturn": "2026-12-03",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Konata Mumpfield",
               "team": "",
               "teamId": "",
@@ -42098,18 +42110,6 @@
               "updatedAt": "2026-11-18T17:23Z",
               "expectedReturn": "",
               "position": "TE"
-            },
-            {
-              "playerId": "",
-              "player": "CJ Daniels",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Daniels caught one of two targets for 22 yards in Sunday's 34-6 win over the Cardinals.",
-              "updatedAt": "2026-11-17T04:58Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -46000,7 +46000,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-26T11:03:30.112Z",
+          "checkedAt": "2026-11-26T13:26:36.115Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -48037,7 +48037,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-26T11:03:34.069Z",
+        "generatedAt": "2026-11-26T13:26:39.299Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 164,
         "publishedBy": "EDGEIQ unattended research publisher"
