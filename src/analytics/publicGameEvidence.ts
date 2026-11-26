@@ -49,3 +49,18 @@ export function historicalScoreBaseline(history:Fixture[],game:Fixture){
  const summaries=samples.map((games,i)=>({scored:mean(games.map(g=>g.participants.find(p=>p.id===game.participants[i].id)!.score!)),allowed:mean(games.map(g=>g.participants.find(p=>p.id!==game.participants[i].id)!.score!))}))
  return summaries.map((s,i)=>Math.round((s.scored+summaries[1-i].allowed)*50)/100)
 }
+
+/** Readable, auditable matchup context. No claims of insider information or exact future outcomes. */
+export function matchupNarrative(history:Fixture[],game:Fixture,now:number){
+ const finals=eligibleHistory(history,game,now)
+ const rows=game.participants.map(p=>{
+  const recent=finals.filter(g=>g.participants.some(t=>t.id===p.id)).slice(0,5)
+  const scored=recent.map(g=>g.participants.find(t=>t.id===p.id)!.score!)
+  const allowed=recent.map(g=>g.participants.find(t=>t.id!==p.id)!.score!)
+  const avg=(v:number[])=>v.length?v.reduce((a,b)=>a+b,0)/v.length:null
+  return {name:p.name,id:p.id,n:recent.length,wins:scored.filter((v,i)=>v>allowed[i]).length,scored:avg(scored),allowed:avg(allowed),last:recent[0]?.date??null}
+ })
+ const baseline=historicalScoreBaseline(finals,game)
+ const latest=finals.find(g=>game.participants.every(p=>g.participants.some(t=>t.id===p.id)))
+ return {rows,baseline,latest}
+}

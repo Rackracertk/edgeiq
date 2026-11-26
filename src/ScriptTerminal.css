@@ -46,3 +46,12 @@
 .st-topic-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px;padding:4px 0 10px;border-bottom:1px solid #393939}.st-topic-tabs .nav{background:transparent;border:1px solid #3c3c3c;border-radius:999px;font-size:12px;white-space:normal;padding:8px 12px;color:#c9c9c9}.st-topic-tabs .nav.active{color:#eacb78;background:#302b20;border-color:#a88b47}
 .st-research-body>.panel{background:#242424;border-color:#3b3b3b;margin:12px 0}.st-research-body>.st-match{margin-top:0}.st-research-body .st-match .st-teams{padding:8px 0}.st-research-body .st-match .st-teams img{width:42px;height:42px}.st-research-body .st-match .st-teams strong{font-size:clamp(14px,2vw,22px)}.st-research-body .st-match .st-teams b{font-size:25px}.st-research-body .st-extra-tools>.nav{justify-self:start}.st-research-body .st-pro{background:#242424;border-color:#3b3b3b}.st-research-body .st-player{background:#202020;border-color:#404040}
 @media(max-width:600px){.st-game-picker{padding:12px}.st-picker-fields{gap:8px}.st-picker-fields label{flex-basis:125px}.st-primary-tabs{gap:5px}.st-primary-tabs .nav{font-size:11px;min-height:60px}.st-primary-tabs .st-section-icon{width:19px;height:19px}.st-topic-tabs .nav{font-size:11px;padding:7px 9px}.st-sport-grid{margin-bottom:12px}}
+
+/* Restore the classic EDGEIQ sports sidebar and green/gold visual language. */
+.shell:not(.script-only-shell) .st-terminal .script-hero{background:linear-gradient(120deg,#102423,#101819);padding:26px;margin:20px 0;border:1px solid #3d554a;border-radius:15px}
+.shell:not(.script-only-shell) .st-terminal .script-hero h1{font-size:clamp(35px,5vw,56px);margin-top:9px}
+.shell:not(.script-only-shell) .st-game-picker,.shell:not(.script-only-shell) .st-research-body>.panel,.shell:not(.script-only-shell) .st-pro{background:#122321;border-color:#354b42}
+.shell:not(.script-only-shell) .st-primary-tabs .nav{background:#142421;border-color:#365249}
+.shell:not(.script-only-shell) .st-primary-tabs .nav.active{background:#224735;border-color:#c6a343}
+.shell:not(.script-only-shell) .st-topic-tabs .nav{border-color:#385047}
+.st-narrative{border:1px solid #42604d;border-radius:14px;padding:17px;margin:14px 0;background:#142820}.st-narrative h3{margin:12px 0}.st-narrative p{line-height:1.65}.st-story-phase{display:flex;gap:12px;align-items:flex-start;padding:8px 0;border-top:1px solid #35483d}.st-story-phase>span{color:#e9bb59;font-weight:700;padding-top:4px}.st-story-phase p{margin:0}
