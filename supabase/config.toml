@@ -17,3 +17,9 @@ verify_jwt = false
 
 [functions.pro-insights]
 verify_jwt = false
+
+[functions.script-intelligence]
+verify_jwt = false
+
+[functions.script-refresh]
+verify_jwt = false
