@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { SPORTS, americanProbability, comparableName, parseESPNEvent,
  recentForm, matchupEvidence, pairMarketQuotes, matchByFixture } from '../scripts/multisport-core.mjs';
 
-test('five sports exist with official sport and league identifiers',()=>{
- assert.deepEqual(Object.keys(SPORTS),['MLB','NHL','NCAAF','NCAAB','SOCCER']);
- assert.equal(SPORTS.SOCCER.feeds.length,6);
+test('six team sports exist with official sport and league identifiers',()=>{
+ assert.deepEqual(Object.keys(SPORTS),['MLB','NHL','NCAAF','NCAAB','WNBA','SOCCER']);
+ assert.equal(SPORTS.SOCCER.feeds.length,7);
  for(const sport of Object.values(SPORTS)) {
   assert.ok(sport.feeds.every(f=>f.espn && f.odds && f.league));
   assert.ok(sport.props.length>=4);

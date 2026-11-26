@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import './MultiSportBoard.css';
 
-export type AddedSport = 'MLB'|'NHL'|'NCAAF'|'NCAAB'|'SOCCER';
+export type AddedSport = 'MLB'|'NHL'|'NCAAF'|'NCAAB'|'SOCCER'|'WNBA';
 const SPORT_NAMES: Record<AddedSport,string> = {
-  MLB:'MLB',NHL:'NHL',NCAAF:'College Football',NCAAB:'College Basketball',SOCCER:'Soccer'
+  MLB:'MLB',NHL:'NHL',NCAAF:'College Football',NCAAB:'College Basketball',SOCCER:'Soccer',WNBA:'WNBA'
 };
 const SPORT_IDS = Object.keys(SPORT_NAMES) as AddedSport[];
 type Form = { games:number;wins:number;draws:number;losses:number;scoredAvg:number|null;
@@ -70,7 +70,7 @@ export default function MultiSportBoard({initialSport='NHL',compact=false}:{init
  const [loading,setLoading]=useState(true);
  const [retry,setRetry]=useState(0);
  const [league,setLeague]=useState('All leagues');
- const [view,setView]=useState<'cheatsheet'|'matchups'>('cheatsheet');
+ const [view,setView]=useState<'cheatsheet'|'matchups'>('matchups');
  const [marketFilter,setMarketFilter]=useState<'props'|'game'|'all'>('props');
  const [shortlist,setShortlist]=useState<Selection[]>([]);
  const [copyState,setCopyState]=useState('');
@@ -133,7 +133,7 @@ export default function MultiSportBoard({initialSport='NHL',compact=false}:{init
    <section className="multi-head">
     <span className="eyebrow gold">EDGEIQ MULTI-SPORT INTELLIGENCE</span>
     <h2>Research the <span className="gold">real markets.</span></h2>
-    <p>Five new sports. Matchup form from recorded final scores, plus authenticated sportsbook lines and player props when available. Historical form and bookmaker implied rates are <strong>not</strong> predicted hit rates.</p>
+    <p>Six team sports. Matchup form from recorded final scores, plus authenticated sportsbook lines and player props when available. Historical form and bookmaker implied rates are <strong>not</strong> predicted hit rates.</p>
    </section>
    <div className="multi-tabs" role="group" aria-label="Choose sport">
     {SPORT_IDS.map(id=><button key={id} className={sport===id?'multi-selected':''}

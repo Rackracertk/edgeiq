@@ -8,13 +8,16 @@ export const SPORTS = Object.freeze({
     props: ['player_pass_yds','player_pass_tds','player_pass_completions','player_rush_yds','player_reception_yds','player_receptions'] },
   NCAAB: { label: 'College Basketball', feeds: [{ league: 'NCAAB', espn: 'basketball/mens-college-basketball', odds: 'basketball_ncaab' }],
     props: ['player_points','player_rebounds','player_assists','player_threes','player_points_rebounds_assists','player_points_assists','player_points_rebounds','player_rebounds_assists'] },
+  WNBA: { label: 'WNBA', feeds: [{ league: 'WNBA', espn: 'basketball/wnba', odds: 'basketball_wnba' }],
+    props: ['player_points','player_rebounds','player_assists','player_threes','player_points_rebounds_assists','player_points_assists','player_points_rebounds','player_rebounds_assists'] },
   SOCCER: { label: 'Soccer', feeds: [
     { league: 'Premier League', espn: 'soccer/eng.1', odds: 'soccer_epl' },
     { league: 'La Liga', espn: 'soccer/esp.1', odds: 'soccer_spain_la_liga' },
     { league: 'Bundesliga', espn: 'soccer/ger.1', odds: 'soccer_germany_bundesliga' },
     { league: 'Serie A', espn: 'soccer/ita.1', odds: 'soccer_italy_serie_a' },
     { league: 'Ligue 1', espn: 'soccer/fra.1', odds: 'soccer_france_ligue_one' },
-    { league: 'MLS', espn: 'soccer/usa.1', odds: 'soccer_usa_mls' }
+    { league: 'MLS', espn: 'soccer/usa.1', odds: 'soccer_usa_mls' },
+    { league: 'Champions League', espn: 'soccer/uefa.champions', odds: 'soccer_uefa_champs_league' }
   ], props: ['player_shots','player_shots_on_target','player_assists','player_goal_scorer_anytime'] }
 });
 export const LABELS = {
