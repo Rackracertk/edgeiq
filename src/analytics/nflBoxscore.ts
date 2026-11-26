@@ -15,7 +15,7 @@ export const NFL_PROP_CATEGORIES = [
   'Passing Yards', 'Passing Completions', 'Passing Attempts', 'Passing TDs', 'Interceptions Thrown',
   'Rushing Yards', 'Rushing Attempts', 'Rushing TDs', 'Longest Rush',
   'Receiving Yards', 'Receptions', 'Receiving Targets', 'Receiving TDs', 'Longest Reception',
-  'Sacks', 'Tackles', 'Solo Tackles',
+  'Sacks', 'Tackles', 'Solo Tackles','Assisted Tackles','Defensive Interceptions','Forced Fumbles','Longest Completion','Field Goals Made','Extra Points Made','Kicking Points','Longest Field Goal',
 ] as const
 
 export function defaultNFLLine(category: string): number {
@@ -82,6 +82,7 @@ export function parseNFLBoxscore(data: any, game: NFLBoxGame): NFLHistoryRow[] {
             stats['Passing Attempts'] = cAtt[1]
           }
           put('Passing Yards', ['YDS', 'passingYards'])
+          put('Longest Completion',['LONG','LG','longPassing','longestCompletion'])
           put('Passing TDs', ['TD', 'passingTouchdowns'])
           put('Interceptions Thrown', ['INT', 'INTS', 'interceptions'])
         }
@@ -102,6 +103,16 @@ export function parseNFLBoxscore(data: any, game: NFLBoxGame): NFLHistoryRow[] {
           put('Sacks', ['SACK', 'SACKS', 'SK', 'SCK', 'sacks'])
           put('Tackles', ['TOT','TOTAL','totalTackles'])
           put('Solo Tackles', ['SOLO','soloTackles'])
+          put('Assisted Tackles',['AST','assistedTackles','tackleAssists'])
+          if(stats['Assisted Tackles']===undefined&&stats.Tackles!==undefined&&stats['Solo Tackles']!==undefined&&stats.Tackles>=stats['Solo Tackles'])stats['Assisted Tackles']=stats.Tackles-stats['Solo Tackles']
+          put('Defensive Interceptions',['INT','interceptions'])
+          put('Forced Fumbles',['FF','forcedFumbles'])
+        }
+        if(groupName.includes('interception'))put('Defensive Interceptions',['INT','interceptions'])
+        if(groupName.includes('fumble'))put('Forced Fumbles',['FF','forcedFumbles'])
+        if(groupName.includes('kicking')){
+          const fg=statRatio(athlete.stats??[],labels,'FG'),xp=statRatio(athlete.stats??[],labels,'XP');if(fg)stats['Field Goals Made']=fg[0];if(xp)stats['Extra Points Made']=xp[0]
+          put('Kicking Points',['PTS','points']);put('Longest Field Goal',['LONG','LG','longFieldGoal'])
         }
         if (!Object.keys(stats).length) continue
         records.push({

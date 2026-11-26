@@ -12,13 +12,21 @@ export type NBAPlayerGame = {
   homeAway?: 'home' | 'away'
   position?: string
   minutes?: number
+  fieldGoalsMade?:number
+  fieldGoalAttempts?:number
+  threePointAttempts?:number
+  freeThrowsMade?:number
+  freeThrowAttempts?:number
+  offensiveRebounds?:number
+  defensiveRebounds?:number
+  turnovers?:number
 }
 
 export const NBA_PROP_CATEGORIES = [
   'Points', 'Rebounds', 'Assists', '3-Pointers Made', 'Steals', 'Blocks', 'PRA',
   'Points + Assists (PA)', 'Points + Rebounds (PR)',
   'Assists + Rebounds (AR)', 'Steals + Blocks (SB)',
-  'Double-Double', 'Triple-Double',
+  'Double-Double', 'Triple-Double', 'Field Goals Made','Field Goal Attempts','3-Point Attempts','Free Throws Made','Free Throw Attempts','Offensive Rebounds','Defensive Rebounds','Turnovers','Minutes',
 ] as const
 
 export function isNBABinaryProp(prop: string): boolean {
@@ -46,6 +54,8 @@ function valid(value: unknown): value is number {
 // in a hit-rate denominator.
 export function getNBAGamePropValue(game: NBAPlayerGame, prop: string): number | null {
   if (![game.points, game.rebounds, game.assists, game.threes].every(valid)) return null
+  const extra:Record<string,keyof NBAPlayerGame>={'Field Goals Made':'fieldGoalsMade','Field Goal Attempts':'fieldGoalAttempts','3-Point Attempts':'threePointAttempts','Free Throws Made':'freeThrowsMade','Free Throw Attempts':'freeThrowAttempts','Offensive Rebounds':'offensiveRebounds','Defensive Rebounds':'defensiveRebounds','Turnovers':'turnovers','Minutes':'minutes'}
+  if(extra[prop]){const v=game[extra[prop]];return valid(v)?v:null}
   if (prop === 'Points') return game.points
   if (prop === 'Rebounds') return game.rebounds
   if (prop === 'Assists') return game.assists

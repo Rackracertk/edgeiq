@@ -1,3 +1,4 @@
+import {canonicalProp} from './propCatalog.ts'
 import type {Fixture} from './scriptSports'
 import type {SlipQuote} from './slipResearch'
 import {selectMajorOdds} from './majorOdds.ts'
@@ -11,7 +12,7 @@ export function buildPropBoard(snapshot:Snapshot|null,games:Fixture[],sport:stri
  for(const game of games)for(const q of selectMajorOdds(snapshot,game,sport,now,maxAgeMinutes)){
   if(!/^(player_|batter_|pitcher_|goalie_|fighter_)/.test(q.market)||!['over','under'].includes(q.side)||!q.participant||!q.book||typeof q.line!=='number'||!Number.isFinite(q.line)||!Number.isInteger(q.odds)||Math.abs(q.odds??0)<100)continue
   const key=JSON.stringify([game.path,game.id,normalizedName(q.participant),q.market,q.line,q.book])
-  const row=map.get(key)??{key,game,player:q.participant,category:q.category,market:q.market,line:q.line,book:q.book,over:null,under:null}
+  const row=map.get(key)??{key,game,player:q.participant,category:canonicalProp(sport,q.market,q.category),market:q.market,line:q.line,book:q.book,over:null,under:null}
   const side=q.side as 'over'|'under'
   if(!row[side]||Date.parse(q.observedAt)>Date.parse(row[side]!.observedAt))row[side]=q
   map.set(key,row)
