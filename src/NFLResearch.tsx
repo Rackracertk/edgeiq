@@ -1,3 +1,4 @@
+import PlayerBrowser from './PlayerBrowser'
 import PlayerResearchCard from './PlayerResearchCard'
 import {usePlayerInjury} from './usePlayerInjury'
 import { useEffect, useMemo, useState } from 'react'
@@ -28,7 +29,6 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
   const [rows, setRows] = useState<RecordRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [query, setQuery] = useState(initialSelection?.playerName ?? '')
   const [playerId, setPlayerId] = useState(initialSelection?.playerId ?? '')
   const [category, setCategory] = useState<Category>((initialSelection?.statCategory as Category | undefined) ?? 'Passing Yards')
   const [line, setLine] = useState(initialSelection?.line ?? 199.5)
@@ -147,6 +147,7 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
     })
     return Array.from(map.values()).sort((a,b)=>a.name.localeCompare(b.name))
   }, [rows,currentNFLRoster,rosterStatus])
+  useEffect(()=>{if(!players.length||players.some(p=>p.id===playerId))return;const eligible=new Set(rows.filter(r=>category in r.stats).map(r=>r.playerId));setPlayerId((players.find(p=>eligible.has(p.id))??players[0]).id)},[players,rows,playerId,category])
   const selected = players.find(player => player.id === playerId)
   const injury=usePlayerInjury('NFL',selected?.id,selected?.name,selected?.team)
   useEffect(() => {
@@ -196,7 +197,6 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
     void loadNextOpponent()
     return () => { cancelled = true }
   }, [selected?.team, licensedUpcoming])
-  const suggestions = query && !selected ? players.filter(player => player.name.toLowerCase().includes(query.toLowerCase())).slice(0, 8) : []
   const history = Array.from(new Map(rows.filter(row => row.playerId === playerId && category in row.stats).map(row => [row.gameId, row])).values()).sort((a, b) => b.date.localeCompare(a.date))
   // Independent defensive rankings from completed games: passing and rushing
   // totals are summed from offensive player box scores for each opponent.
@@ -223,10 +223,8 @@ export default function NFLResearch({ onUpgrade, onResearchChange, initialSelect
       Current NFL roster verification is unavailable. To prevent outdated team assignments, player matchups are temporarily hidden. Historical game logs are retained, not reassigned.
     </div>}
     {error && <div className="error" role="alert">{error}</div>}
+    <PlayerBrowser players={players} selectedId={playerId} onSelect={p=>setPlayerId(String(p.id))} loading={loading||rosterStatus==='loading'}/>
     <section className="panel controls">
-      <div className="field player-field"><label htmlFor="nfl-player">PLAYER</label><input id="nfl-player" placeholder="Search NFL players…" value={query} onChange={event => { setQuery(event.target.value); setPlayerId('') }} autoComplete="off" />
-        {suggestions.length > 0 && <div className="suggestions">{suggestions.map(player => <button key={player.id} onClick={() => { setPlayerId(player.id); setQuery(player.name) }}>{player.name}<span>{player.team}</span></button>)}</div>}
-      </div>
       <div className="field"><label htmlFor="nfl-stat">STAT CATEGORY</label><select id="nfl-stat" value={category} onChange={event => { const next = event.target.value as Category; setCategory(next); setLine(defaultNFLLine(next)); setDirection('over') }}>{categories.map(item => <option key={item}>{item}</option>)}</select></div>
       <div className="field"><label htmlFor="nfl-line">ANALYSIS LINE</label><input id="nfl-line" type="number" min="0" step="0.5" value={line} onChange={event => setLine(Number(event.target.value))} /></div>
       <div className="field"><label htmlFor="nfl-direction">DIRECTION</label><select id="nfl-direction" value={direction} onChange={event => setDirection(event.target.value as Direction)}><option value="over">Over</option><option value="under">Under</option></select></div>

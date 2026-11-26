@@ -1,6 +1,7 @@
+import PlayerBrowser from './PlayerBrowser'
 import PlayerResearchCard from './PlayerResearchCard'
 import {usePlayerInjury} from './usePlayerInjury'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ProInsights from './ProInsights'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
@@ -27,7 +28,6 @@ function NBAResearch() {
   const [loading, setLoading] = useState(true)
   const [nbaResearchSource, setNbaResearchSource] = useState('')
   const [error, setError] = useState('')
-  const [query, setQuery] = useState('')
   const [playerId, setPlayerId] = useState('')
   const [prop, setProp] = useState('Points')
   const [line, setLine] = useState(20)
@@ -145,14 +145,12 @@ function NBAResearch() {
     return () => { cancelled = true }
   }, [])
 
+  useEffect(()=>{if(!players.length||players.some(p=>String(p.id)===playerId))return;const first=players.find(p=>(history[String(p.id)]??[]).some(g=>getNBAGamePropValue(g,prop)!==null))??players[0];setPlayerId(String(first.id))},[players,history,playerId,prop])
   const selected = players.find((p) => String(p.id) === playerId)
   const injury=usePlayerInjury('NBA',selected?String(selected.id):undefined,selected?.name,selected?.team)
   const games: NBAPlayerGame[] = selected ? history[String(selected.id)] ?? [] : []
   const eligibleGames = games.filter(game => getNBAGamePropValue(game, prop) !== null)
   const values = getPlayerPropValues(eligibleGames, prop)
-  const suggestions = useMemo(() => query.trim().length > 0 && !selected
-    ? players.filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 8)
-    : [], [players, query, selected])
   const hits = (value: number) => direction === 'over' ? value > line : value < line
   const lineLabel = isNBABinaryProp(prop) ? (direction === 'over' ? 'Yes' : 'No') : `${direction === 'over' ? 'Over' : 'Under'} ${line}`
 
@@ -163,10 +161,8 @@ function NBAResearch() {
             <strong>NBA game logs ready</strong><span>{nbaResearchSource}</span>
           </div>}
           {error && <div className="error" role="alert" aria-live="assertive">{error}</div>}
+          <PlayerBrowser players={players} selectedId={playerId} onSelect={p=>setPlayerId(String(p.id))} loading={loading}/>
           <section className="panel controls">
-            <div className="field player-field"><label htmlFor="player-search">PLAYER</label><input id="player-search" placeholder="Search NBA players…" value={query} onChange={(e) => { setQuery(e.target.value); setPlayerId('') }} autoComplete="off" />
-              {suggestions.length > 0 && <div className="suggestions">{suggestions.map((p) => <button key={String(p.id)} onClick={() => { setPlayerId(String(p.id)); setQuery(p.name) }}>{p.name}<span>{p.team}</span></button>)}</div>}
-            </div>
             <div className="field"><label htmlFor="prop">STAT CATEGORY</label><select id="prop" value={prop} onChange={(e) => { const next = e.target.value; setProp(next); setLine(defaultNBALine(next)); setDirection('over') }}>{props.map((p) => <option key={p}>{p}</option>)}</select></div>
             <div className="field"><label htmlFor="line">ANALYSIS LINE</label><input id="line" type="number" min="0" step="0.5" disabled={isNBABinaryProp(prop)} value={line} onChange={(e) => setLine(Number(e.target.value))} /></div>
             <div className="field"><label htmlFor="direction">DIRECTION</label><select id="direction" value={direction} onChange={(e) => setDirection(e.target.value as Direction)}><option value="over">{isNBABinaryProp(prop) ? 'Yes' : 'Over'}</option><option value="under">{isNBABinaryProp(prop) ? 'No' : 'Under'}</option></select></div>

@@ -1,7 +1,8 @@
+import PlayerBrowser from './PlayerBrowser'
 import ProductIcon from './ProductIcon'
 import PlayerResearchCard from './PlayerResearchCard'
 import {usePlayerInjury} from './usePlayerInjury'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import NFLResearch from './NFLResearch'
 import GameLines from './GameLines'
@@ -14,7 +15,6 @@ import AccountCenter from './AccountCenter'
 import ProInsights from './ProInsights'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
 import NBAOpponentExplorer from './NBAOpponentExplorer'
-import MultiSportBoard, { type AddedSport } from './MultiSportBoard'
 import type { ScriptSport } from './analytics/scriptSports'
 import { type Direction } from './analytics/hitRates'
 import { getPlayerPropValues, getNBAGamePropValue, NBA_PROP_CATEGORIES, isNBABinaryProp, defaultNBALine, type NBAPlayerGame } from './analytics/nbaData'
@@ -51,7 +51,6 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [nbaResearchSource, setNbaResearchSource] = useState('')
   const [error, setError] = useState('')
-  const [query, setQuery] = useState('')
   const [playerId, setPlayerId] = useState('')
   const [prop, setProp] = useState('Points')
   const [line, setLine] = useState(20)
@@ -174,14 +173,12 @@ function App() {
     return () => { cancelled = true }
   }, [activeTab,sport])
 
+  useEffect(()=>{if(!players.length||players.some(p=>String(p.id)===playerId))return;const first=players.find(p=>(history[String(p.id)]??[]).some(g=>getNBAGamePropValue(g,prop)!==null))??players[0];setPlayerId(String(first.id))},[players,history,playerId,prop])
   const selected = players.find((p) => String(p.id) === playerId)
   const injury=usePlayerInjury('NBA',selected?String(selected.id):undefined,selected?.name,selected?.team)
   const games: NBAPlayerGame[] = selected ? history[String(selected.id)] ?? [] : []
   const eligibleGames = games.filter(game => getNBAGamePropValue(game, prop) !== null)
   const values = getPlayerPropValues(eligibleGames, prop)
-  const suggestions = useMemo(() => query.trim().length > 0 && !selected
-    ? players.filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 8)
-    : [], [players, query, selected])
   const hits = (value: number) => direction === 'over' ? value > line : value < line
   const lineLabel = isNBABinaryProp(prop) ? (direction === 'over' ? 'Yes' : 'No') : `${direction === 'over' ? 'Over' : 'Under'} ${line}`
 
@@ -191,7 +188,7 @@ function App() {
         <div className="brand"><span className="brand-icon">E</span><span>EDGE<span className="gold">IQ</span><small>SPORTS INTELLIGENCE</small></span></div>
         <div className="side-caption">SPORTS</div>
         <div style={{ display: 'grid', gap: 6, padding: '0 12px 18px' }}>
-          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setScriptGame(null); setActiveTab('home') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
+          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setScriptGame(null); if(activeTab!=='research'&&activeTab!=='script')setActiveTab('home') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
         </div>
         <div className="side-caption">EXPLORE</div>
         <button className={activeTab==='home'?'nav active':'nav'} onClick={()=>setActiveTab('home')}><span className="product-icon-box"><ProductIcon name="home"/></span><span className="product-nav-label"><strong>Home</strong><small>Today's games and featured research</small></span></button>
@@ -203,17 +200,15 @@ function App() {
       </aside>
       <main className="main">
         <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'home' ? 'HOME' : activeTab === 'script' ? 'THE SCRIPT' : activeTab === 'markets' ? 'GAME LINES' : activeTab === 'injuries' ? 'INJURY CENTER' : activeTab === 'halftime' ? 'HALFTIME EDGE' : activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="free-beta-pill">FREE BETA</span><button className="nav account-shortcut" onClick={()=>setActiveTab("account")} aria-label="My account"><ProductIcon name="account"/><span>My account</span></button><span className="live-pill"><span className="dot" /> {activeTab === 'script' ? 'MATCHUP INTELLIGENCE' : activeTab === 'markets' ? 'GAME MARKETS' : activeTab === 'injuries' ? 'PLAYER AVAILABILITY' : activeTab === 'halftime' ? 'SECOND-HALF RESEARCH' : sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · MATCHUP RESEARCH`}</span></header>
-        {activeTab === 'home' ? <Home sport={sport as ScriptSport} onOpen={openScript} onAccount={()=>setActiveTab('account')}/> : activeTab === 'script' ? <TheScript key={sport+'|'+(scriptGame?.id??'default')} selectedSport={sport as ScriptSport} onSportChange={setSport} initialGame={scriptGame??undefined} /> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <GameLines onPro={() => setActiveTab('script')} /> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? (sport === 'TENNIS' || sport === 'MMA' ? <section className="panel"><h2>Individual sport research</h2><p>Open The Script for event schedules and available observed statistics.</p><button className="cta" onClick={()=>setActiveTab('script')}>Open The Script</button></section> : <><section className="panel"><h2>{sport} player research</h2><p>Open a game in The Script for recorded player box scores and available markets.</p><button className="cta" onClick={()=>openScript()}>Explore matchups</button></section><MultiSportBoard key={sport} initialSport={sport as AddedSport} /></>) : <>
+        {activeTab === 'home' ? <Home sport={sport as ScriptSport} onOpen={openScript} onAccount={()=>setActiveTab('account')}/> : activeTab === 'script' ? <TheScript key={sport+'|'+(scriptGame?.id??'default')} selectedSport={sport as ScriptSport} onSportChange={setSport} initialGame={scriptGame??undefined} /> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <GameLines onPro={() => setActiveTab('script')} /> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? <TheScript key={'props-'+sport} selectedSport={sport as ScriptSport} onSportChange={setSport} initialSection="Player Intelligence"/> : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count" role="status" aria-live="polite">{loading ? 'Loading verified player history…' : error ? players.length ? 'Data partially unavailable' : 'Data unavailable' : `${players.length} players available`}</span></div>
           {nbaResearchSource && <div className="cheat-publish-live" role="status" style={{marginBottom:18}}>
             <strong>NBA game logs ready</strong><span>{nbaResearchSource}</span>
           </div>}
           {error && <div className="error" role="alert" aria-live="assertive">{error}</div>}
+          <PlayerBrowser players={players} selectedId={playerId} onSelect={p=>setPlayerId(String(p.id))} loading={loading}/>
           <section className="panel controls">
-            <div className="field player-field"><label htmlFor="player-search">PLAYER</label><input id="player-search" placeholder="Search NBA players…" value={query} onChange={(e) => { setQuery(e.target.value); setPlayerId('') }} autoComplete="off" />
-              {suggestions.length > 0 && <div className="suggestions">{suggestions.map((p) => <button key={String(p.id)} onClick={() => { setPlayerId(String(p.id)); setQuery(p.name) }}>{p.name}<span>{p.team}</span></button>)}</div>}
-            </div>
             <div className="field"><label htmlFor="prop">STAT CATEGORY</label><select id="prop" value={prop} onChange={(e) => { const next = e.target.value; setProp(next); setLine(defaultNBALine(next)); setDirection('over') }}>{props.map((p) => <option key={p}>{p}</option>)}</select></div>
             <div className="field"><label htmlFor="line">ANALYSIS LINE</label><input id="line" type="number" min="0" step="0.5" disabled={isNBABinaryProp(prop)} value={line} onChange={(e) => setLine(Number(e.target.value))} /></div>
             <div className="field"><label htmlFor="direction">DIRECTION</label><select id="direction" value={direction} onChange={(e) => setDirection(e.target.value as Direction)}><option value="over">{isNBABinaryProp(prop) ? 'Yes' : 'Over'}</option><option value="under">{isNBABinaryProp(prop) ? 'No' : 'Under'}</option></select></div>
