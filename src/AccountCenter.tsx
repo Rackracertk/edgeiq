@@ -121,7 +121,7 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
     <>
       <section className="hero">
         <div className="eyebrow gold">EDGEIQ {mode === 'pricing' ? 'FREE BETA' : 'ACCOUNT CENTER'}</div>
-        <h1>{mode === 'pricing' ? <>Research your <span className="gold">way.</span></> : <>Your research <span className="gold">workspace.</span></>}</h1>
+        <h1>{mode === 'pricing' ? <>Research your <span className="gold">way.</span></> : <>Your research <span className="gold">library.</span></>}</h1>
         <p>All available research is free. Sign in only if you want to save research to your account. No card or subscription is needed.</p>
       </section>
       {!serviceReady && <section className="panel" role="status" style={{ padding: 22, marginBottom: 20 }}>

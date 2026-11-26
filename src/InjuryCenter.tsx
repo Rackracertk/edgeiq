@@ -96,6 +96,6 @@ export default function InjuryCenter() {
           </article>
         )}</div> : <section className="panel injury-empty"><h3>No matching injury entries</h3><p>No reported entries match this team or search. This does not establish that the roster is healthy or cleared to play.</p></section>}
       </>}
-    <p className="footnote injury-footnote">Injury notes may be delayed or incomplete. Only athletes matching a reported player ID, or both a name and team, are automatically excluded from the cheat sheet. A missing listing does not guarantee that a player will start.</p>
+    <p className="footnote injury-footnote">Injury notes may be delayed or incomplete. Only athletes matching a reported player ID, or both a name and team, are automatically excluded from published player research. A missing listing does not guarantee that a player will start.</p>
   </div>
 }
