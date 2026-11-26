@@ -5,10 +5,10 @@ type Snapshot=Parameters<typeof selectMajorOdds>[0]
 export type BoardOffer={key:string;game:Fixture;player:string;category:string;market:string;line:number;book:string;over:SlipQuote|null;under:SlipQuote|null}
 export type RosterPlayer={id:string;name:string;teamId:string;team:string;position:string}
 export const normalizedName=(s:string)=>s.normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'')
-export function buildPropBoard(snapshot:Snapshot|null,games:Fixture[],sport:string,now:number):BoardOffer[]{
+export function buildPropBoard(snapshot:Snapshot|null,games:Fixture[],sport:string,now:number,maxAgeMinutes=15):BoardOffer[]{
  if(!snapshot)return []
  const map=new Map<string,BoardOffer>()
- for(const game of games)for(const q of selectMajorOdds(snapshot,game,sport,now)){
+ for(const game of games)for(const q of selectMajorOdds(snapshot,game,sport,now,maxAgeMinutes)){
   if(!/^(player_|batter_|pitcher_|goalie_|fighter_)/.test(q.market)||!['over','under'].includes(q.side)||!q.participant||!q.book||typeof q.line!=='number'||!Number.isFinite(q.line)||!Number.isInteger(q.odds)||Math.abs(q.odds??0)<100)continue
   const key=JSON.stringify([game.path,game.id,normalizedName(q.participant),q.market,q.line,q.book])
   const row=map.get(key)??{key,game,player:q.participant,category:q.category,market:q.market,line:q.line,book:q.book,over:null,under:null}
