@@ -1,4 +1,4 @@
-name: EDGEIQ five-sport scheduled research publisher
+name: EDGEIQ multi-sport scheduled research publisher
 
 on:
   schedule:
@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: edgeiq-five-sport-research-publisher
+  group: edgeiq-multi-sport-research-publisher
   cancel-in-progress: false
 
 jobs:
@@ -45,7 +45,7 @@ jobs:
           import { readFileSync } from 'node:fs'
           const p=JSON.parse(readFileSync('public/edgeiq-multisport.json','utf8'))
           if(p.schemaVersion!==1 || !Number.isFinite(Date.parse(p.generatedAt)))throw Error('Invalid publication version/time')
-          const expected=['MLB','NHL','NCAAF','NCAAB','SOCCER']
+          const expected=['MLB','NHL','NCAAF','NCAAB','SOCCER','WNBA']
           for(const sport of expected){
             if(!Array.isArray(p.sports?.[sport]?.leagues))throw Error('Missing '+sport)
             for(const league of p.sports[sport].leagues)for(const game of league.games){
@@ -53,7 +53,7 @@ jobs:
               if(p.oddsStatus==='NOT_CONFIGURED' && game.markets.length)throw Error('Unlicensed market quotation')
             }
           }
-          console.log('Validated published five-sport research:',expected.join(', '))
+          console.log('Validated published multi-sport research:',expected.join(', '))
           NODE
       - name: Commit only published multi-sport research data
         run: |
@@ -63,7 +63,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No multi-sport changes to publish'
           else
-            git commit -m 'data: refresh five-sport matchups and authorized market snapshots'
+            git commit -m 'data: refresh multi-sport matchups and authorized market snapshots'
             git pull --rebase origin edgeiq-launch-foundation-2026
             git push origin HEAD:edgeiq-launch-foundation-2026
           fi
