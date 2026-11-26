@@ -27,7 +27,7 @@ export default function AutoPropBoard({sport,initialGame}:{sport:ScriptSport;ini
   const nameMatch=!query||clean(g.name+' '+(g.player?.team??'')+' '+(g.player?.position??'')).includes(clean(query))
   const available=g.offers.filter(o=>(!categories.includes(category)||o.category===category)&&(!books.includes(book)||o.book===book)&&(nameMatch||clean(o.category+' '+o.game.participants.map(t=>t.name).join(' ')).includes(clean(query))))
   if(available.length)return [{...g,offers:available}]
-  return !category&&!book&&!g.offers.length&&nameMatch?[g]:[]
+  return !categories.includes(category)&&!books.includes(book)&&!g.offers.length&&nameMatch?[g]:[]
  })
  const fallbackGame=slate.find(g=>g.id===gameId)??slate[0]
  function reset(){setLimit(24);setSelected('')}
