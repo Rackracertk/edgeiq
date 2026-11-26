@@ -9,6 +9,7 @@ import { findInjury, shouldExcludeInjury, loadInjuryAwareSlate, easternDate, typ
 import { americanOddsBreakEven, type ElitePick } from './analytics/eliteResearch'
 import { selectHistoricalResearchPicks } from './analytics/publishedResearch'
 import './DailyCheatSheet.css'
+import { teamsFor, teamFor, teamMatches, textMatches } from './analytics/teamDirectory'
 
 type MarketVerifiedCard = {
   pick: ElitePick
@@ -64,6 +65,10 @@ export default function DailyCheatSheet({
   const [retry, setRetry] = useState(0)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [category, setCategory] = useState('ALL')
+  const [teamFilter,setTeamFilter] = useState('all')
+  const [playerSearch,setPlayerSearch] = useState('')
+  const [order,setOrder] = useState('evidence')
+  const [onePerPlayer,setOnePerPlayer] = useState(true)
   const [propGroup, setPropGroup] = useState('ALL')
   const [pickMode, setPickMode] = useState<'all' | 'elite'>('all')
   const [direction, setDirection] = useState('ALL')
@@ -217,12 +222,17 @@ export default function DailyCheatSheet({
     {id:'DEFENSE',label:'Defense',stats:['Sacks','Tackles','Solo Tackles']},
   ]
   const currentGroup = groups.find(group => group.id === propGroup)
-  const filtered = picks.filter(pick =>
+  const ranked = picks.filter(pick =>
+    (teamFilter === 'all' || [pick.team,pick.opponent].some(t => teamFor(sport,t)?.code === teamFilter)) &&
+    (!playerSearch.trim() || textMatches(pick.player,playerSearch) || teamMatches(sport,pick.team,playerSearch) || teamMatches(sport,pick.opponent,playerSearch)) &&
     (propGroup === 'ALL' || currentGroup?.stats.includes(pick.category)) &&
     (category === 'ALL' || pick.category === category) &&
     (direction === 'ALL' || pick.direction === direction) &&
     (!matchupOnly || pick.defense !== null)
   )
+  const sorted = [...ranked].sort((a,b) => order === 'history' ? b.recentHits/b.recentGames-a.recentHits/a.recentGames || b.recentGames-a.recentGames : order === 'sample' ? b.recentGames-a.recentGames || b.researchScore-a.researchScore : Number(!!b.defense)-Number(!!a.defense) || b.researchScore-a.researchScore || b.recentGames-a.recentGames)
+  const seenPlayers = new Set<string>()
+  const filtered = onePerPlayer ? sorted.filter(pick=>{if(seenPlayers.has(pick.playerId))return false;seenPlayers.add(pick.playerId);return true}) : sorted
   const visible = showAll ? filtered : filtered.slice(0, 12)
   const selected = selectedPicks
   const isBusy = publicationStatus === 'loading' || (!publishedBoard && (loadingKey === key || (sport === 'NBA' && nbaLoading)))
@@ -231,6 +241,7 @@ export default function DailyCheatSheet({
 
   function switchSport(value: CheatSport) {
     setSport(value)
+    setTeamFilter('all');setPlayerSearch('')
     setCategory('ALL')
     setPropGroup('ALL')
     setDirection('ALL')
@@ -349,6 +360,12 @@ export default function DailyCheatSheet({
         onClick={() => {setPropGroup(group.id);setCategory('ALL');setShowAll(false)}}
         aria-pressed={propGroup === group.id}>{group.label}</button>)}
     </div>
+    <div className="revamp-filter">
+      <label>SEARCH PLAYER / TEAM<input value={playerSearch} onChange={e=>{setPlayerSearch(e.target.value);setShowAll(false)}} placeholder="Player, nickname, team…" /></label>
+      <label>MATCHUP TEAM<select value={teamFilter} onChange={e=>{setTeamFilter(e.target.value);setShowAll(false)}}><option value="all">All teams</option>{teamsFor(sport).map(t=><option key={t.code} value={t.code}>{t.name}</option>)}</select></label>
+      <label>SORT BY<select value={order} onChange={e=>{setOrder(e.target.value);setShowAll(false)}}><option value="evidence">Matchup evidence & score</option><option value="history">Observed hit rate</option><option value="sample">Largest sample</option></select></label>
+      <label className="revamp-check"><input type="checkbox" checked={onePerPlayer} onChange={e=>{setOnePerPlayer(e.target.checked);setShowAll(false)}}/> One card per player</label>
+    </div>
     <div className="cheat-controls">
       <label>STAT TYPE
         <select value={category} onChange={event => { setCategory(event.target.value); setShowAll(false) }}>
@@ -379,7 +396,7 @@ export default function DailyCheatSheet({
       <p>{picks.length ? 'No qualifying observations match these filters. Try another stat, the opposite side, or turn off position-only filtering.' : pickMode === 'elite'
         ? 'No 90%+ historical trends passed the screening for this slate. Try All Props for additional research without elite labeling.'
         : 'No over/under observations passed the historical screening for this slate. Reference thresholds are never represented as real sportsbook lines.'}</p>
-      {(picks.length > 0 || pickMode === 'elite') && <button className="nav" onClick={() => { setCategory('ALL'); setPropGroup('ALL'); setDirection('ALL'); setMatchupOnly(false);setPickMode('all') }}>Show all research</button>}
+      {(picks.length > 0 || pickMode === 'elite') && <button className="nav" onClick={() => { setCategory('ALL'); setPropGroup('ALL'); setDirection('ALL'); setMatchupOnly(false);setPickMode('all');setTeamFilter('all');setPlayerSearch('');setOnePerPlayer(false) }}>Show all research</button>}
     </section> : <>
       <div className="cheat-grid">
         {visible.map((pick, index) => {
@@ -410,6 +427,7 @@ export default function DailyCheatSheet({
               <span>H2H: <b>{pick.headToHead ? pick.headToHead.hits + '/' + pick.headToHead.games : 'Insufficient games'}</b></span>
               <span>RESEARCH SCORE: <b>{pick.researchScore}/100</b></span>
             </div>
+            <div className="revamp-evidence"><span>{pick.defense ? 'Matchup sample: '+pick.defense.distinctGames+' games' : 'Matchup evidence missing'}</span><span>{pick.recentGames >= 10 ? '10+ recent games' : 'Limited player sample'}</span><span>{reportAvailable ? 'Injury report available' : 'Injury status unverified'}</span></div>
             <p className="cheat-reason">{pick.context} {pick.researchGrade === 'TREND ONLY' ? 'Opponent-position corroboration is not yet available.' : 'Opponent-position evidence is calculated from completed opposing-player appearances.'}</p>
             <details className="cheat-deep-research">
               <summary>View deep research &amp; market check</summary>

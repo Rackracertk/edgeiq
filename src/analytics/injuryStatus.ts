@@ -31,7 +31,7 @@ export function normalizeInjuries(payload: any): InjuryReport[] {
         ? entry.status : entry.status?.name || entry.status?.description || entry.status?.type || entry.fantasyStatus?.name)
       if ((!playerId && !player) || !status) continue
       rows.push({
-        playerId, player, team: text(team.abbreviation), teamId: text(team.id),
+        playerId, player, team: text(team.abbreviation || groupTeam.abbreviation || team.shortDisplayName || team.displayName || groupTeam.displayName), teamId: text(team.id || groupTeam.id),
         status,
         reason: text(entry.type?.name || entry.type?.description || entry.details?.type || entry.details?.detail || entry.injury?.description),
         note: text(entry.details?.shortComment || entry.details?.description || entry.shortComment || entry.details?.detail).slice(0,240),

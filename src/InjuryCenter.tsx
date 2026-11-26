@@ -5,6 +5,7 @@ import {
   type InjuryData, type InjuryReport,
 } from './analytics/injuryCenter'
 import './InjuryCenter.css'
+import { teamsFor, teamFor, teamMatches, teamName, textMatches } from './analytics/teamDirectory'
 
 const formatDate = (date: string) => {
   if (!date) return 'Update time not reported'
@@ -19,6 +20,7 @@ export default function InjuryCenter() {
   const [reload, setReload] = useState(0)
   const [search, setSearch] = useState('')
   const [status, setStatus] = useState('all')
+  const [selectedTeam, setSelectedTeam] = useState('all')
   useEffect(() => {
     let cancelled = false
     setLoading(true)
@@ -40,15 +42,17 @@ export default function InjuryCenter() {
     return () => { window.clearInterval(interval); window.removeEventListener('focus',onFocus) }
   }, [])
   const injuries = data?.injuries ?? []
+  const directory = teamsFor(sport)
+  const teamRows = injuries.filter(row => selectedTeam === 'all' || teamFor(sport,row.team)?.code === selectedTeam)
   const counts = useMemo(() => ({
-    out: injuries.filter(row => injuryAvailability(row.status) === 'unavailable').length,
-    risk: injuries.filter(row => injuryAvailability(row.status) === 'risk').length,
-    listed: injuries.filter(row => injuryAvailability(row.status) === 'listed').length,
-  }), [injuries])
-  const shown = injuries.filter(row => {
+    out: teamRows.filter(row => injuryAvailability(row.status) === 'unavailable').length,
+    risk: teamRows.filter(row => injuryAvailability(row.status) === 'risk').length,
+    listed: teamRows.filter(row => injuryAvailability(row.status) === 'listed').length,
+  }), [teamRows])
+  const shown = teamRows.filter(row => {
     if (status !== 'all' && injuryAvailability(row.status) !== status) return false
     const query = search.trim().toLowerCase()
-    if (query && !(row.player + ' ' + row.team + ' ' + row.reason + ' ' + row.status).toLowerCase().includes(query)) return false
+    if (query && !teamMatches(sport,row.team,query) && !textMatches(row.player + ' ' + row.reason + ' ' + row.status,query)) return false
     return true
   }).sort((a,b) => a.team.localeCompare(b.team) || a.player.localeCompare(b.player))
   return <div className="injury-page">
@@ -59,12 +63,13 @@ export default function InjuryCenter() {
     </section>
     <div className="injury-toolbar">
       <div className="cheat-tabs" role="group" aria-label="Sport">
-        <button className={sport === 'NBA' ? 'cheat-tab on' : 'cheat-tab'} onClick={() => {setSport('NBA');setSearch('');setStatus('all')}} aria-pressed={sport==='NBA'}>🏀 NBA</button>
-        <button className={sport === 'NFL' ? 'cheat-tab on' : 'cheat-tab'} onClick={() => {setSport('NFL');setSearch('');setStatus('all')}} aria-pressed={sport==='NFL'}>🏈 NFL</button>
+        <button className={sport === 'NBA' ? 'cheat-tab on' : 'cheat-tab'} onClick={() => {setSport('NBA');setSearch('');setStatus('all');setSelectedTeam('all')}} aria-pressed={sport==='NBA'}>🏀 NBA</button>
+        <button className={sport === 'NFL' ? 'cheat-tab on' : 'cheat-tab'} onClick={() => {setSport('NFL');setSearch('');setStatus('all');setSelectedTeam('all')}} aria-pressed={sport==='NFL'}>🏈 NFL</button>
       </div>
       <button className="market-refresh" disabled={loading} onClick={() => setReload(v => v+1)}>↻ Refresh injury feed</button>
     </div>
     <div className="cheat-info"><strong>Source:</strong> ESPN public injury feed. This is not a definitive active lineup or final game-day designation. For NBA, compare with the <a href={injurySourceUrl('NBA')} target="_blank" rel="noopener noreferrer">official NBA injury report</a>. For NFL, compare with the <a href={injurySourceUrl('NFL')} target="_blank" rel="noopener noreferrer">NFL injury listings</a>. Statuses can change close to tipoff or kickoff.</div>
+    <div className="revamp-filter"><label>TEAM DIRECTORY<select value={selectedTeam} onChange={e=>setSelectedTeam(e.target.value)}><option value="all">All {sport} teams</option>{directory.map(t=><option key={t.code} value={t.code}>{t.name} · {t.code}</option>)}</select></label><label>FIND PLAYER OR TEAM<input value={search} onChange={e=>setSearch(e.target.value)} placeholder={sport==='NBA'?'Lakers, BOS, player…':'Packers, GB, player…'} /></label><label>AVAILABILITY<select value={status} onChange={e=>setStatus(e.target.value)}><option value="all">All statuses</option><option value="unavailable">Out / unavailable</option><option value="risk">Questionable / uncertain</option><option value="listed">Other listed</option></select></label><button className="nav" onClick={()=>{setSelectedTeam('all');setStatus('all');setSearch('')}}>Reset filters</button></div>
     <div className="injury-overview">
       <div><span>REPORTED OUT / UNAVAILABLE</span><strong>{data?.available ? counts.out : '—'}</strong></div>
       <div><span>QUESTIONABLE / DOUBTFUL / DAY-TO-DAY</span><strong>{data?.available ? counts.risk : '—'}</strong></div>
@@ -78,22 +83,10 @@ export default function InjuryCenter() {
         <button className="cta" onClick={() => setReload(v => v+1)}>Try again</button>
       </section>
       : <>
-        <div className="injury-filters">
-          <label>SEARCH PLAYER, TEAM, OR INJURY
-            <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search players or teams…" />
-          </label>
-          <label>STATUS
-            <select value={status} onChange={e=>setStatus(e.target.value)}>
-              <option value="all">All injury reports</option>
-              <option value="unavailable">Out / unavailable</option>
-              <option value="risk">Questionable / uncertain</option>
-              <option value="listed">Other listed</option>
-            </select>
-          </label>
-        </div>
+        <p className="injury-timestamp">{shown.length} matching reports · {selectedTeam==='all' ? 'All teams' : teamName(sport,selectedTeam)}</p>
         {shown.length ? <div className="injury-list">{shown.map((row: InjuryReport, idx) =>
           <article className="injury-row" key={(row.playerId || row.player) + '-' + row.team + '-' + idx}>
-            <div className="injury-person"><strong>{row.player}</strong><span>{row.team || 'Team not reported'}{row.position ? ' · ' + row.position : ''} · {row.reason || 'Reason not supplied'}</span></div>
+            <div className="injury-person"><strong>{row.player}</strong><span>{teamName(sport,row.team) || 'Team not reported'}{row.position ? ' · ' + row.position : ''} · {row.reason || 'Reason not supplied'}</span></div>
             <div className="injury-details">
               <span className={'injury-status ' + injuryAvailability(row.status)}>{row.status}</span>
               {row.note && <p>{row.note}</p>}
@@ -101,7 +94,7 @@ export default function InjuryCenter() {
               <small>{formatDate(row.updatedAt)}</small>
             </div>
           </article>
-        )}</div> : <section className="panel injury-empty"><h3>No matching injury entries</h3><p>This does not mean every player has been cleared to play. Try a different filter.</p></section>}
+        )}</div> : <section className="panel injury-empty"><h3>No matching injury entries</h3><p>No reported entries match this team or search. This does not establish that the roster is healthy or cleared to play.</p></section>}
       </>}
     <p className="footnote injury-footnote">Injury notes may be delayed or incomplete. Only athletes matching a reported player ID, or both a name and team, are automatically excluded from the cheat sheet. A missing listing does not guarantee that a player will start.</p>
   </div>
