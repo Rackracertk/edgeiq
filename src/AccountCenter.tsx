@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import type { User } from '@supabase/supabase-js'
 import { supabase } from './supabaseClient'
+import ProInterest from './ProInterest'
 
 type Subscription = { status: string; current_period_end: string | null; cancel_at_period_end: boolean; stripe_customer_id: string | null }
 type Saved = { id: string; sport: string; player_name: string; stat_category: string; prop_line: number; direction: string }
@@ -146,7 +147,8 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
           <p className="footnote">Password-free email sign-in. You must confirm your address to create or access an account.</p>
         </form>}
       </section>
-      {mode === 'pricing' ? <section className="panel free-access"><span className="eyebrow gold">ALL FEATURES · FREE BETA</span><h2>No payment required</h2><p>Explore The Script, Daily Cheat Sheet, Halftime Edge, injury reports, game lines and player research. Any available advanced research is included at no charge.</p><button className="cta" onClick={onResearch}>Start researching</button><p className="footnote">New paid subscriptions are paused. Some information depends on connected data providers.</p></section> : <>
+      <ProInterest userId={user?.id??null}/>
+      {mode === 'pricing' ? <section className="panel free-access"><span className="eyebrow gold">ALL FEATURES · FREE BETA</span><h2>No payment required</h2><p>Explore The Script, Live Edge, injury reports, game lines and player research. Any available advanced research is included at no charge.</p><button className="cta" onClick={onResearch}>Start researching</button><p className="footnote">New paid subscriptions are paused. Some information depends on connected data providers.</p></section> : <>
         <section className="panel" style={{ padding: 24 }}>
           <div className="panel-title"><h3>Saved player research</h3><span className="small-tag">FREE</span></div>
           {!user ? <p>Sign in to save privately across devices. All research is available without an account.</p> : <>

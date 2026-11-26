@@ -40,9 +40,9 @@ export function groupObservations(rows:Observation[]):EvidenceSeries[]{
 }
 
 /** Simple scoring baseline; only additive team-scoring sports and five eligible finals per participant. */
-export function historicalScoreBaseline(history:Fixture[],game:Fixture){
+export function historicalScoreBaseline(history:Fixture[],game:Fixture,now=Date.now()){
  if(!/^(basketball|football|baseball|hockey|soccer)\//.test(game.path)||game.participants.length!==2)return null
- const eligible=eligibleHistory(history,game,Date.now())
+ const eligible=eligibleHistory(history,game,now)
  const samples=game.participants.map(p=>eligible.filter(g=>g.participants.some(t=>t.id===p.id)).slice(0,5))
  if(samples.some(s=>s.length<5))return null
  const mean=(values:number[])=>values.reduce((a,b)=>a+b,0)/values.length
@@ -60,7 +60,35 @@ export function matchupNarrative(history:Fixture[],game:Fixture,now:number){
   const avg=(v:number[])=>v.length?v.reduce((a,b)=>a+b,0)/v.length:null
   return {name:p.name,id:p.id,n:recent.length,wins:scored.filter((v,i)=>v>allowed[i]).length,scored:avg(scored),allowed:avg(allowed),last:recent[0]?.date??null}
  })
- const baseline=historicalScoreBaseline(finals,game)
+ const baseline=historicalScoreBaseline(finals,game,now)
  const latest=finals.find(g=>game.participants.every(p=>g.participants.some(t=>t.id===p.id)))
  return {rows,baseline,latest}
+}
+
+// Only comparable completed games, never future or same-time results. Not a forecast ledger.
+export function baselineBacktest(fixtures:Fixture[],game:Fixture,now:number){
+ const cutoff=Math.min(now,Date.parse(game.date))
+ const finals=[...new Map(fixtures.filter(g=>g.path===game.path&&g.state==='post'&&Date.parse(g.date)<cutoff&&g.participants.length===2&&g.participants.every(p=>typeof p.score==='number'&&Number.isFinite(p.score))).map(g=>[g.id,g])).values()].sort((a,b)=>b.date.localeCompare(a.date))
+ const examples:{date:string;id:string;names:string[];baseline:number[];actual:number[];error:number}[]=[]
+ for(const target of finals.slice(0,80)){
+  const baseline=historicalScoreBaseline(finals,target,now)
+  if(!baseline)continue
+  const actual=target.participants.map(p=>p.score!)
+  examples.push({date:target.date,id:target.id,names:target.participants.map(p=>p.name),baseline,actual,error:(Math.abs(actual[0]-baseline[0])+Math.abs(actual[1]-baseline[1]))/2})
+ }
+ return {samples:examples.length,mae:examples.length?examples.reduce((s,r)=>s+r.error,0)/examples.length:null,examples}
+}
+export function phaseEvidence(history:Fixture[],game:Fixture,now:number){
+ const finals=eligibleHistory(history,game,now)
+ const kind=game.path.split('/')[0]
+ const count=kind==='football'||kind==='basketball'?(game.path.includes('mens-college')?2:4):kind==='hockey'?3:kind==='soccer'?2:kind==='baseball'?9:0
+ if(!count)return []
+ return Array.from({length:count},(_,phase)=>({phase:phase+1,teams:game.participants.map(p=>{
+  const samples=finals.filter(g=>g.participants.some(t=>t.id===p.id)).slice(0,5).flatMap(g=>{
+   const index=g.participants.findIndex(t=>t.id===p.id)
+   const v=g.segments?.[phase]?.values?.[index]
+   return typeof v==='number'&&Number.isFinite(v)?[v]:[]
+  })
+  return {name:p.name,n:samples.length,mean:samples.length?samples.reduce((a,b)=>a+b,0)/samples.length:null}
+ })}))
 }

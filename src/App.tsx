@@ -5,6 +5,8 @@ import GameLines from './GameLines'
 import InjuryCenter from './InjuryCenter'
 import HalftimeEdge from './HalftimeEdge'
 import TheScript from './TheScript'
+import Home from './Home'
+import type { Fixture } from './analytics/scriptSports'
 import AccountCenter from './AccountCenter'
 import ProInsights from './ProInsights'
 import { getVerifiedFeed, usingLicensedFeed } from './verifiedFeed'
@@ -53,9 +55,12 @@ function App() {
   const [line, setLine] = useState(20)
   const [direction, setDirection] = useState<Direction>('over')
   const [sport, setSport] = useState<string>('NBA')
-  const [activeTab, setActiveTab] = useState<'research' | 'pricing' | 'account' | 'markets' | 'injuries' | 'halftime' | 'script'>('script')
+  const [activeTab, setActiveTab] = useState<'home' | 'research' | 'pricing' | 'account' | 'markets' | 'injuries' | 'halftime' | 'script'>('home')
+  const [scriptGame,setScriptGame]=useState<Fixture|null>(null)
+  const openScript=(game?:Fixture)=>{setScriptGame(game??null);setActiveTab('script')}
 
   useEffect(() => {
+    if(activeTab!=='research'||sport!=='NBA')return
     let cancelled = false
     async function load() {
       try {
@@ -165,7 +170,7 @@ function App() {
     }
     void load()
     return () => { cancelled = true }
-  }, [])
+  }, [activeTab,sport])
 
   const selected = players.find((p) => String(p.id) === playerId)
   const games: NBAPlayerGame[] = selected ? history[String(selected.id)] ?? [] : []
@@ -192,19 +197,19 @@ function App() {
         <div className="brand"><span className="brand-icon">E</span><span>EDGE<span className="gold">IQ</span><small>SPORTS INTELLIGENCE</small></span></div>
         <div className="side-caption">SPORTS</div>
         <div style={{ display: 'grid', gap: 6, padding: '0 12px 18px' }}>
-          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setActiveTab(item.id==='TENNIS'||item.id==='MMA'?'script':'research') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
+          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setScriptGame(null); setActiveTab('home') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
         </div>
-        <button className={activeTab === 'script' ? 'nav active script-nav' : 'nav script-nav'} onClick={()=>setActiveTab('script')}>◈ &nbsp; The Script <small>FREE</small></button>
-        <button className={activeTab==='research'?'nav active':'nav'} onClick={()=>setActiveTab('research')}>▦ &nbsp; Player Research</button>
-        <button className={activeTab==='halftime'?'nav active':'nav'} onClick={()=>setActiveTab('halftime')}>◷ &nbsp; Halftime Edge</button>
-        <button className={activeTab==='markets'?'nav active':'nav'} onClick={()=>setActiveTab('markets')}>↗ &nbsp; Game Lines &amp; Odds</button>
-        <button className={activeTab==='injuries'?'nav active':'nav'} onClick={()=>setActiveTab('injuries')}>✚ &nbsp; Injury List</button>
-        <button className={activeTab==='account'?'nav active':'nav'} onClick={()=>setActiveTab('account')}>♙ &nbsp; Saved Research</button>
+        <div className="side-caption">EXPLORE</div>
+        <button className={activeTab==='home'?'nav active':'nav'} onClick={()=>setActiveTab('home')}>⌂ &nbsp; Home</button>
+        <button className={activeTab==='script'?'nav active script-nav':'nav script-nav'} onClick={()=>openScript()}>◈ &nbsp; The Script</button>
+        <button className={activeTab==='research'?'nav active':'nav'} onClick={()=>setActiveTab('research')}>▦ &nbsp; Player Props</button>
+        <button className={activeTab==='halftime'?'nav active':'nav'} onClick={()=>setActiveTab('halftime')}>◷ &nbsp; Live Edge</button>
+        <button className={activeTab==='injuries'?'nav active':'nav'} onClick={()=>setActiveTab('injuries')}>✚ &nbsp; Injuries</button>
         <div className="side-note"><strong>Everything is free.</strong><p>No subscription or account needed to browse. Past results do not guarantee future outcomes.</p></div>
       </aside>
       <main className="main">
-        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'script' ? 'THE SCRIPT' : activeTab === 'markets' ? 'GAME LINES' : activeTab === 'injuries' ? 'INJURY CENTER' : activeTab === 'halftime' ? 'HALFTIME EDGE' : activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="free-beta-pill">FREE BETA</span><span className="live-pill"><span className="dot" /> {activeTab === 'script' ? 'MATCHUP INTELLIGENCE' : activeTab === 'markets' ? 'GAME MARKETS' : activeTab === 'injuries' ? 'PLAYER AVAILABILITY' : activeTab === 'halftime' ? 'SECOND-HALF RESEARCH' : sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · MATCHUP RESEARCH`}</span></header>
-        {activeTab === 'script' ? <TheScript selectedSport={sport as ScriptSport} onSportChange={setSport} /> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <GameLines onPro={() => setActiveTab('script')} /> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? (sport === 'TENNIS' || sport === 'MMA' ? <section className="panel"><h2>Individual sport research</h2><p>Open The Script for event schedules and available observed statistics.</p><button className="cta" onClick={()=>setActiveTab('script')}>Open The Script</button></section> : <MultiSportBoard initialSport={sport as AddedSport} />) : <>
+        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'home' ? 'HOME' : activeTab === 'script' ? 'THE SCRIPT' : activeTab === 'markets' ? 'GAME LINES' : activeTab === 'injuries' ? 'INJURY CENTER' : activeTab === 'halftime' ? 'HALFTIME EDGE' : activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="free-beta-pill">FREE BETA</span><button className="nav account-shortcut" onClick={()=>setActiveTab("account")} aria-label="My account">My account</button><span className="live-pill"><span className="dot" /> {activeTab === 'script' ? 'MATCHUP INTELLIGENCE' : activeTab === 'markets' ? 'GAME MARKETS' : activeTab === 'injuries' ? 'PLAYER AVAILABILITY' : activeTab === 'halftime' ? 'SECOND-HALF RESEARCH' : sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · MATCHUP RESEARCH`}</span></header>
+        {activeTab === 'home' ? <Home sport={sport as ScriptSport} onOpen={openScript} onAccount={()=>setActiveTab('account')}/> : activeTab === 'script' ? <TheScript key={sport+'|'+(scriptGame?.id??'default')} selectedSport={sport as ScriptSport} onSportChange={setSport} initialGame={scriptGame??undefined} /> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <GameLines onPro={() => setActiveTab('script')} /> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? (sport === 'TENNIS' || sport === 'MMA' ? <section className="panel"><h2>Individual sport research</h2><p>Open The Script for event schedules and available observed statistics.</p><button className="cta" onClick={()=>setActiveTab('script')}>Open The Script</button></section> : <><section className="panel"><h2>{sport} player research</h2><p>Open a game in The Script for recorded player box scores and available markets.</p><button className="cta" onClick={()=>openScript()}>Explore matchups</button></section><MultiSportBoard key={sport} initialSport={sport as AddedSport} /></>) : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count" role="status" aria-live="polite">{loading ? 'Loading verified player history…' : error ? players.length ? 'Data partially unavailable' : 'Data unavailable' : `${players.length} players available`}</span></div>
           {nbaResearchSource && <div className="cheat-publish-live" role="status" style={{marginBottom:18}}>

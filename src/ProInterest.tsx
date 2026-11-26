@@ -97,9 +97,9 @@ export default function ProInterest({ userId }: Props) {
             : <form onSubmit={event => { void register(event) }} style={{ display: 'grid', gap: 14, maxWidth: 520 }}>
               <label htmlFor="edgeiq-pro-preference">Which plan would you consider?</label>
               <select id="edgeiq-pro-preference" value={preferredPlan} disabled={busy} onChange={event => setPreferredPlan(event.target.value as Plan)}>
-                <option value="weekly">$3.99 per week</option>
+                <option value="weekly">$4.99 per week</option>
                 <option value="monthly">$12.99 per month</option>
-                <option value="annual">$79.99 per year</option>
+                <option value="annual">$99.99 per year</option>
                 <option value="undecided">I'm not sure yet</option>
               </select>
               <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, lineHeight: 1.6 }}>

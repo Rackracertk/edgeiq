@@ -1,0 +1,8 @@
+# EDGEIQ product specification and launch gates
+Five main destinations: Home, The Script, Player Props, Live Edge, Injuries. Optional account in header. Keep ten sports accessible, original green/gold/black. No separate Daily Cheat Sheet. Free beta; all available research open without sign-in.
+## Product priorities
+NBA → NFL → MLB → NHL → NCAAF → NCAAB → Soccer → WNBA → Tennis → UFC. Do not label incomplete coverage as complete. 70% data and analytics, 20% usability, 10% expansion. Script Engine: game-specific observed form, scoring baseline, phase evidence, conditional scenarios, player research and uncertainty. EDGE Score means evidence quality, not probability. Matchup Advantage, Trend Tracker, Impact Report, Live Adjustment and Accuracy Tracker belong inside the relevant experience, not separate navigation.
+## Launch and profitability
+Pro interest only, no payment: weekly $4.99, monthly $12.99, annual $99.99 reference prices. Existing Stripe checkout stays disabled. Verify actual Stripe price IDs and terms before activating. Measure returning users, interest, cost per user and data cost before choosing launch timing. Obtain appropriate display rights, reliable injury/odds feeds, sport-specific validation, pregame forecast archive, production browser and mobile tests, and confirm hosted version. No guaranteed wins, insider access or invented data.
+## Organic acquisition
+Publish short daily matchup breakdowns, player trend explanations, halftime observations and retrospective accuracy including misses on TikTok, Instagram Reels, YouTube Shorts, X and Discord. Link back to relevant matchup research. Do not promise returns or post without owner control. Start with NBA/NFL, then expand as coverage passes checks.
