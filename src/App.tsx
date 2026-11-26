@@ -5,10 +5,11 @@ import {usePlayerInjury} from './usePlayerInjury'
 import { useEffect, useState } from 'react'
 import './App.css'
 import NFLResearch from './NFLResearch'
-import GameLines from './GameLines'
 import InjuryCenter from './InjuryCenter'
 import HalftimeEdge from './HalftimeEdge'
-import TheScript from './TheScript'
+import MatchupResearch from './MatchupResearch'
+import {MembershipNotice,membershipRequired,useMembership} from './Membership'
+
 import Home from './Home'
 import type { Fixture } from './analytics/scriptSports'
 import AccountCenter from './AccountCenter'
@@ -56,12 +57,14 @@ function App() {
   const [line, setLine] = useState(20)
   const [direction, setDirection] = useState<Direction>('over')
   const [sport, setSport] = useState<string>('NBA')
-  const [activeTab, setActiveTab] = useState<'home' | 'research' | 'pricing' | 'account' | 'markets' | 'injuries' | 'halftime' | 'script'>('home')
-  const [scriptGame,setScriptGame]=useState<Fixture|null>(null)
-  const openScript=(game?:Fixture)=>{setScriptGame(game??null);setActiveTab('script')}
+  const [activeTab, setActiveTab] = useState<'home' | 'research' | 'pricing' | 'account' | 'markets' | 'injuries' | 'halftime'>('home')
+  const [matchup,setMatchup]=useState<Fixture|null>(null)
+  const membership=useMembership()
+  const allowed=!membershipRequired||membership==='active'
+  const openMatchup=(game:Fixture)=>{setMatchup(game);setActiveTab('markets')}
 
   useEffect(() => {
-    if(activeTab!=='research'||sport!=='NBA')return
+    if(!allowed||activeTab!=='research'||sport!=='NBA')return
     let cancelled = false
     async function load() {
       try {
@@ -171,7 +174,7 @@ function App() {
     }
     void load()
     return () => { cancelled = true }
-  }, [activeTab,sport])
+  }, [activeTab,sport,allowed])
 
   useEffect(()=>{if(!players.length||players.some(p=>String(p.id)===playerId))return;const first=players.find(p=>(history[String(p.id)]??[]).some(g=>getNBAGamePropValue(g,prop)!==null))??players[0];setPlayerId(String(first.id))},[players,history,playerId,prop])
   const selected = players.find((p) => String(p.id) === playerId)
@@ -188,19 +191,19 @@ function App() {
         <div className="brand"><span className="brand-icon">E</span><span>EDGE<span className="gold">IQ</span><small>SPORTS INTELLIGENCE</small></span></div>
         <div className="side-caption">SPORTS</div>
         <div style={{ display: 'grid', gap: 6, padding: '0 12px 18px' }}>
-          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setScriptGame(null); if(activeTab!=='research'&&activeTab!=='script')setActiveTab('home') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
+          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setMatchup(null); if(activeTab!=='research'&&activeTab!=='markets')setActiveTab('home') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
         </div>
         <div className="side-caption">EXPLORE</div>
         <button className={activeTab==='home'?'nav active':'nav'} onClick={()=>setActiveTab('home')}><span className="product-icon-box"><ProductIcon name="home"/></span><span className="product-nav-label"><strong>Home</strong><small>Today's games and featured research</small></span></button>
-        <button className={activeTab==='script'?'nav active script-nav':'nav script-nav'} onClick={()=>openScript()}><span className="product-icon-box"><ProductIcon name="script"/></span><span className="product-nav-label"><strong>The Script</strong><small>Complete game breakdowns</small></span></button>
+        <button className={activeTab==='markets'?'nav active':'nav'} onClick={()=>setActiveTab('markets')}><span className="product-icon-box"><ProductIcon name="markets"/></span><span className="product-nav-label"><strong>Game Lines</strong><small>Matchups and verified sportsbook odds</small></span></button>
         <button className={activeTab==='research'?'nav active':'nav'} onClick={()=>setActiveTab('research')}><span className="product-icon-box"><ProductIcon name="props"/></span><span className="product-nav-label"><strong>Player Props</strong><small>Player statistics and historical trends</small></span></button>
         <button className={activeTab==='halftime'?'nav active':'nav'} onClick={()=>setActiveTab('halftime')}><span className="product-icon-box"><ProductIcon name="live"/></span><span className="product-nav-label"><strong>Live Edge</strong><small>Live games and halftime analysis</small></span></button>
         <button className={activeTab==='injuries'?'nav active':'nav'} onClick={()=>setActiveTab('injuries')}><span className="product-icon-box"><ProductIcon name="injury"/></span><span className="product-nav-label"><strong>Injuries</strong><small>Player availability and lineup changes</small></span></button>
-        <div className="side-note"><strong>Everything is free.</strong><p>No subscription or account needed to browse. Past results do not guarantee future outcomes.</p></div>
+        <div className="side-note"><strong>{membershipRequired?'Membership preview':'Everything is free.'}</strong><p>{membershipRequired?'Sign in to check your membership.':'No subscription or account needed during beta.'} Past results do not guarantee future outcomes.</p></div>
       </aside>
       <main className="main">
-        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'home' ? 'HOME' : activeTab === 'script' ? 'THE SCRIPT' : activeTab === 'markets' ? 'GAME LINES' : activeTab === 'injuries' ? 'INJURY CENTER' : activeTab === 'halftime' ? 'HALFTIME EDGE' : activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="free-beta-pill">FREE BETA</span><button className="nav account-shortcut" onClick={()=>setActiveTab("account")} aria-label="My account"><ProductIcon name="account"/><span>My account</span></button><span className="live-pill"><span className="dot" /> {activeTab === 'script' ? 'MATCHUP INTELLIGENCE' : activeTab === 'markets' ? 'GAME MARKETS' : activeTab === 'injuries' ? 'PLAYER AVAILABILITY' : activeTab === 'halftime' ? 'SECOND-HALF RESEARCH' : sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · MATCHUP RESEARCH`}</span></header>
-        {activeTab === 'home' ? <Home sport={sport as ScriptSport} onOpen={openScript} onAccount={()=>setActiveTab('account')}/> : activeTab === 'script' ? <TheScript key={sport+'|'+(scriptGame?.id??'default')} selectedSport={sport as ScriptSport} onSportChange={setSport} initialGame={scriptGame??undefined} /> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <GameLines onPro={() => setActiveTab('script')} /> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? <TheScript key={'props-'+sport} selectedSport={sport as ScriptSport} onSportChange={setSport} initialSection="Player Intelligence"/> : <>
+        <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'home' ? 'HOME' : activeTab === 'markets' ? 'GAME LINES' : activeTab === 'injuries' ? 'INJURY CENTER' : activeTab === 'halftime' ? 'HALFTIME EDGE' : activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="free-beta-pill">{membershipRequired?'MEMBERSHIP PREVIEW':'FREE BETA'}</span><button className="nav account-shortcut" onClick={()=>setActiveTab("account")} aria-label="My account"><ProductIcon name="account"/><span>My account</span></button><span className="live-pill"><span className="dot" /> {activeTab === 'markets' ? 'GAME MARKETS' : activeTab === 'injuries' ? 'PLAYER AVAILABILITY' : activeTab === 'halftime' ? 'SECOND-HALF RESEARCH' : sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · MATCHUP RESEARCH`}</span></header>
+        {activeTab === 'home' ? <Home sport={sport as ScriptSport} onOpen={openMatchup} onResearch={()=>setActiveTab('research')} onAccount={()=>setActiveTab('pricing')}/> : !allowed&&activeTab!=='pricing'&&activeTab!=='account' ? <MembershipNotice status={membership} onAccount={()=>setActiveTab('pricing')}/> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <MatchupResearch key={'lines-'+sport} sport={sport as ScriptSport} mode="lines" initialGame={matchup??undefined} onPlayers={()=>setActiveTab('research')}/> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? <MatchupResearch key={'players-'+sport} sport={sport as ScriptSport} mode="players" initialGame={matchup??undefined}/>  : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count" role="status" aria-live="polite">{loading ? 'Loading verified player history…' : error ? players.length ? 'Data partially unavailable' : 'Data unavailable' : `${players.length} players available`}</span></div>
           {nbaResearchSource && <div className="cheat-publish-live" role="status" style={{marginBottom:18}}>

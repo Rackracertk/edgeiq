@@ -1,3 +1,4 @@
+import {MembershipPlans,membershipRequired} from './Membership'
 import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import type { User } from '@supabase/supabase-js'
 import { supabase } from './supabaseClient'
@@ -123,11 +124,11 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
       <section className="hero">
         <div className="eyebrow gold">EDGEIQ {mode === 'pricing' ? 'FREE BETA' : 'ACCOUNT CENTER'}</div>
         <h1>{mode === 'pricing' ? <>Research your <span className="gold">way.</span></> : <>Your research <span className="gold">library.</span></>}</h1>
-        <p>All available research is free. Sign in only if you want to save research to your account. No card or subscription is needed.</p>
+        <p>{membershipRequired?'Sign in to check membership access in this preview.':'All available research is free during beta. No card or subscription is needed.'}</p>
       </section>
       {!serviceReady && <section className="panel" role="status" style={{ padding: 22, marginBottom: 20 }}>
         <strong>Account services are being connected.</strong>
-        <p>Account sign-in is temporarily unavailable. You can still browse and research without signing in.</p>
+        <p>Account sign-in is temporarily unavailable. Free-beta research remains available when membership preview is off.</p>
       </section>}
       {notice && <p className="info-note" role="status">{notice}</p>}
       <section className="panel" style={{ padding: 24, marginBottom: 22 }}>
@@ -147,8 +148,9 @@ export default function AccountCenter({ mode, currentResearch, onResearch }: Pro
           <p className="footnote">Password-free email sign-in. You must confirm your address to create or access an account.</p>
         </form>}
       </section>
+      <MembershipPlans/>
       <ProInterest userId={user?.id??null}/>
-      {mode === 'pricing' ? <section className="panel free-access"><span className="eyebrow gold">ALL FEATURES · FREE BETA</span><h2>No payment required</h2><p>Explore The Script, Live Edge, injury reports, game lines and player research. Any available advanced research is included at no charge.</p><button className="cta" onClick={onResearch}>Start researching</button><p className="footnote">New paid subscriptions are paused. Some information depends on connected data providers.</p></section> : <>
+      {mode === 'pricing' ? <section className="panel free-access"><span className="eyebrow gold">ALL FEATURES · FREE BETA</span><h2>No payment required</h2><p>Explore Player Props, Game Lines, Live Edge and injuries. Any available advanced research is included at no charge.</p><button className="cta" onClick={onResearch}>Start researching</button><p className="footnote">New paid subscriptions are paused. Some information depends on connected data providers.</p></section> : <>
         <section className="panel" style={{ padding: 24 }}>
           <div className="panel-title"><h3>Saved player research</h3><span className="small-tag">FREE</span></div>
           {!user ? <p>Sign in to save privately across devices. All research is available without an account.</p> : <>
