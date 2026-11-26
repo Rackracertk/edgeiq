@@ -1,3 +1,4 @@
+import AutoPropBoard from './AutoPropBoard'
 import PlayerBrowser from './PlayerBrowser'
 import ProductIcon from './ProductIcon'
 import PlayerResearchCard from './PlayerResearchCard'
@@ -57,14 +58,15 @@ function App() {
   const [line, setLine] = useState(20)
   const [direction, setDirection] = useState<Direction>('over')
   const [sport, setSport] = useState<string>('NBA')
-  const [activeTab, setActiveTab] = useState<'home' | 'research' | 'pricing' | 'account' | 'markets' | 'injuries' | 'halftime'>('home')
+  const [activeTab, setActiveTab] = useState<'home' | 'research' | 'pricing' | 'account' | 'markets' | 'injuries' | 'halftime'>('research')
+  const [advancedResearch,setAdvancedResearch]=useState(false)
   const [matchup,setMatchup]=useState<Fixture|null>(null)
   const membership=useMembership()
   const allowed=!membershipRequired||membership==='active'
-  const openMatchup=(game:Fixture)=>{setMatchup(game);setActiveTab('markets')}
+  const openMatchup=(game:Fixture)=>{setMatchup(game);setActiveTab('research')}
 
   useEffect(() => {
-    if(!allowed||activeTab!=='research'||sport!=='NBA')return
+    if(!allowed||!advancedResearch||activeTab!=='research'||sport!=='NBA')return
     let cancelled = false
     async function load() {
       try {
@@ -174,7 +176,7 @@ function App() {
     }
     void load()
     return () => { cancelled = true }
-  }, [activeTab,sport,allowed])
+  }, [activeTab,sport,allowed,advancedResearch])
 
   useEffect(()=>{if(!players.length||players.some(p=>String(p.id)===playerId))return;const first=players.find(p=>(history[String(p.id)]??[]).some(g=>getNBAGamePropValue(g,prop)!==null))??players[0];setPlayerId(String(first.id))},[players,history,playerId,prop])
   const selected = players.find((p) => String(p.id) === playerId)
@@ -191,7 +193,7 @@ function App() {
         <div className="brand"><span className="brand-icon">E</span><span>EDGE<span className="gold">IQ</span><small>SPORTS INTELLIGENCE</small></span></div>
         <div className="side-caption">SPORTS</div>
         <div style={{ display: 'grid', gap: 6, padding: '0 12px 18px' }}>
-          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setMatchup(null); if(activeTab!=='research'&&activeTab!=='markets')setActiveTab('home') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
+          {sports.map((item) => <button key={item.id} onClick={() => { setSport(item.id); setMatchup(null); setAdvancedResearch(false); setActiveTab('research') }} aria-pressed={sport === item.id} style={{ textAlign: 'left', borderRadius: 9, border: sport === item.id ? '1px solid #ffb612' : '1px solid #31513d', background: sport === item.id ? '#183d2d' : 'transparent', color: '#e6f5e9', padding: '10px 12px', cursor: 'pointer' }}>{item.name} <span style={{ float: 'right', fontSize: 11, color: item.active ? '#64db93' : '#c0c9c1' }}>{item.id === 'NBA' || item.id === 'NFL' ? 'DATA' : 'RESEARCH'}</span></button>)}
         </div>
         <div className="side-caption">EXPLORE</div>
         <button className={activeTab==='home'?'nav active':'nav'} onClick={()=>setActiveTab('home')}><span className="product-icon-box"><ProductIcon name="home"/></span><span className="product-nav-label"><strong>Home</strong><small>Today's games and featured research</small></span></button>
@@ -203,7 +205,7 @@ function App() {
       </aside>
       <main className="main">
         <header className="topbar"><div><span className="eyebrow">EDGEIQ / {activeTab === 'home' ? 'HOME' : activeTab === 'markets' ? 'GAME LINES' : activeTab === 'injuries' ? 'INJURY CENTER' : activeTab === 'halftime' ? 'HALFTIME EDGE' : activeTab === 'research' ? 'PLAYER RESEARCH' : activeTab === 'pricing' ? 'MEMBERSHIP' : 'MY ACCOUNT'}</span></div><span className="free-beta-pill">{membershipRequired?'MEMBERSHIP PREVIEW':'FREE BETA'}</span><button className="nav account-shortcut" onClick={()=>setActiveTab("account")} aria-label="My account"><ProductIcon name="account"/><span>My account</span></button><span className="live-pill"><span className="dot" /> {activeTab === 'markets' ? 'GAME MARKETS' : activeTab === 'injuries' ? 'PLAYER AVAILABILITY' : activeTab === 'halftime' ? 'SECOND-HALF RESEARCH' : sport === 'NBA' ? 'NBA DATA RESEARCH' : sport === 'NFL' ? 'NFL DATA RESEARCH' : `${sport} · MATCHUP RESEARCH`}</span></header>
-        {activeTab === 'home' ? <Home sport={sport as ScriptSport} onOpen={openMatchup} onResearch={()=>setActiveTab('research')} onAccount={()=>setActiveTab('pricing')}/> : !allowed&&activeTab!=='pricing'&&activeTab!=='account' ? <MembershipNotice status={membership} onAccount={()=>setActiveTab('pricing')}/> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <MatchupResearch key={'lines-'+sport} sport={sport as ScriptSport} mode="lines" initialGame={matchup??undefined} onPlayers={()=>setActiveTab('research')}/> : activeTab === 'research' ? sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : sport !== 'NBA' ? <MatchupResearch key={'players-'+sport} sport={sport as ScriptSport} mode="players" initialGame={matchup??undefined}/>  : <>
+        {activeTab === 'home' ? <Home sport={sport as ScriptSport} onOpen={openMatchup} onResearch={()=>setActiveTab('research')} onAccount={()=>setActiveTab('pricing')}/> : !allowed&&activeTab!=='pricing'&&activeTab!=='account' ? <MembershipNotice status={membership} onAccount={()=>setActiveTab('pricing')}/> : activeTab === 'halftime' ? <HalftimeEdge /> : activeTab === 'injuries' ? <InjuryCenter /> : activeTab === 'markets' ? <MatchupResearch key={'lines-'+sport} sport={sport as ScriptSport} mode="lines" initialGame={matchup??undefined} onPlayers={()=>setActiveTab('research')}/> : activeTab === 'research' ? <><AutoPropBoard key={sport+'|'+(matchup?.id??'all')} sport={sport as ScriptSport} initialGame={matchup??undefined}/>{(sport==='NBA'||sport==='NFL')&&<details className="panel simple-extra" onToggle={e=>setAdvancedResearch(e.currentTarget.open)}><summary>Advanced player analyzer</summary>{advancedResearch&&(sport === 'NFL' ? <NFLResearch key="nfl-default" onUpgrade={() => setActiveTab('pricing')} onResearchChange={setNflCurrent} /> : <>
           <section className="hero"><div className="eyebrow gold">THE EDGE STARTS WITH THE DATA</div><h1>Find your <span className="gold">edge.</span></h1><p>Player prop research, recent hit rates, and game-by-game trends in one clear workspace.</p></section>
           <div className="section-head"><div><span className="eyebrow">NBA RESEARCH CENTER</span><h2>Player Prop Analyzer</h2></div><span className="data-count" role="status" aria-live="polite">{loading ? 'Loading verified player history…' : error ? players.length ? 'Data partially unavailable' : 'Data unavailable' : `${players.length} players available`}</span></div>
           {nbaResearchSource && <div className="cheat-publish-live" role="status" style={{marginBottom:18}}>
@@ -223,7 +225,7 @@ function App() {
           <section className="panel log-panel"><div className="panel-title"><div><span className="eyebrow">HISTORICAL RESULTS</span><h3>Recent game log</h3></div><span className="small-tag">NEWEST FIRST</span></div>
             <div className="table-wrap"><table><thead><tr><th>DATE</th><th>OPPONENT</th><th>VENUE</th><th>PTS</th><th>REB</th><th>AST</th><th>3PM</th><th>STL</th><th>BLK</th><th>PRA</th><th>{prop.toUpperCase()} {lineLabel.toUpperCase()}</th></tr></thead><tbody>{games.slice(0, 20).map((g) => { const val = getPlayerPropValues([g], prop)[0]; return <tr key={g.gameId ?? g.date}><td>{new Date(g.date).toLocaleDateString()}</td><td>{g.opponent ?? '—'}</td><td>{g.homeAway === 'home' ? 'HOME' : g.homeAway === 'away' ? 'AWAY' : '—'}</td><td>{g.points}</td><td>{g.rebounds}</td><td>{g.assists}</td><td>{g.threes}</td><td>{g.steals ?? '—'}</td><td>{g.blocks ?? '—'}</td><td>{g.points + g.rebounds + g.assists}</td><td>{val === undefined ? <span className="footnote">N/A</span> : <span className={val === line ? 'push-chip' : hits(val) ? 'hit-chip' : 'miss-chip'}>{val === line ? 'PUSH' : hits(val) ? 'HIT' : 'MISS'}</span>}</td></tr> })}{games.length === 0 && <tr><td colSpan={11} className="table-empty">{loading ? 'Loading verified game history…' : error ? 'Game history unavailable; see the data error above.' : 'Select a player to view their game log.'}</td></tr>}</tbody></table></div>
           </section>
-        </> : <AccountCenter mode={activeTab === 'pricing' ? 'pricing' : 'account'} onResearch={() => setActiveTab('research')} currentResearch={sport === 'NBA' && selected ? { sport: 'NBA', playerId: String(selected.id), playerName: selected.name, statCategory: prop, line, direction } : sport === 'NFL' && nflCurrent ? { sport: 'NFL', ...nflCurrent } : null} />}
+        </>)}</details>}</> : <AccountCenter mode={activeTab === 'pricing' ? 'pricing' : 'account'} onResearch={() => setActiveTab('research')} currentResearch={sport === 'NBA' && selected ? { sport: 'NBA', playerId: String(selected.id), playerName: selected.name, statCategory: prop, line, direction } : sport === 'NFL' && nflCurrent ? { sport: 'NFL', ...nflCurrent } : null} />}
         <footer>EDGEIQ © 2026 · Independent sports research · No guaranteed outcomes · 18+ where applicable</footer>
       </main>
     </div>
