@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T10:59:31.335Z",
+  "generatedAt": "2026-11-27T13:21:34.337Z",
   "publishedDateET": "2026-11-27",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -1395,7 +1395,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-27T10:59:24.683Z",
+          "checkedAt": "2026-11-27T13:21:30.386Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10794,7 +10794,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T10:59:28.476Z",
+        "generatedAt": "2026-11-27T13:21:31.547Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -12078,7 +12078,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-27T10:59:24.683Z",
+          "checkedAt": "2026-11-27T13:21:30.386Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21367,7 +21367,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T10:59:28.676Z",
+        "generatedAt": "2026-11-27T13:21:31.755Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -22935,7 +22935,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Santos converted his only field-goal attempt and all four of his extra-point tries during Chicago's win over the Detroit on Thursday.",
+              "note": "Santos converted his only field-goal attempt and all four of his extra-point tries during Chicago's 39-35 win over the Detroit on Thursday.",
               "updatedAt": "2026-11-27T01:27Z",
               "expectedReturn": "",
               "position": "PK"
@@ -23835,7 +23835,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Aubrey converted one of his two field-goal attempts and all five of his extra-point tries during Dallas' loss to the Eagles on Thursday.",
+              "note": "Aubrey converted one of his two field-goal attempts and all five of his extra-point tries during Dallas' 39-38 loss to the Eagles on Thursday.",
               "updatedAt": "2026-11-27T02:39Z",
               "expectedReturn": "",
               "position": "PK"
@@ -24423,7 +24423,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Bates made both of his field-goal attempts and three of his four extra-point tries during Detroit's loss to the Bears on Thursday.",
+              "note": "Bates made both of his field-goal attempts and three of his four extra-point tries during Detroit's 39-35 loss to the Bears on Thursday.",
               "updatedAt": "2026-11-27T01:12Z",
               "expectedReturn": "",
               "position": "PK"
@@ -28923,7 +28923,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Elliott converted both of his field-goal attempts and all three of his extra-point attempts during the Eagles' win over the Cowboys on Thursday.",
+              "note": "Elliott converted both of his field-goal attempts and all three of his extra-point attempts during the Eagles' 39-38 win over the Cowboys on Thursday.",
               "updatedAt": "2026-11-27T02:33Z",
               "expectedReturn": "",
               "position": "PK"
@@ -30993,7 +30993,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-27T10:59:24.847Z",
+          "checkedAt": "2026-11-27T13:21:30.496Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -33030,7 +33030,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T10:59:29.213Z",
+        "generatedAt": "2026-11-27T13:21:32.265Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 167,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -34758,7 +34758,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Santos converted his only field-goal attempt and all four of his extra-point tries during Chicago's win over the Detroit on Thursday.",
+              "note": "Santos converted his only field-goal attempt and all four of his extra-point tries during Chicago's 39-35 win over the Detroit on Thursday.",
               "updatedAt": "2026-11-27T01:27Z",
               "expectedReturn": "",
               "position": "PK"
@@ -35658,7 +35658,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Aubrey converted one of his two field-goal attempts and all five of his extra-point tries during Dallas' loss to the Eagles on Thursday.",
+              "note": "Aubrey converted one of his two field-goal attempts and all five of his extra-point tries during Dallas' 39-38 loss to the Eagles on Thursday.",
               "updatedAt": "2026-11-27T02:39Z",
               "expectedReturn": "",
               "position": "PK"
@@ -36246,7 +36246,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Bates made both of his field-goal attempts and three of his four extra-point tries during Detroit's loss to the Bears on Thursday.",
+              "note": "Bates made both of his field-goal attempts and three of his four extra-point tries during Detroit's 39-35 loss to the Bears on Thursday.",
               "updatedAt": "2026-11-27T01:12Z",
               "expectedReturn": "",
               "position": "PK"
@@ -40746,7 +40746,7 @@
               "teamId": "",
               "status": "Active",
               "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Elliott converted both of his field-goal attempts and all three of his extra-point attempts during the Eagles' win over the Cowboys on Thursday.",
+              "note": "Elliott converted both of his field-goal attempts and all three of his extra-point attempts during the Eagles' 39-38 win over the Cowboys on Thursday.",
               "updatedAt": "2026-11-27T02:33Z",
               "expectedReturn": "",
               "position": "PK"
@@ -42816,7 +42816,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-27T10:59:24.847Z",
+          "checkedAt": "2026-11-27T13:21:30.496Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -52308,7 +52308,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T10:59:31.334Z",
+        "generatedAt": "2026-11-27T13:21:34.336Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 167,
         "publishedBy": "EDGEIQ unattended research publisher"
