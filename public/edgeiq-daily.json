@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T15:02:15.706Z",
+  "generatedAt": "2026-11-27T17:15:25.313Z",
   "publishedDateET": "2026-11-27",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -580,6 +580,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Haliburton (hamstring) has been ruled out per Scott Agness of FieldhouseFiles.com for Friday's game against the 76ers. The guard participated in practice activities earlier this week as he continues working toward his return.",
+              "updatedAt": "2026-11-27T16:20Z",
+              "expectedReturn": "2026-12-13",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Kelly Oubre Jr.",
               "team": "",
               "teamId": "",
@@ -612,18 +624,6 @@
               "note": "McConnell (hamstring) is questionable for Friday's game against the 76ers.",
               "updatedAt": "2026-11-26T22:29Z",
               "expectedReturn": "2026-11-27",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Haliburton (hamstring) was recalled from the G League's Noblesville Boom on Tuesday, Tony East of Forbes.com reports.",
-              "updatedAt": "2026-11-24T19:41Z",
-              "expectedReturn": "2026-12-13",
               "position": "G"
             },
             {
@@ -772,18 +772,6 @@
             },
             {
               "playerId": "",
-              "player": "Andrew Wiggins",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Wiggins is probable for Friday's game against the Knicks due to a right ankle sprain.",
-              "updatedAt": "2026-11-26T21:08Z",
-              "expectedReturn": "2026-11-27",
-              "position": "F"
-            },
-            {
-              "playerId": "",
               "player": "LaMelo Ball",
               "team": "",
               "teamId": "",
@@ -880,6 +868,30 @@
             },
             {
               "playerId": "",
+              "player": "Karl-Anthony Towns",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Towns is questionable for Friday's game against the Heat due to a right abdominal contusion.",
+              "updatedAt": "2026-11-27T16:51Z",
+              "expectedReturn": "2026-11-27",
+              "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Andre Drummond",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Drummond (concussion) has been ruled out for Friday's game against the Heat.",
+              "updatedAt": "2026-11-27T15:36Z",
+              "expectedReturn": "2026-11-29",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Miles McBride",
               "team": "",
               "teamId": "",
@@ -913,18 +925,6 @@
               "updatedAt": "2026-11-26T21:57Z",
               "expectedReturn": "2026-11-27",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Andre Drummond",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Drummond (head) is questionable for Friday's game against the Heat.",
-              "updatedAt": "2026-11-26T21:51Z",
-              "expectedReturn": "2026-11-27",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -1077,8 +1077,8 @@
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Embiid (illness) is questionable for Friday's game against the Pacers.",
-              "updatedAt": "2026-11-26T22:16Z",
+              "note": "Embiid (illness) was at shootaround for the 76ers on Friday, Chris Hine of The Philly Inquirer reports.",
+              "updatedAt": "2026-11-27T16:32Z",
               "expectedReturn": "2026-11-27",
               "position": "C"
             },
@@ -1300,6 +1300,18 @@
             },
             {
               "playerId": "",
+              "player": "Mo Bamba",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Bamba (illness) is listed as questionable for Friday's game against the Nuggets, according to the Jazz's injury report.",
+              "updatedAt": "2026-11-27T16:41Z",
+              "expectedReturn": "2026-11-29",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Jaxson Hayes",
               "team": "",
               "teamId": "",
@@ -1395,7 +1407,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-27T15:02:11.285Z",
+          "checkedAt": "2026-11-27T17:15:20.272Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10794,7 +10806,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T15:02:12.532Z",
+        "generatedAt": "2026-11-27T17:15:22.139Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -11263,6 +11275,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Haliburton (hamstring) has been ruled out per Scott Agness of FieldhouseFiles.com for Friday's game against the 76ers. The guard participated in practice activities earlier this week as he continues working toward his return.",
+              "updatedAt": "2026-11-27T16:20Z",
+              "expectedReturn": "2026-12-13",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Kelly Oubre Jr.",
               "team": "",
               "teamId": "",
@@ -11295,18 +11319,6 @@
               "note": "McConnell (hamstring) is questionable for Friday's game against the 76ers.",
               "updatedAt": "2026-11-26T22:29Z",
               "expectedReturn": "2026-11-27",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Haliburton (hamstring) was recalled from the G League's Noblesville Boom on Tuesday, Tony East of Forbes.com reports.",
-              "updatedAt": "2026-11-24T19:41Z",
-              "expectedReturn": "2026-12-13",
               "position": "G"
             },
             {
@@ -11455,18 +11467,6 @@
             },
             {
               "playerId": "",
-              "player": "Andrew Wiggins",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Wiggins is probable for Friday's game against the Knicks due to a right ankle sprain.",
-              "updatedAt": "2026-11-26T21:08Z",
-              "expectedReturn": "2026-11-27",
-              "position": "F"
-            },
-            {
-              "playerId": "",
               "player": "LaMelo Ball",
               "team": "",
               "teamId": "",
@@ -11563,6 +11563,30 @@
             },
             {
               "playerId": "",
+              "player": "Karl-Anthony Towns",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Towns is questionable for Friday's game against the Heat due to a right abdominal contusion.",
+              "updatedAt": "2026-11-27T16:51Z",
+              "expectedReturn": "2026-11-27",
+              "position": "C"
+            },
+            {
+              "playerId": "",
+              "player": "Andre Drummond",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Drummond (concussion) has been ruled out for Friday's game against the Heat.",
+              "updatedAt": "2026-11-27T15:36Z",
+              "expectedReturn": "2026-11-29",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Miles McBride",
               "team": "",
               "teamId": "",
@@ -11596,18 +11620,6 @@
               "updatedAt": "2026-11-26T21:57Z",
               "expectedReturn": "2026-11-27",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Andre Drummond",
-              "team": "",
-              "teamId": "",
-              "status": "Day-To-Day",
-              "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Drummond (head) is questionable for Friday's game against the Heat.",
-              "updatedAt": "2026-11-26T21:51Z",
-              "expectedReturn": "2026-11-27",
-              "position": "C"
             },
             {
               "playerId": "",
@@ -11760,8 +11772,8 @@
               "teamId": "",
               "status": "Day-To-Day",
               "reason": "INJURY_STATUS_DAYTODAY",
-              "note": "Embiid (illness) is questionable for Friday's game against the Pacers.",
-              "updatedAt": "2026-11-26T22:16Z",
+              "note": "Embiid (illness) was at shootaround for the 76ers on Friday, Chris Hine of The Philly Inquirer reports.",
+              "updatedAt": "2026-11-27T16:32Z",
               "expectedReturn": "2026-11-27",
               "position": "C"
             },
@@ -11983,6 +11995,18 @@
             },
             {
               "playerId": "",
+              "player": "Mo Bamba",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Bamba (illness) is listed as questionable for Friday's game against the Nuggets, according to the Jazz's injury report.",
+              "updatedAt": "2026-11-27T16:41Z",
+              "expectedReturn": "2026-11-29",
+              "position": "C"
+            },
+            {
+              "playerId": "",
               "player": "Jaxson Hayes",
               "team": "",
               "teamId": "",
@@ -12078,7 +12102,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-27T15:02:11.285Z",
+          "checkedAt": "2026-11-27T17:15:20.272Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21367,7 +21391,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T15:02:12.749Z",
+        "generatedAt": "2026-11-27T17:15:22.353Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 270,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -22306,6 +22330,30 @@
             },
             {
               "playerId": "",
+              "player": "Keon Coleman",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Coleman didn't catch his only target in Thursday's 13-10 win over the Chiefs.",
+              "updatedAt": "2026-11-27T15:15Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Dawson Knox",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Knox didn't catch his only target in Thursday's 13-10 win over the Chiefs.",
+              "updatedAt": "2026-11-27T15:12Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Khalil Shakir",
               "team": "",
               "teamId": "",
@@ -22579,30 +22627,6 @@
               "updatedAt": "2026-11-23T05:10Z",
               "expectedReturn": "",
               "position": "PK"
-            },
-            {
-              "playerId": "",
-              "player": "Keon Coleman",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Coleman caught two of four targets for 17 yards during Sunday's 26-9 win over Miami.",
-              "updatedAt": "2026-11-23T04:49Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Ray Davis",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Davis rushed one time for three yards and caught a six-yard pass on two targets in Sunday's 26-9 win over the Dolphins.",
-              "updatedAt": "2026-11-23T03:48Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -22906,6 +22930,18 @@
             },
             {
               "playerId": "",
+              "player": "Colston Loveland",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Loveland (knee) is scheduled to undergo an MRI on Friday on the knee injury he sustained during Thursday's 39-35 win over the Lions, Ian Rapoport of ESPN and NFL Network reports.",
+              "updatedAt": "2026-11-27T15:38Z",
+              "expectedReturn": "2026-12-06",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Stephen Carlson",
               "team": "",
               "teamId": "",
@@ -23011,18 +23047,6 @@
               "updatedAt": "2026-11-26T22:41Z",
               "expectedReturn": "2026-12-06",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Colston Loveland",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Loveland (knee) has been ruled out from returning to Thursday's game in Detroit.",
-              "updatedAt": "2026-11-26T18:45Z",
-              "expectedReturn": "2026-12-06",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -25606,6 +25630,42 @@
             },
             {
               "playerId": "",
+              "player": "Travis Hunter",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Liam Coen said Friday that it will be tough to pivot to an increased role for Hunter at wide receiver on short notice after Parker Washington (shoulder) was ruled out for Sunday's game against the Titans, Demetrius Harvey of the ",
+              "updatedAt": "2026-11-27T16:32Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Bhayshul Tuten",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Head coach Liam Coen said Friday that the team is \"not sure yet\" whether Tuten (ankle/foot) will be available Sunday against the Titans, Demetrius Harvey of the Florida Times-Union reports.",
+              "updatedAt": "2026-11-27T15:51Z",
+              "expectedReturn": "2026-11-29",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Parker Washington",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Washington (shoulder) will be out for Sunday's game against the Titans and is considered week-to-week moving forward, Demetrius Harvey of the Florida Times-Union reports.",
+              "updatedAt": "2026-11-27T15:44Z",
+              "expectedReturn": "2026-12-06",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Danny Striggow",
               "team": "",
               "teamId": "",
@@ -25615,30 +25675,6 @@
               "updatedAt": "2026-11-27T02:02Z",
               "expectedReturn": "",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Bhayshul Tuten",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Tuten (ankle/foot) didn't practice Thursday, Ryan O'Halloran of The Florida Times-Union reports.",
-              "updatedAt": "2026-11-26T20:35Z",
-              "expectedReturn": "2026-11-29",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Parker Washington",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Washington (shoulder) was listed as a limited participant in Thursday's practice, Ryan O'Halloran of The Florida Times-Union reports.",
-              "updatedAt": "2026-11-26T20:29Z",
-              "expectedReturn": "2026-11-29",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -25769,18 +25805,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Cameron caught three of seven targets for 44 yards during Sunday's 23-18 loss against the Giants. He also returned two kickoffs for a total of 40 yards.",
               "updatedAt": "2026-11-24T02:20Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Travis Hunter",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Hunter caught his lone target for three yards, added a nine-yard carry and logged six tackles (four solo) during the Jaguars' 23-18 loss to the Giants on Sunday.",
-              "updatedAt": "2026-11-24T01:49Z",
               "expectedReturn": "",
               "position": "WR"
             },
@@ -26806,6 +26830,18 @@
             },
             {
               "playerId": "",
+              "player": "Davis Allen",
+              "team": "",
+              "teamId": "",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "doubtful",
+              "updatedAt": "2026-11-27T17:03Z",
+              "expectedReturn": "2026-12-03",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Brandon McManus",
               "team": "",
               "teamId": "",
@@ -26950,18 +26986,6 @@
             },
             {
               "playerId": "",
-              "player": "Davis Allen",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Allen (ankle) has been ruled out for the remainder of Wednesday night's game against the Packers.",
-              "updatedAt": "2026-11-26T03:24Z",
-              "expectedReturn": "2026-12-03",
-              "position": "TE"
-            },
-            {
-              "playerId": "",
               "player": "Kamren Kinchens",
               "team": "",
               "teamId": "",
@@ -27029,7 +27053,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "inactive",
               "updatedAt": "2026-11-26T00:01Z",
-              "expectedReturn": "2026-12-03",
+              "expectedReturn": "2026-12-13",
               "position": "C"
             },
             {
@@ -27106,6 +27130,18 @@
             },
             {
               "playerId": "",
+              "player": "JuJu Brents",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-27T15:40Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Jaylin Simpson",
               "team": "",
               "teamId": "",
@@ -27127,18 +27163,6 @@
               "updatedAt": "2026-11-26T01:21Z",
               "expectedReturn": "2026-11-29",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "JuJu Brents",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Brents (neck) did not participate in Wednesday's practice, David Furones of the South Florida Sun Sentinel reports.",
-              "updatedAt": "2026-11-26T01:16Z",
-              "expectedReturn": "2026-11-29",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -27694,6 +27718,18 @@
             },
             {
               "playerId": "",
+              "player": "A.J. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "Brown (hamstring) wasn't present for Friday's practice, Evan Lazar of the Patriots' official site reports.",
+              "updatedAt": "2026-11-27T17:01Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Romeo Doubs",
               "team": "",
               "teamId": "",
@@ -27701,18 +27737,6 @@
               "reason": "INJURY_STATUS_IR",
               "note": "Doubs (shoulder) was listed as a limited practice participant on Thursday's estimated report.",
               "updatedAt": "2026-11-26T22:41Z",
-              "expectedReturn": "2026-11-29",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "Brown (hamstring) was listed as a non-participant on Thursday's practice estimate.",
-              "updatedAt": "2026-11-26T20:52Z",
               "expectedReturn": "2026-11-29",
               "position": "WR"
             },
@@ -28594,6 +28618,18 @@
             },
             {
               "playerId": "",
+              "player": "Omar Cooper Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Head coach Aaron Glenn announced Friday that Cooper (ankle) will remain out for Sunday's game against the Dolphins, Brian Costello of the New York Post reports.",
+              "updatedAt": "2026-11-27T15:56Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Harrison Phillips",
               "team": "",
               "teamId": "",
@@ -28614,18 +28650,6 @@
               "note": "Williams (ribs) practiced fully Thursday, Rich Cimini of ESPN.com reports.",
               "updatedAt": "2026-11-26T21:20Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Omar Cooper Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Cooper (ankle/groin) was listed as a non-participant in practice Thursday.",
-              "updatedAt": "2026-11-26T20:43Z",
-              "expectedReturn": "2026-11-29",
               "position": "WR"
             },
             {
@@ -30993,7 +31017,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-27T15:02:11.375Z",
+          "checkedAt": "2026-11-27T17:15:20.328Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -31723,15 +31747,15 @@
             "headToHead": null,
             "defense": {
               "hits": 21,
-              "games": 33,
-              "percentage": 64,
+              "games": 34,
+              "percentage": 62,
               "position": "WR",
               "distinctGames": 10,
-              "averageAllowed": 5.8
+              "averageAllowed": 5.6
             },
             "position": "WR",
             "volatility": 3.2310988842807027,
-            "researchScore": 67,
+            "researchScore": 66,
             "researchGrade": "MATCHUP BACKED"
           },
           {
@@ -32738,15 +32762,15 @@
             "headToHead": null,
             "defense": {
               "hits": 21,
-              "games": 33,
-              "percentage": 64,
+              "games": 34,
+              "percentage": 62,
               "position": "WR",
               "distinctGames": 10,
-              "averageAllowed": 5.8
+              "averageAllowed": 5.6
             },
             "position": "WR",
             "volatility": 3.6038388311615233,
-            "researchScore": 60,
+            "researchScore": 59,
             "researchGrade": "MATCHUP BACKED"
           },
           {
@@ -33030,7 +33054,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T15:02:13.338Z",
+        "generatedAt": "2026-11-27T17:15:22.933Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 167,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -34129,6 +34153,30 @@
             },
             {
               "playerId": "",
+              "player": "Keon Coleman",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Coleman didn't catch his only target in Thursday's 13-10 win over the Chiefs.",
+              "updatedAt": "2026-11-27T15:15Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Dawson Knox",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Knox didn't catch his only target in Thursday's 13-10 win over the Chiefs.",
+              "updatedAt": "2026-11-27T15:12Z",
+              "expectedReturn": "",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Khalil Shakir",
               "team": "",
               "teamId": "",
@@ -34402,30 +34450,6 @@
               "updatedAt": "2026-11-23T05:10Z",
               "expectedReturn": "",
               "position": "PK"
-            },
-            {
-              "playerId": "",
-              "player": "Keon Coleman",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Coleman caught two of four targets for 17 yards during Sunday's 26-9 win over Miami.",
-              "updatedAt": "2026-11-23T04:49Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Ray Davis",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Davis rushed one time for three yards and caught a six-yard pass on two targets in Sunday's 26-9 win over the Dolphins.",
-              "updatedAt": "2026-11-23T03:48Z",
-              "expectedReturn": "",
-              "position": "RB"
             },
             {
               "playerId": "",
@@ -34729,6 +34753,18 @@
             },
             {
               "playerId": "",
+              "player": "Colston Loveland",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Loveland (knee) is scheduled to undergo an MRI on Friday on the knee injury he sustained during Thursday's 39-35 win over the Lions, Ian Rapoport of ESPN and NFL Network reports.",
+              "updatedAt": "2026-11-27T15:38Z",
+              "expectedReturn": "2026-12-06",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Stephen Carlson",
               "team": "",
               "teamId": "",
@@ -34834,18 +34870,6 @@
               "updatedAt": "2026-11-26T22:41Z",
               "expectedReturn": "2026-12-06",
               "position": "QB"
-            },
-            {
-              "playerId": "",
-              "player": "Colston Loveland",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Loveland (knee) has been ruled out from returning to Thursday's game in Detroit.",
-              "updatedAt": "2026-11-26T18:45Z",
-              "expectedReturn": "2026-12-06",
-              "position": "TE"
             },
             {
               "playerId": "",
@@ -37429,6 +37453,42 @@
             },
             {
               "playerId": "",
+              "player": "Travis Hunter",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Head coach Liam Coen said Friday that it will be tough to pivot to an increased role for Hunter at wide receiver on short notice after Parker Washington (shoulder) was ruled out for Sunday's game against the Titans, Demetrius Harvey of the ",
+              "updatedAt": "2026-11-27T16:32Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
+              "player": "Bhayshul Tuten",
+              "team": "",
+              "teamId": "",
+              "status": "Questionable",
+              "reason": "INJURY_STATUS_QUESTIONABLE",
+              "note": "Head coach Liam Coen said Friday that the team is \"not sure yet\" whether Tuten (ankle/foot) will be available Sunday against the Titans, Demetrius Harvey of the Florida Times-Union reports.",
+              "updatedAt": "2026-11-27T15:51Z",
+              "expectedReturn": "2026-11-29",
+              "position": "RB"
+            },
+            {
+              "playerId": "",
+              "player": "Parker Washington",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Washington (shoulder) will be out for Sunday's game against the Titans and is considered week-to-week moving forward, Demetrius Harvey of the Florida Times-Union reports.",
+              "updatedAt": "2026-11-27T15:44Z",
+              "expectedReturn": "2026-12-06",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Danny Striggow",
               "team": "",
               "teamId": "",
@@ -37438,30 +37498,6 @@
               "updatedAt": "2026-11-27T02:02Z",
               "expectedReturn": "",
               "position": "DE"
-            },
-            {
-              "playerId": "",
-              "player": "Bhayshul Tuten",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Tuten (ankle/foot) didn't practice Thursday, Ryan O'Halloran of The Florida Times-Union reports.",
-              "updatedAt": "2026-11-26T20:35Z",
-              "expectedReturn": "2026-11-29",
-              "position": "RB"
-            },
-            {
-              "playerId": "",
-              "player": "Parker Washington",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Washington (shoulder) was listed as a limited participant in Thursday's practice, Ryan O'Halloran of The Florida Times-Union reports.",
-              "updatedAt": "2026-11-26T20:29Z",
-              "expectedReturn": "2026-11-29",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -37592,18 +37628,6 @@
               "reason": "INJURY_STATUS_ACTIVE",
               "note": "Cameron caught three of seven targets for 44 yards during Sunday's 23-18 loss against the Giants. He also returned two kickoffs for a total of 40 yards.",
               "updatedAt": "2026-11-24T02:20Z",
-              "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Travis Hunter",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Hunter caught his lone target for three yards, added a nine-yard carry and logged six tackles (four solo) during the Jaguars' 23-18 loss to the Giants on Sunday.",
-              "updatedAt": "2026-11-24T01:49Z",
               "expectedReturn": "",
               "position": "WR"
             },
@@ -38629,6 +38653,18 @@
             },
             {
               "playerId": "",
+              "player": "Davis Allen",
+              "team": "",
+              "teamId": "",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "doubtful",
+              "updatedAt": "2026-11-27T17:03Z",
+              "expectedReturn": "2026-12-03",
+              "position": "TE"
+            },
+            {
+              "playerId": "",
               "player": "Brandon McManus",
               "team": "",
               "teamId": "",
@@ -38773,18 +38809,6 @@
             },
             {
               "playerId": "",
-              "player": "Davis Allen",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Allen (ankle) has been ruled out for the remainder of Wednesday night's game against the Packers.",
-              "updatedAt": "2026-11-26T03:24Z",
-              "expectedReturn": "2026-12-03",
-              "position": "TE"
-            },
-            {
-              "playerId": "",
               "player": "Kamren Kinchens",
               "team": "",
               "teamId": "",
@@ -38852,7 +38876,7 @@
               "reason": "INJURY_STATUS_OUT",
               "note": "inactive",
               "updatedAt": "2026-11-26T00:01Z",
-              "expectedReturn": "2026-12-03",
+              "expectedReturn": "2026-12-13",
               "position": "C"
             },
             {
@@ -38929,6 +38953,18 @@
             },
             {
               "playerId": "",
+              "player": "JuJu Brents",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "out",
+              "updatedAt": "2026-11-27T15:40Z",
+              "expectedReturn": "2026-12-06",
+              "position": "CB"
+            },
+            {
+              "playerId": "",
               "player": "Jaylin Simpson",
               "team": "",
               "teamId": "",
@@ -38950,18 +38986,6 @@
               "updatedAt": "2026-11-26T01:21Z",
               "expectedReturn": "2026-11-29",
               "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "JuJu Brents",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Brents (neck) did not participate in Wednesday's practice, David Furones of the South Florida Sun Sentinel reports.",
-              "updatedAt": "2026-11-26T01:16Z",
-              "expectedReturn": "2026-11-29",
-              "position": "CB"
             },
             {
               "playerId": "",
@@ -39517,6 +39541,18 @@
             },
             {
               "playerId": "",
+              "player": "A.J. Brown",
+              "team": "",
+              "teamId": "",
+              "status": "Doubtful",
+              "reason": "INJURY_STATUS_DOUBTFUL",
+              "note": "Brown (hamstring) wasn't present for Friday's practice, Evan Lazar of the Patriots' official site reports.",
+              "updatedAt": "2026-11-27T17:01Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Romeo Doubs",
               "team": "",
               "teamId": "",
@@ -39524,18 +39560,6 @@
               "reason": "INJURY_STATUS_IR",
               "note": "Doubs (shoulder) was listed as a limited practice participant on Thursday's estimated report.",
               "updatedAt": "2026-11-26T22:41Z",
-              "expectedReturn": "2026-11-29",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "A.J. Brown",
-              "team": "",
-              "teamId": "",
-              "status": "Doubtful",
-              "reason": "INJURY_STATUS_DOUBTFUL",
-              "note": "Brown (hamstring) was listed as a non-participant on Thursday's practice estimate.",
-              "updatedAt": "2026-11-26T20:52Z",
               "expectedReturn": "2026-11-29",
               "position": "WR"
             },
@@ -40417,6 +40441,18 @@
             },
             {
               "playerId": "",
+              "player": "Omar Cooper Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "Head coach Aaron Glenn announced Friday that Cooper (ankle) will remain out for Sunday's game against the Dolphins, Brian Costello of the New York Post reports.",
+              "updatedAt": "2026-11-27T15:56Z",
+              "expectedReturn": "2026-11-29",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Harrison Phillips",
               "team": "",
               "teamId": "",
@@ -40437,18 +40473,6 @@
               "note": "Williams (ribs) practiced fully Thursday, Rich Cimini of ESPN.com reports.",
               "updatedAt": "2026-11-26T21:20Z",
               "expectedReturn": "",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Omar Cooper Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Questionable",
-              "reason": "INJURY_STATUS_QUESTIONABLE",
-              "note": "Cooper (ankle/groin) was listed as a non-participant in practice Thursday.",
-              "updatedAt": "2026-11-26T20:43Z",
-              "expectedReturn": "2026-11-29",
               "position": "WR"
             },
             {
@@ -42816,7 +42840,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-27T15:02:11.375Z",
+          "checkedAt": "2026-11-27T17:15:20.328Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -47116,7 +47140,7 @@
             "headToHead": null,
             "defense": {
               "hits": 7,
-              "games": 43,
+              "games": 44,
               "percentage": 16,
               "position": "WR",
               "distinctGames": 11,
@@ -51315,12 +51339,12 @@
             "last20": null,
             "headToHead": null,
             "defense": {
-              "hits": 38,
-              "games": 42,
-              "percentage": 90,
+              "hits": 39,
+              "games": 43,
+              "percentage": 91,
               "position": "WR",
               "distinctGames": 11,
-              "averageAllowed": 42.6
+              "averageAllowed": 41.6
             },
             "position": "WR",
             "volatility": 30.63902739970706,
@@ -51420,9 +51444,9 @@
             "last20": null,
             "headToHead": null,
             "defense": {
-              "hits": 38,
-              "games": 43,
-              "percentage": 88,
+              "hits": 39,
+              "games": 44,
+              "percentage": 89,
               "position": "WR",
               "distinctGames": 11,
               "averageAllowed": 4.5
@@ -51595,8 +51619,8 @@
             "last20": null,
             "headToHead": null,
             "defense": {
-              "hits": 30,
-              "games": 43,
+              "hits": 31,
+              "games": 44,
               "percentage": 70,
               "position": "WR",
               "distinctGames": 11,
@@ -51910,12 +51934,12 @@
             "last20": null,
             "headToHead": null,
             "defense": {
-              "hits": 25,
-              "games": 43,
-              "percentage": 58,
+              "hits": 26,
+              "games": 44,
+              "percentage": 59,
               "position": "WR",
               "distinctGames": 11,
-              "averageAllowed": 3
+              "averageAllowed": 2.9
             },
             "position": "WR",
             "volatility": 0.6324555320336759,
@@ -52155,12 +52179,12 @@
             "last20": null,
             "headToHead": null,
             "defense": {
-              "hits": 34,
-              "games": 42,
+              "hits": 35,
+              "games": 43,
               "percentage": 81,
               "position": "WR",
               "distinctGames": 11,
-              "averageAllowed": 42.6
+              "averageAllowed": 41.6
             },
             "position": "WR",
             "volatility": 30.63902739970706,
@@ -52308,7 +52332,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-27T15:02:15.705Z",
+        "generatedAt": "2026-11-27T17:15:25.312Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 167,
         "publishedBy": "EDGEIQ unattended research publisher"
