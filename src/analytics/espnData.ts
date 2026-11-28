@@ -20,10 +20,21 @@ type ESPNPlayerStats = {
   team: string
   teamId: string
   position: string
+  minutes?: number
   points: number
   rebounds: number
   assists: number
   threes: number
+  steals?: number
+  blocks?: number
+  fieldGoalsMade?:number
+  fieldGoalAttempts?:number
+  threePointAttempts?:number
+  freeThrowsMade?:number
+  freeThrowAttempts?:number
+  offensiveRebounds?:number
+  defensiveRebounds?:number
+  turnovers?:number
 }
 
 type ESPNPlayerHistory = ESPNPlayerStats & {
@@ -84,6 +95,11 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]): ESPNPlayerStats[]
         return index >= 0 ? parseStat(stats[index]) : null
       }
 
+      const minutesValue = stats[keys.indexOf('minutes')]
+      const minutes = keys.includes('minutes') && minutesValue != null
+        ? Number(String(minutesValue).split(':')[0]) : NaN
+      const steals = statAt('steals')
+      const blocks = statAt('blocks')
       const points = statAt('points')
       const rebounds = statAt('rebounds')
       const assists = statAt('assists')
@@ -93,6 +109,9 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]): ESPNPlayerStats[]
         : null
       const threes = threesMatch ? parseStat(threesMatch[1]) : null
 
+      const pair=(key:string)=>{const m=String(stats[keys.indexOf(key)]??'').match(/^(\d+)-(\d+)$/);return m&&Number(m[1])<=Number(m[2])?[Number(m[1]),Number(m[2])]:null}
+      const fg=pair('fieldGoalsMade-fieldGoalsAttempted'),ft=pair('freeThrowsMade-freeThrowsAttempted'),three=pair('threePointFieldGoalsMade-threePointFieldGoalsAttempted')
+      const optional={offensiveRebounds:statAt('offensiveRebounds'),defensiveRebounds:statAt('defensiveRebounds'),turnovers:statAt('turnovers')}
       if (points === null || rebounds === null || assists === null || threes === null) return []
 
       return [{
@@ -101,10 +120,14 @@ export function extractNBAPlayerStats(boxscorePlayers: any[]): ESPNPlayerStats[]
         team: teamName,
         teamId,
         position: String(player.athlete.position?.abbreviation ?? player.athlete.position?.name ?? '').toUpperCase(),
+        ...(Number.isFinite(minutes) && minutes >= 0 ? { minutes } : {}),
         points,
         rebounds,
         assists,
         threes,
+        ...(fg?{fieldGoalsMade:fg[0],fieldGoalAttempts:fg[1]}:{}),...(ft?{freeThrowsMade:ft[0],freeThrowAttempts:ft[1]}:{}),...(three?{threePointAttempts:three[1]}:{}),...Object.fromEntries(Object.entries(optional).filter(([,v])=>v!==null)),
+        ...(steals !== null ? { steals } : {}),
+        ...(blocks !== null ? { blocks } : {}),
       }]
     })
   })

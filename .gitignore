@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local credentials and environment configuration
+.env
+.env.*
+!.env.example
+supabase/functions/.env
+.dev.vars

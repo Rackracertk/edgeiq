@@ -1,0 +1,20 @@
+
+import {useEffect,useState} from 'react'
+import {leagues,normalizeEvents,sportLabel,type Fixture,type ScriptSport} from './analytics/scriptSports'
+const etDay=(date:Date)=>{const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date);return ['year','month','day'].map(k=>p.find(x=>x.type===k)?.value).join('-')}
+const displayTime=(s:string)=>new Date(s).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'})
+export default function Home({sport,onOpen,onAccount,onResearch,picker=false}:{sport:ScriptSport;onOpen:(game:Fixture)=>void;onAccount?:()=>void;onResearch?:()=>void;picker?:boolean}){
+ const [league,setLeague]=useState<string>(leagues[sport][0][0]);const [day,setDay]=useState(etDay(new Date()));const [games,setGames]=useState<Fixture[]>([]);const [busy,setBusy]=useState(true);const [issue,setIssue]=useState('');const [refresh,setRefresh]=useState(0)
+ const activeLeague=leagues[sport].find(l=>l[0]===league)??leagues[sport][0]
+ useEffect(()=>{setLeague(leagues[sport][0][0])},[sport])
+ useEffect(()=>{let active=true;const c=new AbortController();setGames([]);setIssue('');setBusy(true);const timer=setTimeout(()=>c.abort(),15000)
+ void fetch('https://site.api.espn.com/apis/site/v2/sports/'+activeLeague[1]+'/scoreboard?dates='+day.replaceAll('-','')+'&limit=500',{signal:c.signal,cache:'no-store'}).then(async r=>{if(!r.ok)throw Error('Schedule source unavailable');const data=await r.json();if(!Array.isArray(data.events)&&!Array.isArray(data.sports))throw Error('Schedule format unavailable');return normalizeEvents(data,activeLeague[0],activeLeague[1])}).then(g=>{if(active)setGames(g.sort((a,b)=>a.date.localeCompare(b.date)))}).catch(()=>{if(active)setIssue('The schedule could not be loaded. Retry or choose another date.')}).finally(()=>{clearTimeout(timer);if(active)setBusy(false)});return()=>{active=false;c.abort();clearTimeout(timer)}},[sport,activeLeague[0],activeLeague[1],day,refresh])
+ return <div className="edge-home">
+ {!picker&&<section className="hero"><div className="eyebrow gold">EDGEIQ · SPORTS INTELLIGENCE</div><h1>Research smarter.<br/><span className="gold">Find your edge.</span></h1><p>Player statistics, matchup research and verified game lines. Everything in one place.</p><button className="cta" onClick={onResearch}>Explore player props</button></section>}
+ <section className="panel home-schedule"><div className="panel-title"><div><span className="eyebrow gold">{sportLabel(sport)}</span><h2>Today's games &amp; matchups</h2></div><button className="nav" onClick={()=>setRefresh(x=>x+1)}>Refresh</button></div>
+ <div className="home-filters"><label>Date (ET)<input type="date" value={day} onChange={e=>{if(e.target.value)setDay(e.target.value)}}/></label>{leagues[sport].length>1&&<label>League<select value={activeLeague[0]} onChange={e=>setLeague(e.target.value)}>{leagues[sport].map(l=><option key={l[0]}>{l[0]}</option>)}</select></label>}</div>
+ {busy?<p role="status">Loading schedule…</p>:issue?<p role="status">{issue}</p>:games.length?<div className="home-games">{games.map(g=><article className="home-game" key={g.path+':'+g.id}><small>{g.status} · {displayTime(g.date)}</small><div className="home-match">{g.participants.map(p=><div key={p.id}>{p.logo&&<img src={p.logo} alt="" loading="lazy"/>}<strong>{p.name}</strong>{p.score!==null&&<b>{p.score}</b>}</div>)}</div><button className="cta" onClick={()=>onOpen(g)}>View player props →</button></article>)}</div>:<p>No two-participant games found for this league and date. Try another date or league.</p>}
+ <p className="footnote">Schedule preview from ESPN public data; updates can be delayed. Full coverage varies by league.</p></section>
+ {!picker&&<section className="panel"><h3>EDGEIQ membership</h3><p>Explore the free beta. Future membership plans will be introduced only when the product is ready.</p><button className="nav" onClick={onAccount}>View membership →</button></section>}
+ </div>
+}
