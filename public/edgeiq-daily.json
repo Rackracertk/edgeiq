@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-28T13:03:52.876Z",
+  "generatedAt": "2026-11-28T14:55:50.134Z",
   "publishedDateET": "2026-11-28",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -187,10 +187,10 @@
               "player": "Moritz Wagner",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Wagner (knee) won't be available for Friday's game against Toronto.",
-              "updatedAt": "2026-11-26T21:33Z",
+              "updatedAt": "2026-11-28T13:58Z",
               "expectedReturn": "2026-11-28",
               "position": "C"
             },
@@ -571,10 +571,10 @@
               "player": "Yanic Konan Niederhauser",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Niederhauser suffered a right toe injury during Friday's game against the Pelicans and won't return, Joey Linn of SI.com reports.",
-              "updatedAt": "2026-11-28T04:17Z",
+              "updatedAt": "2026-11-28T13:57Z",
               "expectedReturn": "2026-11-29",
               "position": "C"
             },
@@ -679,10 +679,10 @@
               "player": "Kasparas Jakucionis",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Jakucionis (ankle) won't play Friday's game against the Pistons.",
-              "updatedAt": "2026-11-27T17:58Z",
+              "updatedAt": "2026-11-28T13:58Z",
               "expectedReturn": "2026-11-28",
               "position": "G"
             },
@@ -988,6 +988,18 @@
             },
             {
               "playerId": "",
+              "player": "Dean Wade",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Wade (hamstring) is out for Friday's game against the Pacers, Austin Krell of Vertical 76 reports.",
+              "updatedAt": "2026-11-28T13:58Z",
+              "expectedReturn": "2026-11-28",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Joel Embiid",
               "team": "",
               "teamId": "",
@@ -1008,18 +1020,6 @@
               "note": "James (back injury management) won't be available for Saturday's game against the Rockets, according to Kris Rhim of ESPN.",
               "updatedAt": "2026-11-28T05:46Z",
               "expectedReturn": "2026-12-01",
-              "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Dean Wade",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Wade (hamstring) is out for Friday's game against the Pacers, Austin Krell of Vertical 76 reports.",
-              "updatedAt": "2026-11-27T23:33Z",
-              "expectedReturn": "2026-11-28",
               "position": "F"
             },
             {
@@ -1183,10 +1183,10 @@
               "player": "Ja'Kobe Walter",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Walter won't return to Friday's game against Brooklyn due to a right quad contusion, Josh Lewenberg of TSN.ca reports.",
-              "updatedAt": "2026-11-28T02:34Z",
+              "updatedAt": "2026-11-28T13:57Z",
               "expectedReturn": "2026-11-29",
               "position": "G"
             },
@@ -1311,7 +1311,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-28T13:03:49.792Z",
+          "checkedAt": "2026-11-28T14:55:46.065Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10570,7 +10570,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T13:03:50.564Z",
+        "generatedAt": "2026-11-28T14:55:47.681Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 281,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10844,10 +10844,10 @@
               "player": "Moritz Wagner",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Wagner (knee) won't be available for Friday's game against Toronto.",
-              "updatedAt": "2026-11-26T21:33Z",
+              "updatedAt": "2026-11-28T13:58Z",
               "expectedReturn": "2026-11-28",
               "position": "C"
             },
@@ -11228,10 +11228,10 @@
               "player": "Yanic Konan Niederhauser",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Niederhauser suffered a right toe injury during Friday's game against the Pelicans and won't return, Joey Linn of SI.com reports.",
-              "updatedAt": "2026-11-28T04:17Z",
+              "updatedAt": "2026-11-28T13:57Z",
               "expectedReturn": "2026-11-29",
               "position": "C"
             },
@@ -11336,10 +11336,10 @@
               "player": "Kasparas Jakucionis",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Jakucionis (ankle) won't play Friday's game against the Pistons.",
-              "updatedAt": "2026-11-27T17:58Z",
+              "updatedAt": "2026-11-28T13:58Z",
               "expectedReturn": "2026-11-28",
               "position": "G"
             },
@@ -11645,6 +11645,18 @@
             },
             {
               "playerId": "",
+              "player": "Dean Wade",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Wade (hamstring) is out for Friday's game against the Pacers, Austin Krell of Vertical 76 reports.",
+              "updatedAt": "2026-11-28T13:58Z",
+              "expectedReturn": "2026-11-28",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Joel Embiid",
               "team": "",
               "teamId": "",
@@ -11665,18 +11677,6 @@
               "note": "James (back injury management) won't be available for Saturday's game against the Rockets, according to Kris Rhim of ESPN.",
               "updatedAt": "2026-11-28T05:46Z",
               "expectedReturn": "2026-12-01",
-              "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Dean Wade",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Wade (hamstring) is out for Friday's game against the Pacers, Austin Krell of Vertical 76 reports.",
-              "updatedAt": "2026-11-27T23:33Z",
-              "expectedReturn": "2026-11-28",
               "position": "F"
             },
             {
@@ -11840,10 +11840,10 @@
               "player": "Ja'Kobe Walter",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Walter won't return to Friday's game against Brooklyn due to a right quad contusion, Josh Lewenberg of TSN.ca reports.",
-              "updatedAt": "2026-11-28T02:34Z",
+              "updatedAt": "2026-11-28T13:57Z",
               "expectedReturn": "2026-11-29",
               "position": "G"
             },
@@ -11968,7 +11968,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-28T13:03:49.792Z",
+          "checkedAt": "2026-11-28T14:55:46.065Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21259,7 +21259,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T13:03:50.731Z",
+        "generatedAt": "2026-11-28T14:55:47.864Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 281,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -31047,7 +31047,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-28T13:03:49.780Z",
+          "checkedAt": "2026-11-28T14:55:46.143Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -40539,7 +40539,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T13:03:52.463Z",
+        "generatedAt": "2026-11-28T14:55:49.695Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 168,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -50163,7 +50163,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-28T13:03:49.780Z",
+          "checkedAt": "2026-11-28T14:55:46.143Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -52095,7 +52095,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T13:03:52.876Z",
+        "generatedAt": "2026-11-28T14:55:50.134Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 168,
         "publishedBy": "EDGEIQ unattended research publisher"
