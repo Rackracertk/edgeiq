@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-28T14:55:50.134Z",
+  "generatedAt": "2026-11-28T16:54:48.016Z",
   "publishedDateET": "2026-11-28",
   "publisher": "GitHub Actions scheduled daily",
   "disclaimer": "Public ESPN game summaries are unofficial, potentially incomplete, not licensed sportsbook lines. Historical hit rates are not forecast win probabilities. Data use subject to provider terms.",
@@ -208,6 +208,18 @@
             },
             {
               "playerId": "",
+              "player": "Michael Ajayi",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Charlotte transferred Ajayi to the G League on Tuesday.",
+              "updatedAt": "2026-11-28T15:46Z",
+              "expectedReturn": "2026-11-28",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Grayson Allen",
               "team": "",
               "teamId": "",
@@ -400,6 +412,18 @@
             },
             {
               "playerId": "",
+              "player": "Cade Cunningham",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Cunningham (knee) is out for Friday's game against the Bucks.",
+              "updatedAt": "2026-11-28T16:14Z",
+              "expectedReturn": "2026-11-29",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Duncan Robinson",
               "team": "",
               "teamId": "",
@@ -409,18 +433,6 @@
               "updatedAt": "2026-11-26T22:26Z",
               "expectedReturn": "2026-11-29",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Cade Cunningham",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Cunningham (knee) is out for Friday's game against the Bucks.",
-              "updatedAt": "2026-11-26T22:25Z",
-              "expectedReturn": "2026-11-29",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -463,10 +475,10 @@
               "player": "Gui Santos",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Santos exited Friday's game against the Trail Blazers with a knee injury in the second half and won't return.",
-              "updatedAt": "2026-11-28T04:19Z",
+              "updatedAt": "2026-11-28T16:15Z",
               "expectedReturn": "2026-11-29",
               "position": "F"
             },
@@ -532,6 +544,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "The Pacers recalled Haliburton (hamstring) from the G League's Noblesville Boom on Friday, per the NBA G League transaction report.",
+              "updatedAt": "2026-11-28T15:24Z",
+              "expectedReturn": "2026-12-13",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "T.J. McConnell",
               "team": "",
               "teamId": "",
@@ -540,18 +564,6 @@
               "note": "McConnell (hamstring) has been ruled out for Friday's game against the 76ers, Alex Golden of SI.com reports.",
               "updatedAt": "2026-11-27T23:02Z",
               "expectedReturn": "2026-11-28",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Haliburton (hamstring) has been ruled out per Scott Agness of FieldhouseFiles.com for Friday's game against the 76ers. The guard participated in practice activities earlier this week as he continues working toward his return.",
-              "updatedAt": "2026-11-27T16:20Z",
-              "expectedReturn": "2026-12-13",
               "position": "G"
             },
             {
@@ -607,10 +619,10 @@
               "player": "Isaiah Stewart",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Stewart (hip) is out for Friday's game against the Timberwolves, Jon Krawczynski of The Athletic reports.",
-              "updatedAt": "2026-11-28T00:26Z",
+              "updatedAt": "2026-11-28T16:11Z",
               "expectedReturn": "2026-11-29",
               "position": "C"
             },
@@ -691,10 +703,10 @@
               "player": "LaMelo Ball",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Ball (ankle) has been ruled out for Friday's game against the Grizzlies. The guard was previously questionable after spraining his left ankle during Wednesday's win over Oklahoma City.",
-              "updatedAt": "2026-11-27T18:52Z",
+              "updatedAt": "2026-11-28T16:15Z",
               "expectedReturn": "2026-11-29",
               "position": "G"
             },
@@ -1063,10 +1075,10 @@
               "player": "Damian Lillard",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Lillard (calf) has been ruled out for Friday's game against the Warriors. The veteran guard is dealing with right calf tightness and soreness.",
-              "updatedAt": "2026-11-27T18:38Z",
+              "updatedAt": "2026-11-28T16:13Z",
               "expectedReturn": "2026-11-29",
               "position": "G"
             },
@@ -1204,18 +1216,6 @@
             },
             {
               "playerId": "",
-              "player": "Nate Bittle",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Bittle (foot) has been ruled out for Monday's game against the Bucks, Blake Murphy of Sportsnet.ca reports.",
-              "updatedAt": "2026-11-22T21:13Z",
-              "expectedReturn": "2026-11-27",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "RJ Barrett",
               "team": "",
               "teamId": "",
@@ -1231,10 +1231,10 @@
               "player": "Mo Bamba",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Bamba (illness) has been ruled out for Friday's game against the Nuggets.",
-              "updatedAt": "2026-11-28T01:37Z",
+              "updatedAt": "2026-11-28T16:11Z",
               "expectedReturn": "2026-11-29",
               "position": "C"
             },
@@ -1311,7 +1311,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-28T14:55:46.065Z",
+          "checkedAt": "2026-11-28T16:54:44.535Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -10570,7 +10570,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T14:55:47.681Z",
+        "generatedAt": "2026-11-28T16:54:45.558Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 281,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -10865,6 +10865,18 @@
             },
             {
               "playerId": "",
+              "player": "Michael Ajayi",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Charlotte transferred Ajayi to the G League on Tuesday.",
+              "updatedAt": "2026-11-28T15:46Z",
+              "expectedReturn": "2026-11-28",
+              "position": "F"
+            },
+            {
+              "playerId": "",
               "player": "Grayson Allen",
               "team": "",
               "teamId": "",
@@ -11057,6 +11069,18 @@
             },
             {
               "playerId": "",
+              "player": "Cade Cunningham",
+              "team": "",
+              "teamId": "",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
+              "note": "Cunningham (knee) is out for Friday's game against the Bucks.",
+              "updatedAt": "2026-11-28T16:14Z",
+              "expectedReturn": "2026-11-29",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "Duncan Robinson",
               "team": "",
               "teamId": "",
@@ -11066,18 +11090,6 @@
               "updatedAt": "2026-11-26T22:26Z",
               "expectedReturn": "2026-11-29",
               "position": "F"
-            },
-            {
-              "playerId": "",
-              "player": "Cade Cunningham",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Cunningham (knee) is out for Friday's game against the Bucks.",
-              "updatedAt": "2026-11-26T22:25Z",
-              "expectedReturn": "2026-11-29",
-              "position": "G"
             },
             {
               "playerId": "",
@@ -11120,10 +11132,10 @@
               "player": "Gui Santos",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Santos exited Friday's game against the Trail Blazers with a knee injury in the second half and won't return.",
-              "updatedAt": "2026-11-28T04:19Z",
+              "updatedAt": "2026-11-28T16:15Z",
               "expectedReturn": "2026-11-29",
               "position": "F"
             },
@@ -11189,6 +11201,18 @@
             },
             {
               "playerId": "",
+              "player": "Tyrese Haliburton",
+              "team": "",
+              "teamId": "",
+              "status": "Out",
+              "reason": "INJURY_STATUS_OUT",
+              "note": "The Pacers recalled Haliburton (hamstring) from the G League's Noblesville Boom on Friday, per the NBA G League transaction report.",
+              "updatedAt": "2026-11-28T15:24Z",
+              "expectedReturn": "2026-12-13",
+              "position": "G"
+            },
+            {
+              "playerId": "",
               "player": "T.J. McConnell",
               "team": "",
               "teamId": "",
@@ -11197,18 +11221,6 @@
               "note": "McConnell (hamstring) has been ruled out for Friday's game against the 76ers, Alex Golden of SI.com reports.",
               "updatedAt": "2026-11-27T23:02Z",
               "expectedReturn": "2026-11-28",
-              "position": "G"
-            },
-            {
-              "playerId": "",
-              "player": "Tyrese Haliburton",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Haliburton (hamstring) has been ruled out per Scott Agness of FieldhouseFiles.com for Friday's game against the 76ers. The guard participated in practice activities earlier this week as he continues working toward his return.",
-              "updatedAt": "2026-11-27T16:20Z",
-              "expectedReturn": "2026-12-13",
               "position": "G"
             },
             {
@@ -11264,10 +11276,10 @@
               "player": "Isaiah Stewart",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Stewart (hip) is out for Friday's game against the Timberwolves, Jon Krawczynski of The Athletic reports.",
-              "updatedAt": "2026-11-28T00:26Z",
+              "updatedAt": "2026-11-28T16:11Z",
               "expectedReturn": "2026-11-29",
               "position": "C"
             },
@@ -11348,10 +11360,10 @@
               "player": "LaMelo Ball",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Ball (ankle) has been ruled out for Friday's game against the Grizzlies. The guard was previously questionable after spraining his left ankle during Wednesday's win over Oklahoma City.",
-              "updatedAt": "2026-11-27T18:52Z",
+              "updatedAt": "2026-11-28T16:15Z",
               "expectedReturn": "2026-11-29",
               "position": "G"
             },
@@ -11720,10 +11732,10 @@
               "player": "Damian Lillard",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Lillard (calf) has been ruled out for Friday's game against the Warriors. The veteran guard is dealing with right calf tightness and soreness.",
-              "updatedAt": "2026-11-27T18:38Z",
+              "updatedAt": "2026-11-28T16:13Z",
               "expectedReturn": "2026-11-29",
               "position": "G"
             },
@@ -11861,18 +11873,6 @@
             },
             {
               "playerId": "",
-              "player": "Nate Bittle",
-              "team": "",
-              "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
-              "note": "Bittle (foot) has been ruled out for Monday's game against the Bucks, Blake Murphy of Sportsnet.ca reports.",
-              "updatedAt": "2026-11-22T21:13Z",
-              "expectedReturn": "2026-11-27",
-              "position": "C"
-            },
-            {
-              "playerId": "",
               "player": "RJ Barrett",
               "team": "",
               "teamId": "",
@@ -11888,10 +11888,10 @@
               "player": "Mo Bamba",
               "team": "",
               "teamId": "",
-              "status": "Out",
-              "reason": "INJURY_STATUS_OUT",
+              "status": "Day-To-Day",
+              "reason": "INJURY_STATUS_DAYTODAY",
               "note": "Bamba (illness) has been ruled out for Friday's game against the Nuggets.",
-              "updatedAt": "2026-11-28T01:37Z",
+              "updatedAt": "2026-11-28T16:11Z",
               "expectedReturn": "2026-11-29",
               "position": "C"
             },
@@ -11968,7 +11968,7 @@
               "position": "G"
             }
           ],
-          "checkedAt": "2026-11-28T14:55:46.065Z",
+          "checkedAt": "2026-11-28T16:54:44.535Z",
           "source": "ESPN NBA injury feed"
         },
         "picks": [
@@ -21259,7 +21259,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T14:55:47.864Z",
+        "generatedAt": "2026-11-28T16:54:45.748Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 281,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -25060,6 +25060,18 @@
             },
             {
               "playerId": "",
+              "player": "Marvin Harrison Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Harrison has the opportunity to operate in an expanded role in the Texans' offense against the Ravens on Sunday due to the absence of Kayshon Boutte (hip), Peter Warren of the Houston Chronicle reports.",
+              "updatedAt": "2026-11-28T15:08Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Wyatt Teller",
               "team": "",
               "teamId": "",
@@ -25177,18 +25189,6 @@
               "updatedAt": "2026-11-27T20:56Z",
               "expectedReturn": "2026-11-29",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Marvin Harrison Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Harrison (hamstring) was a full participant in Thursday's practice.",
-              "updatedAt": "2026-11-26T22:10Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -26860,6 +26860,18 @@
             },
             {
               "playerId": "",
+              "player": "Davante Adams",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "The Rams are not expected to open the 21-day practice window for Adams (hamstring) ahead of the team's Week 13 game against the Chiefs, Nate Adkins of The Athletic reports.",
+              "updatedAt": "2026-11-28T16:40Z",
+              "expectedReturn": "2026-12-20",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Max Klare",
               "team": "",
               "teamId": "",
@@ -27145,18 +27157,6 @@
               "updatedAt": "2026-11-24T21:08Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Myles Garrett",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rams head coach Sean McVay said Tuesday that Garrett's absence from Monday's practice was a rest day and had nothing to do with his knee injury, Stu Jackson of the Rams' official site reports.",
-              "updatedAt": "2026-11-24T21:01Z",
-              "expectedReturn": "",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -28653,8 +28653,8 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Onyemata (abdomen) is questionable for Sunday's game against the Dolphins.",
-              "updatedAt": "2026-11-28T02:11Z",
+              "note": "Onyemata (abdomen) is listed as questionable for Sunday's game against Miami, but the veteran defensive tackle told reporters Friday that he expects to be activated from injured reserve and be available for Week 12, Howie Kussoy of the New ",
+              "updatedAt": "2026-11-28T15:13Z",
               "expectedReturn": "2026-11-29",
               "position": "DT"
             },
@@ -30148,6 +30148,18 @@
             },
             {
               "playerId": "",
+              "player": "Jalen McMillan",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "McMillan (knee/calf) is practicing Saturday, Greg Auman of Fox Sports reports.",
+              "updatedAt": "2026-11-28T16:17Z",
+              "expectedReturn": "2026-11-30",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Benjamin Morrison",
               "team": "",
               "teamId": "",
@@ -30203,18 +30215,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Johnson did not participate in Friday's practice due to an illness.",
               "updatedAt": "2026-11-28T00:24Z",
-              "expectedReturn": "2026-11-30",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen McMillan",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "McMillan (knee/calf) was limited at Friday's practice.",
-              "updatedAt": "2026-11-27T20:51Z",
               "expectedReturn": "2026-11-30",
               "position": "WR"
             },
@@ -31047,7 +31047,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-28T14:55:46.143Z",
+          "checkedAt": "2026-11-28T16:54:44.602Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -40539,7 +40539,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T14:55:49.695Z",
+        "generatedAt": "2026-11-28T16:54:47.581Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 168,
         "publishedBy": "EDGEIQ unattended research publisher"
@@ -44176,6 +44176,18 @@
             },
             {
               "playerId": "",
+              "player": "Marvin Harrison Jr.",
+              "team": "",
+              "teamId": "",
+              "status": "Active",
+              "reason": "INJURY_STATUS_ACTIVE",
+              "note": "Harrison has the opportunity to operate in an expanded role in the Texans' offense against the Ravens on Sunday due to the absence of Kayshon Boutte (hip), Peter Warren of the Houston Chronicle reports.",
+              "updatedAt": "2026-11-28T15:08Z",
+              "expectedReturn": "",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Wyatt Teller",
               "team": "",
               "teamId": "",
@@ -44293,18 +44305,6 @@
               "updatedAt": "2026-11-27T20:56Z",
               "expectedReturn": "2026-11-29",
               "position": "LB"
-            },
-            {
-              "playerId": "",
-              "player": "Marvin Harrison Jr.",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Harrison (hamstring) was a full participant in Thursday's practice.",
-              "updatedAt": "2026-11-26T22:10Z",
-              "expectedReturn": "",
-              "position": "WR"
             },
             {
               "playerId": "",
@@ -45976,6 +45976,18 @@
             },
             {
               "playerId": "",
+              "player": "Davante Adams",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "The Rams are not expected to open the 21-day practice window for Adams (hamstring) ahead of the team's Week 13 game against the Chiefs, Nate Adkins of The Athletic reports.",
+              "updatedAt": "2026-11-28T16:40Z",
+              "expectedReturn": "2026-12-20",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Max Klare",
               "team": "",
               "teamId": "",
@@ -46261,18 +46273,6 @@
               "updatedAt": "2026-11-24T21:08Z",
               "expectedReturn": "",
               "position": "S"
-            },
-            {
-              "playerId": "",
-              "player": "Myles Garrett",
-              "team": "",
-              "teamId": "",
-              "status": "Active",
-              "reason": "INJURY_STATUS_ACTIVE",
-              "note": "Rams head coach Sean McVay said Tuesday that Garrett's absence from Monday's practice was a rest day and had nothing to do with his knee injury, Stu Jackson of the Rams' official site reports.",
-              "updatedAt": "2026-11-24T21:01Z",
-              "expectedReturn": "",
-              "position": "DE"
             },
             {
               "playerId": "",
@@ -47769,8 +47769,8 @@
               "teamId": "",
               "status": "Injured Reserve",
               "reason": "INJURY_STATUS_IR",
-              "note": "Onyemata (abdomen) is questionable for Sunday's game against the Dolphins.",
-              "updatedAt": "2026-11-28T02:11Z",
+              "note": "Onyemata (abdomen) is listed as questionable for Sunday's game against Miami, but the veteran defensive tackle told reporters Friday that he expects to be activated from injured reserve and be available for Week 12, Howie Kussoy of the New ",
+              "updatedAt": "2026-11-28T15:13Z",
               "expectedReturn": "2026-11-29",
               "position": "DT"
             },
@@ -49264,6 +49264,18 @@
             },
             {
               "playerId": "",
+              "player": "Jalen McMillan",
+              "team": "",
+              "teamId": "",
+              "status": "Injured Reserve",
+              "reason": "INJURY_STATUS_IR",
+              "note": "McMillan (knee/calf) is practicing Saturday, Greg Auman of Fox Sports reports.",
+              "updatedAt": "2026-11-28T16:17Z",
+              "expectedReturn": "2026-11-30",
+              "position": "WR"
+            },
+            {
+              "playerId": "",
               "player": "Benjamin Morrison",
               "team": "",
               "teamId": "",
@@ -49319,18 +49331,6 @@
               "reason": "INJURY_STATUS_QUESTIONABLE",
               "note": "Johnson did not participate in Friday's practice due to an illness.",
               "updatedAt": "2026-11-28T00:24Z",
-              "expectedReturn": "2026-11-30",
-              "position": "WR"
-            },
-            {
-              "playerId": "",
-              "player": "Jalen McMillan",
-              "team": "",
-              "teamId": "",
-              "status": "Injured Reserve",
-              "reason": "INJURY_STATUS_IR",
-              "note": "McMillan (knee/calf) was limited at Friday's practice.",
-              "updatedAt": "2026-11-27T20:51Z",
               "expectedReturn": "2026-11-30",
               "position": "WR"
             },
@@ -50163,7 +50163,7 @@
               "position": "S"
             }
           ],
-          "checkedAt": "2026-11-28T14:55:46.143Z",
+          "checkedAt": "2026-11-28T16:54:44.602Z",
           "source": "ESPN NFL injury feed"
         },
         "picks": [
@@ -52095,7 +52095,7 @@
             "researchGrade": "MATCHUP BACKED"
           }
         ],
-        "generatedAt": "2026-11-28T14:55:50.134Z",
+        "generatedAt": "2026-11-28T16:54:48.015Z",
         "sourceCompleteness": "COMPLETE",
         "historicalGames": 168,
         "publishedBy": "EDGEIQ unattended research publisher"
